@@ -11,6 +11,8 @@
 		05DFDD26261F7BFE00BBE4E3 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05DFDD24261F7BFE00BBE4E3 /* MainMenu.xib */; };
 		05DFDD75261F7EB000BBE4E3 /* AboutWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05DFDD73261F7EB000BBE4E3 /* AboutWindowController.xib */; };
 		05DFDD78261F7EB700BBE4E3 /* AboutWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DFDD77261F7EB700BBE4E3 /* AboutWindowController.swift */; };
+		05DFDD7C261F7F5500BBE4E3 /* LibraryWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05DFDD7A261F7F5500BBE4E3 /* LibraryWindowController.xib */; };
+		05DFDD7F261F7F5F00BBE4E3 /* LibraryWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DFDD7E261F7F5F00BBE4E3 /* LibraryWindowController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +68,8 @@
 		05DFDD72261F7E4500BBE4E3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		05DFDD74261F7EB000BBE4E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AboutWindowController.xib; sourceTree = "<group>"; };
 		05DFDD77261F7EB700BBE4E3 /* AboutWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutWindowController.swift; sourceTree = "<group>"; };
+		05DFDD7B261F7F5500BBE4E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LibraryWindowController.xib; sourceTree = "<group>"; };
+		05DFDD7E261F7F5F00BBE4E3 /* LibraryWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryWindowController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +116,7 @@
 			children = (
 				05DFDD77261F7EB700BBE4E3 /* AboutWindowController.swift */,
 				05DFDD20261F7BFD00BBE4E3 /* ApplicationDelegate.swift */,
+				05DFDD7E261F7F5F00BBE4E3 /* LibraryWindowController.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -120,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				05DFDD73261F7EB000BBE4E3 /* AboutWindowController.xib */,
+				05DFDD7A261F7F5500BBE4E3 /* LibraryWindowController.xib */,
 				05DFDD24261F7BFE00BBE4E3 /* MainMenu.xib */,
 			);
 			path = UI;
@@ -307,6 +313,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05DFDD7C261F7F5500BBE4E3 /* LibraryWindowController.xib in Resources */,
 				05DFDD26261F7BFE00BBE4E3 /* MainMenu.xib in Resources */,
 				05DFDD75261F7EB000BBE4E3 /* AboutWindowController.xib in Resources */,
 			);
@@ -321,6 +328,7 @@
 			files = (
 				05DFDD21261F7BFD00BBE4E3 /* ApplicationDelegate.swift in Sources */,
 				05DFDD78261F7EB700BBE4E3 /* AboutWindowController.swift in Sources */,
+				05DFDD7F261F7F5F00BBE4E3 /* LibraryWindowController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +349,14 @@
 				05DFDD74261F7EB000BBE4E3 /* Base */,
 			);
 			name = AboutWindowController.xib;
+			sourceTree = "<group>";
+		};
+		05DFDD7A261F7F5500BBE4E3 /* LibraryWindowController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				05DFDD7B261F7F5500BBE4E3 /* Base */,
+			);
+			name = LibraryWindowController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

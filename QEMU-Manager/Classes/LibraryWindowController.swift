@@ -1,18 +1,18 @@
 /*******************************************************************************
  * The MIT License (MIT)
- *
+ * 
  * Copyright (c) 2021 Jean-David Gadina - www.xs-labs.com
- *
+ * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- *
+ * 
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
- *
+ * 
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -24,55 +24,15 @@
 
 import Cocoa
 
-@main class ApplicationDelegate: NSObject, NSApplicationDelegate
+public class LibraryWindowController: NSWindowController
 {
-    private let aboutWindowController   = AboutWindowController()
-    private let libraryWindowController = LibraryWindowController()
-    
-    func applicationDidFinishLaunching( _ notification: Notification )
+    public override var windowNibName: NSNib.Name?
     {
-        self.showLibraryWindow( nil )
-    }
-
-    func applicationWillTerminate( _ notification: Notification )
-    {}
-    
-    @IBAction func showAboutWindow( _ sender: Any? )
-    {
-        guard let window = self.aboutWindowController.window else
-        {
-            NSSound.beep()
-            
-            return
-        }
-        
-        window.layoutIfNeeded()
-        
-        if window.isVisible == false
-        {
-            window.center()
-        }
-        
-        window.makeKeyAndOrderFront( nil )
+        return "LibraryWindowController"
     }
     
-    @IBAction func showLibraryWindow( _ sender: Any? )
+    override public func windowDidLoad()
     {
-        guard let window = self.libraryWindowController.window else
-        {
-            NSSound.beep()
-            
-            return
-        }
-        
-        window.layoutIfNeeded()
-        
-        if window.isVisible == false
-        {
-            window.center()
-        }
-        
-        window.makeKeyAndOrderFront( nil )
+        super.windowDidLoad()
     }
 }
-

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		05DFDD21261F7BFD00BBE4E3 /* ApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DFDD20261F7BFD00BBE4E3 /* ApplicationDelegate.swift */; };
 		05DFDD26261F7BFE00BBE4E3 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05DFDD24261F7BFE00BBE4E3 /* MainMenu.xib */; };
+		05DFDD75261F7EB000BBE4E3 /* AboutWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05DFDD73261F7EB000BBE4E3 /* AboutWindowController.xib */; };
+		05DFDD78261F7EB700BBE4E3 /* AboutWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DFDD77261F7EB700BBE4E3 /* AboutWindowController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +64,8 @@
 		05DFDD69261F7CDC00BBE4E3 /* ccache.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = ccache.sh; sourceTree = "<group>"; };
 		05DFDD6A261F7CDC00BBE4E3 /* Debug - zld.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug - zld.xcconfig"; sourceTree = "<group>"; };
 		05DFDD72261F7E4500BBE4E3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		05DFDD74261F7EB000BBE4E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AboutWindowController.xib; sourceTree = "<group>"; };
+		05DFDD77261F7EB700BBE4E3 /* AboutWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutWindowController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,7 @@
 		05DFDD2F261F7C0B00BBE4E3 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				05DFDD77261F7EB700BBE4E3 /* AboutWindowController.swift */,
 				05DFDD20261F7BFD00BBE4E3 /* ApplicationDelegate.swift */,
 			);
 			path = Classes;
@@ -114,6 +119,7 @@
 		05DFDD32261F7C3700BBE4E3 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				05DFDD73261F7EB000BBE4E3 /* AboutWindowController.xib */,
 				05DFDD24261F7BFE00BBE4E3 /* MainMenu.xib */,
 			);
 			path = UI;
@@ -302,6 +308,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				05DFDD26261F7BFE00BBE4E3 /* MainMenu.xib in Resources */,
+				05DFDD75261F7EB000BBE4E3 /* AboutWindowController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,6 +320,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				05DFDD21261F7BFD00BBE4E3 /* ApplicationDelegate.swift in Sources */,
+				05DFDD78261F7EB700BBE4E3 /* AboutWindowController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,6 +333,14 @@
 				05DFDD25261F7BFE00BBE4E3 /* Base */,
 			);
 			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		05DFDD73261F7EB000BBE4E3 /* AboutWindowController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				05DFDD74261F7EB000BBE4E3 /* Base */,
+			);
+			name = AboutWindowController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

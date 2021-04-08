@@ -13,6 +13,8 @@
 		05DFDD78261F7EB700BBE4E3 /* AboutWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DFDD77261F7EB700BBE4E3 /* AboutWindowController.swift */; };
 		05DFDD7C261F7F5500BBE4E3 /* LibraryWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05DFDD7A261F7F5500BBE4E3 /* LibraryWindowController.xib */; };
 		05DFDD7F261F7F5F00BBE4E3 /* LibraryWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DFDD7E261F7F5F00BBE4E3 /* LibraryWindowController.swift */; };
+		05DFDD89261F9E7900BBE4E3 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 05DFDD87261F9E7900BBE4E3 /* Icon.icns */; };
+		05DFDD8A261F9E7900BBE4E3 /* Document.icns in Resources */ = {isa = PBXBuildFile; fileRef = 05DFDD88261F9E7900BBE4E3 /* Document.icns */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +72,8 @@
 		05DFDD77261F7EB700BBE4E3 /* AboutWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutWindowController.swift; sourceTree = "<group>"; };
 		05DFDD7B261F7F5500BBE4E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LibraryWindowController.xib; sourceTree = "<group>"; };
 		05DFDD7E261F7F5F00BBE4E3 /* LibraryWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryWindowController.swift; sourceTree = "<group>"; };
+		05DFDD87261F9E7900BBE4E3 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
+		05DFDD88261F9E7900BBE4E3 /* Document.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Document.icns; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +128,7 @@
 		05DFDD32261F7C3700BBE4E3 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				05DFDD86261F9E7900BBE4E3 /* Images */,
 				05DFDD73261F7EB000BBE4E3 /* AboutWindowController.xib */,
 				05DFDD7A261F7F5500BBE4E3 /* LibraryWindowController.xib */,
 				05DFDD24261F7BFE00BBE4E3 /* MainMenu.xib */,
@@ -256,6 +261,15 @@
 			path = Scripts;
 			sourceTree = "<group>";
 		};
+		05DFDD86261F9E7900BBE4E3 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				05DFDD87261F9E7900BBE4E3 /* Icon.icns */,
+				05DFDD88261F9E7900BBE4E3 /* Document.icns */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -314,7 +328,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				05DFDD7C261F7F5500BBE4E3 /* LibraryWindowController.xib in Resources */,
+				05DFDD89261F9E7900BBE4E3 /* Icon.icns in Resources */,
 				05DFDD26261F7BFE00BBE4E3 /* MainMenu.xib in Resources */,
+				05DFDD8A261F9E7900BBE4E3 /* Document.icns in Resources */,
 				05DFDD75261F7EB000BBE4E3 /* AboutWindowController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

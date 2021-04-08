@@ -1,0 +1,399 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		05DFDD21261F7BFD00BBE4E3 /* ApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DFDD20261F7BFD00BBE4E3 /* ApplicationDelegate.swift */; };
+		05DFDD26261F7BFE00BBE4E3 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05DFDD24261F7BFE00BBE4E3 /* MainMenu.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		05DFDD1D261F7BFD00BBE4E3 /* QEMU Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "QEMU Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		05DFDD20261F7BFD00BBE4E3 /* ApplicationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationDelegate.swift; sourceTree = "<group>"; };
+		05DFDD25261F7BFE00BBE4E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		05DFDD27261F7BFE00BBE4E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		05DFDD28261F7BFE00BBE4E3 /* QEMU-Manager.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "QEMU-Manager.entitlements"; sourceTree = "<group>"; };
+		05DFDD37261F7CDC00BBE4E3 /* Release - ccache.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Release - ccache.xcconfig"; sourceTree = "<group>"; };
+		05DFDD38261F7CDC00BBE4E3 /* Common.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Common.xcconfig; sourceTree = "<group>"; };
+		05DFDD39261F7CDC00BBE4E3 /* Debug - ccache.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug - ccache.xcconfig"; sourceTree = "<group>"; };
+		05DFDD3A261F7CDC00BBE4E3 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		05DFDD3B261F7CDC00BBE4E3 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
+		05DFDD3C261F7CDC00BBE4E3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		05DFDD3D261F7CDC00BBE4E3 /* Release - Library.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Release - Library.xcconfig"; sourceTree = "<group>"; };
+		05DFDD3F261F7CDC00BBE4E3 /* Signing.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Signing.xcconfig; sourceTree = "<group>"; };
+		05DFDD40261F7CDC00BBE4E3 /* Architectures.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Architectures.xcconfig; sourceTree = "<group>"; };
+		05DFDD42261F7CDC00BBE4E3 /* Issues.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Issues.xcconfig; sourceTree = "<group>"; };
+		05DFDD44261F7CDC00BBE4E3 /* Apple-APIs.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Apple-APIs.xcconfig"; sourceTree = "<group>"; };
+		05DFDD45261F7CDC00BBE4E3 /* Generic-Issues.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Generic-Issues.xcconfig"; sourceTree = "<group>"; };
+		05DFDD46261F7CDC00BBE4E3 /* Security.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Security.xcconfig; sourceTree = "<group>"; };
+		05DFDD47261F7CDC00BBE4E3 /* Objective-C.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Objective-C.xcconfig"; sourceTree = "<group>"; };
+		05DFDD48261F7CDC00BBE4E3 /* Analysis-Policy.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Analysis-Policy.xcconfig"; sourceTree = "<group>"; };
+		05DFDD49261F7CDC00BBE4E3 /* Deployment.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Deployment.xcconfig; sourceTree = "<group>"; };
+		05DFDD4A261F7CDC00BBE4E3 /* Build-Options.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Build-Options.xcconfig"; sourceTree = "<group>"; };
+		05DFDD4B261F7CDC00BBE4E3 /* Swift-Compiler.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Swift-Compiler.xcconfig"; sourceTree = "<group>"; };
+		05DFDD4C261F7CDC00BBE4E3 /* Static-Analyzer.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Static-Analyzer.xcconfig"; sourceTree = "<group>"; };
+		05DFDD4E261F7CDC00BBE4E3 /* Warnings-Policies.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Warnings-Policies.xcconfig"; sourceTree = "<group>"; };
+		05DFDD4F261F7CDC00BBE4E3 /* Code-Generation.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Code-Generation.xcconfig"; sourceTree = "<group>"; };
+		05DFDD50261F7CDC00BBE4E3 /* Language.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Language.xcconfig; sourceTree = "<group>"; };
+		05DFDD51261F7CDC00BBE4E3 /* General.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = General.xcconfig; sourceTree = "<group>"; };
+		05DFDD52261F7CDC00BBE4E3 /* Search-Paths.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Search-Paths.xcconfig"; sourceTree = "<group>"; };
+		05DFDD53261F7CDC00BBE4E3 /* Apple-LLVM.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Apple-LLVM.xcconfig"; sourceTree = "<group>"; };
+		05DFDD56261F7CDC00BBE4E3 /* Modules.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Modules.xcconfig; sourceTree = "<group>"; };
+		05DFDD57261F7CDC00BBE4E3 /* Objective-C.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Objective-C.xcconfig"; sourceTree = "<group>"; };
+		05DFDD58261F7CDC00BBE4E3 /* C++.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "C++.xcconfig"; sourceTree = "<group>"; };
+		05DFDD59261F7CDC00BBE4E3 /* Code-Generation.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Code-Generation.xcconfig"; sourceTree = "<group>"; };
+		05DFDD5A261F7CDC00BBE4E3 /* Address-Sanitizer.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Address-Sanitizer.xcconfig"; sourceTree = "<group>"; };
+		05DFDD5B261F7CDC00BBE4E3 /* Language.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Language.xcconfig; sourceTree = "<group>"; };
+		05DFDD5C261F7CDC00BBE4E3 /* Warnings.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Warnings.xcconfig; sourceTree = "<group>"; };
+		05DFDD5D261F7CDC00BBE4E3 /* Undefined-Behavior-Sanitizer.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Undefined-Behavior-Sanitizer.xcconfig"; sourceTree = "<group>"; };
+		05DFDD5E261F7CDC00BBE4E3 /* Warning-Policies.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Warning-Policies.xcconfig"; sourceTree = "<group>"; };
+		05DFDD60261F7CDC00BBE4E3 /* Objective-C-ARC.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Objective-C-ARC.xcconfig"; sourceTree = "<group>"; };
+		05DFDD61261F7CDC00BBE4E3 /* Objective-C.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Objective-C.xcconfig"; sourceTree = "<group>"; };
+		05DFDD62261F7CDC00BBE4E3 /* C++.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "C++.xcconfig"; sourceTree = "<group>"; };
+		05DFDD63261F7CDC00BBE4E3 /* All-Languages.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "All-Languages.xcconfig"; sourceTree = "<group>"; };
+		05DFDD64261F7CDC00BBE4E3 /* Preprocessing.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Preprocessing.xcconfig; sourceTree = "<group>"; };
+		05DFDD65261F7CDC00BBE4E3 /* Debug - Library.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug - Library.xcconfig"; sourceTree = "<group>"; };
+		05DFDD66261F7CDC00BBE4E3 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		05DFDD68261F7CDC00BBE4E3 /* ccache-config.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "ccache-config.sh"; sourceTree = "<group>"; };
+		05DFDD69261F7CDC00BBE4E3 /* ccache.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = ccache.sh; sourceTree = "<group>"; };
+		05DFDD6A261F7CDC00BBE4E3 /* Debug - zld.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug - zld.xcconfig"; sourceTree = "<group>"; };
+		05DFDD72261F7E4500BBE4E3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		05DFDD1A261F7BFD00BBE4E3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		05DFDD14261F7BFD00BBE4E3 = {
+			isa = PBXGroup;
+			children = (
+				05DFDD72261F7E4500BBE4E3 /* README.md */,
+				05DFDD36261F7CDC00BBE4E3 /* xcconfig */,
+				05DFDD1F261F7BFD00BBE4E3 /* QEMU-Manager */,
+				05DFDD1E261F7BFD00BBE4E3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		05DFDD1E261F7BFD00BBE4E3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				05DFDD1D261F7BFD00BBE4E3 /* QEMU Manager.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		05DFDD1F261F7BFD00BBE4E3 /* QEMU-Manager */ = {
+			isa = PBXGroup;
+			children = (
+				05DFDD2F261F7C0B00BBE4E3 /* Classes */,
+				05DFDD32261F7C3700BBE4E3 /* UI */,
+				05DFDD33261F7C4400BBE4E3 /* Supporting Files */,
+			);
+			path = "QEMU-Manager";
+			sourceTree = "<group>";
+		};
+		05DFDD2F261F7C0B00BBE4E3 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				05DFDD20261F7BFD00BBE4E3 /* ApplicationDelegate.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		05DFDD32261F7C3700BBE4E3 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				05DFDD24261F7BFE00BBE4E3 /* MainMenu.xib */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		05DFDD33261F7C4400BBE4E3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				05DFDD27261F7BFE00BBE4E3 /* Info.plist */,
+				05DFDD28261F7BFE00BBE4E3 /* QEMU-Manager.entitlements */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		05DFDD36261F7CDC00BBE4E3 /* xcconfig */ = {
+			isa = PBXGroup;
+			children = (
+				05DFDD37261F7CDC00BBE4E3 /* Release - ccache.xcconfig */,
+				05DFDD38261F7CDC00BBE4E3 /* Common.xcconfig */,
+				05DFDD39261F7CDC00BBE4E3 /* Debug - ccache.xcconfig */,
+				05DFDD3A261F7CDC00BBE4E3 /* Debug.xcconfig */,
+				05DFDD3B261F7CDC00BBE4E3 /* Release.xcconfig */,
+				05DFDD3C261F7CDC00BBE4E3 /* README.md */,
+				05DFDD3D261F7CDC00BBE4E3 /* Release - Library.xcconfig */,
+				05DFDD3E261F7CDC00BBE4E3 /* Common */,
+				05DFDD65261F7CDC00BBE4E3 /* Debug - Library.xcconfig */,
+				05DFDD66261F7CDC00BBE4E3 /* .gitignore */,
+				05DFDD67261F7CDC00BBE4E3 /* Scripts */,
+				05DFDD6A261F7CDC00BBE4E3 /* Debug - zld.xcconfig */,
+			);
+			name = xcconfig;
+			path = Submodules/xcconfig;
+			sourceTree = "<group>";
+		};
+		05DFDD3E261F7CDC00BBE4E3 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				05DFDD3F261F7CDC00BBE4E3 /* Signing.xcconfig */,
+				05DFDD40261F7CDC00BBE4E3 /* Architectures.xcconfig */,
+				05DFDD41261F7CDC00BBE4E3 /* Static-Analyzer */,
+				05DFDD49261F7CDC00BBE4E3 /* Deployment.xcconfig */,
+				05DFDD4A261F7CDC00BBE4E3 /* Build-Options.xcconfig */,
+				05DFDD4B261F7CDC00BBE4E3 /* Swift-Compiler.xcconfig */,
+				05DFDD4C261F7CDC00BBE4E3 /* Static-Analyzer.xcconfig */,
+				05DFDD4D261F7CDC00BBE4E3 /* Swift-Compiler */,
+				05DFDD52261F7CDC00BBE4E3 /* Search-Paths.xcconfig */,
+				05DFDD53261F7CDC00BBE4E3 /* Apple-LLVM.xcconfig */,
+				05DFDD54261F7CDC00BBE4E3 /* Apple-LLVM */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		05DFDD41261F7CDC00BBE4E3 /* Static-Analyzer */ = {
+			isa = PBXGroup;
+			children = (
+				05DFDD42261F7CDC00BBE4E3 /* Issues.xcconfig */,
+				05DFDD43261F7CDC00BBE4E3 /* Issues */,
+			);
+			path = "Static-Analyzer";
+			sourceTree = "<group>";
+		};
+		05DFDD43261F7CDC00BBE4E3 /* Issues */ = {
+			isa = PBXGroup;
+			children = (
+				05DFDD44261F7CDC00BBE4E3 /* Apple-APIs.xcconfig */,
+				05DFDD45261F7CDC00BBE4E3 /* Generic-Issues.xcconfig */,
+				05DFDD46261F7CDC00BBE4E3 /* Security.xcconfig */,
+				05DFDD47261F7CDC00BBE4E3 /* Objective-C.xcconfig */,
+				05DFDD48261F7CDC00BBE4E3 /* Analysis-Policy.xcconfig */,
+			);
+			path = Issues;
+			sourceTree = "<group>";
+		};
+		05DFDD4D261F7CDC00BBE4E3 /* Swift-Compiler */ = {
+			isa = PBXGroup;
+			children = (
+				05DFDD4E261F7CDC00BBE4E3 /* Warnings-Policies.xcconfig */,
+				05DFDD4F261F7CDC00BBE4E3 /* Code-Generation.xcconfig */,
+				05DFDD50261F7CDC00BBE4E3 /* Language.xcconfig */,
+				05DFDD51261F7CDC00BBE4E3 /* General.xcconfig */,
+			);
+			path = "Swift-Compiler";
+			sourceTree = "<group>";
+		};
+		05DFDD54261F7CDC00BBE4E3 /* Apple-LLVM */ = {
+			isa = PBXGroup;
+			children = (
+				05DFDD55261F7CDC00BBE4E3 /* Language */,
+				05DFDD59261F7CDC00BBE4E3 /* Code-Generation.xcconfig */,
+				05DFDD5A261F7CDC00BBE4E3 /* Address-Sanitizer.xcconfig */,
+				05DFDD5B261F7CDC00BBE4E3 /* Language.xcconfig */,
+				05DFDD5C261F7CDC00BBE4E3 /* Warnings.xcconfig */,
+				05DFDD5D261F7CDC00BBE4E3 /* Undefined-Behavior-Sanitizer.xcconfig */,
+				05DFDD5E261F7CDC00BBE4E3 /* Warning-Policies.xcconfig */,
+				05DFDD5F261F7CDC00BBE4E3 /* Warnings */,
+				05DFDD64261F7CDC00BBE4E3 /* Preprocessing.xcconfig */,
+			);
+			path = "Apple-LLVM";
+			sourceTree = "<group>";
+		};
+		05DFDD55261F7CDC00BBE4E3 /* Language */ = {
+			isa = PBXGroup;
+			children = (
+				05DFDD56261F7CDC00BBE4E3 /* Modules.xcconfig */,
+				05DFDD57261F7CDC00BBE4E3 /* Objective-C.xcconfig */,
+				05DFDD58261F7CDC00BBE4E3 /* C++.xcconfig */,
+			);
+			path = Language;
+			sourceTree = "<group>";
+		};
+		05DFDD5F261F7CDC00BBE4E3 /* Warnings */ = {
+			isa = PBXGroup;
+			children = (
+				05DFDD60261F7CDC00BBE4E3 /* Objective-C-ARC.xcconfig */,
+				05DFDD61261F7CDC00BBE4E3 /* Objective-C.xcconfig */,
+				05DFDD62261F7CDC00BBE4E3 /* C++.xcconfig */,
+				05DFDD63261F7CDC00BBE4E3 /* All-Languages.xcconfig */,
+			);
+			path = Warnings;
+			sourceTree = "<group>";
+		};
+		05DFDD67261F7CDC00BBE4E3 /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				05DFDD68261F7CDC00BBE4E3 /* ccache-config.sh */,
+				05DFDD69261F7CDC00BBE4E3 /* ccache.sh */,
+			);
+			path = Scripts;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		05DFDD1C261F7BFD00BBE4E3 /* QEMU Manager */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 05DFDD2B261F7BFE00BBE4E3 /* Build configuration list for PBXNativeTarget "QEMU Manager" */;
+			buildPhases = (
+				05DFDD19261F7BFD00BBE4E3 /* Sources */,
+				05DFDD1A261F7BFD00BBE4E3 /* Frameworks */,
+				05DFDD1B261F7BFD00BBE4E3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "QEMU Manager";
+			productName = "QEMU Manager";
+			productReference = 05DFDD1D261F7BFD00BBE4E3 /* QEMU Manager.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		05DFDD15261F7BFD00BBE4E3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					05DFDD1C261F7BFD00BBE4E3 = {
+						CreatedOnToolsVersion = 12.4;
+					};
+				};
+			};
+			buildConfigurationList = 05DFDD18261F7BFD00BBE4E3 /* Build configuration list for PBXProject "QEMU-Manager" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 05DFDD14261F7BFD00BBE4E3;
+			productRefGroup = 05DFDD1E261F7BFD00BBE4E3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				05DFDD1C261F7BFD00BBE4E3 /* QEMU Manager */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		05DFDD1B261F7BFD00BBE4E3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05DFDD26261F7BFE00BBE4E3 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		05DFDD19261F7BFD00BBE4E3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05DFDD21261F7BFD00BBE4E3 /* ApplicationDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		05DFDD24261F7BFE00BBE4E3 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				05DFDD25261F7BFE00BBE4E3 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		05DFDD29261F7BFE00BBE4E3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 05DFDD3A261F7CDC00BBE4E3 /* Debug.xcconfig */;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		05DFDD2A261F7BFE00BBE4E3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 05DFDD3B261F7CDC00BBE4E3 /* Release.xcconfig */;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		05DFDD2C261F7BFE00BBE4E3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "QEMU-Manager/QEMU-Manager.entitlements";
+				INFOPLIST_FILE = "QEMU-Manager/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.QEMU-Manager";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		05DFDD2D261F7BFE00BBE4E3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "QEMU-Manager/QEMU-Manager.entitlements";
+				INFOPLIST_FILE = "QEMU-Manager/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.QEMU-Manager";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		05DFDD18261F7BFD00BBE4E3 /* Build configuration list for PBXProject "QEMU-Manager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05DFDD29261F7BFE00BBE4E3 /* Debug */,
+				05DFDD2A261F7BFE00BBE4E3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		05DFDD2B261F7BFE00BBE4E3 /* Build configuration list for PBXNativeTarget "QEMU Manager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05DFDD2C261F7BFE00BBE4E3 /* Debug */,
+				05DFDD2D261F7BFE00BBE4E3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 05DFDD15261F7BFD00BBE4E3 /* Project object */;
+}

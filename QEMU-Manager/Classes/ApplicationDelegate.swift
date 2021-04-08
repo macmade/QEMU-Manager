@@ -37,6 +37,44 @@ import Cocoa
     func applicationWillTerminate( _ notification: Notification )
     {}
     
+    @IBAction func invertAppearance( _ sender: Any? )
+    {
+        let name = NSApp.effectiveAppearance.name
+        
+        if name == NSAppearance.Name.aqua
+        {
+            NSApp.appearance = NSAppearance( named: NSAppearance.Name.darkAqua )
+        }
+        else if name == NSAppearance.Name.darkAqua
+        {
+            NSApp.appearance = NSAppearance( named: NSAppearance.Name.aqua )
+        }
+        else if name == NSAppearance.Name.vibrantLight
+        {
+            NSApp.appearance = NSAppearance( named: NSAppearance.Name.vibrantDark )
+        }
+        else if name == NSAppearance.Name.vibrantDark
+        {
+            NSApp.appearance = NSAppearance( named: NSAppearance.Name.vibrantLight )
+        }
+        else if name == NSAppearance.Name.accessibilityHighContrastAqua
+        {
+            NSApp.appearance = NSAppearance( named: NSAppearance.Name.accessibilityHighContrastDarkAqua )
+        }
+        else if name == NSAppearance.Name.accessibilityHighContrastDarkAqua
+        {
+            NSApp.appearance = NSAppearance( named: NSAppearance.Name.accessibilityHighContrastAqua )
+        }
+        else if name == NSAppearance.Name.accessibilityHighContrastVibrantDark
+        {
+            NSApp.appearance = NSAppearance( named: NSAppearance.Name.accessibilityHighContrastVibrantLight )
+        }
+        else if name == NSAppearance.Name.accessibilityHighContrastVibrantLight
+        {
+            NSApp.appearance = NSAppearance( named: NSAppearance.Name.accessibilityHighContrastVibrantDark )
+        }
+    }
+    
     @IBAction func showAboutWindow( _ sender: Any? )
     {
         guard let window = self.aboutWindowController.window else

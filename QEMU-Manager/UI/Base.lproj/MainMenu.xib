@@ -626,6 +626,11 @@
                                     <action selector="toggleSidebar:" target="-1" id="iwa-gc-5KM"/>
                                 </connections>
                             </menuItem>
+                            <menuItem title="Invert Appearance" keyEquivalent="I" id="3zN-OY-Efd">
+                                <connections>
+                                    <action selector="invertAppearance:" target="-1" id="Kyc-EG-2m0"/>
+                                </connections>
+                            </menuItem>
                             <menuItem title="Enter Full Screen" keyEquivalent="f" id="4J7-dP-txa">
                                 <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
                                 <connections>

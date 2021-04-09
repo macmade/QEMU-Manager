@@ -74,6 +74,7 @@
 		05DFDD7E261F7F5F00BBE4E3 /* LibraryWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryWindowController.swift; sourceTree = "<group>"; };
 		05DFDD87261F9E7900BBE4E3 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
 		05DFDD88261F9E7900BBE4E3 /* Document.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Document.icns; sourceTree = "<group>"; };
+		05FFCC4A26206D77006087BA /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +94,7 @@
 				05DFDD72261F7E4500BBE4E3 /* README.md */,
 				05DFDD36261F7CDC00BBE4E3 /* xcconfig */,
 				05DFDD1F261F7BFD00BBE4E3 /* QEMU-Manager */,
+				05FFCC4826206D77006087BA /* qemu */,
 				05DFDD1E261F7BFD00BBE4E3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -268,6 +270,14 @@
 				05DFDD88261F9E7900BBE4E3 /* Document.icns */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		05FFCC4826206D77006087BA /* qemu */ = {
+			isa = PBXGroup;
+			children = (
+				05FFCC4A26206D77006087BA /* Makefile */,
+			);
+			path = qemu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

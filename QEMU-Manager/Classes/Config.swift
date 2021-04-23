@@ -24,7 +24,7 @@
 
 import Foundation
 
-public class Config: NSObject, Codable
+@objc public class Config: NSObject, Codable
 {
     @objc public enum Architecture: Int
     {
@@ -53,7 +53,7 @@ public class Config: NSObject, Codable
         case title
     }
     
-    public enum DecodeError: Error
+    public enum Error: Swift.Error
     {
         case invalidArchitecture
     }
@@ -64,7 +64,7 @@ public class Config: NSObject, Codable
         
         guard let arch = Architecture( string: ( try? values.decode( String.self, forKey: .architecture ) ) ?? "" ) else
         {
-            throw DecodeError.invalidArchitecture
+            throw Error.invalidArchitecture
         }
         
         self.architecture = arch

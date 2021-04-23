@@ -24,7 +24,7 @@
 
 import Cocoa
 
-@main class ApplicationDelegate: NSObject, NSApplicationDelegate
+@objc @main class ApplicationDelegate: NSObject, NSApplicationDelegate
 {
     private let aboutWindowController   = AboutWindowController()
     private let libraryWindowController = LibraryWindowController()
@@ -32,8 +32,6 @@ import Cocoa
     func applicationDidFinishLaunching( _ notification: Notification )
     {
         self.showLibraryWindow( nil )
-        
-        print( VirtualMachine( url: URL( fileURLWithPath: "/Users/macmade/Desktop/test.qvm" ) ) ?? "<nil>" )
     }
 
     func applicationWillTerminate( _ notification: Notification )

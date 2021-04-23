@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		058C989526323AB10086E57E /* VirtualMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058C989426323AB10086E57E /* VirtualMachine.swift */; };
+		058C98AE26330E830086E57E /* ArrayIsEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058C98AD26330E830086E57E /* ArrayIsEmpty.swift */; };
+		058C98B126330FBB0086E57E /* ArrayIsNotEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058C98B026330FBB0086E57E /* ArrayIsNotEmpty.swift */; };
 		05DFDD21261F7BFD00BBE4E3 /* ApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DFDD20261F7BFD00BBE4E3 /* ApplicationDelegate.swift */; };
 		05DFDD26261F7BFE00BBE4E3 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05DFDD24261F7BFE00BBE4E3 /* MainMenu.xib */; };
 		05DFDD75261F7EB000BBE4E3 /* AboutWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05DFDD73261F7EB000BBE4E3 /* AboutWindowController.xib */; };
@@ -22,6 +24,8 @@
 
 /* Begin PBXFileReference section */
 		058C989426323AB10086E57E /* VirtualMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualMachine.swift; sourceTree = "<group>"; };
+		058C98AD26330E830086E57E /* ArrayIsEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayIsEmpty.swift; sourceTree = "<group>"; };
+		058C98B026330FBB0086E57E /* ArrayIsNotEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayIsNotEmpty.swift; sourceTree = "<group>"; };
 		05DFDD1D261F7BFD00BBE4E3 /* QEMU Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "QEMU Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		05DFDD20261F7BFD00BBE4E3 /* ApplicationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationDelegate.swift; sourceTree = "<group>"; };
 		05DFDD25261F7BFE00BBE4E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -131,6 +135,8 @@
 				05DFDD7E261F7F5F00BBE4E3 /* LibraryWindowController.swift */,
 				05E49B0E262079E400163619 /* Config.swift */,
 				058C989426323AB10086E57E /* VirtualMachine.swift */,
+				058C98AD26330E830086E57E /* ArrayIsEmpty.swift */,
+				058C98B026330FBB0086E57E /* ArrayIsNotEmpty.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -371,8 +377,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				05DFDD21261F7BFD00BBE4E3 /* ApplicationDelegate.swift in Sources */,
+				058C98B126330FBB0086E57E /* ArrayIsNotEmpty.swift in Sources */,
 				058C989526323AB10086E57E /* VirtualMachine.swift in Sources */,
 				05DFDD78261F7EB700BBE4E3 /* AboutWindowController.swift in Sources */,
+				058C98AE26330E830086E57E /* ArrayIsEmpty.swift in Sources */,
 				05DFDD7F261F7F5F00BBE4E3 /* LibraryWindowController.swift in Sources */,
 				05E49B0F262079E400163619 /* Config.swift in Sources */,
 			);

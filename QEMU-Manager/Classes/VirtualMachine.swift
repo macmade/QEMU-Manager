@@ -24,55 +24,69 @@
 
 import Foundation
 
-public class VirtualMachine: NSObject
+@objc public class VirtualMachine: NSObject
 {
+    public enum Error: Swift.Error
+    {
+        case invalidURL
+    }
+    
     @objc public private( set ) dynamic var config: Config
-    @objc public private( set ) dynamic var url:    URL
+    @objc public private( set ) dynamic var url:    URL?
+    
+    public override init()
+    {
+        self.config = Config()
+    }
     
     public init?( url: URL )
     {
-        self.url  = url
         var isDir = ObjCBool( false )
         
-        if FileManager.default.fileExists( atPath: url.path, isDirectory: &isDir ) == false
+        if FileManager.default.fileExists( atPath: url.path, isDirectory: &isDir ) == false || isDir.boolValue == false
         {
-            self.config = Config()
+            return nil
+        }
+        
+        do
+        {
+            let data    = try Data( contentsOf: url.appendingPathComponent( "Config.json" ) )
+            self.config = try JSONDecoder().decode( Config.self, from: data )
+            self.url    = url
             
             super.init()
-            
-            do
-            {
-                try FileManager.default.createDirectory( at: url, withIntermediateDirectories: true, attributes: nil )
-                try self.save()
-            }
-            catch
-            {
-                return nil
-            }
         }
-        else
+        catch
         {
-            if isDir.boolValue == false
-            {
-                return nil
-            }
-            
-            do
-            {
-                let data    = try Data( contentsOf: url.appendingPathComponent( "Config.json" ) )
-                self.config = try JSONDecoder().decode( Config.self, from: data )
-                
-                super.init()
-            }
-            catch
-            {
-                return nil
-            }
+            return nil
         }
+    }
+    
+    public func save( to url: URL ) throws
+    {
+        self.url = url
+        
+        try self.save()
     }
     
     public func save() throws
     {
+        guard let url = self.url else
+        {
+            throw Error.invalidURL
+        }
+        
+        var isDir = ObjCBool( booleanLiteral: false )
+        
+        if FileManager.default.fileExists( atPath: url.path, isDirectory: &isDir ) == false
+        {
+            try FileManager.default.createDirectory( at: url, withIntermediateDirectories: true, attributes: nil )
+        }
+        else if isDir.boolValue == false
+        {
+            throw Error.invalidURL
+        }
+        
         let encoder              = JSONEncoder()
         encoder.outputFormatting = .prettyPrinted
         let data                 = try encoder.encode( self.config )

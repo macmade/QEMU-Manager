@@ -24,8 +24,10 @@
 
 import Cocoa
 
-public class LibraryWindowController: NSWindowController
+@objc public class LibraryWindowController: NSWindowController
 {
+    @IBOutlet private var machines: NSArrayController!
+    
     public override var windowNibName: NSNib.Name?
     {
         return "LibraryWindowController"
@@ -34,5 +36,55 @@ public class LibraryWindowController: NSWindowController
     override public func windowDidLoad()
     {
         super.windowDidLoad()
+    }
+    
+    @IBAction private func newVirtualMachine( _ sender: Any?  )
+    {
+        guard let window = self.window else
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
+        let panel                  = NSSavePanel()
+        panel.allowedFileTypes     = [ "qvm" ]
+        panel.canCreateDirectories = true
+        
+        panel.beginSheetModal( for: window )
+        {
+            r in if r != .OK
+            {
+                return
+            }
+            
+            guard let url = panel.url else
+            {
+                NSSound.beep()
+                
+                return
+            }
+            
+            do
+            {
+                let machine          = VirtualMachine()
+                machine.config.title = ( url.lastPathComponent as NSString ).deletingPathExtension
+                
+                try machine.save( to: url )
+            
+                self.machines.addObject( machine )
+            }
+            catch let error
+            {
+                let alert = NSAlert( error: error )
+                
+                alert.beginSheetModal( for: window, completionHandler: nil )
+            }
+        }
+    }
+    
+    @IBAction private func newDocument( _ sender: Any?  )
+    {
+        self.newVirtualMachine( sender )
     }
 }

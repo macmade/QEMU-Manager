@@ -22,35 +22,27 @@
  * THE SOFTWARE.
  ******************************************************************************/
 
-import Cocoa
+import Foundation
 
-@objc public class AboutWindowController: NSWindowController
+@objc( ArrayIsEmpty ) public class ArrayIsEmpty: ValueTransformer
 {
-    @objc private dynamic var name:      String?
-    @objc private dynamic var version:   String?
-    @objc private dynamic var copyright: String?
-    
-    public override var windowNibName: NSNib.Name?
+    public override class func transformedValueClass() -> AnyClass
     {
-        return "AboutWindowController"
+        NSNumber.self
     }
     
-    override public func windowDidLoad()
+    public override class func allowsReverseTransformation() -> Bool
     {
-        super.windowDidLoad()
-        
-        let version = Bundle.main.object( forInfoDictionaryKey: "CFBundleShortVersionString" ) as? String ?? "0.0.0"
-        
-        if let build = Bundle.main.object( forInfoDictionaryKey: "CFBundleVersion" ) as? String
+        false
+    }
+    
+    public override func transformedValue( _ value: Any? ) -> Any?
+    {
+        guard let array = value as? NSArray else
         {
-            self.version = "\(version) (\(build))"
-        }
-        else
-        {
-            self.version = version
+            return NSNumber( booleanLiteral: true )
         }
         
-        self.name      = Bundle.main.object( forInfoDictionaryKey: "CFBundleName"             ) as? String
-        self.copyright = Bundle.main.object( forInfoDictionaryKey: "NSHumanReadableCopyright" ) as? String
+        return NSNumber( booleanLiteral: array.count == 0 )
     }
 }

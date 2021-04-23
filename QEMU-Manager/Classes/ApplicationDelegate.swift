@@ -32,6 +32,8 @@ import Cocoa
     func applicationDidFinishLaunching( _ notification: Notification )
     {
         self.showLibraryWindow( nil )
+        
+        print( VirtualMachine( url: URL( fileURLWithPath: "/Users/macmade/Desktop/test.qvm" ) ) ?? "<nil>" )
     }
 
     func applicationWillTerminate( _ notification: Notification )

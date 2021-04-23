@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		058C989526323AB10086E57E /* VirtualMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058C989426323AB10086E57E /* VirtualMachine.swift */; };
 		05DFDD21261F7BFD00BBE4E3 /* ApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DFDD20261F7BFD00BBE4E3 /* ApplicationDelegate.swift */; };
 		05DFDD26261F7BFE00BBE4E3 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05DFDD24261F7BFE00BBE4E3 /* MainMenu.xib */; };
 		05DFDD75261F7EB000BBE4E3 /* AboutWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05DFDD73261F7EB000BBE4E3 /* AboutWindowController.xib */; };
@@ -15,9 +16,12 @@
 		05DFDD7F261F7F5F00BBE4E3 /* LibraryWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DFDD7E261F7F5F00BBE4E3 /* LibraryWindowController.swift */; };
 		05DFDD89261F9E7900BBE4E3 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 05DFDD87261F9E7900BBE4E3 /* Icon.icns */; };
 		05DFDD8A261F9E7900BBE4E3 /* Document.icns in Resources */ = {isa = PBXBuildFile; fileRef = 05DFDD88261F9E7900BBE4E3 /* Document.icns */; };
+		05E49B0C262079B700163619 /* qemu in Resources */ = {isa = PBXBuildFile; fileRef = 05E49B0B262079B700163619 /* qemu */; };
+		05E49B0F262079E400163619 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E49B0E262079E400163619 /* Config.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		058C989426323AB10086E57E /* VirtualMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualMachine.swift; sourceTree = "<group>"; };
 		05DFDD1D261F7BFD00BBE4E3 /* QEMU Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "QEMU Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		05DFDD20261F7BFD00BBE4E3 /* ApplicationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationDelegate.swift; sourceTree = "<group>"; };
 		05DFDD25261F7BFE00BBE4E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -74,6 +78,8 @@
 		05DFDD7E261F7F5F00BBE4E3 /* LibraryWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryWindowController.swift; sourceTree = "<group>"; };
 		05DFDD87261F9E7900BBE4E3 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
 		05DFDD88261F9E7900BBE4E3 /* Document.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Document.icns; sourceTree = "<group>"; };
+		05E49B0B262079B700163619 /* qemu */ = {isa = PBXFileReference; lastKnownFileType = folder; path = qemu; sourceTree = "<group>"; };
+		05E49B0E262079E400163619 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		05FFCC4A26206D77006087BA /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,6 +129,8 @@
 				05DFDD77261F7EB700BBE4E3 /* AboutWindowController.swift */,
 				05DFDD20261F7BFD00BBE4E3 /* ApplicationDelegate.swift */,
 				05DFDD7E261F7F5F00BBE4E3 /* LibraryWindowController.swift */,
+				05E49B0E262079E400163619 /* Config.swift */,
+				058C989426323AB10086E57E /* VirtualMachine.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -272,9 +280,18 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
+		05E49A67262079AB00163619 /* dist */ = {
+			isa = PBXGroup;
+			children = (
+				05E49B0B262079B700163619 /* qemu */,
+			);
+			path = dist;
+			sourceTree = "<group>";
+		};
 		05FFCC4826206D77006087BA /* qemu */ = {
 			isa = PBXGroup;
 			children = (
+				05E49A67262079AB00163619 /* dist */,
 				05FFCC4A26206D77006087BA /* Makefile */,
 			);
 			path = qemu;
@@ -341,6 +358,7 @@
 				05DFDD89261F9E7900BBE4E3 /* Icon.icns in Resources */,
 				05DFDD26261F7BFE00BBE4E3 /* MainMenu.xib in Resources */,
 				05DFDD8A261F9E7900BBE4E3 /* Document.icns in Resources */,
+				05E49B0C262079B700163619 /* qemu in Resources */,
 				05DFDD75261F7EB000BBE4E3 /* AboutWindowController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -353,8 +371,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				05DFDD21261F7BFD00BBE4E3 /* ApplicationDelegate.swift in Sources */,
+				058C989526323AB10086E57E /* VirtualMachine.swift in Sources */,
 				05DFDD78261F7EB700BBE4E3 /* AboutWindowController.swift in Sources */,
 				05DFDD7F261F7F5F00BBE4E3 /* LibraryWindowController.swift in Sources */,
+				05E49B0F262079E400163619 /* Config.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

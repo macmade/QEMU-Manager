@@ -36,6 +36,8 @@ import Cocoa
     override public func windowDidLoad()
     {
         super.windowDidLoad()
+        
+        Preferences.shared.virtualMachines().forEach { self.machines.addObject( $0 ) }
     }
     
     @IBAction private func newVirtualMachine( _ sender: Any?  )
@@ -71,7 +73,8 @@ import Cocoa
                 machine.config.title = ( url.lastPathComponent as NSString ).deletingPathExtension
                 
                 try machine.save( to: url )
-            
+                
+                Preferences.shared.addVirtualMachines( machine )
                 self.machines.addObject( machine )
             }
             catch let error

@@ -39,15 +39,17 @@ import Foundation
         case x86_64
     }
     
-    @objc public dynamic var architecture: Architecture = .aarch64
-    @objc public dynamic var memory:       UInt64       = 2147483648
-    @objc public dynamic var title:        String       = "Untitled"
+    @objc public private( set ) dynamic var uuid:         UUID         = UUID()
+    @objc public                dynamic var architecture: Architecture = .aarch64
+    @objc public                dynamic var memory:       UInt64       = 2147483648
+    @objc public                dynamic var title:        String       = "Untitled"
     
     public override init()
     {}
     
     public enum CodingKeys: String, CodingKey
     {
+        case uuid
         case architecture
         case memory
         case title
@@ -62,23 +64,26 @@ import Foundation
     {
         let values = try decoder.container( keyedBy: CodingKeys.self )
         
+        self.uuid   = try values.decode( UUID.self,   forKey: .uuid )
+        self.memory = try values.decode( UInt64.self, forKey: .memory )
+        self.title  = try values.decode( String.self, forKey: .title )
+        
         guard let arch = Architecture( string: ( try? values.decode( String.self, forKey: .architecture ) ) ?? "" ) else
         {
             throw Error.invalidArchitecture
         }
         
         self.architecture = arch
-        self.memory       = try values.decode( UInt64.self, forKey: .memory )
-        self.title        = try values.decode( String.self, forKey: .title )
     }
     
     public func encode( to encoder: Encoder ) throws
     {
         var container = encoder.container( keyedBy: CodingKeys.self )
         
-        try container.encode( "\( self.architecture.description )", forKey: .architecture )
-        try container.encode( self.memory,                          forKey: .memory )
-        try container.encode( self.title,                           forKey: .title )
+        try container.encode( self.uuid,                     forKey: .uuid )
+        try container.encode( self.architecture.description, forKey: .architecture )
+        try container.encode( self.memory,                   forKey: .memory )
+        try container.encode( self.title,                    forKey: .title )
     }
 }
 

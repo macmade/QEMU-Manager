@@ -143,6 +143,47 @@ import Cocoa
         self.showConfigWindow( for: machine )
     }
     
+    @IBAction private func delete( _ sender: Any?  )
+    {
+        guard let item    = sender                 as? NSMenuItem,
+              let machine = item.representedObject as? VirtualMachine,
+              let window  = self.window,
+              let url     = machine.url
+        else
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
+        let alert = NSAlert()
+        
+        alert.messageText     = "Delete \( machine.config.title )?"
+        alert.informativeText = "Are you sure you want to delete this virtual machine?"
+        
+        alert.addButton( withTitle: "Remove and Keep Files" )
+        alert.addButton( withTitle: "Cancel" )
+        alert.addButton( withTitle: "Remove and Move to Trash" )
+        
+        alert.beginSheetModal( for: window )
+        {
+            r in
+            
+            if r == .alertSecondButtonReturn
+            {
+                return
+            }
+            
+            self.machines.removeObject( machine )
+            Preferences.shared.removeVirtualMachines( machine )
+            
+            if r == .alertThirdButtonReturn
+            {
+                try? FileManager.default.trashItem( at: url, resultingItemURL: nil )
+            }
+        }
+    }
+    
     public func menuWillOpen( _ menu: NSMenu )
     {
         let setEnabled: ( NSMenu, Bool ) -> Void =

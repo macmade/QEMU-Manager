@@ -217,6 +217,13 @@ DQ
                         <action selector="configure:" target="-2" id="l8H-hu-eRq"/>
                     </connections>
                 </menuItem>
+                <menuItem isSeparatorItem="YES" id="wI6-uC-LOA"/>
+                <menuItem title="Delete" id="Adi-3L-wBt">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="delete:" target="-2" id="vXF-Vc-euS"/>
+                    </connections>
+                </menuItem>
             </items>
             <connections>
                 <outlet property="delegate" destination="-2" id="oZz-7i-INn"/>

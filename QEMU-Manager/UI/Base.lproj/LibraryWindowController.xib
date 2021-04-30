@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="17701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="18122" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="18122"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="LibraryWindowController" customModule="QEMU_Manager" customModuleProvider="target">
             <connections>
                 <outlet property="machines" destination="cVS-ih-Quc" id="f2Z-R3-PV5"/>
+                <outlet property="tableView" destination="VCi-qF-fl3" id="dvw-hl-ED6"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="MQd-GZ-qWp"/>
             </connections>
         </customObject>
@@ -110,7 +111,7 @@ DQ
                                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                             <prototypeCellViews>
                                                                 <tableCellView id="hvX-zT-ATA">
-                                                                    <rect key="frame" x="18" y="0.0" width="395" height="74"/>
+                                                                    <rect key="frame" x="18" y="0.0" width="580" height="74"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <subviews>
                                                                         <imageView wantsLayer="YES" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="R8J-yh-Hsy">
@@ -122,7 +123,7 @@ DQ
                                                                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="NSApplicationIcon" id="esL-cl-3i0"/>
                                                                         </imageView>
                                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="VGs-7L-mzJ">
-                                                                            <rect key="frame" x="75" y="29" width="4" height="16"/>
+                                                                            <rect key="frame" x="75" y="29" width="96" height="16"/>
                                                                             <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="hVs-Eg-zPY">
                                                                                 <font key="font" usesAppearanceFont="YES"/>
                                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -153,6 +154,9 @@ DQ
                                                         <binding destination="cVS-ih-Quc" name="content" keyPath="arrangedObjects" id="Lsd-iy-IHj"/>
                                                         <binding destination="cVS-ih-Quc" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="Lsd-iy-IHj" id="VRE-8Q-V90"/>
                                                         <binding destination="cVS-ih-Quc" name="sortDescriptors" keyPath="sortDescriptors" previousBinding="VRE-8Q-V90" id="Aee-0w-TCb"/>
+                                                        <outlet property="dataSource" destination="-2" id="p5L-sn-bjR"/>
+                                                        <outlet property="delegate" destination="-2" id="xZm-Md-vIL"/>
+                                                        <outlet property="menu" destination="2pB-5e-L4D" id="ec3-xn-fSx"/>
                                                     </connections>
                                                 </tableView>
                                             </subviews>
@@ -205,6 +209,20 @@ DQ
             <point key="canvasLocation" x="37.5" y="147"/>
         </window>
         <arrayController selectsInsertedObjects="NO" avoidsEmptySelection="NO" automaticallyRearrangesObjects="YES" id="cVS-ih-Quc"/>
+        <menu autoenablesItems="NO" id="2pB-5e-L4D">
+            <items>
+                <menuItem title="Configure..." id="qns-zk-yTp">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="configure:" target="-2" id="l8H-hu-eRq"/>
+                    </connections>
+                </menuItem>
+            </items>
+            <connections>
+                <outlet property="delegate" destination="-2" id="oZz-7i-INn"/>
+            </connections>
+            <point key="canvasLocation" x="-403" y="-185"/>
+        </menu>
     </objects>
     <resources>
         <image name="NSAddTemplate" width="14" height="13"/>

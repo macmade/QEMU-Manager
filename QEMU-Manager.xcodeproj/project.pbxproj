@@ -13,6 +13,13 @@
 		058C98B826332F3F0086E57E /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058C98B726332F3F0086E57E /* Preferences.swift */; };
 		058C98BB26332FAA0086E57E /* Defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 058C98BA26332FAA0086E57E /* Defaults.plist */; };
 		058C98BF263332050086E57E /* Synchronizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058C98BE263332050086E57E /* Synchronizable.swift */; };
+		05B697FE263424CB00506106 /* ConfigWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B697FD263424CB00506106 /* ConfigWindowController.swift */; };
+		05B698022634250300506106 /* ConfigWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05B698002634250300506106 /* ConfigWindowController.xib */; };
+		05BEEA062638120A00EECF3A /* ConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BEEA052638120A00EECF3A /* ConfigViewController.swift */; };
+		05BEEA08263812BA00EECF3A /* ConfigGeneralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BEEA07263812BA00EECF3A /* ConfigGeneralViewController.swift */; };
+		05BEEA0B2638140E00EECF3A /* ConfigGeneralViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05BEEA092638140E00EECF3A /* ConfigGeneralViewController.xib */; };
+		05BEEA0D2638145D00EECF3A /* ConfigHardwareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BEEA0C2638145D00EECF3A /* ConfigHardwareViewController.swift */; };
+		05BEEA102638146E00EECF3A /* ConfigHardwareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05BEEA0E2638146E00EECF3A /* ConfigHardwareViewController.xib */; };
 		05DFDD21261F7BFD00BBE4E3 /* ApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DFDD20261F7BFD00BBE4E3 /* ApplicationDelegate.swift */; };
 		05DFDD26261F7BFE00BBE4E3 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05DFDD24261F7BFE00BBE4E3 /* MainMenu.xib */; };
 		05DFDD75261F7EB000BBE4E3 /* AboutWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05DFDD73261F7EB000BBE4E3 /* AboutWindowController.xib */; };
@@ -32,6 +39,13 @@
 		058C98B726332F3F0086E57E /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		058C98BA26332FAA0086E57E /* Defaults.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Defaults.plist; sourceTree = "<group>"; };
 		058C98BE263332050086E57E /* Synchronizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Synchronizable.swift; sourceTree = "<group>"; };
+		05B697FD263424CB00506106 /* ConfigWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigWindowController.swift; sourceTree = "<group>"; };
+		05B698012634250300506106 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ConfigWindowController.xib; sourceTree = "<group>"; };
+		05BEEA052638120A00EECF3A /* ConfigViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigViewController.swift; sourceTree = "<group>"; };
+		05BEEA07263812BA00EECF3A /* ConfigGeneralViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigGeneralViewController.swift; sourceTree = "<group>"; };
+		05BEEA0A2638140E00EECF3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ConfigGeneralViewController.xib; sourceTree = "<group>"; };
+		05BEEA0C2638145D00EECF3A /* ConfigHardwareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigHardwareViewController.swift; sourceTree = "<group>"; };
+		05BEEA0F2638146E00EECF3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ConfigHardwareViewController.xib; sourceTree = "<group>"; };
 		05DFDD1D261F7BFD00BBE4E3 /* QEMU Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "QEMU Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		05DFDD20261F7BFD00BBE4E3 /* ApplicationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationDelegate.swift; sourceTree = "<group>"; };
 		05DFDD25261F7BFE00BBE4E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -140,6 +154,10 @@
 				05DFDD20261F7BFD00BBE4E3 /* ApplicationDelegate.swift */,
 				05DFDD7E261F7F5F00BBE4E3 /* LibraryWindowController.swift */,
 				05E49B0E262079E400163619 /* Config.swift */,
+				05BEEA052638120A00EECF3A /* ConfigViewController.swift */,
+				05BEEA07263812BA00EECF3A /* ConfigGeneralViewController.swift */,
+				05BEEA0C2638145D00EECF3A /* ConfigHardwareViewController.swift */,
+				05B697FD263424CB00506106 /* ConfigWindowController.swift */,
 				058C989426323AB10086E57E /* VirtualMachine.swift */,
 				058C98AD26330E830086E57E /* ArrayIsEmpty.swift */,
 				058C98B026330FBB0086E57E /* ArrayIsNotEmpty.swift */,
@@ -156,6 +174,9 @@
 				05DFDD73261F7EB000BBE4E3 /* AboutWindowController.xib */,
 				05DFDD7A261F7F5500BBE4E3 /* LibraryWindowController.xib */,
 				05DFDD24261F7BFE00BBE4E3 /* MainMenu.xib */,
+				05B698002634250300506106 /* ConfigWindowController.xib */,
+				05BEEA092638140E00EECF3A /* ConfigGeneralViewController.xib */,
+				05BEEA0E2638146E00EECF3A /* ConfigHardwareViewController.xib */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -339,7 +360,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				LastUpgradeCheck = 1250;
 				TargetAttributes = {
 					05DFDD1C261F7BFD00BBE4E3 = {
 						CreatedOnToolsVersion = 12.4;
@@ -369,11 +390,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05BEEA0B2638140E00EECF3A /* ConfigGeneralViewController.xib in Resources */,
 				05DFDD7C261F7F5500BBE4E3 /* LibraryWindowController.xib in Resources */,
 				058C98BB26332FAA0086E57E /* Defaults.plist in Resources */,
 				05DFDD89261F9E7900BBE4E3 /* Icon.icns in Resources */,
+				05BEEA102638146E00EECF3A /* ConfigHardwareViewController.xib in Resources */,
 				05DFDD26261F7BFE00BBE4E3 /* MainMenu.xib in Resources */,
 				05DFDD8A261F9E7900BBE4E3 /* Document.icns in Resources */,
+				05B698022634250300506106 /* ConfigWindowController.xib in Resources */,
 				05E49B0C262079B700163619 /* qemu in Resources */,
 				05DFDD75261F7EB000BBE4E3 /* AboutWindowController.xib in Resources */,
 			);
@@ -387,20 +411,48 @@
 			buildActionMask = 2147483647;
 			files = (
 				05DFDD21261F7BFD00BBE4E3 /* ApplicationDelegate.swift in Sources */,
+				05BEEA08263812BA00EECF3A /* ConfigGeneralViewController.swift in Sources */,
 				058C98B126330FBB0086E57E /* ArrayIsNotEmpty.swift in Sources */,
 				058C98BF263332050086E57E /* Synchronizable.swift in Sources */,
+				05BEEA062638120A00EECF3A /* ConfigViewController.swift in Sources */,
 				058C989526323AB10086E57E /* VirtualMachine.swift in Sources */,
 				05DFDD78261F7EB700BBE4E3 /* AboutWindowController.swift in Sources */,
 				058C98AE26330E830086E57E /* ArrayIsEmpty.swift in Sources */,
 				05DFDD7F261F7F5F00BBE4E3 /* LibraryWindowController.swift in Sources */,
 				058C98B826332F3F0086E57E /* Preferences.swift in Sources */,
 				05E49B0F262079E400163619 /* Config.swift in Sources */,
+				05BEEA0D2638145D00EECF3A /* ConfigHardwareViewController.swift in Sources */,
+				05B697FE263424CB00506106 /* ConfigWindowController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		05B698002634250300506106 /* ConfigWindowController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				05B698012634250300506106 /* Base */,
+			);
+			name = ConfigWindowController.xib;
+			sourceTree = "<group>";
+		};
+		05BEEA092638140E00EECF3A /* ConfigGeneralViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				05BEEA0A2638140E00EECF3A /* Base */,
+			);
+			name = ConfigGeneralViewController.xib;
+			sourceTree = "<group>";
+		};
+		05BEEA0E2638146E00EECF3A /* ConfigHardwareViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				05BEEA0F2638146E00EECF3A /* Base */,
+			);
+			name = ConfigHardwareViewController.xib;
+			sourceTree = "<group>";
+		};
 		05DFDD24261F7BFE00BBE4E3 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -432,6 +484,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 05DFDD3A261F7CDC00BBE4E3 /* Debug.xcconfig */;
 			buildSettings = {
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 			};
 			name = Debug;
 		};
@@ -439,6 +492,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 05DFDD3B261F7CDC00BBE4E3 /* Release.xcconfig */;
 			buildSettings = {
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 			};
 			name = Release;
 		};

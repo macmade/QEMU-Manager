@@ -24,9 +24,12 @@
 
 import Cocoa
 
-@objc public class LibraryWindowController: NSWindowController
+@objc public class LibraryWindowController: NSWindowController, NSTableViewDelegate, NSTableViewDataSource, NSMenuDelegate
 {
-    @IBOutlet private var machines: NSArrayController!
+    @IBOutlet private var machines:  NSArrayController!
+    @IBOutlet private var tableView: NSTableView!
+    
+    private var configWindowControllers = [ UUID : ConfigWindowController ]()
     
     public override var windowNibName: NSNib.Name?
     {
@@ -38,6 +41,40 @@ import Cocoa
         super.windowDidLoad()
         
         Preferences.shared.virtualMachines().forEach { self.machines.addObject( $0 ) }
+    }
+    
+    @IBAction public func showConfigWindow( _ sender: Any? )
+    {
+        guard let machine = sender as? VirtualMachine else
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
+        self.showConfigWindow( for: machine )
+    }
+    
+    public func showConfigWindow( for machine: VirtualMachine )
+    {
+        if self.configWindowControllers.contains( where: { $0.key == machine.config.uuid } ) == false
+        {
+            self.configWindowControllers[ machine.config.uuid ] = ConfigWindowController( machine: machine )
+        }
+        
+        guard let window = self.configWindowControllers[ machine.config.uuid ]?.window else
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
+        if window.isVisible == false
+        {
+            window.center()
+        }
+        
+        window.makeKeyAndOrderFront( nil )
     }
     
     @IBAction private func newVirtualMachine( _ sender: Any?  )
@@ -76,6 +113,7 @@ import Cocoa
                 
                 Preferences.shared.addVirtualMachines( machine )
                 self.machines.addObject( machine )
+                self.showConfigWindow( for: machine )
             }
             catch let error
             {
@@ -89,5 +127,49 @@ import Cocoa
     @IBAction private func newDocument( _ sender: Any?  )
     {
         self.newVirtualMachine( sender )
+    }
+    
+    @IBAction private func configure( _ sender: Any?  )
+    {
+        guard let item    = sender                 as? NSMenuItem,
+              let machine = item.representedObject as? VirtualMachine
+        else
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
+        self.showConfigWindow( for: machine )
+    }
+    
+    public func menuWillOpen( _ menu: NSMenu )
+    {
+        let setEnabled: ( NSMenu, Bool ) -> Void =
+        {
+            menu, enabled in
+            
+            menu.items.forEach { $0.isEnabled = enabled }
+        }
+        
+        guard let arranged = self.machines.arrangedObjects as? [ VirtualMachine ] else
+        {
+            setEnabled( menu, false )
+            
+            return
+        }
+        
+        if self.tableView.clickedRow < 0 || self.tableView.clickedRow >= arranged.count
+        {
+            setEnabled( menu, false )
+            
+            return
+        }
+        
+        setEnabled( menu, true )
+        
+        let machine = arranged[ self.tableView.clickedRow ]
+        
+        menu.items.forEach { $0.representedObject = machine }
     }
 }

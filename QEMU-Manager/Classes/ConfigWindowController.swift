@@ -44,13 +44,18 @@ import Cocoa
         
         let _ = self.window
         
-        self.addController( ConfigGeneralViewController() )
-        self.addController( ConfigHardwareViewController() )
+        self.addController( ConfigGeneralViewController( machine: machine ) )
+        self.addController( ConfigHardwareViewController( machine: machine  ) )
     }
     
     required init?( coder: NSCoder )
     {
         nil
+    }
+    
+    deinit
+    {
+        NotificationCenter.default.removeObserver( self )
     }
     
     public override var windowNibName: NSNib.Name?
@@ -72,6 +77,35 @@ import Cocoa
         self.selectionObserver = self.controllers.observe( \.selectionIndex )
         {
             [ weak self ] o, c in self?.selectionChanged()
+        }
+        
+        NotificationCenter.default.addObserver( self, selector: #selector( windowWillClose( _: ) ), name: NSWindow.willCloseNotification, object: self.window )
+    }
+    
+    @objc private func windowWillClose( _ notification: NSNotification )
+    {
+        guard let window = notification.object as? NSWindow else
+        {
+            return
+        }
+        
+        if window != self.window
+        {
+            return
+        }
+        
+        do
+        {
+            if self.machine.config.title.trimmingCharacters( in: .whitespaces ).count == 0
+            {
+                self.machine.config.title = "Untitled"
+            }
+            
+            try self.machine.save()
+        }
+        catch let error
+        {
+            NSAlert( error: error ).runModal()
         }
     }
     

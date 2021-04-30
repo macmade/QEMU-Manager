@@ -24,11 +24,15 @@
 
 import Cocoa
 
-@objc public class ConfigGeneralViewController: ConfigViewController
+@objc public class ConfigHardwareViewController: ConfigViewController
 {
-    public init()
+    @objc private dynamic var machine: VirtualMachine
+    
+    public init( machine: VirtualMachine )
     {
-        super.init( title: "General", icon: nil, sorting: 0 )
+        self.machine = machine
+        
+        super.init( title: "Hardware", icon: nil, sorting: 0 )
     }
     
     required init?( coder: NSCoder )
@@ -38,6 +42,6 @@ import Cocoa
     
     public override var nibName: NSNib.Name?
     {
-        "ConfigGeneralViewController"
+        "ConfigHardwareViewController"
     }
 }

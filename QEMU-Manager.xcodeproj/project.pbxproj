@@ -30,6 +30,8 @@
 		05DFDD8A261F9E7900BBE4E3 /* Document.icns in Resources */ = {isa = PBXBuildFile; fileRef = 05DFDD88261F9E7900BBE4E3 /* Document.icns */; };
 		05E49B0C262079B700163619 /* qemu in Resources */ = {isa = PBXBuildFile; fileRef = 05E49B0B262079B700163619 /* qemu */; };
 		05E49B0F262079E400163619 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E49B0E262079E400163619 /* Config.swift */; };
+		05F5479C263C3C56003F1B92 /* Generic.icns in Resources */ = {isa = PBXBuildFile; fileRef = 05F5479A263C3C56003F1B92 /* Generic.icns */; };
+		05F5479D263C3C56003F1B92 /* macOS.icns in Resources */ = {isa = PBXBuildFile; fileRef = 05F5479B263C3C56003F1B92 /* macOS.icns */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -104,6 +106,8 @@
 		05DFDD88261F9E7900BBE4E3 /* Document.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Document.icns; sourceTree = "<group>"; };
 		05E49B0B262079B700163619 /* qemu */ = {isa = PBXFileReference; lastKnownFileType = folder; path = qemu; sourceTree = "<group>"; };
 		05E49B0E262079E400163619 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		05F5479A263C3C56003F1B92 /* Generic.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Generic.icns; sourceTree = "<group>"; };
+		05F5479B263C3C56003F1B92 /* macOS.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = macOS.icns; sourceTree = "<group>"; };
 		05FFCC4A26206D77006087BA /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -310,6 +314,8 @@
 		05DFDD86261F9E7900BBE4E3 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				05F5479A263C3C56003F1B92 /* Generic.icns */,
+				05F5479B263C3C56003F1B92 /* macOS.icns */,
 				05DFDD87261F9E7900BBE4E3 /* Icon.icns */,
 				05DFDD88261F9E7900BBE4E3 /* Document.icns */,
 			);
@@ -392,11 +398,13 @@
 			files = (
 				05BEEA0B2638140E00EECF3A /* ConfigGeneralViewController.xib in Resources */,
 				05DFDD7C261F7F5500BBE4E3 /* LibraryWindowController.xib in Resources */,
+				05F5479C263C3C56003F1B92 /* Generic.icns in Resources */,
 				058C98BB26332FAA0086E57E /* Defaults.plist in Resources */,
 				05DFDD89261F9E7900BBE4E3 /* Icon.icns in Resources */,
 				05BEEA102638146E00EECF3A /* ConfigHardwareViewController.xib in Resources */,
 				05DFDD26261F7BFE00BBE4E3 /* MainMenu.xib in Resources */,
 				05DFDD8A261F9E7900BBE4E3 /* Document.icns in Resources */,
+				05F5479D263C3C56003F1B92 /* macOS.icns in Resources */,
 				05B698022634250300506106 /* ConfigWindowController.xib in Resources */,
 				05E49B0C262079B700163619 /* qemu in Resources */,
 				05DFDD75261F7EB000BBE4E3 /* AboutWindowController.xib in Resources */,

@@ -120,7 +120,10 @@ DQ
                                                                                 <constraint firstAttribute="height" constant="64" id="QeW-ey-Duf"/>
                                                                                 <constraint firstAttribute="width" constant="64" id="WIz-mK-iNf"/>
                                                                             </constraints>
-                                                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="NSApplicationIcon" id="esL-cl-3i0"/>
+                                                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="Default" id="esL-cl-3i0"/>
+                                                                            <connections>
+                                                                                <binding destination="hvX-zT-ATA" name="value" keyPath="objectValue.icon" id="kFl-hm-Sq9"/>
+                                                                            </connections>
                                                                         </imageView>
                                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="VGs-7L-mzJ">
                                                                             <rect key="frame" x="75" y="29" width="96" height="16"/>
@@ -232,6 +235,7 @@ DQ
         </menu>
     </objects>
     <resources>
+        <image name="Default" width="512" height="512"/>
         <image name="NSAddTemplate" width="14" height="13"/>
         <image name="NSApplicationIcon" width="32" height="32"/>
     </resources>

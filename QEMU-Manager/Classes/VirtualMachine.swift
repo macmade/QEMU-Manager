@@ -22,7 +22,7 @@
  * THE SOFTWARE.
  ******************************************************************************/
 
-import Foundation
+import Cocoa
 
 @objc public class VirtualMachine: NSObject
 {
@@ -33,10 +33,21 @@ import Foundation
     
     @objc public private( set ) dynamic var config: Config
     @objc public private( set ) dynamic var url:    URL?
+    @objc public private( set ) dynamic var icon:   NSImage?
+    
+    private var iconObserver: NSKeyValueObservation?
     
     public override init()
     {
         self.config = Config()
+        
+        super.init()
+        self.updateIcon()
+        
+        self.iconObserver = self.observe( \.config.icon )
+        {
+            o, c in self.updateIcon()
+        }
     }
     
     public init?( url: URL )
@@ -55,10 +66,35 @@ import Foundation
             self.url    = url
             
             super.init()
+            self.updateIcon()
+            
+            self.iconObserver = self.observe( \.config.icon )
+            {
+                o, c in self.updateIcon()
+            }
         }
         catch
         {
             return nil
+        }
+    }
+    
+    private func updateIcon()
+    {
+        switch self.config.icon
+        {
+            case .generic:       self.icon = NSImage( named: "Generic" )
+            case .apple:         self.icon = NSImage( named: "Generic" )
+            case .macOS:         self.icon = NSImage( named: "macOS" )
+            case .windows:       self.icon = NSImage( named: "Generic" )
+            case .windowsLegacy: self.icon = NSImage( named: "Generic" )
+            case .linux:         self.icon = NSImage( named: "Generic" )
+            case .bsd:           self.icon = NSImage( named: "Generic" )
+        }
+        
+        if self.icon == nil
+        {
+            self.icon = NSImage( named: "Generic" )
         }
     }
     

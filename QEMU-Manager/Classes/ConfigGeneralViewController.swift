@@ -24,11 +24,41 @@
 
 import Cocoa
 
-@objc public class ConfigHardwareViewController: ConfigViewController
+@objc public class ConfigGeneralViewController: ConfigViewController
 {
-    public init()
+    @objc private dynamic var machine:      VirtualMachine
+    @objc private dynamic var path:         String
+    @objc private dynamic var architecture: Int
     {
-        super.init( title: "Hardware", icon: nil, sorting: 0 )
+        didSet
+        {
+            if let arch = Config.Architecture( rawValue: self.architecture )
+            {
+                self.machine.config.architecture = arch
+            }
+        }
+    }
+    @objc private dynamic var machineIcon: Int
+    {
+        didSet
+        {
+            if let icon = Config.Icon( rawValue: self.machineIcon )
+            {
+                self.machine.config.icon = icon
+            }
+        }
+    }
+    
+    private var architectureObserver: NSKeyValueObservation?
+    
+    public init( machine: VirtualMachine )
+    {
+        self.machine      = machine
+        self.path         = machine.url?.path ?? "--"
+        self.architecture = machine.config.architecture.rawValue
+        self.machineIcon  = machine.config.icon.rawValue
+        
+        super.init( title: "General", icon: nil, sorting: 0 )
     }
     
     required init?( coder: NSCoder )
@@ -38,6 +68,18 @@ import Cocoa
     
     public override var nibName: NSNib.Name?
     {
-        "ConfigHardwareViewController"
+        "ConfigGeneralViewController"
+    }
+    
+    @IBAction private func revealInFinder( _ sender: Any? )
+    {
+        guard let url = self.machine.url else
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
+        NSWorkspace.shared.selectFile( url.path, inFileViewerRootedAtPath: "" )
     }
 }

@@ -30,19 +30,31 @@ import Foundation
     {
         case aarch64
         case arm
-        case i386
-        case m68k
-        case ppc
-        case ppc64
-        case riscv32
-        case riscv64
         case x86_64
+        case i386
+        case ppc64
+        case ppc
+        case riscv64
+        case riscv32
+        case m68k
+    }
+    
+    @objc public enum Icon: Int
+    {
+        case generic
+        case apple
+        case macOS
+        case windows
+        case windowsLegacy
+        case linux
+        case bsd
     }
     
     @objc public private( set ) dynamic var uuid:         UUID         = UUID()
     @objc public                dynamic var architecture: Architecture = .aarch64
     @objc public                dynamic var memory:       UInt64       = 2147483648
     @objc public                dynamic var title:        String       = "Untitled"
+    @objc public                dynamic var icon:         Icon         = .generic
     
     public override init()
     {}
@@ -53,6 +65,7 @@ import Foundation
         case architecture
         case memory
         case title
+        case icon
     }
     
     public enum Error: Swift.Error
@@ -74,6 +87,7 @@ import Foundation
         }
         
         self.architecture = arch
+        self.icon         = Icon( string: ( try? values.decode( String.self, forKey: .icon ) ) ?? "" ) ?? .generic
     }
     
     public func encode( to encoder: Encoder ) throws
@@ -84,6 +98,7 @@ import Foundation
         try container.encode( self.architecture.description, forKey: .architecture )
         try container.encode( self.memory,                   forKey: .memory )
         try container.encode( self.title,                    forKey: .title )
+        try container.encode( self.icon.description,         forKey: .icon )
     }
 }
 
@@ -119,6 +134,38 @@ extension Config.Architecture: CustomStringConvertible
             case .riscv32: return "riscv32"
             case .riscv64: return "riscv64"
             case .x86_64:  return "x86_64"
+        }
+    }
+}
+
+extension Config.Icon: CustomStringConvertible
+{
+    public init?( string: String )
+    {
+        switch string
+        {
+            case "generic"       : self.init( rawValue: Config.Icon.generic.rawValue )
+            case "apple"         : self.init( rawValue: Config.Icon.apple.rawValue )
+            case "macOS"         : self.init( rawValue: Config.Icon.macOS.rawValue )
+            case "windows"       : self.init( rawValue: Config.Icon.windows.rawValue )
+            case "windowsLegacy" : self.init( rawValue: Config.Icon.windowsLegacy.rawValue )
+            case "linux"         : self.init( rawValue: Config.Icon.linux.rawValue )
+            case "bsd"           : self.init( rawValue: Config.Icon.bsd.rawValue )
+            default:               return nil
+        }
+    }
+    
+    public var description: String
+    {
+        switch self
+        {
+            case .generic:       return "generic"
+            case .apple:         return "apple"
+            case .macOS:         return "macOS"
+            case .windows:       return "windows"
+            case .windowsLegacy: return "windowsLegacy"
+            case .linux:         return "linux"
+            case .bsd:           return "bsd"
         }
     }
 }

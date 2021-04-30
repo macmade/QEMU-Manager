@@ -32,6 +32,10 @@
 		05E49B0F262079E400163619 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E49B0E262079E400163619 /* Config.swift */; };
 		05F5479C263C3C56003F1B92 /* Generic.icns in Resources */ = {isa = PBXBuildFile; fileRef = 05F5479A263C3C56003F1B92 /* Generic.icns */; };
 		05F5479D263C3C56003F1B92 /* macOS.icns in Resources */ = {isa = PBXBuildFile; fileRef = 05F5479B263C3C56003F1B92 /* macOS.icns */; };
+		05F547A1263C56C4003F1B92 /* WindowsLegacy.icns in Resources */ = {isa = PBXBuildFile; fileRef = 05F5479E263C56C4003F1B92 /* WindowsLegacy.icns */; };
+		05F547A2263C56C4003F1B92 /* WindowsTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 05F5479F263C56C4003F1B92 /* WindowsTemplate.pdf */; };
+		05F547A3263C56C4003F1B92 /* AppleTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 05F547A0263C56C4003F1B92 /* AppleTemplate.pdf */; };
+		05F547A5263C5B50003F1B92 /* ArchitectureToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F547A4263C5B50003F1B92 /* ArchitectureToString.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -108,6 +112,10 @@
 		05E49B0E262079E400163619 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		05F5479A263C3C56003F1B92 /* Generic.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Generic.icns; sourceTree = "<group>"; };
 		05F5479B263C3C56003F1B92 /* macOS.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = macOS.icns; sourceTree = "<group>"; };
+		05F5479E263C56C4003F1B92 /* WindowsLegacy.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = WindowsLegacy.icns; sourceTree = "<group>"; };
+		05F5479F263C56C4003F1B92 /* WindowsTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = WindowsTemplate.pdf; sourceTree = "<group>"; };
+		05F547A0263C56C4003F1B92 /* AppleTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = AppleTemplate.pdf; sourceTree = "<group>"; };
+		05F547A4263C5B50003F1B92 /* ArchitectureToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchitectureToString.swift; sourceTree = "<group>"; };
 		05FFCC4A26206D77006087BA /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -158,6 +166,7 @@
 				05DFDD20261F7BFD00BBE4E3 /* ApplicationDelegate.swift */,
 				05DFDD7E261F7F5F00BBE4E3 /* LibraryWindowController.swift */,
 				05E49B0E262079E400163619 /* Config.swift */,
+				05F547A4263C5B50003F1B92 /* ArchitectureToString.swift */,
 				05BEEA052638120A00EECF3A /* ConfigViewController.swift */,
 				05BEEA07263812BA00EECF3A /* ConfigGeneralViewController.swift */,
 				05BEEA0C2638145D00EECF3A /* ConfigHardwareViewController.swift */,
@@ -314,6 +323,9 @@
 		05DFDD86261F9E7900BBE4E3 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				05F547A0263C56C4003F1B92 /* AppleTemplate.pdf */,
+				05F5479E263C56C4003F1B92 /* WindowsLegacy.icns */,
+				05F5479F263C56C4003F1B92 /* WindowsTemplate.pdf */,
 				05F5479A263C3C56003F1B92 /* Generic.icns */,
 				05F5479B263C3C56003F1B92 /* macOS.icns */,
 				05DFDD87261F9E7900BBE4E3 /* Icon.icns */,
@@ -396,9 +408,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05F547A1263C56C4003F1B92 /* WindowsLegacy.icns in Resources */,
 				05BEEA0B2638140E00EECF3A /* ConfigGeneralViewController.xib in Resources */,
 				05DFDD7C261F7F5500BBE4E3 /* LibraryWindowController.xib in Resources */,
 				05F5479C263C3C56003F1B92 /* Generic.icns in Resources */,
+				05F547A2263C56C4003F1B92 /* WindowsTemplate.pdf in Resources */,
+				05F547A3263C56C4003F1B92 /* AppleTemplate.pdf in Resources */,
 				058C98BB26332FAA0086E57E /* Defaults.plist in Resources */,
 				05DFDD89261F9E7900BBE4E3 /* Icon.icns in Resources */,
 				05BEEA102638146E00EECF3A /* ConfigHardwareViewController.xib in Resources */,
@@ -420,6 +435,7 @@
 			files = (
 				05DFDD21261F7BFD00BBE4E3 /* ApplicationDelegate.swift in Sources */,
 				05BEEA08263812BA00EECF3A /* ConfigGeneralViewController.swift in Sources */,
+				05F547A5263C5B50003F1B92 /* ArchitectureToString.swift in Sources */,
 				058C98B126330FBB0086E57E /* ArrayIsNotEmpty.swift in Sources */,
 				058C98BF263332050086E57E /* Synchronizable.swift in Sources */,
 				05BEEA062638120A00EECF3A /* ConfigViewController.swift in Sources */,

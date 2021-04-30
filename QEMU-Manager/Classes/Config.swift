@@ -46,8 +46,6 @@ import Foundation
         case macOS
         case windows
         case windowsLegacy
-        case linux
-        case bsd
     }
     
     @objc public private( set ) dynamic var uuid:         UUID         = UUID()
@@ -149,8 +147,6 @@ extension Config.Icon: CustomStringConvertible
             case "macOS"         : self.init( rawValue: Config.Icon.macOS.rawValue )
             case "windows"       : self.init( rawValue: Config.Icon.windows.rawValue )
             case "windowsLegacy" : self.init( rawValue: Config.Icon.windowsLegacy.rawValue )
-            case "linux"         : self.init( rawValue: Config.Icon.linux.rawValue )
-            case "bsd"           : self.init( rawValue: Config.Icon.bsd.rawValue )
             default:               return nil
         }
     }
@@ -164,8 +160,6 @@ extension Config.Icon: CustomStringConvertible
             case .macOS:         return "macOS"
             case .windows:       return "windows"
             case .windowsLegacy: return "windowsLegacy"
-            case .linux:         return "linux"
-            case .bsd:           return "bsd"
         }
     }
 }

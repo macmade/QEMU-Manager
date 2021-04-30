@@ -84,12 +84,10 @@ import Cocoa
         switch self.config.icon
         {
             case .generic:       self.icon = NSImage( named: "Generic" )
-            case .apple:         self.icon = NSImage( named: "Generic" )
+            case .apple:         self.icon = NSImage( named: "AppleTemplate" )
             case .macOS:         self.icon = NSImage( named: "macOS" )
-            case .windows:       self.icon = NSImage( named: "Generic" )
-            case .windowsLegacy: self.icon = NSImage( named: "Generic" )
-            case .linux:         self.icon = NSImage( named: "Generic" )
-            case .bsd:           self.icon = NSImage( named: "Generic" )
+            case .windows:       self.icon = NSImage( named: "WindowsTemplate" )
+            case .windowsLegacy: self.icon = NSImage( named: "WindowsLegacy" )
         }
         
         if self.icon == nil

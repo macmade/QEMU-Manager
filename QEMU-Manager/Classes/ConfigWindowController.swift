@@ -70,7 +70,7 @@ import Cocoa
         self.window?.title = self.machine.config.title
         
         self.controllers.sortDescriptors = [
-            NSSortDescriptor( key: "sorting", ascending: false ),
+            NSSortDescriptor( key: "sorting", ascending: true ),
             NSSortDescriptor( key: "title", ascending: true, selector: #selector( NSString.localizedCaseInsensitiveCompare( _: ) ) )
         ]
         

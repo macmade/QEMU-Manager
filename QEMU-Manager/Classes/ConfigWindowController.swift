@@ -46,6 +46,7 @@ import Cocoa
         
         self.addController( ConfigGeneralViewController( machine: machine ) )
         self.addController( ConfigHardwareViewController( machine: machine  ) )
+        self.addController( ConfigDisksViewController( machine: machine  ) )
     }
     
     required init?( coder: NSCoder )

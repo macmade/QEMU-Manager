@@ -48,22 +48,26 @@ import Foundation
         case windowsLegacy
     }
     
+    @objc public private( set ) dynamic var version:      UInt64       = 0
     @objc public private( set ) dynamic var uuid:         UUID         = UUID()
     @objc public                dynamic var architecture: Architecture = .aarch64
     @objc public                dynamic var memory:       UInt64       = 2147483648
     @objc public                dynamic var title:        String       = "Untitled"
     @objc public                dynamic var icon:         Icon         = .generic
+    @objc public private( set ) dynamic var disks:        [ Disk ]     = []
     
     public override init()
     {}
     
     public enum CodingKeys: String, CodingKey
     {
+        case version
         case uuid
         case architecture
         case memory
         case title
         case icon
+        case disks
     }
     
     public enum Error: Swift.Error
@@ -75,9 +79,11 @@ import Foundation
     {
         let values = try decoder.container( keyedBy: CodingKeys.self )
         
-        self.uuid   = try values.decode( UUID.self,   forKey: .uuid )
-        self.memory = try values.decode( UInt64.self, forKey: .memory )
-        self.title  = try values.decode( String.self, forKey: .title )
+        self.version = try values.decode( UInt64.self,   forKey: .version )
+        self.uuid    = try values.decode( UUID.self,     forKey: .uuid )
+        self.memory  = try values.decode( UInt64.self,   forKey: .memory )
+        self.title   = try values.decode( String.self,   forKey: .title )
+        self.disks   = try values.decode( [ Disk ].self, forKey: .disks )
         
         guard let arch = Architecture( string: ( try? values.decode( String.self, forKey: .architecture ) ) ?? "" ) else
         {
@@ -92,11 +98,18 @@ import Foundation
     {
         var container = encoder.container( keyedBy: CodingKeys.self )
         
+        try container.encode( self.version,                  forKey: .version )
         try container.encode( self.uuid,                     forKey: .uuid )
         try container.encode( self.architecture.description, forKey: .architecture )
         try container.encode( self.memory,                   forKey: .memory )
         try container.encode( self.title,                    forKey: .title )
         try container.encode( self.icon.description,         forKey: .icon )
+        try container.encode( self.disks,                    forKey: .disks )
+    }
+    
+    public func addDisk( _ disk: Disk )
+    {
+        self.disks.append( disk )
     }
 }
 

@@ -36,6 +36,7 @@
 		05F547A2263C56C4003F1B92 /* WindowsTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 05F5479F263C56C4003F1B92 /* WindowsTemplate.pdf */; };
 		05F547A3263C56C4003F1B92 /* AppleTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 05F547A0263C56C4003F1B92 /* AppleTemplate.pdf */; };
 		05F547A5263C5B50003F1B92 /* ArchitectureToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F547A4263C5B50003F1B92 /* ArchitectureToString.swift */; };
+		05F5485D2640930A003F1B92 /* BytesToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F5485C2640930A003F1B92 /* BytesToString.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -116,6 +117,7 @@
 		05F5479F263C56C4003F1B92 /* WindowsTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = WindowsTemplate.pdf; sourceTree = "<group>"; };
 		05F547A0263C56C4003F1B92 /* AppleTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = AppleTemplate.pdf; sourceTree = "<group>"; };
 		05F547A4263C5B50003F1B92 /* ArchitectureToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchitectureToString.swift; sourceTree = "<group>"; };
+		05F5485C2640930A003F1B92 /* BytesToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BytesToString.swift; sourceTree = "<group>"; };
 		05FFCC4A26206D77006087BA /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -173,6 +175,7 @@
 				05B697FD263424CB00506106 /* ConfigWindowController.swift */,
 				058C989426323AB10086E57E /* VirtualMachine.swift */,
 				058C98AD26330E830086E57E /* ArrayIsEmpty.swift */,
+				05F5485C2640930A003F1B92 /* BytesToString.swift */,
 				058C98B026330FBB0086E57E /* ArrayIsNotEmpty.swift */,
 				058C98B726332F3F0086E57E /* Preferences.swift */,
 				058C98BE263332050086E57E /* Synchronizable.swift */,
@@ -436,6 +439,7 @@
 				05DFDD21261F7BFD00BBE4E3 /* ApplicationDelegate.swift in Sources */,
 				05BEEA08263812BA00EECF3A /* ConfigGeneralViewController.swift in Sources */,
 				05F547A5263C5B50003F1B92 /* ArchitectureToString.swift in Sources */,
+				05F5485D2640930A003F1B92 /* BytesToString.swift in Sources */,
 				058C98B126330FBB0086E57E /* ArrayIsNotEmpty.swift in Sources */,
 				058C98BF263332050086E57E /* Synchronizable.swift in Sources */,
 				05BEEA062638120A00EECF3A /* ConfigViewController.swift in Sources */,

@@ -22,51 +22,44 @@
  * THE SOFTWARE.
  ******************************************************************************/
 
-import Cocoa
+import Foundation
 
-@objc public class ConfigGeneralViewController: ConfigViewController
+@objc( BytesToString ) public class BytesToString: ValueTransformer
 {
-    @objc private dynamic var machine:     VirtualMachine
-    @objc private dynamic var path:        String
-    @objc private dynamic var machineIcon: Int
+    public override class func transformedValueClass() -> AnyClass
     {
-        didSet
+        NSString.self
+    }
+    
+    public override class func allowsReverseTransformation() -> Bool
+    {
+        false
+    }
+    
+    public override func transformedValue( _ value: Any? ) -> Any?
+    {
+        guard let bytes = value as? NSNumber else
         {
-            if let icon = Config.Icon( rawValue: self.machineIcon )
-            {
-                self.machine.config.icon = icon
-            }
-        }
-    }
-    
-    public init( machine: VirtualMachine )
-    {
-        self.machine      = machine
-        self.path         = machine.url?.path ?? "--"
-        self.machineIcon  = machine.config.icon.rawValue
-        
-        super.init( title: "General", icon: nil, sorting: 0 )
-    }
-    
-    required init?( coder: NSCoder )
-    {
-        nil
-    }
-    
-    public override var nibName: NSNib.Name?
-    {
-        "ConfigGeneralViewController"
-    }
-    
-    @IBAction private func revealInFinder( _ sender: Any? )
-    {
-        guard let url = self.machine.url else
-        {
-            NSSound.beep()
-            
-            return
+            return "--" as NSString
         }
         
-        NSWorkspace.shared.selectFile( url.path, inFileViewerRootedAtPath: "" )
+        if bytes.uint64Value < 1024
+        {
+            return "\( bytes.uint64Value ) bytes" as NSString
+        }
+        else if bytes.uint64Value < ( 1024 * 1024 )
+        {
+            return "\( String( format: "%.2f KB", Double( bytes.uint64Value ) / 1024.0 ) )" as NSString
+        }
+        else if bytes.uint64Value < ( 1024 * 1024 * 1024 )
+        {
+            return "\( String( format: "%.2f MB", ( Double( bytes.uint64Value ) / 1024.0 ) / 1024.0 ) )" as NSString
+        }
+        else if bytes.uint64Value < ( 1024 * 1024 * 1024 * 1024 )
+        {
+            return "\( String( format: "%.2f GB", ( ( Double( bytes.uint64Value ) / 1024.0 ) / 1024.0 ) / 1024.0 ) )" as NSString
+        }
+        
+        return "\( String( format: "%.2f TB", ( ( ( Double( bytes.uint64Value ) / 1024.0 ) / 1024.0 ) / 1024.0 ) / 1024.0 ) )" as NSString
     }
 }

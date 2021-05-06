@@ -26,13 +26,28 @@ import Cocoa
 
 @objc public class ConfigHardwareViewController: ConfigViewController
 {
-    @objc private dynamic var machine: VirtualMachine
+    @objc private dynamic var minMemory:    UInt64
+    @objc private dynamic var maxMemory:    UInt64
+    @objc private dynamic var machine:      VirtualMachine
+    @objc private dynamic var architecture: Int
+    {
+        didSet
+        {
+            if let arch = Config.Architecture( rawValue: self.architecture )
+            {
+                self.machine.config.architecture = arch
+            }
+        }
+    }
     
     public init( machine: VirtualMachine )
     {
-        self.machine = machine
+        self.minMemory    = 1024 * 1024
+        self.maxMemory    = ProcessInfo().physicalMemory / 2
+        self.machine      = machine
+        self.architecture = machine.config.architecture.rawValue
         
-        super.init( title: "Hardware", icon: nil, sorting: 1 )
+        super.init( title: "Hardware", icon: nil, sorting: 0 )
     }
     
     required init?( coder: NSCoder )

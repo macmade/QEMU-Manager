@@ -180,6 +180,7 @@ DQ
                                                         </tableColumn>
                                                     </tableColumns>
                                                     <connections>
+                                                        <action trigger="doubleAction" selector="start:" target="-2" id="4fj-CH-kM6"/>
                                                         <binding destination="cVS-ih-Quc" name="content" keyPath="arrangedObjects" id="Lsd-iy-IHj"/>
                                                         <binding destination="cVS-ih-Quc" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="Lsd-iy-IHj" id="VRE-8Q-V90"/>
                                                         <binding destination="cVS-ih-Quc" name="sortDescriptors" keyPath="sortDescriptors" previousBinding="VRE-8Q-V90" id="Aee-0w-TCb"/>

@@ -31,6 +31,9 @@
 		05CCF0202645EF5900A3A9F8 /* QEMU.Img.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CCF01F2645EF5900A3A9F8 /* QEMU.Img.swift */; };
 		05CCF0222645F96E00A3A9F8 /* DiskInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CCF0212645F96E00A3A9F8 /* DiskInfo.swift */; };
 		05CCF0242646051B00A3A9F8 /* OptionalString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CCF0232646051B00A3A9F8 /* OptionalString.swift */; };
+		05CCF0262646076300A3A9F8 /* QEMU.System.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CCF0252646076300A3A9F8 /* QEMU.System.swift */; };
+		05CCF02E2646082400A3A9F8 /* ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 05CCF02D2646082400A3A9F8 /* ObjC.m */; };
+		05CCF0312646089A00A3A9F8 /* NSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CCF0302646089A00A3A9F8 /* NSError.swift */; };
 		05DFDD21261F7BFD00BBE4E3 /* ApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DFDD20261F7BFD00BBE4E3 /* ApplicationDelegate.swift */; };
 		05DFDD26261F7BFE00BBE4E3 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05DFDD24261F7BFE00BBE4E3 /* MainMenu.xib */; };
 		05DFDD75261F7EB000BBE4E3 /* AboutWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05DFDD73261F7EB000BBE4E3 /* AboutWindowController.xib */; };
@@ -75,6 +78,11 @@
 		05CCF01F2645EF5900A3A9F8 /* QEMU.Img.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QEMU.Img.swift; sourceTree = "<group>"; };
 		05CCF0212645F96E00A3A9F8 /* DiskInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskInfo.swift; sourceTree = "<group>"; };
 		05CCF0232646051B00A3A9F8 /* OptionalString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalString.swift; sourceTree = "<group>"; };
+		05CCF0252646076300A3A9F8 /* QEMU.System.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QEMU.System.swift; sourceTree = "<group>"; };
+		05CCF02C2646082400A3A9F8 /* ObjC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjC.h; sourceTree = "<group>"; };
+		05CCF02D2646082400A3A9F8 /* ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjC.m; sourceTree = "<group>"; };
+		05CCF02F2646084600A3A9F8 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		05CCF0302646089A00A3A9F8 /* NSError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSError.swift; sourceTree = "<group>"; };
 		05DFDD1D261F7BFD00BBE4E3 /* QEMU Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "QEMU Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		05DFDD20261F7BFD00BBE4E3 /* ApplicationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationDelegate.swift; sourceTree = "<group>"; };
 		05DFDD25261F7BFE00BBE4E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -192,7 +200,6 @@
 				058C98AD26330E830086E57E /* ArrayIsEmpty.swift */,
 				058C98B026330FBB0086E57E /* ArrayIsNotEmpty.swift */,
 				05F5485C2640930A003F1B92 /* BytesToString.swift */,
-				05CCEFE526445AC000A3A9F8 /* SizeFormatter.swift */,
 				05E49B0E262079E400163619 /* Config.swift */,
 				05CCEFD72643EAEE00A3A9F8 /* ConfigDisksViewController.swift */,
 				05BEEA07263812BA00EECF3A /* ConfigGeneralViewController.swift */,
@@ -201,15 +208,20 @@
 				05B697FD263424CB00506106 /* ConfigWindowController.swift */,
 				05CCEFDC2643EDA600A3A9F8 /* Disk.swift */,
 				05CCF0212645F96E00A3A9F8 /* DiskInfo.swift */,
+				05CCF01D2645EE7000A3A9F8 /* Error.swift */,
 				05DFDD7E261F7F5F00BBE4E3 /* LibraryWindowController.swift */,
+				05CCF0162645C74700A3A9F8 /* NewDiskWindowController.swift */,
+				05CCF0302646089A00A3A9F8 /* NSError.swift */,
+				05CCF02C2646082400A3A9F8 /* ObjC.h */,
+				05CCF02D2646082400A3A9F8 /* ObjC.m */,
+				05CCF0232646051B00A3A9F8 /* OptionalString.swift */,
 				058C98B726332F3F0086E57E /* Preferences.swift */,
+				05CCF01F2645EF5900A3A9F8 /* QEMU.Img.swift */,
+				05CCF01B2645ECF600A3A9F8 /* QEMU.swift */,
+				05CCF0252646076300A3A9F8 /* QEMU.System.swift */,
+				05CCEFE526445AC000A3A9F8 /* SizeFormatter.swift */,
 				058C98BE263332050086E57E /* Synchronizable.swift */,
 				058C989426323AB10086E57E /* VirtualMachine.swift */,
-				05CCF0162645C74700A3A9F8 /* NewDiskWindowController.swift */,
-				05CCF01B2645ECF600A3A9F8 /* QEMU.swift */,
-				05CCF01F2645EF5900A3A9F8 /* QEMU.Img.swift */,
-				05CCF01D2645EE7000A3A9F8 /* Error.swift */,
-				05CCF0232646051B00A3A9F8 /* OptionalString.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -233,6 +245,7 @@
 		05DFDD33261F7C4400BBE4E3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				05CCF02F2646084600A3A9F8 /* Bridging-Header.h */,
 				058C98BA26332FAA0086E57E /* Defaults.plist */,
 				05DFDD27261F7BFE00BBE4E3 /* Info.plist */,
 				05DFDD28261F7BFE00BBE4E3 /* QEMU-Manager.entitlements */,
@@ -418,6 +431,7 @@
 				TargetAttributes = {
 					05DFDD1C261F7BFD00BBE4E3 = {
 						CreatedOnToolsVersion = 12.4;
+						LastSwiftMigration = 1250;
 					};
 				};
 			};
@@ -479,10 +493,13 @@
 				05F547A5263C5B50003F1B92 /* ArchitectureToString.swift in Sources */,
 				05F5485D2640930A003F1B92 /* BytesToString.swift in Sources */,
 				058C98B126330FBB0086E57E /* ArrayIsNotEmpty.swift in Sources */,
+				05CCF0312646089A00A3A9F8 /* NSError.swift in Sources */,
+				05CCF0262646076300A3A9F8 /* QEMU.System.swift in Sources */,
 				058C98BF263332050086E57E /* Synchronizable.swift in Sources */,
 				05BEEA062638120A00EECF3A /* ConfigViewController.swift in Sources */,
 				05CCF01C2645ECF600A3A9F8 /* QEMU.swift in Sources */,
 				058C989526323AB10086E57E /* VirtualMachine.swift in Sources */,
+				05CCF02E2646082400A3A9F8 /* ObjC.m in Sources */,
 				05DFDD78261F7EB700BBE4E3 /* AboutWindowController.swift in Sources */,
 				058C98AE26330E830086E57E /* ArrayIsEmpty.swift in Sources */,
 				05DFDD7F261F7F5F00BBE4E3 /* LibraryWindowController.swift in Sources */,
@@ -587,6 +604,7 @@
 		05DFDD2C261F7BFE00BBE4E3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "QEMU-Manager/QEMU-Manager.entitlements";
 				INFOPLIST_FILE = "QEMU-Manager/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -595,12 +613,16 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.QEMU-Manager";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "QEMU-Manager/Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
 		05DFDD2D261F7BFE00BBE4E3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "QEMU-Manager/QEMU-Manager.entitlements";
 				INFOPLIST_FILE = "QEMU-Manager/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -609,6 +631,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.QEMU-Manager";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "QEMU-Manager/Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

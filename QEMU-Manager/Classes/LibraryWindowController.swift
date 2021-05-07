@@ -219,4 +219,32 @@ import Cocoa
         
         menu.items.forEach { $0.representedObject = machine }
     }
+    
+    @IBAction private func start( _ sender: Any? )
+    {
+        guard let arranged = self.machines.arrangedObjects as? [ VirtualMachine ] else
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
+        if self.tableView.clickedRow < 0 || self.tableView.clickedRow >= arranged.count
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
+        let machine = arranged[ self.tableView.clickedRow ]
+        
+        do
+        {
+            try QEMU.System.start( machine: machine )
+        }
+        catch let error
+        {
+            NSAlert( error: error ).runModal()
+        }
+    }
 }

@@ -56,7 +56,7 @@ public class QEMU
             process.standardOutput = out
             process.standardError  = err
             
-            process.launch()
+            try ObjC.catchException { process.launch() }
             process.waitUntilExit()
             
             if process.terminationStatus != 0
@@ -78,6 +78,14 @@ public class QEMU
         public init()
         {
             super.init( tool: "qemu-img" )
+        }
+    }
+    
+    public class System: Executable
+    {
+        public init( architecture: Config.Architecture )
+        {
+            super.init( tool: "qemu-system-\( architecture.description )" )
         }
     }
 }

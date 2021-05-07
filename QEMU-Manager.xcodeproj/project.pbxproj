@@ -30,6 +30,7 @@
 		05CCF01E2645EE7000A3A9F8 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CCF01D2645EE7000A3A9F8 /* Error.swift */; };
 		05CCF0202645EF5900A3A9F8 /* QEMU.Img.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CCF01F2645EF5900A3A9F8 /* QEMU.Img.swift */; };
 		05CCF0222645F96E00A3A9F8 /* DiskInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CCF0212645F96E00A3A9F8 /* DiskInfo.swift */; };
+		05CCF0242646051B00A3A9F8 /* OptionalString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CCF0232646051B00A3A9F8 /* OptionalString.swift */; };
 		05DFDD21261F7BFD00BBE4E3 /* ApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DFDD20261F7BFD00BBE4E3 /* ApplicationDelegate.swift */; };
 		05DFDD26261F7BFE00BBE4E3 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05DFDD24261F7BFE00BBE4E3 /* MainMenu.xib */; };
 		05DFDD75261F7EB000BBE4E3 /* AboutWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05DFDD73261F7EB000BBE4E3 /* AboutWindowController.xib */; };
@@ -73,6 +74,7 @@
 		05CCF01D2645EE7000A3A9F8 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		05CCF01F2645EF5900A3A9F8 /* QEMU.Img.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QEMU.Img.swift; sourceTree = "<group>"; };
 		05CCF0212645F96E00A3A9F8 /* DiskInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskInfo.swift; sourceTree = "<group>"; };
+		05CCF0232646051B00A3A9F8 /* OptionalString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalString.swift; sourceTree = "<group>"; };
 		05DFDD1D261F7BFD00BBE4E3 /* QEMU Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "QEMU Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		05DFDD20261F7BFD00BBE4E3 /* ApplicationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationDelegate.swift; sourceTree = "<group>"; };
 		05DFDD25261F7BFE00BBE4E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 				05CCF01B2645ECF600A3A9F8 /* QEMU.swift */,
 				05CCF01F2645EF5900A3A9F8 /* QEMU.Img.swift */,
 				05CCF01D2645EE7000A3A9F8 /* Error.swift */,
+				05CCF0232646051B00A3A9F8 /* OptionalString.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -472,6 +475,7 @@
 				05CCEFE626445AC000A3A9F8 /* SizeFormatter.swift in Sources */,
 				05DFDD21261F7BFD00BBE4E3 /* ApplicationDelegate.swift in Sources */,
 				05BEEA08263812BA00EECF3A /* ConfigGeneralViewController.swift in Sources */,
+				05CCF0242646051B00A3A9F8 /* OptionalString.swift in Sources */,
 				05F547A5263C5B50003F1B92 /* ArchitectureToString.swift in Sources */,
 				05F5485D2640930A003F1B92 /* BytesToString.swift in Sources */,
 				058C98B126330FBB0086E57E /* ArrayIsNotEmpty.swift in Sources */,

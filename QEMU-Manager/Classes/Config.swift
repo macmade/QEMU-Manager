@@ -55,6 +55,7 @@ import Foundation
     @objc public                dynamic var title:        String       = "Untitled"
     @objc public                dynamic var icon:         Icon         = .generic
     @objc public private( set ) dynamic var disks:        [ Disk ]     = []
+    @objc public                dynamic var cdImage:      URL?         = nil
     
     public override init()
     {}
@@ -68,6 +69,7 @@ import Foundation
         case title
         case icon
         case disks
+        case cdImage
     }
     
     public enum Error: Swift.Error
@@ -84,6 +86,7 @@ import Foundation
         self.memory  = try values.decode( UInt64.self,   forKey: .memory )
         self.title   = try values.decode( String.self,   forKey: .title )
         self.disks   = try values.decode( [ Disk ].self, forKey: .disks )
+        self.cdImage = try values.decode( URL?.self,     forKey: .cdImage )
         
         guard let arch = Architecture( string: ( try? values.decode( String.self, forKey: .architecture ) ) ?? "" ) else
         {
@@ -105,6 +108,7 @@ import Foundation
         try container.encode( self.title,                    forKey: .title )
         try container.encode( self.icon.description,         forKey: .icon )
         try container.encode( self.disks,                    forKey: .disks )
+        try container.encode( self.cdImage,                  forKey: .cdImage )
     }
     
     public func addDisk( _ disk: Disk )

@@ -140,4 +140,29 @@ import Cocoa
         
         self.machine.disks.forEach { self.disks.addObject( $0 ) }
     }
+    
+    @IBAction private func chooseImage( _ sender: Any? )
+    {
+        guard let window = self.view.window else
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
+        let panel                     = NSOpenPanel()
+        panel.canChooseFiles          = true
+        panel.canChooseDirectories    = false
+        panel.allowsMultipleSelection = false
+        
+        panel.beginSheetModal( for: window )
+        {
+            r in if r != .OK
+            {
+                return
+            }
+            
+            self.machine.config.cdImage = panel.url
+        }
+    }
 }

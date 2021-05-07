@@ -43,6 +43,11 @@ import Cocoa
         Preferences.shared.virtualMachines().forEach { self.machines.addObject( $0 ) }
     }
     
+    public func configWindowController( for machine: VirtualMachine ) -> ConfigWindowController?
+    {
+        return self.configWindowControllers[ machine.config.uuid ]
+    }
+    
     @IBAction public func showConfigWindow( _ sender: Any? )
     {
         guard let machine = sender as? VirtualMachine else
@@ -174,6 +179,7 @@ import Cocoa
                 return
             }
             
+            self.configWindowController( for: machine )?.close()
             self.machines.removeObject( machine )
             Preferences.shared.removeVirtualMachines( machine )
             

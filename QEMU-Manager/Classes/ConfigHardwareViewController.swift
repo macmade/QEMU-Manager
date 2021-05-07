@@ -26,6 +26,8 @@ import Cocoa
 
 @objc public class ConfigHardwareViewController: ConfigViewController
 {
+    @IBOutlet private var sizeFormatter: SizeFormatter!
+    
     @objc private dynamic var minMemory:    UInt64
     @objc private dynamic var maxMemory:    UInt64
     @objc private dynamic var machine:      VirtualMachine
@@ -58,5 +60,13 @@ import Cocoa
     public override var nibName: NSNib.Name?
     {
         "ConfigHardwareViewController"
+    }
+    
+    public override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        
+        self.sizeFormatter.min = self.minMemory
+        self.sizeFormatter.max = self.maxMemory
     }
 }

@@ -7,17 +7,18 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="ConfigHardwareViewController" customModule="QEMU_Manager" customModuleProvider="target">
             <connections>
+                <outlet property="sizeFormatter" destination="mSi-V0-2vp" id="YSp-Ee-VDx"/>
                 <outlet property="view" destination="c22-O7-iKe" id="V1k-g9-ftm"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="c22-O7-iKe">
-            <rect key="frame" x="0.0" y="0.0" width="500" height="180"/>
+            <rect key="frame" x="0.0" y="0.0" width="500" height="217"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9VN-tI-6fN">
-                    <rect key="frame" x="18" y="124" width="83" height="16"/>
+                    <rect key="frame" x="18" y="161" width="83" height="16"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="Architecture:" id="MNj-Cl-s80">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -25,7 +26,7 @@
                     </textFieldCell>
                 </textField>
                 <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QB1-pu-A82">
-                    <rect key="frame" x="17" y="92" width="190" height="25"/>
+                    <rect key="frame" x="17" y="129" width="190" height="25"/>
                     <popUpButtonCell key="cell" type="push" title="ARM 64-bits - aarch64" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="6rg-aR-yT1" id="FRP-mc-1bY">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="menu"/>
@@ -48,7 +49,7 @@
                     </connections>
                 </popUpButton>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tB1-uK-Y8T">
-                    <rect key="frame" x="18" y="72" width="58" height="16"/>
+                    <rect key="frame" x="18" y="97" width="58" height="16"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="Memory:" id="rqz-Qi-rFQ">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -56,7 +57,7 @@
                     </textFieldCell>
                 </textField>
                 <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tal-xy-AXL">
-                    <rect key="frame" x="18" y="38" width="464" height="28"/>
+                    <rect key="frame" x="18" y="63" width="464" height="28"/>
                     <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="1048576" maxValue="8589934592" doubleValue="1048576" tickMarkPosition="below" numberOfTickMarks="50" sliderType="linear" id="SCq-aY-eQP"/>
                     <connections>
                         <binding destination="-2" name="value" keyPath="self.machine.config.memory" previousBinding="w2j-tR-rhJ" id="ZEF-Kv-QL2"/>
@@ -64,41 +65,38 @@
                         <binding destination="-2" name="minValue" keyPath="self.minMemory" previousBinding="WPN-Qu-h94" id="w2j-tR-rhJ"/>
                     </connections>
                 </slider>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TgV-Ly-DdM">
-                    <rect key="frame" x="18" y="20" width="37" height="16"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="amQ-EF-Cz9">
+                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bGb-OA-GIz">
+                    <rect key="frame" x="20" y="40" width="460" height="21"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="L82-Vf-CaZ">
+                        <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" formatWidth="-1" groupingSize="0" minimumIntegerDigits="1" maximumIntegerDigits="42" id="mSi-V0-2vp" customClass="SizeFormatter"/>
                         <font key="font" metaFont="system"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                     <connections>
-                        <binding destination="-2" name="value" keyPath="self.machine.config.memory" id="LMl-sg-5GO">
-                            <dictionary key="options">
-                                <string key="NSValueTransformerName">BytesToString</string>
-                            </dictionary>
-                        </binding>
+                        <binding destination="-2" name="value" keyPath="self.machine.config.memory" id="bTs-Zk-RNX"/>
                     </connections>
                 </textField>
             </subviews>
             <constraints>
                 <constraint firstItem="9VN-tI-6fN" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" symbolic="YES" id="2Wg-EQ-WTO"/>
                 <constraint firstItem="tB1-uK-Y8T" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" symbolic="YES" id="8ge-ms-ESG"/>
-                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="TgV-Ly-DdM" secondAttribute="trailing" constant="20" symbolic="YES" id="9Gd-X4-Jbc"/>
-                <constraint firstAttribute="bottom" secondItem="TgV-Ly-DdM" secondAttribute="bottom" constant="20" symbolic="YES" id="IJA-oI-SeY"/>
+                <constraint firstAttribute="bottom" secondItem="bGb-OA-GIz" secondAttribute="bottom" constant="40" id="I5d-nM-KrT"/>
+                <constraint firstItem="bGb-OA-GIz" firstAttribute="top" secondItem="tal-xy-AXL" secondAttribute="bottom" constant="8" symbolic="YES" id="JUW-X6-xkI"/>
                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="QB1-pu-A82" secondAttribute="trailing" constant="20" symbolic="YES" id="OGV-Yv-5rU"/>
                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="tB1-uK-Y8T" secondAttribute="trailing" constant="20" symbolic="YES" id="Org-5g-dHo"/>
                 <constraint firstItem="tal-xy-AXL" firstAttribute="top" secondItem="tB1-uK-Y8T" secondAttribute="bottom" constant="8" symbolic="YES" id="Pqy-XC-ofV"/>
                 <constraint firstItem="QB1-pu-A82" firstAttribute="top" secondItem="9VN-tI-6fN" secondAttribute="bottom" constant="8" symbolic="YES" id="TJU-Nw-9PB"/>
+                <constraint firstAttribute="trailing" secondItem="bGb-OA-GIz" secondAttribute="trailing" constant="20" symbolic="YES" id="WVN-uy-dIz"/>
                 <constraint firstItem="QB1-pu-A82" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" symbolic="YES" id="ZVi-EK-dEq"/>
                 <constraint firstItem="9VN-tI-6fN" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="40" id="ZaP-7C-4jL"/>
                 <constraint firstAttribute="trailing" secondItem="tal-xy-AXL" secondAttribute="trailing" constant="20" symbolic="YES" id="brs-3U-I72"/>
-                <constraint firstItem="TgV-Ly-DdM" firstAttribute="top" secondItem="tal-xy-AXL" secondAttribute="bottom" constant="8" symbolic="YES" id="btF-0H-aF2"/>
-                <constraint firstItem="tB1-uK-Y8T" firstAttribute="top" secondItem="QB1-pu-A82" secondAttribute="bottom" constant="8" symbolic="YES" id="j95-GX-HkS"/>
+                <constraint firstItem="bGb-OA-GIz" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" symbolic="YES" id="fCm-xr-IeE"/>
+                <constraint firstItem="tB1-uK-Y8T" firstAttribute="top" secondItem="QB1-pu-A82" secondAttribute="bottom" constant="20" id="j95-GX-HkS"/>
                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="9VN-tI-6fN" secondAttribute="trailing" constant="20" symbolic="YES" id="lwr-qU-zo3"/>
-                <constraint firstItem="TgV-Ly-DdM" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" symbolic="YES" id="m8j-V1-wOk"/>
                 <constraint firstItem="tal-xy-AXL" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" symbolic="YES" id="oBN-B6-d61"/>
             </constraints>
-            <point key="canvasLocation" x="20" y="309"/>
+            <point key="canvasLocation" x="20" y="359"/>
         </customView>
     </objects>
 </document>

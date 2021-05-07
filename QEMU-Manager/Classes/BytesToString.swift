@@ -38,28 +38,11 @@ import Foundation
     
     public override func transformedValue( _ value: Any? ) -> Any?
     {
-        guard let bytes = value as? NSNumber else
+        guard let n = value as? NSNumber else
         {
-            return "--" as NSString
+            return "--"
         }
         
-        if bytes.uint64Value < 1024
-        {
-            return "\( bytes.uint64Value ) bytes" as NSString
-        }
-        else if bytes.uint64Value < ( 1024 * 1024 )
-        {
-            return "\( String( format: "%.2f KB", Double( bytes.uint64Value ) / 1024.0 ) )" as NSString
-        }
-        else if bytes.uint64Value < ( 1024 * 1024 * 1024 )
-        {
-            return "\( String( format: "%.2f MB", ( Double( bytes.uint64Value ) / 1024.0 ) / 1024.0 ) )" as NSString
-        }
-        else if bytes.uint64Value < ( 1024 * 1024 * 1024 * 1024 )
-        {
-            return "\( String( format: "%.2f GB", ( ( Double( bytes.uint64Value ) / 1024.0 ) / 1024.0 ) / 1024.0 ) )" as NSString
-        }
-        
-        return "\( String( format: "%.2f TB", ( ( ( Double( bytes.uint64Value ) / 1024.0 ) / 1024.0 ) / 1024.0 ) / 1024.0 ) )" as NSString
+        return SizeFormatter().string( from: n )
     }
 }

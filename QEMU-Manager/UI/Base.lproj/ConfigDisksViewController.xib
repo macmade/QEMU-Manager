@@ -25,16 +25,15 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <scrollView autoresizesSubviews="NO" borderType="line" autohidesScrollers="YES" horizontalLineScroll="24" horizontalPageScroll="10" verticalLineScroll="24" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M5v-30-SM4">
+                <scrollView autoresizesSubviews="NO" borderType="line" autohidesScrollers="YES" horizontalLineScroll="50" horizontalPageScroll="10" verticalLineScroll="50" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M5v-30-SM4">
                     <rect key="frame" x="20" y="48" width="460" height="261"/>
                     <clipView key="contentView" autoresizesSubviews="NO" id="w1k-tr-y3w">
                         <rect key="frame" x="1" y="1" width="458" height="259"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView autoresizesSubviews="NO" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="24" rowSizeStyle="automatic" viewBased="YES" id="Xzx-oi-cDx">
+                            <tableView autoresizesSubviews="NO" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="50" rowSizeStyle="automatic" usesAutomaticRowHeights="YES" viewBased="YES" id="Xzx-oi-cDx">
                                 <rect key="frame" x="0.0" y="0.0" width="458" height="259"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <size key="intercellSpacing" width="17" height="0.0"/>
                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                 <tableColumns>
@@ -51,25 +50,57 @@
                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         <prototypeCellViews>
                                             <tableCellView id="khS-Yd-yp2">
-                                                <rect key="frame" x="18" y="0.0" width="441" height="24"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="458" height="50"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Oy2-gv-cuT">
-                                                        <rect key="frame" x="18" y="4" width="37" height="16"/>
-                                                        <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="eGc-93-VA8">
+                                                        <rect key="frame" x="3" y="29" width="411" height="16"/>
+                                                        <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Label" id="eGc-93-VA8">
                                                             <font key="font" usesAppearanceFont="YES"/>
                                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                         <connections>
-                                                            <binding destination="khS-Yd-yp2" name="value" keyPath="objectValue.uuid" id="Ftv-lb-Rz0"/>
+                                                            <binding destination="khS-Yd-yp2" name="value" keyPath="objectValue.disk.label" id="IYj-hg-5Bo"/>
+                                                        </connections>
+                                                    </textField>
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dly-J8-Y7S">
+                                                        <rect key="frame" x="3" y="5" width="37" height="16"/>
+                                                        <textFieldCell key="cell" lineBreakMode="truncatingTail" title="Label" id="5gj-b0-YFn">
+                                                            <font key="font" usesAppearanceFont="YES"/>
+                                                            <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                        <connections>
+                                                            <binding destination="khS-Yd-yp2" name="value" keyPath="objectValue.disk.uuid" id="caQ-pw-lhU"/>
+                                                        </connections>
+                                                    </textField>
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gg6-EV-4xD">
+                                                        <rect key="frame" x="418" y="17" width="37" height="16"/>
+                                                        <textFieldCell key="cell" lineBreakMode="truncatingTail" title="Label" id="MxH-aM-PTX">
+                                                            <font key="font" usesAppearanceFont="YES"/>
+                                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                        <connections>
+                                                            <binding destination="khS-Yd-yp2" name="value" keyPath="objectValue.size" id="lUp-YL-BEp">
+                                                                <dictionary key="options">
+                                                                    <string key="NSValueTransformerName">BytesToString</string>
+                                                                </dictionary>
+                                                            </binding>
                                                         </connections>
                                                     </textField>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Oy2-gv-cuT" secondAttribute="trailing" constant="20" symbolic="YES" id="eDU-P4-Wgw"/>
-                                                    <constraint firstItem="Oy2-gv-cuT" firstAttribute="centerY" secondItem="khS-Yd-yp2" secondAttribute="centerY" id="mfz-A6-lRq"/>
-                                                    <constraint firstItem="Oy2-gv-cuT" firstAttribute="leading" secondItem="khS-Yd-yp2" secondAttribute="leading" constant="20" symbolic="YES" id="y6W-DZ-JWO"/>
+                                                    <constraint firstAttribute="trailing" secondItem="gg6-EV-4xD" secondAttribute="trailing" constant="5" id="6eJ-b9-2Ta"/>
+                                                    <constraint firstItem="dly-J8-Y7S" firstAttribute="leading" secondItem="khS-Yd-yp2" secondAttribute="leading" constant="5" id="CcP-sp-k0v"/>
+                                                    <constraint firstItem="Oy2-gv-cuT" firstAttribute="leading" secondItem="khS-Yd-yp2" secondAttribute="leading" constant="5" id="EBI-Ic-6h3"/>
+                                                    <constraint firstItem="dly-J8-Y7S" firstAttribute="top" secondItem="Oy2-gv-cuT" secondAttribute="bottom" constant="8" symbolic="YES" id="Tn4-Ak-8Bp"/>
+                                                    <constraint firstItem="Oy2-gv-cuT" firstAttribute="top" secondItem="khS-Yd-yp2" secondAttribute="top" constant="5" id="Xud-OZ-KBv"/>
+                                                    <constraint firstAttribute="bottom" secondItem="dly-J8-Y7S" secondAttribute="bottom" constant="5" id="iVn-9f-NV4"/>
+                                                    <constraint firstItem="gg6-EV-4xD" firstAttribute="leading" secondItem="Oy2-gv-cuT" secondAttribute="trailing" constant="8" symbolic="YES" id="j2Q-7k-RLA"/>
+                                                    <constraint firstItem="gg6-EV-4xD" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="dly-J8-Y7S" secondAttribute="trailing" constant="8" symbolic="YES" id="oMF-zG-iAB"/>
+                                                    <constraint firstItem="gg6-EV-4xD" firstAttribute="centerY" secondItem="khS-Yd-yp2" secondAttribute="centerY" id="r1P-jB-Qac"/>
                                                 </constraints>
                                             </tableCellView>
                                         </prototypeCellViews>

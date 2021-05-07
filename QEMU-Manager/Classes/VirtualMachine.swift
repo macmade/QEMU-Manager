@@ -127,4 +127,9 @@ import Cocoa
         
         try data.write( to: url.appendingPathComponent( "Config.json" ) )
     }
+    
+    public var disks: [ DiskInfo ]
+    {
+        return self.config.disks.compactMap { DiskInfo( machine: self, disk: $0 ) }
+    }
 }

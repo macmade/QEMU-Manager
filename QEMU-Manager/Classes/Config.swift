@@ -111,6 +111,11 @@ import Foundation
     {
         self.disks.append( disk )
     }
+    
+    public func removeDisk( _ disk: Disk )
+    {
+        self.disks.removeAll { $0.uuid == disk.uuid }
+    }
 }
 
 extension Config.Architecture: CustomStringConvertible

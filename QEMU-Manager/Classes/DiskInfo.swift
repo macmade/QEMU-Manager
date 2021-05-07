@@ -24,41 +24,43 @@
 
 import Foundation
 
-extension QEMU.Img
+@objc public class DiskInfo: NSObject
 {
-    static func create( url: URL, size: UInt64, format: String ) throws
-    {
-        let args =
-        [
-            "create",
-            "-f",
-            format,
-            url.path,
-            "\( size )"
-        ]
-        
-        let _ = try QEMU.Img().execute( arguments: args )
-    }
+    @objc public private( set ) dynamic var machine: VirtualMachine
+    @objc public private( set ) dynamic var disk:    Disk
+    @objc public private( set ) dynamic var url:     URL
+    @objc public private( set ) dynamic var size:    UInt64
     
-    static func info( url: URL ) throws -> [ String ]
+    public init?( machine: VirtualMachine, disk: Disk )
     {
-        let res = try QEMU.Img().execute( arguments: [ "info", url.path ] )
-        
-        return res?.out.components( separatedBy: .newlines ).map { $0.trimmingCharacters( in: .whitespaces ) } ?? []
-    }
-    
-    static func size( url: URL ) throws -> String?
-    {
-        let info = try QEMU.Img.info( url: url )
-        
-        for line in info
+        guard let url = machine.url else
         {
-            if line.hasPrefix( "virtual size:" )
-            {
-                return String( line.suffix( from: line.index( line.startIndex, offsetBy: 13 ) ) ).trimmingCharacters( in: .whitespaces )
-            }
+            return nil
         }
         
-        return nil
+        if machine.config.disks.contains( where: { $0.uuid == disk.uuid } ) == false
+        {
+            return nil
+        }
+        
+        self.machine = machine
+        self.disk    = disk
+        self.url     = url.appendingPathComponent( disk.uuid.uuidString ).appendingPathExtension( "qcow2" )
+        
+        do
+        {
+            guard let size   = try QEMU.Img.size( url: self.url ),
+                  let number = SizeFormatter().number( from: size )
+            else
+            {
+                return nil
+            }
+            
+            self.size = number.uint64Value
+        }
+        catch
+        {
+            return nil
+        }
     }
 }

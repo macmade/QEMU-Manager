@@ -112,8 +112,6 @@ import Cocoa
                 
                 DispatchQueue.main.asyncAfter( deadline: .now() + .milliseconds( 500 ) )
                 {
-                    self.loading = false
-                    
                     parent.endSheet( window, returnCode: .OK )
                 }
             }

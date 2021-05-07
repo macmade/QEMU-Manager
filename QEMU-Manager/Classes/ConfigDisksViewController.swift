@@ -52,8 +52,7 @@ import Cocoa
     public override func viewDidLoad()
     {
         super.viewDidLoad()
-        
-        self.machine.config.disks.forEach { self.disks.addObject( $0 ) }
+        self.reloadDisks()
     }
     
     @IBAction private func addRemoveDisk( _ sender: Any? )
@@ -101,16 +100,44 @@ import Cocoa
             
             self.newDiskWindowController = nil
             
-            if r == .OK, let disks = self.disks.content as? [ Disk ]
+            if r == .OK
             {
-                disks.forEach { self.disks.removeObject( $0 ) }
-                self.machine.config.disks.forEach { self.disks.addObject( $0 ) }
+                self.reloadDisks()
             }
         }
     }
     
     @IBAction private func removeDisk( _ sender: Any? )
     {
-        print( "Remove disk" )
+        guard let disk   = self.disks.selectedObjects.first as? DiskInfo,
+              let window = self.view.window
+        else
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
+        do
+        {
+            try FileManager.default.removeItem( at: disk.url )
+            self.machine.config.removeDisk( disk.disk )
+            try self.machine.save()
+            self.reloadDisks()
+        }
+        catch let error
+        {
+            NSAlert( error: error ).beginSheetModal( for: window, completionHandler: nil )
+        }
+    }
+    
+    private func reloadDisks()
+    {
+        if let existing = self.disks.content as? [ DiskInfo ]
+        {
+            existing.forEach { self.disks.removeObject( $0 ) }
+        }
+        
+        self.machine.disks.forEach { self.disks.addObject( $0 ) }
     }
 }

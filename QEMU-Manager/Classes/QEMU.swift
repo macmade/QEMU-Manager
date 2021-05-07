@@ -41,16 +41,20 @@ public class QEMU
             }
         }
         
-        public func execute( arguments: [ String ] ) throws
+        public func execute( arguments: [ String ] ) throws -> ( out: String, err: String )?
         {
             guard let path = self.url?.path else
             {
                 throw Error( title: "\( self.name ) not available", message: "The QEMU tool \( self.name ) was not found." )
             }
             
-            let process        = Process()
-            process.launchPath = path
-            process.arguments  = arguments
+            let out                = Pipe()
+            let err                = Pipe()
+            let process            = Process()
+            process.launchPath     = path
+            process.arguments      = arguments
+            process.standardOutput = out
+            process.standardError  = err
             
             process.launch()
             process.waitUntilExit()
@@ -59,6 +63,13 @@ public class QEMU
             {
                 throw Error( title: "Error executing \( self.name )", message: "Process exited with status code \( process.terminationStatus )" )
             }
+            
+            let dataOut = try? out.fileHandleForReading.readToEnd()
+            let dataErr = try? err.fileHandleForReading.readToEnd()
+            let strOut  = String( data: dataOut ?? Data(), encoding: .utf8 ) ?? ""
+            let strErr  = String( data: dataErr ?? Data(), encoding: .utf8 ) ?? ""
+            
+            return ( out: strOut, err: strErr )
         }
     }
     

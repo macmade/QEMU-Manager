@@ -40,7 +40,7 @@ import Foundation
         {
             return NSNumber( value: self.min )
         }
-        else if UInt64( value ) > self.max
+        else if self.max > 0 && UInt64( value ) > self.max
         {
             return NSNumber( value: self.max )
         }
@@ -82,11 +82,15 @@ import Foundation
         
         switch unit
         {
-            case "TB": obj?.pointee = self.clamp( value: bytes * Double( SizeFormatter.teraByte ) )
-            case "GB": obj?.pointee = self.clamp( value: bytes * Double( SizeFormatter.gigaByte ) )
-            case "MB": obj?.pointee = self.clamp( value: bytes * Double( SizeFormatter.megaByte ) )
-            case "KB": obj?.pointee = self.clamp( value: bytes * Double( SizeFormatter.kiloByte ) )
-            default:   obj?.pointee = self.clamp( value: bytes )
+            case "TB":  obj?.pointee = self.clamp( value: bytes * Double( SizeFormatter.teraByte ) )
+            case "TIB": obj?.pointee = self.clamp( value: bytes * Double( SizeFormatter.teraByte ) )
+            case "GB":  obj?.pointee = self.clamp( value: bytes * Double( SizeFormatter.gigaByte ) )
+            case "GIB": obj?.pointee = self.clamp( value: bytes * Double( SizeFormatter.gigaByte ) )
+            case "MB":  obj?.pointee = self.clamp( value: bytes * Double( SizeFormatter.megaByte ) )
+            case "MIB": obj?.pointee = self.clamp( value: bytes * Double( SizeFormatter.megaByte ) )
+            case "KB":  obj?.pointee = self.clamp( value: bytes * Double( SizeFormatter.kiloByte ) )
+            case "KIB": obj?.pointee = self.clamp( value: bytes * Double( SizeFormatter.kiloByte ) )
+            default:    obj?.pointee = self.clamp( value: bytes )
         }
     }
     

@@ -101,12 +101,11 @@ import Cocoa
             
             self.newDiskWindowController = nil
             
-            if r != .OK
+            if r == .OK, let disks = self.disks.content as? [ Disk ]
             {
-                return
+                disks.forEach { self.disks.removeObject( $0 ) }
+                self.machine.config.disks.forEach { self.disks.addObject( $0 ) }
             }
-            
-            /* ... */
         }
     }
     

@@ -31,6 +31,7 @@ import Cocoa
     @objc public private( set ) dynamic var size:    UInt64
     @objc public private( set ) dynamic var min:     UInt64
     @objc public private( set ) dynamic var max:     UInt64
+    @objc public private( set ) dynamic var loading: Bool
     
     @IBOutlet private var formatter: SizeFormatter!
     
@@ -41,6 +42,7 @@ import Cocoa
         self.size    = 1024 * 1024 * 1024 * 20
         self.min     = 1024 * 1024
         self.max     = 1024 * 1024 * 1024 * 500
+        self.loading = false
         
         super.init( window: nil )
     }
@@ -80,7 +82,8 @@ import Cocoa
     @IBAction private func createDisk( _ sender: Any? )
     {
         guard let window = self.window,
-              let parent = self.window?.sheetParent
+              let parent = self.window?.sheetParent,
+              let url    = self.machine.url
         else
         {
             NSSound.beep()
@@ -88,6 +91,43 @@ import Cocoa
             return
         }
         
-        parent.endSheet( window, returnCode: .OK )
+        if self.loading
+        {
+            return
+        }
+        
+        self.loading = true
+        
+        DispatchQueue.global( qos: .userInitiated ).async
+        {
+            let disk   = Disk()
+            disk.label = self.label
+            let path   = url.appendingPathComponent( disk.uuid.uuidString ).appendingPathExtension( "qcow2" ).path
+            
+            do
+            {
+                try QEMU.Img.create( url: URL( fileURLWithPath: path ), size: self.size, format: "qcow2" )
+                self.machine.config.addDisk( disk )
+                try self.machine.save()
+                
+                DispatchQueue.main.asyncAfter( deadline: .now() + .milliseconds( 500 ) )
+                {
+                    self.loading = false
+                    
+                    parent.endSheet( window, returnCode: .OK )
+                }
+            }
+            catch let error
+            {
+                try? FileManager.default.removeItem( atPath: path )
+                
+                DispatchQueue.main.async
+                {
+                    self.loading = false
+                    
+                    NSAlert( error: error ).beginSheetModal( for: window, completionHandler: nil )
+                }
+            }
+        }
     }
 }

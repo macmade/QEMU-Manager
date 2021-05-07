@@ -1,18 +1,18 @@
 /*******************************************************************************
  * The MIT License (MIT)
- *
+ * 
  * Copyright (c) 2021 Jean-David Gadina - www.xs-labs.com
- *
+ * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- *
+ * 
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
- *
+ * 
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -24,19 +24,25 @@
 
 import Cocoa
 
-@objc public class ConfigDisksViewController: ConfigViewController
+@objc public class NewDiskWindowController: NSWindowController
 {
-    @objc private dynamic var machine: VirtualMachine
+    @objc public private( set ) dynamic var machine: VirtualMachine
+    @objc public private( set ) dynamic var label:   String
+    @objc public private( set ) dynamic var size:    UInt64
+    @objc public private( set ) dynamic var min:     UInt64
+    @objc public private( set ) dynamic var max:     UInt64
     
-    @IBOutlet private var disks: NSArrayController!
-    
-    private var newDiskWindowController: NewDiskWindowController?
+    @IBOutlet private var formatter: SizeFormatter!
     
     public init( machine: VirtualMachine )
     {
         self.machine = machine
+        self.label   = "Untitled"
+        self.size    = 1024 * 1024 * 1024 * 20
+        self.min     = 1024 * 1024
+        self.max     = 1024 * 1024 * 1024 * 500
         
-        super.init( title: "Disks", icon: nil, sorting: 2 )
+        super.init( window: nil )
     }
     
     required init?( coder: NSCoder )
@@ -44,48 +50,23 @@ import Cocoa
         nil
     }
     
-    public override var nibName: NSNib.Name?
+    public override var windowNibName: NSNib.Name?
     {
-        "ConfigDisksViewController"
+        "NewDiskWindowController"
     }
     
-    public override func viewDidLoad()
+    public override func windowDidLoad()
     {
-        super.viewDidLoad()
+        super.windowDidLoad()
         
-        self.machine.config.disks.forEach { self.disks.addObject( $0 ) }
+        self.formatter.min = self.min
+        self.formatter.max = self.max
     }
     
-    @IBAction private func addRemoveDisk( _ sender: Any? )
+    @IBAction private func cancel( _ sender: Any? )
     {
-        guard let button = sender as? NSSegmentedControl else
-        {
-            NSSound.beep()
-            
-            return
-        }
-        
-        switch button.selectedSegment
-        {
-            case 0:  self.addDisk( sender )
-            case 1:  self.removeDisk( sender )
-            default: NSSound.beep()
-        }
-    }
-    
-    @IBAction private func addDisk( _ sender: Any? )
-    {
-        if self.newDiskWindowController != nil
-        {
-            NSSound.beep()
-            
-            return
-        }
-        
-        let controller = NewDiskWindowController( machine: self.machine )
-        
-        guard let window = self.view.window,
-              let sheet  = controller.window
+        guard let window = self.window,
+              let parent = self.window?.sheetParent
         else
         {
             NSSound.beep()
@@ -93,25 +74,20 @@ import Cocoa
             return
         }
         
-        self.newDiskWindowController = controller
-        
-        window.beginSheet( sheet )
-        {
-            r in
-            
-            self.newDiskWindowController = nil
-            
-            if r != .OK
-            {
-                return
-            }
-            
-            /* ... */
-        }
+        parent.endSheet( window, returnCode: .cancel )
     }
     
-    @IBAction private func removeDisk( _ sender: Any? )
+    @IBAction private func createDisk( _ sender: Any? )
     {
-        print( "Remove disk" )
+        guard let window = self.window,
+              let parent = self.window?.sheetParent
+        else
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
+        parent.endSheet( window, returnCode: .OK )
     }
 }

@@ -26,6 +26,12 @@ import Foundation
 
 @objc( SizeFormatter ) public class SizeFormatter: NumberFormatter
 {
+    public enum Style
+    {
+        case standard
+        case qemu
+    }
+    
     private static let kiloByte: UInt64 = 1024
     private static let megaByte: UInt64 = 1024 * 1024
     private static let gigaByte: UInt64 = 1024 * 1024 * 1024
@@ -106,26 +112,35 @@ import Foundation
     
     override public func string( from number: NSNumber ) -> String
     {
+        return self.string( from: number, style: .standard )
+    }
+    
+    public func string( from number: NSNumber, style: Style ) -> String
+    {
         let bytes = number.uintValue
+        let info: ( String, String ) =
+        {
+            if bytes < SizeFormatter.kiloByte
+            {
+                return ( "\( bytes )", style == .standard ? " bytes" : "" )
+            }
+            else if bytes < SizeFormatter.megaByte
+            {
+                return ( String( format: "%.2f", Double( bytes ) / Double( SizeFormatter.kiloByte ) ), style == .standard ? " KB" : "K" )
+            }
+            else if bytes < SizeFormatter.gigaByte
+            {
+                return ( String( format: "%.2f", Double( bytes ) / Double( SizeFormatter.megaByte ) ), style == .standard ? " MB" : "M" )
+            }
+            else if bytes < SizeFormatter.teraByte
+            {
+                return ( String( format: "%.2f", Double( bytes ) / Double( SizeFormatter.gigaByte ) ), style == .standard ? " GB" : "G" )
+            }
+            
+            return ( String( format: "%.2f", Double( bytes ) / Double( SizeFormatter.teraByte ) ), style == .standard ? " TB" : "T" )
+        }()
         
-        if bytes < SizeFormatter.kiloByte
-        {
-            return "\( bytes ) bytes"
-        }
-        else if bytes < SizeFormatter.megaByte
-        {
-            return "\( String( format: "%.2f KB", Double( bytes ) / Double( SizeFormatter.kiloByte ) ) )"
-        }
-        else if bytes < SizeFormatter.gigaByte
-        {
-            return "\( String( format: "%.2f MB", Double( bytes ) / Double( SizeFormatter.megaByte ) ) )"
-        }
-        else if bytes < SizeFormatter.teraByte
-        {
-            return "\( String( format: "%.2f GB", Double( bytes ) / Double( SizeFormatter.gigaByte ) ) )"
-        }
-        
-        return "\( String( format: "%.2f TB", Double( bytes ) / Double( SizeFormatter.teraByte ) ) )"
+        return "\( info.0 )\( info.1 )"
     }
 
     override public func number( from string: String ) -> NSNumber?

@@ -30,16 +30,8 @@ extension QEMU.System
     {
         var arguments: [ String ] = []
         
-        /*
         arguments.append( "-m" )
-        arguments.append( "\( vm.config.memory )" )
-        */
-        
-        if vm.config.boot.count > 0
-        {
-            arguments.append( "-boot" )
-            arguments.append( vm.config.boot )
-        }
+        arguments.append( SizeFormatter().string( from: NSNumber( value: vm.config.memory ), style: .qemu ) )
         
         if let machine = vm.config.machine, machine.count > 0
         {
@@ -53,12 +45,21 @@ extension QEMU.System
             arguments.append( cpu )
         }
         
+        var boot = vm.config.boot
+        
         if let cd = vm.config.cdImage, FileManager.default.fileExists( atPath: cd.path )
         {
             arguments.append( "-drive" )
             arguments.append( "file=\( cd.path ),format=raw,media=cdrom" )
         }
+        else if boot == "d"
+        {
+            boot = "c"
+        }
         
+        arguments.append( "-boot" )
+        arguments.append( boot )
+            
         vm.disks.forEach
         {
             arguments.append( "-drive" )

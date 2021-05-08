@@ -33,10 +33,9 @@ import Foundation
     public static var all: [ Boot ] =
     {
         return [
-            Boot( name: "a", title: "Floppy",  sorting: 0 ),
-            Boot( name: "c", title: "Disk",    sorting: 1 ),
-            Boot( name: "d", title: "CD",      sorting: 2 ),
-            Boot( name: "n", title: "Network", sorting: 3 ),
+            Boot( name: "c", title: "Disk",    sorting: 0 ),
+            Boot( name: "d", title: "CD",      sorting: 1 ),
+            Boot( name: "n", title: "Network", sorting: 2 ),
         ]
     }()
     

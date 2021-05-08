@@ -64,4 +64,14 @@ import Foundation
         
         return self.name
     }
+    
+    public override func isEqual( _ object: Any? ) -> Bool
+    {
+        guard let machine = object as? MachineInfo else
+        {
+            return false
+        }
+        
+        return self.name == machine.name
+    }
 }

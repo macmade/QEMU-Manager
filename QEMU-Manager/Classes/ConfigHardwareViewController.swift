@@ -47,6 +47,36 @@ import Cocoa
         }
     }
     
+    @objc private dynamic var machine: MachineInfo?
+    {
+        didSet
+        {
+            if let machine = self.machine, machine.sorting != -1
+            {
+                self.vm.config.machine = machine.name
+            }
+            else
+            {
+                self.vm.config.machine = nil
+            }
+        }
+    }
+    
+    @objc private dynamic var cpu: CPUInfo?
+    {
+        didSet
+        {
+            if let cpu = self.cpu, cpu.sorting != -1
+            {
+                self.vm.config.cpu = cpu.name
+            }
+            else
+            {
+                self.vm.config.cpu = nil
+            }
+        }
+    }
+    
     public init( vm: VirtualMachine )
     {
         self.minMemory    = 1024 * 1024
@@ -97,16 +127,22 @@ import Cocoa
             existing.forEach { self.machines.removeObject( $0 ) }
         }
         
-        self.machines.addObject( MachineInfo( name: "Default", title: "Unspecified machine", sorting: -1 ) )
+        let unknown = MachineInfo( name: "Default", title: "Unspecified machine", sorting: -1 )
+        
+        self.machines.addObject( unknown )
         
         guard let arch     = Config.Architecture( rawValue: self.architecture ),
               let machines = MachineInfo.all[ arch ]
         else
         {
+            self.machine = unknown
+            
             return
         }
         
         machines.forEach { self.machines.addObject( $0 ) }
+        
+        self.machine = machines.first { $0.name == vm.config.machine } ?? unknown
     }
     
     private func updateCPUs()
@@ -116,15 +152,21 @@ import Cocoa
             existing.forEach { self.cpus.removeObject( $0 ) }
         }
         
-        self.cpus.addObject( MachineInfo( name: "Default", title: "Unspecified CPU", sorting: -1 ) )
+        let unknown = CPUInfo( name: "Default", title: "Unspecified CPU", sorting: -1 )
         
-        guard let arch     = Config.Architecture( rawValue: self.architecture ),
-              let machines = CPUInfo.all[ arch ]
+        self.cpus.addObject( unknown )
+        
+        guard let arch = Config.Architecture( rawValue: self.architecture ),
+              let cpus = CPUInfo.all[ arch ]
         else
         {
+            self.cpu = unknown
+            
             return
         }
         
-        machines.forEach { self.cpus.addObject( $0 ) }
+        cpus.forEach { self.cpus.addObject( $0 ) }
+        
+        self.cpu = cpus.first { $0.name == vm.config.cpu } ?? unknown
     }
 }

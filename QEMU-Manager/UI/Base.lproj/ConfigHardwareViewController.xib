@@ -77,7 +77,9 @@
                                 </menu>
                             </popUpButtonCell>
                             <connections>
-                                <binding destination="sm1-Cj-47c" name="contentValues" keyPath="arrangedObjects" id="JLc-kd-PA3"/>
+                                <binding destination="sm1-Cj-47c" name="content" keyPath="arrangedObjects" id="bvj-Hw-1qY"/>
+                                <binding destination="sm1-Cj-47c" name="contentValues" keyPath="arrangedObjects" previousBinding="bvj-Hw-1qY" id="Vdd-cW-JMp"/>
+                                <binding destination="-2" name="selectedObject" keyPath="self.machine" previousBinding="Vdd-cW-JMp" id="dtt-mL-Gdx"/>
                             </connections>
                         </popUpButton>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="we0-QJ-s8u">
@@ -102,7 +104,9 @@
                                 </menu>
                             </popUpButtonCell>
                             <connections>
-                                <binding destination="eQD-Mg-cN5" name="contentValues" keyPath="arrangedObjects" id="9a7-fK-jKX"/>
+                                <binding destination="eQD-Mg-cN5" name="content" keyPath="arrangedObjects" id="4Kd-oT-UlU"/>
+                                <binding destination="eQD-Mg-cN5" name="contentValues" keyPath="arrangedObjects" previousBinding="4Kd-oT-UlU" id="VHR-l5-Z81"/>
+                                <binding destination="-2" name="selectedObject" keyPath="self.cpu" previousBinding="VHR-l5-Z81" id="GnR-mj-AlP"/>
                             </connections>
                         </popUpButton>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tB1-uK-Y8T">

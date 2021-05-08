@@ -35,7 +35,9 @@ import Cocoa
     }
 
     public func applicationWillTerminate( _ notification: Notification )
-    {}
+    {
+        Preferences.shared.lastStart = Date()
+    }
     
     @IBAction func invertAppearance( _ sender: Any? )
     {
@@ -105,7 +107,7 @@ import Cocoa
         
         window.layoutIfNeeded()
         
-        if window.isVisible == false
+        if window.isVisible == false && Preferences.shared.lastStart == nil
         {
             window.center()
         }
@@ -113,4 +115,3 @@ import Cocoa
         window.makeKeyAndOrderFront( nil )
     }
 }
-

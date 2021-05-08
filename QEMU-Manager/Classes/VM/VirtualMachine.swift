@@ -131,6 +131,8 @@ public class VirtualMachine: NSObject
     
     public func start()
     {
+        let delegate = NSApp.delegate as? ApplicationDelegate
+        
         DispatchQueue.main.async
         {
             if self.running
@@ -139,7 +141,7 @@ public class VirtualMachine: NSObject
                 alert.messageText     = "Already Running"
                 alert.informativeText = "The virtual machine \( self.config.title ) is already running."
                 
-                alert.runModal()
+                alert.tryBeginSheetModal( for: delegate?.libraryWindowController.window, completionHandler: nil )
                 
                 return
             }
@@ -161,7 +163,7 @@ public class VirtualMachine: NSObject
                 {
                     DispatchQueue.main.async
                     {
-                        NSAlert( error: error ).runModal()
+                        NSAlert( error: error ).tryBeginSheetModal( for: delegate?.libraryWindowController.window, completionHandler: nil )
                     }
                 }
             }

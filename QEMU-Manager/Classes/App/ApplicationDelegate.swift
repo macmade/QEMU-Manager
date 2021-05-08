@@ -20,8 +20,8 @@ import Cocoa
 
 @main public class ApplicationDelegate: NSObject, NSApplicationDelegate
 {
-    private let aboutWindowController   = AboutWindowController()
-    private let libraryWindowController = LibraryWindowController()
+    public let aboutWindowController   = AboutWindowController()
+    public let libraryWindowController = LibraryWindowController()
     
     public func applicationDidFinishLaunching( _ notification: Notification )
     {
@@ -46,7 +46,7 @@ import Cocoa
                 
                 alert.addButton( withTitle: "OK" )
                 
-                alert.runModal()
+                alert.tryBeginSheetModal( for: self.libraryWindowController.window, completionHandler: nil )
                 
                 return .terminateCancel
             }

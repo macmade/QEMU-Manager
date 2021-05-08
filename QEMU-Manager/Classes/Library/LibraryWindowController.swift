@@ -76,6 +76,28 @@ public class LibraryWindowController: NSWindowController, NSTableViewDelegate, N
     
     public func showConfigWindow( for vm: VirtualMachine )
     {
+        let show: () -> Void =
+        {
+            if self.configWindowControllers.contains( where: { $0.key == vm.config.uuid } ) == false
+            {
+                self.configWindowControllers[ vm.config.uuid ] = ConfigWindowController( vm: vm )
+            }
+            
+            guard let window = self.configWindowControllers[ vm.config.uuid ]?.window else
+            {
+                NSSound.beep()
+                
+                return
+            }
+            
+            if window.isVisible == false
+            {
+                window.center()
+            }
+            
+            window.makeKeyAndOrderFront( nil )
+        }
+        
         if vm.running
         {
             let alert = NSAlert()
@@ -86,30 +108,20 @@ public class LibraryWindowController: NSWindowController, NSTableViewDelegate, N
             alert.addButton( withTitle: "Configure" )
             alert.addButton( withTitle: "Cancel" )
             
-            if alert.runModal() == .alertSecondButtonReturn
+            alert.tryBeginSheetModal( for: self.window )
             {
-                return
+                if $0 == .alertSecondButtonReturn
+                {
+                    return
+                }
+                
+                show()
             }
         }
-        
-        if self.configWindowControllers.contains( where: { $0.key == vm.config.uuid } ) == false
+        else
         {
-            self.configWindowControllers[ vm.config.uuid ] = ConfigWindowController( vm: vm )
+            show()
         }
-        
-        guard let window = self.configWindowControllers[ vm.config.uuid ]?.window else
-        {
-            NSSound.beep()
-            
-            return
-        }
-        
-        if window.isVisible == false
-        {
-            window.center()
-        }
-        
-        window.makeKeyAndOrderFront( nil )
     }
     
     @IBAction private func newVirtualMachine( _ sender: Any?  )
@@ -322,7 +334,7 @@ public class LibraryWindowController: NSWindowController, NSTableViewDelegate, N
                 
                 alert.addButton( withTitle: "OK" )
                 
-                alert.runModal()
+                alert.tryBeginSheetModal( for: self.window, completionHandler: nil )
                 
                 return
             }

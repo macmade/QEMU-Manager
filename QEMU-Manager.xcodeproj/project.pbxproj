@@ -60,6 +60,7 @@
 		05E4FCD92646F59D007D1254 /* TerminalTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 05E4FCD82646F59D007D1254 /* TerminalTemplate.pdf */; };
 		05E4FCE42646FEB3007D1254 /* GitHubUpdates.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05E4FCE02646FEA7007D1254 /* GitHubUpdates.framework */; };
 		05E4FCE52646FEB3007D1254 /* GitHubUpdates.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 05E4FCE02646FEA7007D1254 /* GitHubUpdates.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		05E4FCEA26470D44007D1254 /* DropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E4FCE926470D44007D1254 /* DropView.swift */; };
 		05F5479C263C3C56003F1B92 /* Generic.icns in Resources */ = {isa = PBXBuildFile; fileRef = 05F5479A263C3C56003F1B92 /* Generic.icns */; };
 		05F5479D263C3C56003F1B92 /* macOS.icns in Resources */ = {isa = PBXBuildFile; fileRef = 05F5479B263C3C56003F1B92 /* macOS.icns */; };
 		05F547A1263C56C4003F1B92 /* WindowsLegacy.icns in Resources */ = {isa = PBXBuildFile; fileRef = 05F5479E263C56C4003F1B92 /* WindowsLegacy.icns */; };
@@ -203,6 +204,7 @@
 		05E4FCD62646F4B8007D1254 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ConfigQEMUViewController.xib; sourceTree = "<group>"; };
 		05E4FCD82646F59D007D1254 /* TerminalTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = TerminalTemplate.pdf; sourceTree = "<group>"; };
 		05E4FCDA2646FEA7007D1254 /* GitHubUpdates.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GitHubUpdates.xcodeproj; path = Submodules/GitHubUpdates/GitHubUpdates.xcodeproj; sourceTree = "<group>"; };
+		05E4FCE926470D44007D1254 /* DropView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropView.swift; sourceTree = "<group>"; };
 		05F5479A263C3C56003F1B92 /* Generic.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Generic.icns; sourceTree = "<group>"; };
 		05F5479B263C3C56003F1B92 /* macOS.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = macOS.icns; sourceTree = "<group>"; };
 		05F5479E263C56C4003F1B92 /* WindowsLegacy.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = WindowsLegacy.icns; sourceTree = "<group>"; };
@@ -391,6 +393,7 @@
 				05CCF04F2646DBA200A3A9F8 /* Preferences */,
 				05CCF04D2646DB8800A3A9F8 /* QEMU */,
 				05CCF04A2646DB4200A3A9F8 /* Transformers */,
+				05E4FCEB26470D82007D1254 /* UI */,
 				05CCF04C2646DB7100A3A9F8 /* VM */,
 			);
 			path = Classes;
@@ -574,6 +577,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		05E4FCEB26470D82007D1254 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				05E4FCE926470D44007D1254 /* DropView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		05FFCC4826206D77006087BA /* qemu */ = {
 			isa = PBXGroup;
 			children = (
@@ -731,6 +742,7 @@
 				05CCF0542646DCC200A3A9F8 /* InfoValue.swift in Sources */,
 				05CCF0312646089A00A3A9F8 /* NSError.swift in Sources */,
 				05CCF03526462FDE00A3A9F8 /* Machine.swift in Sources */,
+				05E4FCEA26470D44007D1254 /* DropView.swift in Sources */,
 				05CCF0262646076300A3A9F8 /* QEMU.System.swift in Sources */,
 				05CCF03D2646A6DC00A3A9F8 /* LowercaseString.swift in Sources */,
 				058C98BF263332050086E57E /* Synchronizable.swift in Sources */,

@@ -53,6 +53,29 @@ public class LibraryWindowController: NSWindowController, NSTableViewDelegate, N
         }
         
         self.machines.sortDescriptors = [ NSSortDescriptor( key: "config.title", ascending: true ) ]
+        
+        if let drop = self.window?.contentView as? DropView
+        {
+            drop.onDrag =
+            {
+                for url in $0
+                {
+                    if url.pathExtension.lowercased() != "qvm"
+                    {
+                        return false
+                    }
+                }
+                
+                return true
+            }
+            
+            drop.onDrop =
+            {
+                self.addVirtualMachines( from: $0 )
+                
+                return true
+            }
+        }
     }
     
     public var virtualMachines: [ VirtualMachine ]

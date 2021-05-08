@@ -44,6 +44,7 @@
 		05CCF0452646DABD00A3A9F8 /* InfoTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 05CCF0412646DABD00A3A9F8 /* InfoTemplate.pdf */; };
 		05CCF0462646DABD00A3A9F8 /* TeminalTemplate.eps in Resources */ = {isa = PBXBuildFile; fileRef = 05CCF0422646DABD00A3A9F8 /* TeminalTemplate.eps */; };
 		05CCF0472646DABD00A3A9F8 /* HardwareTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 05CCF0432646DABD00A3A9F8 /* HardwareTemplate.pdf */; };
+		05CCF0542646DCC200A3A9F8 /* InfoValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CCF0532646DCC200A3A9F8 /* InfoValue.swift */; };
 		05DFDD21261F7BFD00BBE4E3 /* ApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DFDD20261F7BFD00BBE4E3 /* ApplicationDelegate.swift */; };
 		05DFDD26261F7BFE00BBE4E3 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05DFDD24261F7BFE00BBE4E3 /* MainMenu.xib */; };
 		05DFDD75261F7EB000BBE4E3 /* AboutWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05DFDD73261F7EB000BBE4E3 /* AboutWindowController.xib */; };
@@ -103,6 +104,7 @@
 		05CCF0412646DABD00A3A9F8 /* InfoTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = InfoTemplate.pdf; sourceTree = "<group>"; };
 		05CCF0422646DABD00A3A9F8 /* TeminalTemplate.eps */ = {isa = PBXFileReference; lastKnownFileType = file; path = TeminalTemplate.eps; sourceTree = "<group>"; };
 		05CCF0432646DABD00A3A9F8 /* HardwareTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = HardwareTemplate.pdf; sourceTree = "<group>"; };
+		05CCF0532646DCC200A3A9F8 /* InfoValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoValue.swift; sourceTree = "<group>"; };
 		05DFDD1D261F7BFD00BBE4E3 /* QEMU Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "QEMU Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		05DFDD20261F7BFD00BBE4E3 /* ApplicationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationDelegate.swift; sourceTree = "<group>"; };
 		05DFDD25261F7BFE00BBE4E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 				05CCF03E2646BD2300A3A9F8 /* Boot.swift */,
 				05CCF036264631C700A3A9F8 /* CPU.swift */,
 				05CCF0382646A36F00A3A9F8 /* ImageFormat.swift */,
+				05CCF0532646DCC200A3A9F8 /* InfoValue.swift */,
 				05CCF03426462FDE00A3A9F8 /* Machine.swift */,
 			);
 			path = Info;
@@ -616,6 +619,7 @@
 				05F547A5263C5B50003F1B92 /* ArchitectureToString.swift in Sources */,
 				05F5485D2640930A003F1B92 /* BytesToString.swift in Sources */,
 				058C98B126330FBB0086E57E /* ArrayIsNotEmpty.swift in Sources */,
+				05CCF0542646DCC200A3A9F8 /* InfoValue.swift in Sources */,
 				05CCF0312646089A00A3A9F8 /* NSError.swift in Sources */,
 				05CCF03526462FDE00A3A9F8 /* Machine.swift in Sources */,
 				05CCF0262646076300A3A9F8 /* QEMU.System.swift in Sources */,

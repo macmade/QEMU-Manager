@@ -24,17 +24,36 @@
 
 import Foundation
 
-@objc public class ImageFormat: InfoValue
+@objc public class InfoValue: NSObject
 {
-    public static var all: [ ImageFormat ] =
+    @objc public private( set ) dynamic var name:    String
+    @objc public private( set ) dynamic var title:   String
+    @objc public private( set ) dynamic var sorting: Int
+    
+    public init( name: String, title: String, sorting: Int )
     {
-        return [
-            ImageFormat( name: "qcow2", title: "QCOW2 (KVM, Xen)", sorting: 0 ),
-            ImageFormat( name: "qed",   title: "QED (KVM)",        sorting: 1 ),
-            ImageFormat( name: "raw",   title: "Raw",              sorting: 2 ),
-            ImageFormat( name: "vdi",   title: "VDI (VirtualBox)", sorting: 3 ),
-            ImageFormat( name: "vpc",   title: "VHD (Hyper-V)",    sorting: 4 ),
-            ImageFormat( name: "vmdk",  title: "VMDK (VMware)",    sorting: 5 ),
-        ]
-    }()
+        self.name    = name
+        self.title   = title
+        self.sorting = sorting
+    }
+    
+    public override var description: String
+    {
+        if self.title.count > 0
+        {
+            return self.title
+        }
+        
+        return self.name
+    }
+    
+    public override func isEqual( _ object: Any? ) -> Bool
+    {
+        guard let format = object as? ImageFormat else
+        {
+            return false
+        }
+        
+        return self.name == format.name
+    }
 }

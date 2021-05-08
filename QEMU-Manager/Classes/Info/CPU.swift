@@ -24,12 +24,8 @@
 
 import Foundation
 
-@objc public class CPU: NSObject
+@objc public class CPU: InfoValue
 {
-    @objc public private( set ) dynamic var name:    String
-    @objc public private( set ) dynamic var title:   String
-    @objc public private( set ) dynamic var sorting: Int
-    
     public static var all: [ Config.Architecture : [ CPU ] ] =
     {
         () -> [ Config.Architecture : [ CPU ] ] in
@@ -47,31 +43,4 @@ import Foundation
         
         return all
     }()
-    
-    public init( name: String, title: String, sorting: Int )
-    {
-        self.name    = name
-        self.title   = title
-        self.sorting = sorting
-    }
-    
-    public override var description: String
-    {
-        if self.title.count > 0
-        {
-            return "\( self.name ) - \( self.title )"
-        }
-        
-        return self.name
-    }
-    
-    public override func isEqual( _ object: Any? ) -> Bool
-    {
-        guard let cpu = object as? CPU else
-        {
-            return false
-        }
-        
-        return self.name == cpu.name
-    }
 }

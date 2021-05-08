@@ -24,12 +24,8 @@
 
 import Foundation
 
-@objc public class Machine: NSObject
+@objc public class Machine: InfoValue
 {
-    @objc public private( set ) dynamic var name:    String
-    @objc public private( set ) dynamic var title:   String
-    @objc public private( set ) dynamic var sorting: Int
-    
     public static var all: [ Config.Architecture : [ Machine ] ] =
     {
         () -> [ Config.Architecture : [ Machine ] ] in
@@ -47,31 +43,4 @@ import Foundation
         
         return all
     }()
-    
-    public init( name: String, title: String, sorting: Int )
-    {
-        self.name    = name
-        self.title   = title
-        self.sorting = sorting
-    }
-    
-    public override var description: String
-    {
-        if self.title.count > 0
-        {
-            return "\( self.name ) - \( self.title )"
-        }
-        
-        return self.name
-    }
-    
-    public override func isEqual( _ object: Any? ) -> Bool
-    {
-        guard let machine = object as? Machine else
-        {
-            return false
-        }
-        
-        return self.name == machine.name
-    }
 }

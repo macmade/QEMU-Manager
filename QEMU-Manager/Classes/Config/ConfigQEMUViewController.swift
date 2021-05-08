@@ -18,9 +18,12 @@
 
 import Cocoa
 
-public class ConfigQEMUViewController: ConfigViewController
+public class ConfigQEMUViewController: ConfigViewController, NSTableViewDataSource
 {
+    private static let pasteboardType = NSPasteboard.PasteboardType( rawValue: "qemu.argument" )
+    
     @IBOutlet private var arguments: NSArrayController!
+    @IBOutlet private var tableView: NSTableView!
     
     @objc private dynamic var vm: VirtualMachine
     
@@ -57,6 +60,8 @@ public class ConfigQEMUViewController: ConfigViewController
         
         self.arguments.add( contentsOf: args )
         args.forEach { $0.addObserver( self, forKeyPath: "value", options: .new, context: nil ) }
+        
+        self.tableView.registerForDraggedTypes( [ ConfigQEMUViewController.pasteboardType ] )
     }
     
     @IBAction private func addRemoveArgument( _ sender: Any? )
@@ -116,5 +121,60 @@ public class ConfigQEMUViewController: ConfigViewController
         {
             super.observeValue( forKeyPath: keyPath, of: object, change: change, context: context )
         }
+    }
+    
+    public func tableView( _ tableView: NSTableView, pasteboardWriterForRow row: Int ) -> NSPasteboardWriting?
+    {
+        guard let arranged = self.arguments.arrangedObjects as? [ Argument ] else
+        {
+            return nil
+        }
+        
+        if row < 0 || row >= arranged.count
+        {
+            return nil
+        }
+        
+        let item = NSPasteboardItem()
+        
+        item.setPropertyList( row, forType: ConfigQEMUViewController.pasteboardType )
+        
+        return item
+    }
+    
+    public func tableView( _ tableView: NSTableView, validateDrop info: NSDraggingInfo, proposedRow row: Int, proposedDropOperation dropOperation: NSTableView.DropOperation ) -> NSDragOperation
+    {
+        if dropOperation == .above
+        {
+            return .move
+        }
+        else
+        {
+            return []
+        }
+    }
+    
+    public func tableView( _ tableView: NSTableView, acceptDrop info: NSDraggingInfo, row: Int, dropOperation: NSTableView.DropOperation) -> Bool
+    {
+        guard let item     = info.draggingPasteboard.pasteboardItems?.first,
+              let moved    = item.propertyList( forType: ConfigQEMUViewController.pasteboardType ) as? Int,
+              let arranged = self.arguments.arrangedObjects as? [ Argument ]
+        else
+        {
+            return false
+        }
+        
+        if moved < 0 || moved >= arranged.count
+        {
+            return false
+        }
+        
+        let new = moved < row ? row - 1 : row
+        let arg = arranged[ moved ]
+        
+        self.arguments.remove( atArrangedObjectIndex: moved )
+        self.arguments.insert( arg, atArrangedObjectIndex: new )
+        
+        return true
     }
 }

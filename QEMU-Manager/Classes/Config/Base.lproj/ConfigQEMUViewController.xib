@@ -8,6 +8,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="ConfigQEMUViewController" customModule="QEMU_Manager" customModuleProvider="target">
             <connections>
                 <outlet property="arguments" destination="VNk-pU-Lv1" id="N0e-ef-Imj"/>
+                <outlet property="tableView" destination="Lii-mE-9se" id="GcK-tK-pzd"/>
                 <outlet property="view" destination="EJb-hE-XAM" id="Cg4-3Y-Oj5"/>
             </connections>
         </customObject>
@@ -81,7 +82,8 @@
                                         <connections>
                                             <binding destination="VNk-pU-Lv1" name="content" keyPath="arrangedObjects" id="F03-0N-bH6"/>
                                             <binding destination="VNk-pU-Lv1" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="F03-0N-bH6" id="24M-wo-2fM"/>
-                                            <binding destination="VNk-pU-Lv1" name="sortDescriptors" keyPath="sortDescriptors" previousBinding="24M-wo-2fM" id="o3b-15-0qf"/>
+                                            <binding destination="VNk-pU-Lv1" name="sortDescriptors" keyPath="sortDescriptors" previousBinding="24M-wo-2fM" id="uP7-LB-Dle"/>
+                                            <outlet property="dataSource" destination="-2" id="I0d-8Q-uUm"/>
                                         </connections>
                                     </tableView>
                                 </subviews>

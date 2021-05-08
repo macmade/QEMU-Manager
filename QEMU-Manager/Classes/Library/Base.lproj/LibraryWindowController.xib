@@ -27,17 +27,25 @@
                     <visualEffectView blendingMode="behindWindow" material="sidebar" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="iuF-6k-Png">
                         <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
                         <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zje-1p-fBi">
+                                <rect key="frame" x="106" y="359" width="188" height="21"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Virtual Machines Library" id="W9k-xG-Sx8">
+                                    <font key="font" textStyle="title2" name=".SFNS-Regular"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="Ubm-Mo-zDy">
-                                <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
+                                <rect key="frame" x="0.0" y="0.0" width="400" height="351"/>
                                 <subviews>
                                     <progressIndicator wantsLayer="YES" maxValue="100" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="dwx-LW-fuK">
-                                        <rect key="frame" x="184" y="184" width="32" height="32"/>
+                                        <rect key="frame" x="184" y="160" width="32" height="32"/>
                                         <connections>
                                             <binding destination="-2" name="animate" keyPath="self.loading" id="77O-Vt-tFW"/>
                                         </connections>
                                     </progressIndicator>
                                     <textField wantsLayer="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xEL-9x-UXP">
-                                        <rect key="frame" x="121" y="148" width="158" height="16"/>
+                                        <rect key="frame" x="121" y="124" width="158" height="16"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" title="Initializing - Please wait..." id="J09-rM-Mh2">
                                             <font key="font" usesAppearanceFont="YES"/>
                                             <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
@@ -62,26 +70,18 @@
                                 </connections>
                             </customView>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="QWP-6v-gC8">
-                                <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
+                                <rect key="frame" x="0.0" y="0.0" width="400" height="351"/>
                                 <subviews>
-                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hph-ym-kJN">
-                                        <rect key="frame" x="63" y="349" width="274" height="31"/>
-                                        <textFieldCell key="cell" lineBreakMode="clipping" title="Virtual Machines Library" id="XxX-kO-UpQ">
-                                            <font key="font" textStyle="largeTitle" name=".SFNS-Regular"/>
-                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                        </textFieldCell>
-                                    </textField>
                                     <imageView wantsLayer="YES" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ovK-xQ-KjG">
-                                        <rect key="frame" x="72" y="72" width="256" height="256"/>
+                                        <rect key="frame" x="100" y="96" width="200" height="200"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="256" id="fwt-Yq-sbQ"/>
-                                            <constraint firstAttribute="height" constant="256" id="jWt-4H-9uP"/>
+                                            <constraint firstAttribute="width" constant="200" id="fwt-Yq-sbQ"/>
+                                            <constraint firstAttribute="height" constant="200" id="jWt-4H-9uP"/>
                                         </constraints>
                                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="Generic" id="OYf-DK-xlp"/>
                                     </imageView>
                                     <button wantsLayer="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bKT-k8-ry3">
-                                        <rect key="frame" x="101" y="25" width="199" height="32"/>
+                                        <rect key="frame" x="101" y="49" width="199" height="32"/>
                                         <buttonCell key="cell" type="push" title="Create a Virtual Machine" bezelStyle="rounded" image="NSAddTemplate" imagePosition="trailing" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="I30-xK-I8s">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -95,18 +95,13 @@ DQ
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="ovK-xQ-KjG" firstAttribute="centerY" secondItem="QWP-6v-gC8" secondAttribute="centerY" id="0yv-cZ-8ot"/>
-                                    <constraint firstItem="hph-ym-kJN" firstAttribute="centerX" secondItem="ovK-xQ-KjG" secondAttribute="centerX" id="7pu-Fc-qFE"/>
+                                    <constraint firstItem="ovK-xQ-KjG" firstAttribute="centerY" secondItem="QWP-6v-gC8" secondAttribute="centerY" constant="-20" id="0yv-cZ-8ot"/>
                                     <constraint firstItem="bKT-k8-ry3" firstAttribute="top" secondItem="ovK-xQ-KjG" secondAttribute="bottom" constant="20" symbolic="YES" id="8SL-ED-8Rt"/>
-                                    <constraint firstItem="hph-ym-kJN" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="QWP-6v-gC8" secondAttribute="leading" constant="20" symbolic="YES" id="9sD-9X-4FU"/>
                                     <constraint firstItem="bKT-k8-ry3" firstAttribute="centerX" secondItem="ovK-xQ-KjG" secondAttribute="centerX" id="Nf1-jb-zYO"/>
                                     <constraint firstItem="ovK-xQ-KjG" firstAttribute="centerX" secondItem="QWP-6v-gC8" secondAttribute="centerX" id="PqN-zh-itc"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="hph-ym-kJN" secondAttribute="trailing" constant="20" symbolic="YES" id="YUg-VF-DwJ"/>
                                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="bKT-k8-ry3" secondAttribute="bottom" constant="20" symbolic="YES" id="Z3F-AE-2Ad"/>
-                                    <constraint firstItem="ovK-xQ-KjG" firstAttribute="top" relation="greaterThanOrEqual" secondItem="hph-ym-kJN" secondAttribute="bottom" constant="8" symbolic="YES" id="c3G-u4-yq1"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="bKT-k8-ry3" secondAttribute="trailing" constant="20" symbolic="YES" id="fBp-WA-KR8"/>
                                     <constraint firstItem="bKT-k8-ry3" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="QWP-6v-gC8" secondAttribute="leading" constant="20" symbolic="YES" id="fIk-yQ-CbT"/>
-                                    <constraint firstItem="hph-ym-kJN" firstAttribute="top" secondItem="QWP-6v-gC8" secondAttribute="top" constant="20" symbolic="YES" id="lxr-Dk-QHw"/>
                                 </constraints>
                                 <connections>
                                     <binding destination="cVS-ih-Quc" name="hidden" keyPath="arrangedObjects" id="J2o-N1-vDK">
@@ -125,16 +120,19 @@ DQ
                                 </connections>
                             </customView>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="CTt-Mb-v7i">
-                                <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
+                                <rect key="frame" x="0.0" y="0.0" width="400" height="351"/>
                                 <subviews>
+                                    <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="oA0-WV-aRO">
+                                        <rect key="frame" x="20" y="348" width="360" height="5"/>
+                                    </box>
                                     <scrollView autoresizesSubviews="NO" borderType="none" autohidesScrollers="YES" horizontalLineScroll="74" horizontalPageScroll="10" verticalLineScroll="74" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b45-aF-nWL">
-                                        <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
+                                        <rect key="frame" x="0.0" y="51" width="400" height="299"/>
                                         <clipView key="contentView" drawsBackground="NO" id="Sp6-D7-yLO">
-                                            <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="400" height="299"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <tableView autoresizesSubviews="NO" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnSelection="YES" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" rowHeight="74" rowSizeStyle="automatic" usesAutomaticRowHeights="YES" viewBased="YES" id="VCi-qF-fl3">
-                                                    <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="400" height="299"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <size key="intercellSpacing" width="17" height="0.0"/>
                                                     <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -250,12 +248,40 @@ DQ
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
                                     </scrollView>
+                                    <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="Jh1-ob-542">
+                                        <rect key="frame" x="20" y="48" width="360" height="5"/>
+                                    </box>
+                                    <searchField wantsLayer="YES" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="chS-7t-aCY">
+                                        <rect key="frame" x="20" y="20" width="360" height="22"/>
+                                        <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="E6w-nY-LJa">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </searchFieldCell>
+                                        <connections>
+                                            <binding destination="cVS-ih-Quc" name="predicate" keyPath="filterPredicate" id="C3g-Kx-Bba">
+                                                <dictionary key="options">
+                                                    <string key="NSDisplayName">predicate</string>
+                                                    <string key="NSPredicateFormat">config.title contains[c] $value</string>
+                                                </dictionary>
+                                            </binding>
+                                        </connections>
+                                    </searchField>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="chS-7t-aCY" firstAttribute="leading" secondItem="CTt-Mb-v7i" secondAttribute="leading" constant="20" symbolic="YES" id="6i5-RK-OkW"/>
                                     <constraint firstAttribute="trailing" secondItem="b45-aF-nWL" secondAttribute="trailing" id="AJ7-TM-0Ha"/>
-                                    <constraint firstItem="b45-aF-nWL" firstAttribute="top" secondItem="CTt-Mb-v7i" secondAttribute="top" id="C1i-ce-hxS"/>
+                                    <constraint firstItem="chS-7t-aCY" firstAttribute="top" secondItem="Jh1-ob-542" secondAttribute="bottom" constant="8" symbolic="YES" id="BdE-a9-Ixh"/>
+                                    <constraint firstAttribute="bottom" secondItem="chS-7t-aCY" secondAttribute="bottom" constant="20" symbolic="YES" id="C6v-jD-yMU"/>
                                     <constraint firstItem="b45-aF-nWL" firstAttribute="leading" secondItem="CTt-Mb-v7i" secondAttribute="leading" id="Qb8-Z6-6QI"/>
-                                    <constraint firstAttribute="bottom" secondItem="b45-aF-nWL" secondAttribute="bottom" id="byj-Og-bCX"/>
+                                    <constraint firstAttribute="trailing" secondItem="oA0-WV-aRO" secondAttribute="trailing" constant="20" symbolic="YES" id="TfP-G6-Zen"/>
+                                    <constraint firstItem="oA0-WV-aRO" firstAttribute="leading" secondItem="CTt-Mb-v7i" secondAttribute="leading" constant="20" symbolic="YES" id="TtV-58-zXK"/>
+                                    <constraint firstItem="oA0-WV-aRO" firstAttribute="top" secondItem="CTt-Mb-v7i" secondAttribute="top" id="a27-UY-Vcx"/>
+                                    <constraint firstAttribute="trailing" secondItem="Jh1-ob-542" secondAttribute="trailing" constant="20" symbolic="YES" id="dUz-zy-RUb"/>
+                                    <constraint firstAttribute="trailing" secondItem="chS-7t-aCY" secondAttribute="trailing" constant="20" symbolic="YES" id="gnZ-1K-ZLY"/>
+                                    <constraint firstItem="b45-aF-nWL" firstAttribute="top" secondItem="oA0-WV-aRO" secondAttribute="bottom" id="mev-KA-4Jw"/>
+                                    <constraint firstItem="Jh1-ob-542" firstAttribute="top" secondItem="b45-aF-nWL" secondAttribute="bottom" id="nXj-s0-fpQ"/>
+                                    <constraint firstItem="Jh1-ob-542" firstAttribute="leading" secondItem="CTt-Mb-v7i" secondAttribute="leading" constant="20" symbolic="YES" id="x5D-ce-Rg4"/>
                                 </constraints>
                                 <connections>
                                     <binding destination="cVS-ih-Quc" name="hidden" keyPath="arrangedObjects" id="frx-3n-mFc">
@@ -275,17 +301,21 @@ DQ
                             </customView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="CTt-Mb-v7i" firstAttribute="top" secondItem="iuF-6k-Png" secondAttribute="top" id="1Hl-YT-hln"/>
                             <constraint firstItem="QWP-6v-gC8" firstAttribute="leading" secondItem="iuF-6k-Png" secondAttribute="leading" id="1UP-FK-jVd"/>
-                            <constraint firstItem="QWP-6v-gC8" firstAttribute="top" secondItem="iuF-6k-Png" secondAttribute="top" id="1eW-LJ-VSS"/>
                             <constraint firstAttribute="bottom" secondItem="CTt-Mb-v7i" secondAttribute="bottom" id="2Z4-Gl-PbZ"/>
                             <constraint firstItem="Ubm-Mo-zDy" firstAttribute="leading" secondItem="iuF-6k-Png" secondAttribute="leading" id="7au-ie-dJS"/>
                             <constraint firstItem="CTt-Mb-v7i" firstAttribute="leading" secondItem="iuF-6k-Png" secondAttribute="leading" id="CIk-AZ-FQy"/>
                             <constraint firstAttribute="bottom" secondItem="QWP-6v-gC8" secondAttribute="bottom" id="LEg-jZ-blH"/>
-                            <constraint firstItem="Ubm-Mo-zDy" firstAttribute="top" secondItem="iuF-6k-Png" secondAttribute="top" id="b6B-BI-dMi"/>
+                            <constraint firstItem="QWP-6v-gC8" firstAttribute="top" secondItem="zje-1p-fBi" secondAttribute="bottom" constant="8" symbolic="YES" id="Meg-HJ-kv1"/>
+                            <constraint firstItem="CTt-Mb-v7i" firstAttribute="top" secondItem="zje-1p-fBi" secondAttribute="bottom" constant="8" symbolic="YES" id="Ub1-Gv-Dx7"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="zje-1p-fBi" secondAttribute="trailing" constant="20" symbolic="YES" id="VwJ-3J-54T"/>
+                            <constraint firstItem="Ubm-Mo-zDy" firstAttribute="top" secondItem="zje-1p-fBi" secondAttribute="bottom" constant="8" symbolic="YES" id="ec1-F1-OuA"/>
+                            <constraint firstItem="zje-1p-fBi" firstAttribute="top" secondItem="iuF-6k-Png" secondAttribute="top" constant="20" symbolic="YES" id="g15-yH-zgG"/>
                             <constraint firstAttribute="trailing" secondItem="QWP-6v-gC8" secondAttribute="trailing" id="hQa-a0-Efa"/>
                             <constraint firstAttribute="trailing" secondItem="CTt-Mb-v7i" secondAttribute="trailing" id="jSI-AB-J0k"/>
+                            <constraint firstItem="zje-1p-fBi" firstAttribute="centerX" secondItem="iuF-6k-Png" secondAttribute="centerX" id="mIx-zz-wwS"/>
                             <constraint firstAttribute="bottom" secondItem="Ubm-Mo-zDy" secondAttribute="bottom" id="oR4-fC-cW4"/>
+                            <constraint firstItem="zje-1p-fBi" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iuF-6k-Png" secondAttribute="leading" constant="20" symbolic="YES" id="qNP-yT-dyo"/>
                             <constraint firstAttribute="trailing" secondItem="Ubm-Mo-zDy" secondAttribute="trailing" id="xkX-Pm-bDz"/>
                         </constraints>
                     </visualEffectView>
@@ -297,7 +327,7 @@ DQ
                     <constraint firstAttribute="trailing" secondItem="iuF-6k-Png" secondAttribute="trailing" id="tBi-JG-ZNu"/>
                 </constraints>
             </view>
-            <point key="canvasLocation" x="37.5" y="147"/>
+            <point key="canvasLocation" x="37" y="147"/>
         </window>
         <arrayController selectsInsertedObjects="NO" avoidsEmptySelection="NO" automaticallyRearrangesObjects="YES" id="cVS-ih-Quc"/>
         <menu autoenablesItems="NO" id="2pB-5e-L4D">

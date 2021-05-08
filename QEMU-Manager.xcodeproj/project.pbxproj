@@ -34,7 +34,7 @@
 		05CCF0262646076300A3A9F8 /* QEMU.System.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CCF0252646076300A3A9F8 /* QEMU.System.swift */; };
 		05CCF02E2646082400A3A9F8 /* ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 05CCF02D2646082400A3A9F8 /* ObjC.m */; };
 		05CCF0312646089A00A3A9F8 /* NSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CCF0302646089A00A3A9F8 /* NSError.swift */; };
-		05CCF03526462FDE00A3A9F8 /* MachineInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CCF03426462FDE00A3A9F8 /* MachineInfo.swift */; };
+		05CCF03526462FDE00A3A9F8 /* Machine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CCF03426462FDE00A3A9F8 /* Machine.swift */; };
 		05CCF037264631C700A3A9F8 /* CPU.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CCF036264631C700A3A9F8 /* CPU.swift */; };
 		05CCF0392646A36F00A3A9F8 /* ImageFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CCF0382646A36F00A3A9F8 /* ImageFormat.swift */; };
 		05CCF03B2646A6B400A3A9F8 /* UppercaseString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CCF03A2646A6B400A3A9F8 /* UppercaseString.swift */; };
@@ -89,7 +89,7 @@
 		05CCF02D2646082400A3A9F8 /* ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjC.m; sourceTree = "<group>"; };
 		05CCF02F2646084600A3A9F8 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		05CCF0302646089A00A3A9F8 /* NSError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSError.swift; sourceTree = "<group>"; };
-		05CCF03426462FDE00A3A9F8 /* MachineInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineInfo.swift; sourceTree = "<group>"; };
+		05CCF03426462FDE00A3A9F8 /* Machine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Machine.swift; sourceTree = "<group>"; };
 		05CCF036264631C700A3A9F8 /* CPU.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPU.swift; sourceTree = "<group>"; };
 		05CCF0382646A36F00A3A9F8 /* ImageFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFormat.swift; sourceTree = "<group>"; };
 		05CCF03A2646A6B400A3A9F8 /* UppercaseString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UppercaseString.swift; sourceTree = "<group>"; };
@@ -236,7 +236,7 @@
 				05CCEFE526445AC000A3A9F8 /* SizeFormatter.swift */,
 				058C98BE263332050086E57E /* Synchronizable.swift */,
 				058C989426323AB10086E57E /* VirtualMachine.swift */,
-				05CCF03426462FDE00A3A9F8 /* MachineInfo.swift */,
+				05CCF03426462FDE00A3A9F8 /* Machine.swift */,
 				05CCF036264631C700A3A9F8 /* CPU.swift */,
 				05CCF0382646A36F00A3A9F8 /* ImageFormat.swift */,
 				05CCF03E2646BD2300A3A9F8 /* BootOrder.swift */,
@@ -513,7 +513,7 @@
 				05F5485D2640930A003F1B92 /* BytesToString.swift in Sources */,
 				058C98B126330FBB0086E57E /* ArrayIsNotEmpty.swift in Sources */,
 				05CCF0312646089A00A3A9F8 /* NSError.swift in Sources */,
-				05CCF03526462FDE00A3A9F8 /* MachineInfo.swift in Sources */,
+				05CCF03526462FDE00A3A9F8 /* Machine.swift in Sources */,
 				05CCF0262646076300A3A9F8 /* QEMU.System.swift in Sources */,
 				05CCF03D2646A6DC00A3A9F8 /* LowercaseString.swift in Sources */,
 				058C98BF263332050086E57E /* Synchronizable.swift in Sources */,

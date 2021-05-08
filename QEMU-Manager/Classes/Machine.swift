@@ -24,24 +24,24 @@
 
 import Foundation
 
-@objc public class MachineInfo: NSObject
+@objc public class Machine: NSObject
 {
     @objc public private( set ) dynamic var name:    String
     @objc public private( set ) dynamic var title:   String
     @objc public private( set ) dynamic var sorting: Int
     
-    public static var all: [ Config.Architecture : [ MachineInfo ] ] =
+    public static var all: [ Config.Architecture : [ Machine ] ] =
     {
-        () -> [ Config.Architecture : [ MachineInfo ] ] in
+        () -> [ Config.Architecture : [ Machine ] ] in
         
-        let archs: [ Config.Architecture ]                   = [ .aarch64, .arm, .i386, .x86_64, .ppc, .ppc64, .riscv32, .riscv64, .m68k ]
-        var all:   [ Config.Architecture : [ MachineInfo ] ] = [:]
+        let archs: [ Config.Architecture ]               = [ .aarch64, .arm, .i386, .x86_64, .ppc, .ppc64, .riscv32, .riscv64, .m68k ]
+        var all:   [ Config.Architecture : [ Machine ] ] = [:]
         
         archs.forEach
         {
             all[ $0 ] = QEMU.System.machines( for: $0 ).map
             {
-                MachineInfo( name: $0.0, title: $0.1, sorting: 0 )
+                Machine( name: $0.0, title: $0.1, sorting: 0 )
             }
         }
         
@@ -67,7 +67,7 @@ import Foundation
     
     public override func isEqual( _ object: Any? ) -> Bool
     {
-        guard let machine = object as? MachineInfo else
+        guard let machine = object as? Machine else
         {
             return false
         }

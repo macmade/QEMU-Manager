@@ -47,7 +47,7 @@ import Cocoa
         }
     }
     
-    @objc private dynamic var machine: MachineInfo?
+    @objc private dynamic var machine: Machine?
     {
         didSet
         {
@@ -122,17 +122,17 @@ import Cocoa
     
     private func updateMachines()
     {
-        if let existing = self.machines.content as? [ MachineInfo ]
+        if let existing = self.machines.content as? [ Machine ]
         {
             existing.forEach { self.machines.removeObject( $0 ) }
         }
         
-        let unknown = MachineInfo( name: "Default", title: "Unspecified machine", sorting: -1 )
+        let unknown = Machine( name: "Default", title: "Unspecified machine", sorting: -1 )
         
         self.machines.addObject( unknown )
         
         guard let arch     = Config.Architecture( rawValue: self.architecture ),
-              let machines = MachineInfo.all[ arch ]
+              let machines = Machine.all[ arch ]
         else
         {
             self.machine = unknown

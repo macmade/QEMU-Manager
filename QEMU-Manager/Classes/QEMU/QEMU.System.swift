@@ -76,96 +76,44 @@ extension QEMU.System
     
     public static func machines( for architecture: Config.Architecture ) -> [ ( String, String ) ]
     {
-        do
-        {
-            let res = try QEMU.System( architecture: architecture ).execute( arguments: [ "-machine", "help" ] )
-            
-            guard let lines = res?.out.components( separatedBy: .newlines ) else
-            {
-                return []
-            }
-            
-            var machines: [ ( String, String ) ] = []
-            
-            for var line in lines
-            {
-                line = line.trimmingCharacters( in: .whitespaces )
-                
-                if line == "Supported machines are:"
-                {
-                    continue
-                }
-                
-                if line.count == 0
-                {
-                    if machines.isEmpty
-                    {
-                        continue
-                    }
-                    else
-                    {
-                        break
-                    }
-                }
-                
-                do
-                {
-                    let regex = try NSRegularExpression( pattern: #"([^\s]+)\s+(.*)"#, options: [] )
-                    
-                    guard let match = regex.matches( in: line, options: [], range: NSRange( location: 0, length: line.count ) ).first else
-                    {
-                        break
-                    }
-                    
-                    if match.numberOfRanges != 3
-                    {
-                        break;
-                    }
-                    
-                    let s1 = ( line as NSString ).substring( with: match.range( at: 1 ) )
-                    let s2 = ( line as NSString ).substring( with: match.range( at: 2 ) )
-                    
-                    machines.append( ( s1, s2 ) )
-                }
-                catch
-                {
-                    break
-                }
-            }
-            
-            return machines
-        }
-        catch
-        {
-            return []
-        }
+        return QEMU.System.help( for: architecture, command: "machine", skipLines: [ "Supported machines are:" ], skipPrefixes: [] )
     }
     
     public static func cpus( for architecture: Config.Architecture ) -> [ ( String, String ) ]
     {
+        return QEMU.System.help( for: architecture, command: "cpu", skipLines: [ "Available CPUs:" ], skipPrefixes: [ "x86", "PowerPC" ] )
+    }
+    
+    public static func vga( for architecture: Config.Architecture ) -> [ ( String, String ) ]
+    {
+        return QEMU.System.help( for: architecture, command: "vga", skipLines: [], skipPrefixes: [] )
+    }
+    
+    private static func help( for architecture: Config.Architecture, command: String, skipLines: [ String ], skipPrefixes: [ String ] ) -> [ ( String, String ) ]
+    {
         do
         {
-            let res = try QEMU.System( architecture: architecture ).execute( arguments: [ "-cpu", "help" ] )
+            let res = try QEMU.System( architecture: architecture ).execute( arguments: [ "-\( command )", "help" ] )
             
             guard let lines = res?.out.components( separatedBy: .newlines ) else
             {
                 return []
             }
             
-            var cpus: [ ( String, String ) ] = []
+            var values: [ ( String, String ) ] = []
             
             for var line in lines
             {
                 line = line.trimmingCharacters( in: .whitespaces )
                 
-                if line == "Available CPUs:"
+                if skipLines.contains( line )
                 {
                     continue
                 }
                 
                 if line.count == 0
                 {
-                    if cpus.isEmpty
+                    if values.isEmpty
                     {
                         continue
                     }
@@ -175,13 +123,11 @@ extension QEMU.System
                     }
                 }
                 
-                let prefixes = [ "x86 ", "PowerPC " ]
-                
-                prefixes.forEach
+                skipPrefixes.forEach
                 {
-                    if line.hasPrefix( $0 )
+                    if line.hasPrefix( "\( $0 ) " )
                     {
-                        line = String( line.dropFirst( $0.count ) )
+                        line = String( line.dropFirst( $0.count + 1 ) )
                     }
                 }
                 
@@ -191,7 +137,7 @@ extension QEMU.System
                     
                     guard let match = regex.matches( in: line, options: [], range: NSRange( location: 0, length: line.count ) ).first else
                     {
-                        cpus.append( ( line, line ) )
+                        values.append( ( line, line ) )
                         
                         continue
                     }
@@ -204,7 +150,7 @@ extension QEMU.System
                     let s1 = ( line as NSString ).substring( with: match.range( at: 1 ) )
                     let s2 = ( line as NSString ).substring( with: match.range( at: 2 ) )
                     
-                    cpus.append( ( s1, s2 ) )
+                    values.append( ( s1, s2 ) )
                 }
                 catch
                 {
@@ -212,7 +158,7 @@ extension QEMU.System
                 }
             }
             
-            return cpus
+            return values
         }
         catch
         {

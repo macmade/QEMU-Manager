@@ -47,6 +47,7 @@ public class Config: NSObject, Codable
     @objc public                dynamic var architecture: Architecture = .aarch64
     @objc public                dynamic var machine:      String?      = nil
     @objc public                dynamic var cpu:          String?      = nil
+    @objc public                dynamic var vga:          String?      = nil
     @objc public                dynamic var cores:        UInt64       = 1
     @objc public                dynamic var memory:       UInt64       = 2147483648
     @objc public                dynamic var title:        String       = "Untitled"
@@ -66,6 +67,7 @@ public class Config: NSObject, Codable
         case architecture
         case machine
         case cpu
+        case vga
         case cores
         case memory
         case title
@@ -89,6 +91,7 @@ public class Config: NSObject, Codable
         self.uuid      = try values.decode( UUID.self,       forKey: .uuid )
         self.machine   = try values.decode( String?.self,    forKey: .machine )
         self.cpu       = try values.decode( String?.self,    forKey: .cpu )
+        self.vga       = try values.decode( String?.self,    forKey: .vga )
         self.cores     = try values.decode( UInt64.self,     forKey: .cores )
         self.memory    = try values.decode( UInt64.self,     forKey: .memory )
         self.title     = try values.decode( String.self,     forKey: .title )
@@ -115,6 +118,7 @@ public class Config: NSObject, Codable
         try container.encode( self.architecture.description, forKey: .architecture )
         try container.encode( self.machine,                  forKey: .machine )
         try container.encode( self.cpu,                      forKey: .cpu )
+        try container.encode( self.vga,                      forKey: .vga )
         try container.encode( self.cores,                    forKey: .cores )
         try container.encode( self.memory,                   forKey: .memory )
         try container.encode( self.title,                    forKey: .title )

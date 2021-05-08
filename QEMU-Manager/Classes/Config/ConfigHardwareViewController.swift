@@ -23,6 +23,7 @@ public class ConfigHardwareViewController: ConfigViewController
     @IBOutlet private var sizeFormatter: SizeFormatter!
     @IBOutlet private var machines:      NSArrayController!
     @IBOutlet private var cpus:          NSArrayController!
+    @IBOutlet private var vgas:          NSArrayController!
     @IBOutlet private var cores:         NSArrayController!
     
     @objc private dynamic var minCores:     UInt64
@@ -41,6 +42,7 @@ public class ConfigHardwareViewController: ConfigViewController
             
             self.updateMachines()
             self.updateCPUs()
+            self.updateVGAs()
         }
     }
     
@@ -74,7 +76,22 @@ public class ConfigHardwareViewController: ConfigViewController
         }
     }
     
-    public init( vm: VirtualMachine )
+    @objc private dynamic var vga: VGA?
+    {
+        didSet
+        {
+            if let vga = self.vga, vga.sorting != -1
+            {
+                self.vm.config.vga = vga.name
+            }
+            else
+            {
+                self.vm.config.vga = nil
+            }
+        }
+    }
+    
+    public init( vm: VirtualMachine, sorting: Int )
     {
         self.minCores     = 1
         self.maxCores     = UInt64( ProcessInfo().processorCount )
@@ -83,7 +100,7 @@ public class ConfigHardwareViewController: ConfigViewController
         self.vm           = vm
         self.architecture = vm.config.architecture.rawValue
         
-        super.init( title: "Hardware", icon: NSImage( named: "HardwareTemplate" ), sorting: 1 )
+        super.init( title: "Hardware", icon: NSImage( named: "HardwareTemplate" ), sorting: sorting )
     }
     
     required init?( coder: NSCoder )
@@ -117,6 +134,7 @@ public class ConfigHardwareViewController: ConfigViewController
         
         self.updateMachines()
         self.updateCPUs()
+        self.updateVGAs()
         
         for i in self.minCores ..< self.maxCores
         {
@@ -144,7 +162,7 @@ public class ConfigHardwareViewController: ConfigViewController
             return
         }
         
-        machines.forEach { self.machines.addObject( $0 ) }
+        self.machines.add( contentsOf: machines )
         
         self.machine = machines.first { $0.name == vm.config.machine } ?? unknown
     }
@@ -169,8 +187,33 @@ public class ConfigHardwareViewController: ConfigViewController
             return
         }
         
-        cpus.forEach { self.cpus.addObject( $0 ) }
+        self.cpus.add( contentsOf: cpus )
         
         self.cpu = cpus.first { $0.name == vm.config.cpu } ?? unknown
+    }
+    
+    private func updateVGAs()
+    {
+        if let existing = self.vgas.content as? [ VGA ]
+        {
+            existing.forEach { self.vgas.removeObject( $0 ) }
+        }
+        
+        let unknown = VGA( name: "Default", title: "Unspecified VGA", sorting: -1 )
+        
+        self.vgas.addObject( unknown )
+        
+        guard let arch = Config.Architecture( rawValue: self.architecture ),
+              let vgas = VGA.all[ arch ]
+        else
+        {
+            self.vga = unknown
+            
+            return
+        }
+        
+        self.vgas.add( contentsOf: vgas )
+        
+        self.vga = vgas.first { $0.name == vm.config.vga } ?? unknown
     }
 }

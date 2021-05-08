@@ -33,13 +33,13 @@ public class ConfigGeneralViewController: ConfigViewController
         }
     }
     
-    public init( vm: VirtualMachine )
+    public init( vm: VirtualMachine, sorting: Int )
     {
         self.vm           = vm
         self.path         = vm.url?.path ?? "--"
         self.machineIcon  = vm.config.icon.rawValue
         
-        super.init( title: "General", icon: NSImage( named: "InfoTemplate" ), sorting: 0 )
+        super.init( title: "General", icon: NSImage( named: "InfoTemplate" ), sorting: sorting )
     }
     
     required init?( coder: NSCoder )

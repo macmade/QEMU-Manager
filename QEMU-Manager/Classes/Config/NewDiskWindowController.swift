@@ -69,7 +69,7 @@ public class NewDiskWindowController: NSWindowController
         let formats = ImageFormat.all
         self.format = formats.first
         
-        formats.forEach { self.formats.addObject( $0 ) }
+        self.formats.add( contentsOf: formats )
     }
     
     @IBAction private func cancel( _ sender: Any? )

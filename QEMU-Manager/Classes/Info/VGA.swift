@@ -16,31 +16,25 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  ******************************************************************************/
 
-import Cocoa
+import Foundation
 
-public class ConfigQEMUViewController: ConfigViewController
+public class VGA: InfoValue
 {
-    @objc private dynamic var vm: VirtualMachine
-    
-    public init( vm: VirtualMachine, sorting: Int )
+    public static var all: [ Config.Architecture : [ VGA ] ] =
     {
-        self.vm = vm
+        () -> [ Config.Architecture : [ VGA ] ] in
         
-        super.init( title: "QEMU", icon: NSImage( named: "TerminalTemplate" ), sorting: sorting )
-    }
-    
-    required init?( coder: NSCoder )
-    {
-        nil
-    }
-    
-    public override var nibName: NSNib.Name?
-    {
-        "ConfigQEMUViewController"
-    }
-    
-    public override func viewDidLoad()
-    {
-        super.viewDidLoad()
-    }
+        let archs: [ Config.Architecture ]           = [ .aarch64, .arm, .i386, .x86_64, .ppc, .ppc64, .riscv32, .riscv64, .m68k ]
+        var all:   [ Config.Architecture : [ VGA ] ] = [:]
+        
+        archs.forEach
+        {
+            all[ $0 ] = QEMU.System.vga( for: $0 ).map
+            {
+                VGA( name: $0.0, title: $0.1, sorting: 0 )
+            }
+        }
+        
+        return all
+    }()
 }

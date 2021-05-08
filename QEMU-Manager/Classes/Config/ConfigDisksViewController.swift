@@ -35,11 +35,11 @@ public class ConfigDisksViewController: ConfigViewController, NSTableViewDataSou
     
     private var newDiskWindowController: NewDiskWindowController?
     
-    public init( vm: VirtualMachine )
+    public init( vm: VirtualMachine, sorting: Int )
     {
         self.vm = vm
         
-        super.init( title: "Disks", icon: NSImage( named: "DiskTemplate" ), sorting: 2 )
+        super.init( title: "Disks", icon: NSImage( named: "DiskTemplate" ), sorting: sorting )
     }
     
     required init?( coder: NSCoder )
@@ -57,11 +57,11 @@ public class ConfigDisksViewController: ConfigViewController, NSTableViewDataSou
         super.viewDidLoad()
         self.reloadDisks()
         
-        let orders = Boot.all
+        let boots = Boot.all
         
-        orders.forEach { self.boots.addObject( $0 ) }
+        self.boots.add( contentsOf: boots )
         
-        self.boot = orders.first { $0.name == self.vm.config.boot } ?? orders.first
+        self.boot = boots.first { $0.name == self.vm.config.boot } ?? boots.first
         
         self.boots.sortDescriptors = [
             NSSortDescriptor( key: "sorting", ascending: true ),
@@ -166,7 +166,7 @@ public class ConfigDisksViewController: ConfigViewController, NSTableViewDataSou
             existing.forEach { self.disks.removeObject( $0 ) }
         }
         
-        self.vm.disks.forEach { self.disks.addObject( $0 ) }
+        self.disks.add( contentsOf: self.vm.disks )
     }
     
     @IBAction private func chooseImage( _ sender: Any? )

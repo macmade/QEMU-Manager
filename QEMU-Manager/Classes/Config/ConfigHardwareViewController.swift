@@ -78,7 +78,7 @@ public class ConfigHardwareViewController: ConfigViewController
         self.vm           = vm
         self.architecture = vm.config.architecture.rawValue
         
-        super.init( title: "Hardware", icon: NSImage( named: "HardwareTemplate" ), sorting: 0 )
+        super.init( title: "Hardware", icon: NSImage( named: "HardwareTemplate" ), sorting: 1 )
     }
     
     required init?( coder: NSCoder )

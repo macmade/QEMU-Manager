@@ -39,8 +39,9 @@ public class ConfigWindowController: NSWindowController, NSTableViewDelegate
         let _ = self.window
         
         self.addController( ConfigGeneralViewController( vm: vm ) )
-        self.addController( ConfigHardwareViewController( vm: vm  ) )
-        self.addController( ConfigDisksViewController( vm: vm  ) )
+        self.addController( ConfigHardwareViewController( vm: vm ) )
+        self.addController( ConfigDisksViewController( vm: vm ) )
+        self.addController( ConfigQEMUViewController( vm: vm ) )
     }
     
     required init?( coder: NSCoder )

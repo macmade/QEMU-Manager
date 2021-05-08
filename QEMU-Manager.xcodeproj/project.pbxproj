@@ -42,7 +42,6 @@
 		05CCF03F2646BD2300A3A9F8 /* Boot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CCF03E2646BD2300A3A9F8 /* Boot.swift */; };
 		05CCF0442646DABD00A3A9F8 /* DiskTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 05CCF0402646DABD00A3A9F8 /* DiskTemplate.pdf */; };
 		05CCF0452646DABD00A3A9F8 /* InfoTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 05CCF0412646DABD00A3A9F8 /* InfoTemplate.pdf */; };
-		05CCF0462646DABD00A3A9F8 /* TeminalTemplate.eps in Resources */ = {isa = PBXBuildFile; fileRef = 05CCF0422646DABD00A3A9F8 /* TeminalTemplate.eps */; };
 		05CCF0472646DABD00A3A9F8 /* HardwareTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 05CCF0432646DABD00A3A9F8 /* HardwareTemplate.pdf */; };
 		05CCF0542646DCC200A3A9F8 /* InfoValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CCF0532646DCC200A3A9F8 /* InfoValue.swift */; };
 		05DFDD21261F7BFD00BBE4E3 /* ApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DFDD20261F7BFD00BBE4E3 /* ApplicationDelegate.swift */; };
@@ -56,6 +55,9 @@
 		05E49B0C262079B700163619 /* qemu in Resources */ = {isa = PBXBuildFile; fileRef = 05E49B0B262079B700163619 /* qemu */; };
 		05E49B0F262079E400163619 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E49B0E262079E400163619 /* Config.swift */; };
 		05E4FCD22646EDDD007D1254 /* NSAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E4FCD12646EDDD007D1254 /* NSAlert.swift */; };
+		05E4FCD42646F4A6007D1254 /* ConfigQEMUViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E4FCD32646F4A6007D1254 /* ConfigQEMUViewController.swift */; };
+		05E4FCD72646F4B8007D1254 /* ConfigQEMUViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05E4FCD52646F4B8007D1254 /* ConfigQEMUViewController.xib */; };
+		05E4FCD92646F59D007D1254 /* TerminalTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 05E4FCD82646F59D007D1254 /* TerminalTemplate.pdf */; };
 		05F5479C263C3C56003F1B92 /* Generic.icns in Resources */ = {isa = PBXBuildFile; fileRef = 05F5479A263C3C56003F1B92 /* Generic.icns */; };
 		05F5479D263C3C56003F1B92 /* macOS.icns in Resources */ = {isa = PBXBuildFile; fileRef = 05F5479B263C3C56003F1B92 /* macOS.icns */; };
 		05F547A1263C56C4003F1B92 /* WindowsLegacy.icns in Resources */ = {isa = PBXBuildFile; fileRef = 05F5479E263C56C4003F1B92 /* WindowsLegacy.icns */; };
@@ -103,7 +105,6 @@
 		05CCF03E2646BD2300A3A9F8 /* Boot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Boot.swift; sourceTree = "<group>"; };
 		05CCF0402646DABD00A3A9F8 /* DiskTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = DiskTemplate.pdf; sourceTree = "<group>"; };
 		05CCF0412646DABD00A3A9F8 /* InfoTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = InfoTemplate.pdf; sourceTree = "<group>"; };
-		05CCF0422646DABD00A3A9F8 /* TeminalTemplate.eps */ = {isa = PBXFileReference; lastKnownFileType = file; path = TeminalTemplate.eps; sourceTree = "<group>"; };
 		05CCF0432646DABD00A3A9F8 /* HardwareTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = HardwareTemplate.pdf; sourceTree = "<group>"; };
 		05CCF0532646DCC200A3A9F8 /* InfoValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoValue.swift; sourceTree = "<group>"; };
 		05DFDD1D261F7BFD00BBE4E3 /* QEMU Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "QEMU Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -165,6 +166,9 @@
 		05E49B0B262079B700163619 /* qemu */ = {isa = PBXFileReference; lastKnownFileType = folder; path = qemu; sourceTree = "<group>"; };
 		05E49B0E262079E400163619 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		05E4FCD12646EDDD007D1254 /* NSAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAlert.swift; sourceTree = "<group>"; };
+		05E4FCD32646F4A6007D1254 /* ConfigQEMUViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigQEMUViewController.swift; sourceTree = "<group>"; };
+		05E4FCD62646F4B8007D1254 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ConfigQEMUViewController.xib; sourceTree = "<group>"; };
+		05E4FCD82646F59D007D1254 /* TerminalTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = TerminalTemplate.pdf; sourceTree = "<group>"; };
 		05F5479A263C3C56003F1B92 /* Generic.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Generic.icns; sourceTree = "<group>"; };
 		05F5479B263C3C56003F1B92 /* macOS.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = macOS.icns; sourceTree = "<group>"; };
 		05F5479E263C56C4003F1B92 /* WindowsLegacy.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = WindowsLegacy.icns; sourceTree = "<group>"; };
@@ -195,6 +199,8 @@
 				05BEEA092638140E00EECF3A /* ConfigGeneralViewController.xib */,
 				05BEEA0C2638145D00EECF3A /* ConfigHardwareViewController.swift */,
 				05BEEA0E2638146E00EECF3A /* ConfigHardwareViewController.xib */,
+				05E4FCD32646F4A6007D1254 /* ConfigQEMUViewController.swift */,
+				05E4FCD52646F4B8007D1254 /* ConfigQEMUViewController.xib */,
 				05BEEA052638120A00EECF3A /* ConfigViewController.swift */,
 				05B697FD263424CB00506106 /* ConfigWindowController.swift */,
 				05B698002634250300506106 /* ConfigWindowController.xib */,
@@ -500,7 +506,7 @@
 				05DFDD87261F9E7900BBE4E3 /* Icon.icns */,
 				05CCF0412646DABD00A3A9F8 /* InfoTemplate.pdf */,
 				05F5479B263C3C56003F1B92 /* macOS.icns */,
-				05CCF0422646DABD00A3A9F8 /* TeminalTemplate.eps */,
+				05E4FCD82646F59D007D1254 /* TerminalTemplate.pdf */,
 				05F5479E263C56C4003F1B92 /* WindowsLegacy.icns */,
 				05F5479F263C56C4003F1B92 /* WindowsTemplate.pdf */,
 			);
@@ -583,9 +589,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				05F547A1263C56C4003F1B92 /* WindowsLegacy.icns in Resources */,
+				05E4FCD92646F59D007D1254 /* TerminalTemplate.pdf in Resources */,
 				05CCEFDB2643EB0100A3A9F8 /* ConfigDisksViewController.xib in Resources */,
 				05BEEA0B2638140E00EECF3A /* ConfigGeneralViewController.xib in Resources */,
 				05DFDD7C261F7F5500BBE4E3 /* LibraryWindowController.xib in Resources */,
+				05E4FCD72646F4B8007D1254 /* ConfigQEMUViewController.xib in Resources */,
 				05F5479C263C3C56003F1B92 /* Generic.icns in Resources */,
 				05CCF0452646DABD00A3A9F8 /* InfoTemplate.pdf in Resources */,
 				05F547A2263C56C4003F1B92 /* WindowsTemplate.pdf in Resources */,
@@ -594,7 +602,6 @@
 				05CCF0472646DABD00A3A9F8 /* HardwareTemplate.pdf in Resources */,
 				05DFDD89261F9E7900BBE4E3 /* Icon.icns in Resources */,
 				05CCF01A2645C75700A3A9F8 /* NewDiskWindowController.xib in Resources */,
-				05CCF0462646DABD00A3A9F8 /* TeminalTemplate.eps in Resources */,
 				05BEEA102638146E00EECF3A /* ConfigHardwareViewController.xib in Resources */,
 				05DFDD26261F7BFE00BBE4E3 /* MainMenu.xib in Resources */,
 				05DFDD8A261F9E7900BBE4E3 /* Document.icns in Resources */,
@@ -639,6 +646,7 @@
 				05DFDD7F261F7F5F00BBE4E3 /* LibraryWindowController.swift in Sources */,
 				058C98B826332F3F0086E57E /* Preferences.swift in Sources */,
 				05CCF0222645F96E00A3A9F8 /* DiskInfo.swift in Sources */,
+				05E4FCD42646F4A6007D1254 /* ConfigQEMUViewController.swift in Sources */,
 				05E49B0F262079E400163619 /* Config.swift in Sources */,
 				05CCEFD82643EAEE00A3A9F8 /* ConfigDisksViewController.swift in Sources */,
 				05CCF0392646A36F00A3A9F8 /* ImageFormat.swift in Sources */,
@@ -716,6 +724,14 @@
 				05DFDD7B261F7F5500BBE4E3 /* Base */,
 			);
 			name = LibraryWindowController.xib;
+			sourceTree = "<group>";
+		};
+		05E4FCD52646F4B8007D1254 /* ConfigQEMUViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				05E4FCD62646F4B8007D1254 /* Base */,
+			);
+			name = ConfigQEMUViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

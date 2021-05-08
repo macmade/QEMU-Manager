@@ -211,6 +211,25 @@
                                 </binding>
                             </connections>
                         </textField>
+                        <button translatesAutoresizingMaskIntoConstraints="NO" id="U0R-wo-10G">
+                            <rect key="frame" x="389" y="17" width="16" height="22"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="16" id="hVJ-IR-HcR"/>
+                                <constraint firstAttribute="height" constant="16" id="qyw-NA-Vlz"/>
+                            </constraints>
+                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSStopProgressFreestandingTemplate" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="80v-6b-lP9">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="removeCDImage:" target="-2" id="zdF-YX-Iad"/>
+                                <binding destination="-2" name="hidden" keyPath="self.vm.config.cdImage" id="a99-Dl-fCi">
+                                    <dictionary key="options">
+                                        <string key="NSValueTransformerName">NSIsNil</string>
+                                    </dictionary>
+                                </binding>
+                            </connections>
+                        </button>
                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RdS-YJ-l0W">
                             <rect key="frame" x="406" y="11" width="81" height="32"/>
                             <buttonCell key="cell" type="push" title="Choose" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qZn-Vb-oic">
@@ -224,6 +243,7 @@
                     </subviews>
                     <constraints>
                         <constraint firstItem="M5v-30-SM4" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" symbolic="YES" id="2o6-dY-6UB"/>
+                        <constraint firstItem="U0R-wo-10G" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ATb-SA-85h" secondAttribute="trailing" constant="8" symbolic="YES" id="4Zx-U7-DjO"/>
                         <constraint firstItem="WsS-dK-tem" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" symbolic="YES" id="8DC-IM-o2o"/>
                         <constraint firstItem="WsS-dK-tem" firstAttribute="top" secondItem="M5v-30-SM4" secondAttribute="bottom" constant="8" symbolic="YES" id="BWv-BK-DZp"/>
                         <constraint firstItem="M5v-30-SM4" firstAttribute="top" secondItem="Haf-nc-Pvg" secondAttribute="bottom" constant="8" symbolic="YES" id="Bgh-7c-Euu"/>
@@ -231,12 +251,13 @@
                         <constraint firstAttribute="trailing" secondItem="M5v-30-SM4" secondAttribute="trailing" constant="20" symbolic="YES" id="NNS-jK-fRl"/>
                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="gOk-2v-Rmg" secondAttribute="trailing" constant="20" symbolic="YES" id="Pr3-rj-Ekb"/>
                         <constraint firstAttribute="trailing" secondItem="RdS-YJ-l0W" secondAttribute="trailing" constant="20" symbolic="YES" id="PyT-AE-g2F"/>
-                        <constraint firstItem="RdS-YJ-l0W" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ATb-SA-85h" secondAttribute="trailing" constant="8" symbolic="YES" id="QE4-Sl-St4"/>
                         <constraint firstAttribute="bottom" secondItem="ATb-SA-85h" secondAttribute="bottom" constant="20" id="U3D-6p-CK7"/>
+                        <constraint firstItem="U0R-wo-10G" firstAttribute="centerY" secondItem="RdS-YJ-l0W" secondAttribute="centerY" id="Wfm-zc-zXW"/>
                         <constraint firstItem="ATb-SA-85h" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" symbolic="YES" id="cUU-fm-ht4"/>
                         <constraint firstItem="Haf-nc-Pvg" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="40" id="e47-4B-Utc"/>
                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Haf-nc-Pvg" secondAttribute="trailing" constant="20" symbolic="YES" id="gwM-HJ-hgi"/>
                         <constraint firstItem="ATb-SA-85h" firstAttribute="top" secondItem="gOk-2v-Rmg" secondAttribute="bottom" constant="8" symbolic="YES" id="n3Y-aO-xwp"/>
+                        <constraint firstItem="RdS-YJ-l0W" firstAttribute="leading" secondItem="U0R-wo-10G" secondAttribute="trailing" constant="8" symbolic="YES" id="ogI-ce-nGL"/>
                         <constraint firstItem="gOk-2v-Rmg" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" symbolic="YES" id="q1t-Lu-J95"/>
                         <constraint firstAttribute="width" constant="500" id="rVE-wo-XMr"/>
                         <constraint firstItem="Haf-nc-Pvg" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" symbolic="YES" id="x2b-dr-jUZ"/>
@@ -258,5 +279,6 @@
         <image name="NSAddTemplate" width="14" height="13"/>
         <image name="NSRemoveTemplate" width="14" height="4"/>
         <image name="NSRevealFreestandingTemplate" width="15" height="15"/>
+        <image name="NSStopProgressFreestandingTemplate" width="15" height="15"/>
     </resources>
 </document>

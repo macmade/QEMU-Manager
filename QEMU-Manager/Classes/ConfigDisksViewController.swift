@@ -192,4 +192,9 @@ import Cocoa
         
         NSWorkspace.shared.selectFile( disk.url.path, inFileViewerRootedAtPath: "" )
     }
+    
+    @IBAction private func removeCDImage( _ sender: Any? )
+    {
+        self.vm.config.cdImage = nil
+    }
 }

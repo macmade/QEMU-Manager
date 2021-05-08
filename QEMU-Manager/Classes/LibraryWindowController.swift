@@ -63,7 +63,7 @@ import Cocoa
     
     @IBAction public func showConfigWindow( _ sender: Any? )
     {
-        guard let machine = sender as? VirtualMachine else
+        guard let machine = self.getMachine( for: sender ) else
         {
             NSSound.beep()
             
@@ -149,9 +149,7 @@ import Cocoa
     
     @IBAction private func configure( _ sender: Any?  )
     {
-        guard let item    = sender                 as? NSMenuItem,
-              let machine = item.representedObject as? VirtualMachine
-        else
+        guard let machine = self.getMachine( for: sender ) else
         {
             NSSound.beep()
             
@@ -161,11 +159,24 @@ import Cocoa
         self.showConfigWindow( for: machine )
     }
     
+    @IBAction private func revealInFinder( _ sender: Any?  )
+    {
+        guard let machine = self.getMachine( for: sender ),
+              let url     = machine.url
+        else
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
+        NSWorkspace.shared.selectFile( url.path, inFileViewerRootedAtPath: "" )
+    }
+    
     @IBAction private func delete( _ sender: Any?  )
     {
-        guard let item    = sender                 as? NSMenuItem,
-              let machine = item.representedObject as? VirtualMachine,
-              let window  = self.window,
+        guard let window  = self.window,
+              let machine = self.getMachine( for: sender ),
               let url     = machine.url
         else
         {
@@ -235,21 +246,12 @@ import Cocoa
     
     @IBAction private func start( _ sender: Any? )
     {
-        guard let arranged = self.machines.arrangedObjects as? [ VirtualMachine ] else
+        guard let machine = self.getMachine( for: sender ) else
         {
             NSSound.beep()
             
             return
         }
-        
-        if self.tableView.clickedRow < 0 || self.tableView.clickedRow >= arranged.count
-        {
-            NSSound.beep()
-            
-            return
-        }
-        
-        let machine = arranged[ self.tableView.clickedRow ]
         
         do
         {
@@ -259,5 +261,31 @@ import Cocoa
         {
             NSAlert( error: error ).runModal()
         }
+    }
+    
+    private func getMachine( for sender: Any? ) -> VirtualMachine?
+    {
+        if let machine = sender as? VirtualMachine
+        {
+            return machine
+        }
+        
+        if let item    = sender                 as? NSMenuItem,
+           let machine = item.representedObject as? VirtualMachine
+        {
+            return machine
+        }
+        
+        guard let arranged = self.machines.arrangedObjects as? [ VirtualMachine ] else
+        {
+            return nil
+        }
+        
+        if self.tableView.clickedRow < 0 || self.tableView.clickedRow >= arranged.count
+        {
+            return nil
+        }
+        
+        return arranged[ self.tableView.clickedRow ]
     }
 }

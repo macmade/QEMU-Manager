@@ -295,10 +295,23 @@ DQ
         <arrayController selectsInsertedObjects="NO" avoidsEmptySelection="NO" automaticallyRearrangesObjects="YES" id="cVS-ih-Quc"/>
         <menu autoenablesItems="NO" id="2pB-5e-L4D">
             <items>
+                <menuItem title="Start" id="cL8-Af-ZnD">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="start:" target="-2" id="HYS-CG-thS"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="zzC-4V-Kz0"/>
                 <menuItem title="Configure..." id="qns-zk-yTp">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="configure:" target="-2" id="l8H-hu-eRq"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Reveal in Finder..." id="YKN-GD-uLI">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="revealInFinder:" target="-2" id="p5d-5D-E4A"/>
                     </connections>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="wI6-uC-LOA"/>

@@ -33,15 +33,6 @@ public class Config: NSObject, Codable
         case m68k
     }
     
-    @objc public enum Icon: Int
-    {
-        case generic
-        case apple
-        case macOS
-        case windows
-        case windowsLegacy
-    }
-    
     @objc public private( set ) dynamic var version:      UInt64       = 0
     @objc public private( set ) dynamic var uuid:         UUID         = UUID()
     @objc public                dynamic var architecture: Architecture = .aarch64
@@ -51,7 +42,7 @@ public class Config: NSObject, Codable
     @objc public                dynamic var cores:        UInt64       = 1
     @objc public                dynamic var memory:       UInt64       = 2147483648
     @objc public                dynamic var title:        String       = "Untitled"
-    @objc public                dynamic var icon:         Icon         = .generic
+    @objc public                dynamic var icon:         String?      = nil
     @objc public private( set ) dynamic var disks:        [ Disk ]     = []
     @objc public                dynamic var cdImage:      URL?         = nil
     @objc public                dynamic var boot:         String       = "d"
@@ -89,6 +80,7 @@ public class Config: NSObject, Codable
         
         self.version   = try values.decode( UInt64.self,     forKey: .version )
         self.uuid      = try values.decode( UUID.self,       forKey: .uuid )
+        self.icon      = try values.decode( String?.self,    forKey: .icon )
         self.machine   = try values.decode( String?.self,    forKey: .machine )
         self.cpu       = try values.decode( String?.self,    forKey: .cpu )
         self.vga       = try values.decode( String?.self,    forKey: .vga )
@@ -106,7 +98,6 @@ public class Config: NSObject, Codable
         }
         
         self.architecture = arch
-        self.icon         = Icon( string: ( try? values.decode( String.self, forKey: .icon ) ) ?? "" ) ?? .generic
     }
     
     public func encode( to encoder: Encoder ) throws
@@ -122,7 +113,7 @@ public class Config: NSObject, Codable
         try container.encode( self.cores,                    forKey: .cores )
         try container.encode( self.memory,                   forKey: .memory )
         try container.encode( self.title,                    forKey: .title )
-        try container.encode( self.icon.description,         forKey: .icon )
+        try container.encode( self.icon,                     forKey: .icon )
         try container.encode( self.disks,                    forKey: .disks )
         try container.encode( self.cdImage,                  forKey: .cdImage )
         try container.encode( self.boot,                     forKey: .boot )
@@ -172,34 +163,6 @@ extension Config.Architecture: CustomStringConvertible
             case .riscv32: return "riscv32"
             case .riscv64: return "riscv64"
             case .x86_64:  return "x86_64"
-        }
-    }
-}
-
-extension Config.Icon: CustomStringConvertible
-{
-    public init?( string: String )
-    {
-        switch string
-        {
-            case "generic"       : self.init( rawValue: Config.Icon.generic.rawValue )
-            case "apple"         : self.init( rawValue: Config.Icon.apple.rawValue )
-            case "macOS"         : self.init( rawValue: Config.Icon.macOS.rawValue )
-            case "windows"       : self.init( rawValue: Config.Icon.windows.rawValue )
-            case "windowsLegacy" : self.init( rawValue: Config.Icon.windowsLegacy.rawValue )
-            default:               return nil
-        }
-    }
-    
-    public var description: String
-    {
-        switch self
-        {
-            case .generic:       return "generic"
-            case .apple:         return "apple"
-            case .macOS:         return "macOS"
-            case .windows:       return "windows"
-            case .windowsLegacy: return "windowsLegacy"
         }
     }
 }

@@ -7,6 +7,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="ConfigGeneralViewController" customModule="QEMU_Manager" customModuleProvider="target">
             <connections>
+                <outlet property="machineIcons" destination="NDe-Qw-Avo" id="r9x-FP-42E"/>
                 <outlet property="view" destination="cCc-g0-qnp" id="fgY-Ru-Q5K"/>
             </connections>
         </customObject>
@@ -51,22 +52,24 @@
                             </textFieldCell>
                         </textField>
                         <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="C58-6P-0ID">
-                            <rect key="frame" x="17" y="137" width="141" height="25"/>
-                            <popUpButtonCell key="cell" type="push" title="Generic" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="zhv-FF-QDN" id="Aqb-MS-xUg">
+                            <rect key="frame" x="17" y="137" width="78" height="25"/>
+                            <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="zhv-FF-QDN" id="Aqb-MS-xUg">
                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="menu"/>
                                 <menu key="menu" id="cvE-cU-cgT">
                                     <items>
-                                        <menuItem title="Generic" state="on" id="zhv-FF-QDN"/>
-                                        <menuItem title="Apple" id="BFD-cb-0Do"/>
-                                        <menuItem title="macOS" id="TeT-Ty-6On"/>
-                                        <menuItem title="Windows" id="C2G-IR-Dxg"/>
-                                        <menuItem title="Windows Legacy" id="cz8-S5-ZVj"/>
+                                        <menuItem title="Item 1" state="on" id="zhv-FF-QDN"/>
+                                        <menuItem title="Item 2" id="BFD-cb-0Do"/>
+                                        <menuItem title="Item 3" id="TeT-Ty-6On"/>
                                     </items>
                                 </menu>
+                                <connections>
+                                    <binding destination="-2" name="selectedObject" keyPath="self.machineIcon" id="qFm-Zk-DIu"/>
+                                </connections>
                             </popUpButtonCell>
                             <connections>
-                                <binding destination="-2" name="selectedIndex" keyPath="self.machineIcon" id="SaQ-5n-Kn5"/>
+                                <binding destination="NDe-Qw-Avo" name="content" keyPath="arrangedObjects" id="AXV-OZ-NFA"/>
+                                <binding destination="-2" name="selectedObject" keyPath="self.machineIcon" previousBinding="AXV-OZ-NFA" id="69E-ah-vs6"/>
                             </connections>
                         </popUpButton>
                         <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="aP2-uG-b6Y">
@@ -140,6 +143,7 @@
             </constraints>
             <point key="canvasLocation" x="-159" y="51"/>
         </customView>
+        <arrayController id="NDe-Qw-Avo" userLabel="Icons"/>
     </objects>
     <resources>
         <image name="NSRevealFreestandingTemplate" width="15" height="15"/>

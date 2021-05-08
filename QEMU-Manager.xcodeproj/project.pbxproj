@@ -63,8 +63,14 @@
 		05E4FCEA26470D44007D1254 /* DropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E4FCE926470D44007D1254 /* DropView.swift */; };
 		05E4FCF22647216E007D1254 /* ScreenTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 05E4FCF12647216E007D1254 /* ScreenTemplate.pdf */; };
 		05E4FCF4264721F8007D1254 /* VGA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E4FCF3264721F8007D1254 /* VGA.swift */; };
+		05E4FCF726472B4C007D1254 /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E4FCF626472B4C007D1254 /* Icon.swift */; };
+		05E4FCFF264731A8007D1254 /* Fedora.icns in Resources */ = {isa = PBXBuildFile; fileRef = 05E4FCFA264731A8007D1254 /* Fedora.icns */; };
+		05E4FD00264731A8007D1254 /* AppleLegacy.icns in Resources */ = {isa = PBXBuildFile; fileRef = 05E4FCFB264731A8007D1254 /* AppleLegacy.icns */; };
+		05E4FD01264731A8007D1254 /* FreeBSD.icns in Resources */ = {isa = PBXBuildFile; fileRef = 05E4FCFC264731A8007D1254 /* FreeBSD.icns */; };
+		05E4FD02264731A8007D1254 /* Ubuntu.icns in Resources */ = {isa = PBXBuildFile; fileRef = 05E4FCFD264731A8007D1254 /* Ubuntu.icns */; };
+		05E4FD03264731A8007D1254 /* Linux.icns in Resources */ = {isa = PBXBuildFile; fileRef = 05E4FCFE264731A8007D1254 /* Linux.icns */; };
 		05F5479C263C3C56003F1B92 /* Generic.icns in Resources */ = {isa = PBXBuildFile; fileRef = 05F5479A263C3C56003F1B92 /* Generic.icns */; };
-		05F5479D263C3C56003F1B92 /* macOS.icns in Resources */ = {isa = PBXBuildFile; fileRef = 05F5479B263C3C56003F1B92 /* macOS.icns */; };
+		05F5479D263C3C56003F1B92 /* MacOS.icns in Resources */ = {isa = PBXBuildFile; fileRef = 05F5479B263C3C56003F1B92 /* MacOS.icns */; };
 		05F547A1263C56C4003F1B92 /* WindowsLegacy.icns in Resources */ = {isa = PBXBuildFile; fileRef = 05F5479E263C56C4003F1B92 /* WindowsLegacy.icns */; };
 		05F547A2263C56C4003F1B92 /* WindowsTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 05F5479F263C56C4003F1B92 /* WindowsTemplate.pdf */; };
 		05F547A3263C56C4003F1B92 /* AppleTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 05F547A0263C56C4003F1B92 /* AppleTemplate.pdf */; };
@@ -209,8 +215,14 @@
 		05E4FCE926470D44007D1254 /* DropView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropView.swift; sourceTree = "<group>"; };
 		05E4FCF12647216E007D1254 /* ScreenTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = ScreenTemplate.pdf; sourceTree = "<group>"; };
 		05E4FCF3264721F8007D1254 /* VGA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGA.swift; sourceTree = "<group>"; };
+		05E4FCF626472B4C007D1254 /* Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
+		05E4FCFA264731A8007D1254 /* Fedora.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Fedora.icns; sourceTree = "<group>"; };
+		05E4FCFB264731A8007D1254 /* AppleLegacy.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = AppleLegacy.icns; sourceTree = "<group>"; };
+		05E4FCFC264731A8007D1254 /* FreeBSD.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = FreeBSD.icns; sourceTree = "<group>"; };
+		05E4FCFD264731A8007D1254 /* Ubuntu.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Ubuntu.icns; sourceTree = "<group>"; };
+		05E4FCFE264731A8007D1254 /* Linux.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Linux.icns; sourceTree = "<group>"; };
 		05F5479A263C3C56003F1B92 /* Generic.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Generic.icns; sourceTree = "<group>"; };
-		05F5479B263C3C56003F1B92 /* macOS.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = macOS.icns; sourceTree = "<group>"; };
+		05F5479B263C3C56003F1B92 /* MacOS.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = MacOS.icns; sourceTree = "<group>"; };
 		05F5479E263C56C4003F1B92 /* WindowsLegacy.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = WindowsLegacy.icns; sourceTree = "<group>"; };
 		05F5479F263C56C4003F1B92 /* WindowsTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = WindowsTemplate.pdf; sourceTree = "<group>"; };
 		05F547A0263C56C4003F1B92 /* AppleTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = AppleTemplate.pdf; sourceTree = "<group>"; };
@@ -312,6 +324,7 @@
 				05CCF0532646DCC200A3A9F8 /* InfoValue.swift */,
 				05CCF03426462FDE00A3A9F8 /* Machine.swift */,
 				05E4FCF3264721F8007D1254 /* VGA.swift */,
+				05E4FCF626472B4C007D1254 /* Icon.swift */,
 			);
 			path = Info;
 			sourceTree = "<group>";
@@ -543,16 +556,21 @@
 		05DFDD86261F9E7900BBE4E3 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				05E4FCFB264731A8007D1254 /* AppleLegacy.icns */,
 				05F547A0263C56C4003F1B92 /* AppleTemplate.pdf */,
 				05CCF0402646DABD00A3A9F8 /* DiskTemplate.pdf */,
 				05DFDD88261F9E7900BBE4E3 /* Document.icns */,
+				05E4FCFA264731A8007D1254 /* Fedora.icns */,
+				05E4FCFC264731A8007D1254 /* FreeBSD.icns */,
 				05F5479A263C3C56003F1B92 /* Generic.icns */,
 				05CCF0432646DABD00A3A9F8 /* HardwareTemplate.pdf */,
 				05DFDD87261F9E7900BBE4E3 /* Icon.icns */,
 				05CCF0412646DABD00A3A9F8 /* InfoTemplate.pdf */,
-				05F5479B263C3C56003F1B92 /* macOS.icns */,
+				05E4FCFE264731A8007D1254 /* Linux.icns */,
+				05F5479B263C3C56003F1B92 /* MacOS.icns */,
 				05E4FCF12647216E007D1254 /* ScreenTemplate.pdf */,
 				05E4FCD82646F59D007D1254 /* TerminalTemplate.pdf */,
+				05E4FCFD264731A8007D1254 /* Ubuntu.icns */,
 				05F5479E263C56C4003F1B92 /* WindowsLegacy.icns */,
 				05F5479F263C56C4003F1B92 /* WindowsTemplate.pdf */,
 			);
@@ -687,9 +705,12 @@
 				05E4FCD92646F59D007D1254 /* TerminalTemplate.pdf in Resources */,
 				05CCEFDB2643EB0100A3A9F8 /* ConfigDisksViewController.xib in Resources */,
 				05BEEA0B2638140E00EECF3A /* ConfigGeneralViewController.xib in Resources */,
+				05E4FD02264731A8007D1254 /* Ubuntu.icns in Resources */,
+				05E4FD01264731A8007D1254 /* FreeBSD.icns in Resources */,
 				05DFDD7C261F7F5500BBE4E3 /* LibraryWindowController.xib in Resources */,
 				05E4FCD72646F4B8007D1254 /* ConfigQEMUViewController.xib in Resources */,
 				05F5479C263C3C56003F1B92 /* Generic.icns in Resources */,
+				05E4FD03264731A8007D1254 /* Linux.icns in Resources */,
 				05CCF0452646DABD00A3A9F8 /* InfoTemplate.pdf in Resources */,
 				05F547A2263C56C4003F1B92 /* WindowsTemplate.pdf in Resources */,
 				05F547A3263C56C4003F1B92 /* AppleTemplate.pdf in Resources */,
@@ -698,10 +719,12 @@
 				05DFDD89261F9E7900BBE4E3 /* Icon.icns in Resources */,
 				05CCF01A2645C75700A3A9F8 /* NewDiskWindowController.xib in Resources */,
 				05BEEA102638146E00EECF3A /* ConfigHardwareViewController.xib in Resources */,
+				05E4FCFF264731A8007D1254 /* Fedora.icns in Resources */,
 				05DFDD26261F7BFE00BBE4E3 /* MainMenu.xib in Resources */,
 				05DFDD8A261F9E7900BBE4E3 /* Document.icns in Resources */,
-				05F5479D263C3C56003F1B92 /* macOS.icns in Resources */,
+				05F5479D263C3C56003F1B92 /* MacOS.icns in Resources */,
 				05B698022634250300506106 /* ConfigWindowController.xib in Resources */,
+				05E4FD00264731A8007D1254 /* AppleLegacy.icns in Resources */,
 				05CCF0442646DABD00A3A9F8 /* DiskTemplate.pdf in Resources */,
 				05E49B0C262079B700163619 /* qemu in Resources */,
 				05E4FCF22647216E007D1254 /* ScreenTemplate.pdf in Resources */,
@@ -745,6 +768,7 @@
 				05CCF0242646051B00A3A9F8 /* OptionalPath.swift in Sources */,
 				05F547A5263C5B50003F1B92 /* ArchitectureToString.swift in Sources */,
 				05F5485D2640930A003F1B92 /* BytesToString.swift in Sources */,
+				05E4FCF726472B4C007D1254 /* Icon.swift in Sources */,
 				058C98B126330FBB0086E57E /* ArrayIsNotEmpty.swift in Sources */,
 				05CCF0542646DCC200A3A9F8 /* InfoValue.swift in Sources */,
 				05CCF0312646089A00A3A9F8 /* NSError.swift in Sources */,

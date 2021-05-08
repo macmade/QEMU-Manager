@@ -47,7 +47,7 @@ import Cocoa
         DispatchQueue.global( qos: .userInitiated ).async
         {
             let _ = MachineInfo.all
-            let _ = CPUInfo.all
+            let _ = CPU.all
             
             DispatchQueue.main.async
             {

@@ -62,7 +62,7 @@ import Cocoa
         }
     }
     
-    @objc private dynamic var cpu: CPUInfo?
+    @objc private dynamic var cpu: CPU?
     {
         didSet
         {
@@ -147,17 +147,17 @@ import Cocoa
     
     private func updateCPUs()
     {
-        if let existing = self.cpus.content as? [ CPUInfo ]
+        if let existing = self.cpus.content as? [ CPU ]
         {
             existing.forEach { self.cpus.removeObject( $0 ) }
         }
         
-        let unknown = CPUInfo( name: "Default", title: "Unspecified CPU", sorting: -1 )
+        let unknown = CPU( name: "Default", title: "Unspecified CPU", sorting: -1 )
         
         self.cpus.addObject( unknown )
         
         guard let arch = Config.Architecture( rawValue: self.architecture ),
-              let cpus = CPUInfo.all[ arch ]
+              let cpus = CPU.all[ arch ]
         else
         {
             self.cpu = unknown

@@ -62,8 +62,6 @@
                                         <menuItem title="macOS" id="TeT-Ty-6On"/>
                                         <menuItem title="Windows" id="C2G-IR-Dxg"/>
                                         <menuItem title="Windows Legacy" id="cz8-S5-ZVj"/>
-                                        <menuItem title="Linux" id="PlN-9S-xaa"/>
-                                        <menuItem title="BSD" id="e4d-no-dRY"/>
                                     </items>
                                 </menu>
                             </popUpButtonCell>

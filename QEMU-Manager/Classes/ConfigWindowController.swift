@@ -68,7 +68,7 @@ import Cocoa
     {
         super.windowDidLoad()
         
-        self.window?.title = self.machine.config.title
+        self.window?.bind( NSBindingName( "title" ), to: self, withKeyPath: "machine.config.title", options: nil )
         
         self.controllers.sortDescriptors = [
             NSSortDescriptor( key: "sorting", ascending: true ),

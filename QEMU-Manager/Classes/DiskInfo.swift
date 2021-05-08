@@ -26,26 +26,26 @@ import Foundation
 
 @objc public class DiskInfo: NSObject
 {
-    @objc public private( set ) dynamic var machine: VirtualMachine
+    @objc public private( set ) dynamic var vm:      VirtualMachine
     @objc public private( set ) dynamic var disk:    Disk
     @objc public private( set ) dynamic var url:     URL
     @objc public private( set ) dynamic var size:    UInt64
     
-    public init?( machine: VirtualMachine, disk: Disk )
+    public init?( vm: VirtualMachine, disk: Disk )
     {
-        guard let url = machine.url else
+        guard let url = vm.url else
         {
             return nil
         }
         
-        if machine.config.disks.contains( where: { $0.uuid == disk.uuid } ) == false
+        if vm.config.disks.contains( where: { $0.uuid == disk.uuid } ) == false
         {
             return nil
         }
         
-        self.machine = machine
-        self.disk    = disk
-        self.url     = url.appendingPathComponent( disk.uuid.uuidString ).appendingPathExtension( disk.format )
+        self.vm   = vm
+        self.disk = disk
+        self.url  = url.appendingPathComponent( disk.uuid.uuidString ).appendingPathExtension( disk.format )
         
         do
         {

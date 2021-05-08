@@ -56,31 +56,31 @@ import Cocoa
         }
     }
     
-    public func configWindowController( for machine: VirtualMachine ) -> ConfigWindowController?
+    public func configWindowController( for vm: VirtualMachine ) -> ConfigWindowController?
     {
-        return self.configWindowControllers[ machine.config.uuid ]
+        return self.configWindowControllers[ vm.config.uuid ]
     }
     
     @IBAction public func showConfigWindow( _ sender: Any? )
     {
-        guard let machine = self.getMachine( for: sender ) else
+        guard let vm = self.getVM( for: sender ) else
         {
             NSSound.beep()
             
             return
         }
         
-        self.showConfigWindow( for: machine )
+        self.showConfigWindow( for: vm )
     }
     
-    public func showConfigWindow( for machine: VirtualMachine )
+    public func showConfigWindow( for vm: VirtualMachine )
     {
-        if self.configWindowControllers.contains( where: { $0.key == machine.config.uuid } ) == false
+        if self.configWindowControllers.contains( where: { $0.key == vm.config.uuid } ) == false
         {
-            self.configWindowControllers[ machine.config.uuid ] = ConfigWindowController( machine: machine )
+            self.configWindowControllers[ vm.config.uuid ] = ConfigWindowController( vm: vm )
         }
         
-        guard let window = self.configWindowControllers[ machine.config.uuid ]?.window else
+        guard let window = self.configWindowControllers[ vm.config.uuid ]?.window else
         {
             NSSound.beep()
             
@@ -124,14 +124,14 @@ import Cocoa
             
             do
             {
-                let machine          = VirtualMachine()
-                machine.config.title = ( url.lastPathComponent as NSString ).deletingPathExtension
+                let vm          = VirtualMachine()
+                vm.config.title = ( url.lastPathComponent as NSString ).deletingPathExtension
                 
-                try machine.save( to: url )
+                try vm.save( to: url )
                 
-                Preferences.shared.addVirtualMachines( machine )
-                self.machines.addObject( machine )
-                self.showConfigWindow( for: machine )
+                Preferences.shared.addVirtualMachines( vm )
+                self.machines.addObject( vm )
+                self.showConfigWindow( for: vm )
             }
             catch let error
             {
@@ -149,20 +149,20 @@ import Cocoa
     
     @IBAction private func configure( _ sender: Any?  )
     {
-        guard let machine = self.getMachine( for: sender ) else
+        guard let vm = self.getVM( for: sender ) else
         {
             NSSound.beep()
             
             return
         }
         
-        self.showConfigWindow( for: machine )
+        self.showConfigWindow( for: vm )
     }
     
     @IBAction private func revealInFinder( _ sender: Any?  )
     {
-        guard let machine = self.getMachine( for: sender ),
-              let url     = machine.url
+        guard let vm  = self.getVM( for: sender ),
+              let url = vm.url
         else
         {
             NSSound.beep()
@@ -175,9 +175,9 @@ import Cocoa
     
     @IBAction private func delete( _ sender: Any?  )
     {
-        guard let window  = self.window,
-              let machine = self.getMachine( for: sender ),
-              let url     = machine.url
+        guard let window = self.window,
+              let vm     = self.getVM( for: sender ),
+              let url    = vm.url
         else
         {
             NSSound.beep()
@@ -187,7 +187,7 @@ import Cocoa
         
         let alert = NSAlert()
         
-        alert.messageText     = "Delete \( machine.config.title )?"
+        alert.messageText     = "Delete \( vm.config.title )?"
         alert.informativeText = "Are you sure you want to delete this virtual machine?"
         
         alert.addButton( withTitle: "Remove and Keep Files" )
@@ -203,9 +203,9 @@ import Cocoa
                 return
             }
             
-            self.configWindowController( for: machine )?.close()
-            self.machines.removeObject( machine )
-            Preferences.shared.removeVirtualMachines( machine )
+            self.configWindowController( for: vm )?.close()
+            self.machines.removeObject( vm )
+            Preferences.shared.removeVirtualMachines( vm )
             
             if r == .alertThirdButtonReturn
             {
@@ -239,14 +239,14 @@ import Cocoa
         
         setEnabled( menu, true )
         
-        let machine = arranged[ self.tableView.clickedRow ]
+        let vm = arranged[ self.tableView.clickedRow ]
         
-        menu.items.forEach { $0.representedObject = machine }
+        menu.items.forEach { $0.representedObject = vm }
     }
     
     @IBAction private func start( _ sender: Any? )
     {
-        guard let machine = self.getMachine( for: sender ) else
+        guard let vm = self.getVM( for: sender ) else
         {
             NSSound.beep()
             
@@ -255,7 +255,7 @@ import Cocoa
         
         do
         {
-            try QEMU.System.start( machine: machine )
+            try QEMU.System.start( vm: vm )
         }
         catch let error
         {
@@ -263,17 +263,17 @@ import Cocoa
         }
     }
     
-    private func getMachine( for sender: Any? ) -> VirtualMachine?
+    private func getVM( for sender: Any? ) -> VirtualMachine?
     {
-        if let machine = sender as? VirtualMachine
+        if let vm = sender as? VirtualMachine
         {
-            return machine
+            return vm
         }
         
-        if let item    = sender                 as? NSMenuItem,
-           let machine = item.representedObject as? VirtualMachine
+        if let item = sender                 as? NSMenuItem,
+           let vm   = item.representedObject as? VirtualMachine
         {
-            return machine
+            return vm
         }
         
         guard let arranged = self.machines.arrangedObjects as? [ VirtualMachine ] else

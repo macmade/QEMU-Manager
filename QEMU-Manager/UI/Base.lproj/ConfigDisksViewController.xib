@@ -204,7 +204,7 @@
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>
                             <connections>
-                                <binding destination="-2" name="value" keyPath="self.machine.config.cdImage" id="1SB-IJ-fUV">
+                                <binding destination="-2" name="value" keyPath="self.vm.config.cdImage" id="m32-l4-3kM">
                                     <dictionary key="options">
                                         <string key="NSValueTransformerName">OptionalPath</string>
                                     </dictionary>

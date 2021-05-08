@@ -51,6 +51,8 @@ import Foundation
     @objc public private( set ) dynamic var version:      UInt64       = 0
     @objc public private( set ) dynamic var uuid:         UUID         = UUID()
     @objc public                dynamic var architecture: Architecture = .aarch64
+    @objc public                dynamic var machine:      String?      = nil
+    @objc public                dynamic var cpu:          String?      = nil
     @objc public                dynamic var memory:       UInt64       = 2147483648
     @objc public                dynamic var title:        String       = "Untitled"
     @objc public                dynamic var icon:         Icon         = .generic
@@ -65,6 +67,8 @@ import Foundation
         case version
         case uuid
         case architecture
+        case machine
+        case cpu
         case memory
         case title
         case icon
@@ -83,6 +87,8 @@ import Foundation
         
         self.version = try values.decode( UInt64.self,   forKey: .version )
         self.uuid    = try values.decode( UUID.self,     forKey: .uuid )
+        self.machine = try values.decode( String?.self,  forKey: .machine )
+        self.cpu     = try values.decode( String?.self,  forKey: .cpu )
         self.memory  = try values.decode( UInt64.self,   forKey: .memory )
         self.title   = try values.decode( String.self,   forKey: .title )
         self.disks   = try values.decode( [ Disk ].self, forKey: .disks )
@@ -104,6 +110,8 @@ import Foundation
         try container.encode( self.version,                  forKey: .version )
         try container.encode( self.uuid,                     forKey: .uuid )
         try container.encode( self.architecture.description, forKey: .architecture )
+        try container.encode( self.machine,                  forKey: .machine )
+        try container.encode( self.cpu,                      forKey: .cpu )
         try container.encode( self.memory,                   forKey: .memory )
         try container.encode( self.title,                    forKey: .title )
         try container.encode( self.icon.description,         forKey: .icon )

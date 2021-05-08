@@ -34,19 +34,19 @@ import Cocoa
     private var selectionObserver: NSKeyValueObservation?
     private var animating        = false
     
-    @objc public private( set ) dynamic var machine: VirtualMachine
+    @objc public private( set ) dynamic var vm: VirtualMachine
     
-    public init( machine: VirtualMachine )
+    public init( vm: VirtualMachine )
     {
-        self.machine = machine
+        self.vm = vm
         
         super.init( window: nil )
         
         let _ = self.window
         
-        self.addController( ConfigGeneralViewController( machine: machine ) )
-        self.addController( ConfigHardwareViewController( machine: machine  ) )
-        self.addController( ConfigDisksViewController( machine: machine  ) )
+        self.addController( ConfigGeneralViewController( vm: vm ) )
+        self.addController( ConfigHardwareViewController( vm: vm  ) )
+        self.addController( ConfigDisksViewController( vm: vm  ) )
     }
     
     required init?( coder: NSCoder )
@@ -68,7 +68,7 @@ import Cocoa
     {
         super.windowDidLoad()
         
-        self.window?.bind( NSBindingName( "title" ), to: self, withKeyPath: "machine.config.title", options: nil )
+        self.window?.bind( NSBindingName( "title" ), to: self, withKeyPath: "vm.config.title", options: nil )
         
         self.controllers.sortDescriptors = [
             NSSortDescriptor( key: "sorting", ascending: true ),
@@ -97,12 +97,12 @@ import Cocoa
         
         do
         {
-            if self.machine.config.title.trimmingCharacters( in: .whitespaces ).count == 0
+            if self.vm.config.title.trimmingCharacters( in: .whitespaces ).count == 0
             {
-                self.machine.config.title = "Untitled"
+                self.vm.config.title = "Untitled"
             }
             
-            try self.machine.save()
+            try self.vm.save()
         }
         catch let error
         {

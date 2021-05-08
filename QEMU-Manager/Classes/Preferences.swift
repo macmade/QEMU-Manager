@@ -93,26 +93,26 @@ import Cocoa
         }
     }
     
-    public func addVirtualMachines( _ machine: VirtualMachine )
+    public func addVirtualMachines( _ vm: VirtualMachine )
     {
-        guard let url = machine.url else
+        guard let url = vm.url else
         {
             return
         }
         
         self.synchronized
         {
-            var machines = self.vmURLs
+            var vms = self.vmURLs
             
-            machines.append( url.absoluteString )
+            vms.append( url.absoluteString )
             
-            self.vmURLs = machines
+            self.vmURLs = vms
         }
     }
     
-    public func removeVirtualMachines( _ machine: VirtualMachine )
+    public func removeVirtualMachines( _ vm: VirtualMachine )
     {
-        guard let url = machine.url else
+        guard let url = vm.url else
         {
             return
         }

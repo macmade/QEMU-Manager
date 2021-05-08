@@ -26,9 +26,9 @@ import Foundation
 
 extension QEMU.System
 {
-    public static func start( machine: VirtualMachine ) throws
+    public static func start( vm: VirtualMachine ) throws
     {
-        let _ = try QEMU.System( architecture: machine.config.architecture ).execute( arguments: [] )
+        let _ = try QEMU.System( architecture: vm.config.architecture ).execute( arguments: [] )
     }
     
     public static func machines( for architecture: Config.Architecture ) -> [ ( String, String ) ]

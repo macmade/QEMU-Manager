@@ -32,14 +32,14 @@ import Cocoa
     
     @objc private dynamic var minMemory:    UInt64
     @objc private dynamic var maxMemory:    UInt64
-    @objc private dynamic var machine:      VirtualMachine
+    @objc private dynamic var vm:           VirtualMachine
     @objc private dynamic var architecture: Int
     {
         didSet
         {
             if let arch = Config.Architecture( rawValue: self.architecture )
             {
-                self.machine.config.architecture = arch
+                self.vm.config.architecture = arch
             }
             
             self.updateMachines()
@@ -47,12 +47,12 @@ import Cocoa
         }
     }
     
-    public init( machine: VirtualMachine )
+    public init( vm: VirtualMachine )
     {
         self.minMemory    = 1024 * 1024
         self.maxMemory    = ProcessInfo().physicalMemory / 2
-        self.machine      = machine
-        self.architecture = machine.config.architecture.rawValue
+        self.vm           = vm
+        self.architecture = vm.config.architecture.rawValue
         
         super.init( title: "Hardware", icon: nil, sorting: 0 )
     }

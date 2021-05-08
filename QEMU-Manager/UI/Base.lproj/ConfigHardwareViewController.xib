@@ -117,9 +117,9 @@
                             <rect key="frame" x="18" y="43" width="464" height="28"/>
                             <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="1048576" maxValue="8589934592" doubleValue="1048576" tickMarkPosition="below" numberOfTickMarks="50" sliderType="linear" id="SCq-aY-eQP"/>
                             <connections>
-                                <binding destination="-2" name="value" keyPath="self.machine.config.memory" previousBinding="w2j-tR-rhJ" id="ZEF-Kv-QL2"/>
                                 <binding destination="-2" name="maxValue" keyPath="self.maxMemory" id="WPN-Qu-h94"/>
                                 <binding destination="-2" name="minValue" keyPath="self.minMemory" previousBinding="WPN-Qu-h94" id="w2j-tR-rhJ"/>
+                                <binding destination="-2" name="value" keyPath="self.vm.config.memory" previousBinding="w2j-tR-rhJ" id="P5n-Kr-sby"/>
                             </connections>
                         </slider>
                         <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bGb-OA-GIz">
@@ -131,7 +131,7 @@
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>
                             <connections>
-                                <binding destination="-2" name="value" keyPath="self.machine.config.memory" id="bTs-Zk-RNX"/>
+                                <binding destination="-2" name="value" keyPath="self.vm.config.memory" id="AkX-lc-iTP"/>
                             </connections>
                         </textField>
                     </subviews>

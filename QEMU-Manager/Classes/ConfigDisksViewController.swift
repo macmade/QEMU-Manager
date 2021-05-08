@@ -26,15 +26,15 @@ import Cocoa
 
 @objc public class ConfigDisksViewController: ConfigViewController, NSTableViewDataSource, NSTableViewDelegate
 {
-    @objc private dynamic var machine: VirtualMachine
+    @objc private dynamic var vm: VirtualMachine
     
     @IBOutlet private var disks: NSArrayController!
     
     private var newDiskWindowController: NewDiskWindowController?
     
-    public init( machine: VirtualMachine )
+    public init( vm: VirtualMachine )
     {
-        self.machine = machine
+        self.vm = vm
         
         super.init( title: "Disks", icon: nil, sorting: 2 )
     }
@@ -81,7 +81,7 @@ import Cocoa
             return
         }
         
-        let controller = NewDiskWindowController( machine: self.machine )
+        let controller = NewDiskWindowController( vm: self.vm )
         
         guard let window = self.view.window,
               let sheet  = controller.window
@@ -135,8 +135,8 @@ import Cocoa
             do
             {
                 try FileManager.default.removeItem( at: disk.url )
-                self.machine.config.removeDisk( disk.disk )
-                try self.machine.save()
+                self.vm.config.removeDisk( disk.disk )
+                try self.vm.save()
                 self.reloadDisks()
             }
             catch let error
@@ -153,7 +153,7 @@ import Cocoa
             existing.forEach { self.disks.removeObject( $0 ) }
         }
         
-        self.machine.disks.forEach { self.disks.addObject( $0 ) }
+        self.vm.disks.forEach { self.disks.addObject( $0 ) }
     }
     
     @IBAction private func chooseImage( _ sender: Any? )
@@ -177,7 +177,7 @@ import Cocoa
                 return
             }
             
-            self.machine.config.cdImage = panel.url
+            self.vm.config.cdImage = panel.url
         }
     }
     

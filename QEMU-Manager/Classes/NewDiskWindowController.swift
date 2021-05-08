@@ -26,7 +26,7 @@ import Cocoa
 
 @objc public class NewDiskWindowController: NSWindowController
 {
-    @objc public private( set ) dynamic var machine: VirtualMachine
+    @objc public private( set ) dynamic var vm:      VirtualMachine
     @objc public private( set ) dynamic var label:   String
     @objc public private( set ) dynamic var size:    UInt64
     @objc public private( set ) dynamic var min:     UInt64
@@ -37,9 +37,9 @@ import Cocoa
     @IBOutlet private var formatter: SizeFormatter!
     @IBOutlet private var formats:   NSArrayController!
     
-    public init( machine: VirtualMachine )
+    public init( vm: VirtualMachine )
     {
-        self.machine = machine
+        self.vm      = vm
         self.label   = "Untitled"
         self.size    = 1024 * 1024 * 1024 * 20
         self.min     = 1024 * 1024
@@ -96,7 +96,7 @@ import Cocoa
     {
         guard let window = self.window,
               let parent = self.window?.sheetParent,
-              let url    = self.machine.url
+              let url    = self.vm.url
         else
         {
             NSSound.beep()
@@ -121,8 +121,8 @@ import Cocoa
             do
             {
                 try QEMU.Img.create( url: URL( fileURLWithPath: path ), size: self.size, format: disk.format )
-                self.machine.config.addDisk( disk )
-                try self.machine.save()
+                self.vm.config.addDisk( disk )
+                try self.vm.save()
                 
                 DispatchQueue.main.asyncAfter( deadline: .now() + .milliseconds( 500 ) )
                 {

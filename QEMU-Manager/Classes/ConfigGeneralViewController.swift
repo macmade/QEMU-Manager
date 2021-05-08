@@ -26,7 +26,7 @@ import Cocoa
 
 @objc public class ConfigGeneralViewController: ConfigViewController
 {
-    @objc private dynamic var machine:     VirtualMachine
+    @objc private dynamic var vm:          VirtualMachine
     @objc private dynamic var path:        String
     @objc private dynamic var machineIcon: Int
     {
@@ -34,16 +34,16 @@ import Cocoa
         {
             if let icon = Config.Icon( rawValue: self.machineIcon )
             {
-                self.machine.config.icon = icon
+                self.vm.config.icon = icon
             }
         }
     }
     
-    public init( machine: VirtualMachine )
+    public init( vm: VirtualMachine )
     {
-        self.machine      = machine
-        self.path         = machine.url?.path ?? "--"
-        self.machineIcon  = machine.config.icon.rawValue
+        self.vm           = vm
+        self.path         = vm.url?.path ?? "--"
+        self.machineIcon  = vm.config.icon.rawValue
         
         super.init( title: "General", icon: nil, sorting: 0 )
     }
@@ -60,7 +60,7 @@ import Cocoa
     
     @IBAction private func revealInFinder( _ sender: Any? )
     {
-        guard let url = self.machine.url else
+        guard let url = self.vm.url else
         {
             NSSound.beep()
             

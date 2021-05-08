@@ -130,6 +130,6 @@ import Cocoa
     
     public var disks: [ DiskInfo ]
     {
-        return self.config.disks.compactMap { DiskInfo( machine: self, disk: $0 ) }
+        return self.config.disks.compactMap { DiskInfo( vm: self, disk: $0 ) }
     }
 }

@@ -35,7 +35,7 @@
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>
                             <connections>
-                                <binding destination="-2" name="value" keyPath="self.machine.config.title" id="MKx-Om-X7d">
+                                <binding destination="-2" name="value" keyPath="self.vm.config.title" id="nIf-dA-B6Z">
                                     <dictionary key="options">
                                         <bool key="NSContinuouslyUpdatesValue" value="YES"/>
                                     </dictionary>

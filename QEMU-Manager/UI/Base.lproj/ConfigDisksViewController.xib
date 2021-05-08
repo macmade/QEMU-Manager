@@ -7,7 +7,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="ConfigDisksViewController" customModule="QEMU_Manager" customModuleProvider="target">
             <connections>
-                <outlet property="bootOrders" destination="4Ld-AO-e1h" id="49L-GY-HHY"/>
+                <outlet property="boots" destination="4Ld-AO-e1h" id="I8C-pT-W3Y"/>
                 <outlet property="disks" destination="dK7-9m-3QF" id="dmi-BA-7e8"/>
                 <outlet property="view" destination="f1a-O6-Rbu" id="KAd-Vn-2Wc"/>
             </connections>
@@ -243,8 +243,8 @@
                             </connections>
                         </button>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Eu9-bk-wnH">
-                            <rect key="frame" x="18" y="48" width="75" height="16"/>
-                            <textFieldCell key="cell" lineBreakMode="clipping" title="Boot Order:" id="MnZ-oD-ZKS">
+                            <rect key="frame" x="18" y="48" width="71" height="16"/>
+                            <textFieldCell key="cell" lineBreakMode="clipping" title="Boot From:" id="MnZ-oD-ZKS">
                                 <font key="font" metaFont="system"/>
                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -265,7 +265,7 @@
                             </popUpButtonCell>
                             <connections>
                                 <binding destination="4Ld-AO-e1h" name="content" keyPath="arrangedObjects" id="yB9-bv-Ya6"/>
-                                <binding destination="-2" name="selectedObject" keyPath="self.bootOrder" previousBinding="yB9-bv-Ya6" id="xZR-Hb-i0X"/>
+                                <binding destination="-2" name="selectedObject" keyPath="self.boot" previousBinding="yB9-bv-Ya6" id="OUr-zZ-U6T"/>
                             </connections>
                         </popUpButton>
                     </subviews>

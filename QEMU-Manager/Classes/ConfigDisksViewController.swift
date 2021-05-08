@@ -28,14 +28,14 @@ import Cocoa
 {
     @objc private dynamic var vm: VirtualMachine
     
-    @IBOutlet private var disks:      NSArrayController!
-    @IBOutlet private var bootOrders: NSArrayController!
+    @IBOutlet private var disks: NSArrayController!
+    @IBOutlet private var boots: NSArrayController!
     
-    @objc private dynamic var bootOrder: BootOrder?
+    @objc private dynamic var boot: Boot?
     {
         didSet
         {
-            self.vm.config.bootOrder = self.bootOrder?.name ?? "cdn"
+            self.vm.config.boot = self.boot?.name ?? "c"
         }
     }
     
@@ -63,13 +63,13 @@ import Cocoa
         super.viewDidLoad()
         self.reloadDisks()
         
-        let orders = BootOrder.all
+        let orders = Boot.all
         
-        orders.forEach { self.bootOrders.addObject( $0 ) }
+        orders.forEach { self.boots.addObject( $0 ) }
         
-        self.bootOrder = orders.first { $0.name == self.vm.config.bootOrder } ?? orders.first
+        self.boot = orders.first { $0.name == self.vm.config.boot } ?? orders.first
         
-        self.bootOrders.sortDescriptors = [
+        self.boots.sortDescriptors = [
             NSSortDescriptor( key: "sorting", ascending: true ),
             NSSortDescriptor( key: "name",    ascending: true ),
             NSSortDescriptor( key: "title",   ascending: true ),

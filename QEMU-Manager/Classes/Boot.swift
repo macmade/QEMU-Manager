@@ -24,21 +24,19 @@
 
 import Foundation
 
-@objc public class BootOrder: NSObject
+@objc public class Boot: NSObject
 {
     @objc public private( set ) dynamic var name:    String
     @objc public private( set ) dynamic var title:   String
     @objc public private( set ) dynamic var sorting: Int
     
-    public static var all: [ BootOrder ] =
+    public static var all: [ Boot ] =
     {
         return [
-            BootOrder( name: "cdn", title: "Disk, CD, Network", sorting: 0 ),
-            BootOrder( name: "cnd", title: "Disk, Network, CD", sorting: 1 ),
-            BootOrder( name: "dcn", title: "CD, Disk, Network", sorting: 2 ),
-            BootOrder( name: "dnc", title: "CD, Network, Disk", sorting: 3 ),
-            BootOrder( name: "ncd", title: "Network, Disk, CD", sorting: 4 ),
-            BootOrder( name: "ndc", title: "Network, CD, Disk", sorting: 5 ),
+            Boot( name: "a", title: "Floppy",  sorting: 0 ),
+            Boot( name: "c", title: "Disk",    sorting: 1 ),
+            Boot( name: "d", title: "CD",      sorting: 2 ),
+            Boot( name: "n", title: "Network", sorting: 3 ),
         ]
     }()
     
@@ -61,7 +59,7 @@ import Foundation
     
     public override func isEqual( _ object: Any? ) -> Bool
     {
-        guard let order = object as? BootOrder else
+        guard let order = object as? Boot else
         {
             return false
         }

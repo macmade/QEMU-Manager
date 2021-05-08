@@ -28,7 +28,44 @@ extension QEMU.System
 {
     public static func start( vm: VirtualMachine ) throws
     {
-        let _ = try QEMU.System( architecture: vm.config.architecture ).execute( arguments: [] )
+        var arguments: [ String ] = []
+        
+        /*
+        arguments.append( "-m" )
+        arguments.append( "\( vm.config.memory )" )
+        */
+        
+        if vm.config.boot.count > 0
+        {
+            arguments.append( "-boot" )
+            arguments.append( vm.config.boot )
+        }
+        
+        if let machine = vm.config.machine, machine.count > 0
+        {
+            arguments.append( "-M" )
+            arguments.append( machine )
+        }
+        
+        if let cpu = vm.config.cpu, cpu.count > 0
+        {
+            arguments.append( "-cpu" )
+            arguments.append( cpu )
+        }
+        
+        if let cd = vm.config.cdImage, FileManager.default.fileExists( atPath: cd.path )
+        {
+            arguments.append( "-drive" )
+            arguments.append( "file=\( cd.path ),format=raw,media=cdrom" )
+        }
+        
+        vm.disks.forEach
+        {
+            arguments.append( "-drive" )
+            arguments.append( "file=\( $0.url.path ),format=\( $0.disk.format ),media=disk" )
+        }
+        
+        let _ = try QEMU.System( architecture: vm.config.architecture ).execute( arguments: arguments )
     }
     
     public static func machines( for architecture: Config.Architecture ) -> [ ( String, String ) ]

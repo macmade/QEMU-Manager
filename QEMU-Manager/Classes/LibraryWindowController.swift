@@ -31,6 +31,8 @@ import Cocoa
     
     private var configWindowControllers = [ UUID : ConfigWindowController ]()
     
+    @objc private dynamic var loading = true
+    
     public override var windowNibName: NSNib.Name?
     {
         return "LibraryWindowController"
@@ -41,6 +43,17 @@ import Cocoa
         super.windowDidLoad()
         
         Preferences.shared.virtualMachines().forEach { self.machines.addObject( $0 ) }
+        
+        DispatchQueue.global( qos: .userInitiated ).async
+        {
+            let _ = MachineInfo.all
+            let _ = CPUInfo.all
+            
+            DispatchQueue.main.async
+            {
+                self.loading = false
+            }
+        }
     }
     
     public func configWindowController( for machine: VirtualMachine ) -> ConfigWindowController?

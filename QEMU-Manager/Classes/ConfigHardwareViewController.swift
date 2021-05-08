@@ -37,23 +37,13 @@ import Cocoa
     {
         didSet
         {
-            if let machines = self.machines.content as? [ String ]
-            {
-                machines.forEach { self.machines.removeObject( $0 ) }
-            }
-            
-            if let cpus = self.cpus.content as? [ String ]
-            {
-                cpus.forEach { self.machines.removeObject( $0 ) }
-            }
-            
             if let arch = Config.Architecture( rawValue: self.architecture )
             {
                 self.machine.config.architecture = arch
-                
-                QEMU.System.machines( for: arch ).forEach { self.machines.addObject( $0.0 ) }
-                QEMU.System.cpus(     for: arch ).forEach { self.cpus.addObject( $0.0 ) }
             }
+            
+            self.updateMachines()
+            self.updateCPUs()
         }
     }
     
@@ -84,10 +74,57 @@ import Cocoa
         self.sizeFormatter.min = self.minMemory
         self.sizeFormatter.max = self.maxMemory
         
-        if let arch = Config.Architecture( rawValue: self.architecture )
+        self.machines.sortDescriptors = [
+            NSSortDescriptor( key: "sorting", ascending: true ),
+            NSSortDescriptor( key: "name",    ascending: true ),
+            NSSortDescriptor( key: "title",   ascending: true )
+        ]
+        
+        self.cpus.sortDescriptors = [
+            NSSortDescriptor( key: "sorting", ascending: true ),
+            NSSortDescriptor( key: "name",    ascending: true ),
+            NSSortDescriptor( key: "title",   ascending: true )
+        ]
+        
+        self.updateMachines()
+        self.updateCPUs()
+    }
+    
+    private func updateMachines()
+    {
+        if let existing = self.machines.content as? [ MachineInfo ]
         {
-            QEMU.System.machines( for: arch ).forEach { self.machines.addObject( $0.0 ) }
-            QEMU.System.cpus(     for: arch ).forEach { self.cpus.addObject( $0.0 ) }
+            existing.forEach { self.machines.removeObject( $0 ) }
         }
+        
+        self.machines.addObject( MachineInfo( name: "Default", title: "Unspecified machine", sorting: -1 ) )
+        
+        guard let arch     = Config.Architecture( rawValue: self.architecture ),
+              let machines = MachineInfo.all[ arch ]
+        else
+        {
+            return
+        }
+        
+        machines.forEach { self.machines.addObject( $0 ) }
+    }
+    
+    private func updateCPUs()
+    {
+        if let existing = self.cpus.content as? [ CPUInfo ]
+        {
+            existing.forEach { self.cpus.removeObject( $0 ) }
+        }
+        
+        self.cpus.addObject( MachineInfo( name: "Default", title: "Unspecified CPU", sorting: -1 ) )
+        
+        guard let arch     = Config.Architecture( rawValue: self.architecture ),
+              let machines = CPUInfo.all[ arch ]
+        else
+        {
+            return
+        }
+        
+        machines.forEach { self.cpus.addObject( $0 ) }
     }
 }

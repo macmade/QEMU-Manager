@@ -592,6 +592,7 @@
 			buildPhases = (
 				05DFDD19261F7BFD00BBE4E3 /* Sources */,
 				05DFDD1A261F7BFD00BBE4E3 /* Frameworks */,
+				05E4FCE82646FFE4007D1254 /* ShellScript */,
 				05DFDD1B261F7BFD00BBE4E3 /* Resources */,
 				05E4FCE62646FEB3007D1254 /* Embed Frameworks */,
 			);
@@ -691,6 +692,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		05E4FCE82646FFE4007D1254 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\nif [ \"${CONFIGURATION}\" = \"Release\" ]; then\n    plist=\"QEMU-Manager/Info.plist\"\n    rev=$(git rev-list `git branch | grep -e \"^*\" | cut -d' ' -f 2` | wc -l)\n    /usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $rev\" \"$plist\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		05DFDD19261F7BFD00BBE4E3 /* Sources */ = {
@@ -840,6 +861,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.QEMU-Manager";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "QEMU-Manager/Bridging-Header.h";
@@ -858,6 +880,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.QEMU-Manager";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "QEMU-Manager/Bridging-Header.h";

@@ -54,6 +54,7 @@ public class Config: NSObject, Codable
     @objc public private( set ) dynamic var disks:        [ Disk ]     = []
     @objc public                dynamic var cdImage:      URL?         = nil
     @objc public                dynamic var boot:         String       = "d"
+    @objc public private( set ) dynamic var arguments:    [ String ]   = []
     
     public override init()
     {}
@@ -72,6 +73,7 @@ public class Config: NSObject, Codable
         case disks
         case cdImage
         case boot
+        case arguments
     }
     
     public enum Error: Swift.Error
@@ -83,16 +85,17 @@ public class Config: NSObject, Codable
     {
         let values = try decoder.container( keyedBy: CodingKeys.self )
         
-        self.version   = try values.decode( UInt64.self,   forKey: .version )
-        self.uuid      = try values.decode( UUID.self,     forKey: .uuid )
-        self.machine   = try values.decode( String?.self,  forKey: .machine )
-        self.cpu       = try values.decode( String?.self,  forKey: .cpu )
-        self.cores     = try values.decode( UInt64.self,   forKey: .cores )
-        self.memory    = try values.decode( UInt64.self,   forKey: .memory )
-        self.title     = try values.decode( String.self,   forKey: .title )
-        self.disks     = try values.decode( [ Disk ].self, forKey: .disks )
-        self.cdImage   = try values.decode( URL?.self,     forKey: .cdImage )
-        self.boot      = try values.decode( String.self,   forKey: .boot )
+        self.version   = try values.decode( UInt64.self,     forKey: .version )
+        self.uuid      = try values.decode( UUID.self,       forKey: .uuid )
+        self.machine   = try values.decode( String?.self,    forKey: .machine )
+        self.cpu       = try values.decode( String?.self,    forKey: .cpu )
+        self.cores     = try values.decode( UInt64.self,     forKey: .cores )
+        self.memory    = try values.decode( UInt64.self,     forKey: .memory )
+        self.title     = try values.decode( String.self,     forKey: .title )
+        self.disks     = try values.decode( [ Disk ].self,   forKey: .disks )
+        self.cdImage   = try values.decode( URL?.self,       forKey: .cdImage )
+        self.boot      = try values.decode( String.self,     forKey: .boot )
+        self.arguments = try values.decode( [ String ].self, forKey: .arguments )
         
         guard let arch = Architecture( string: ( try? values.decode( String.self, forKey: .architecture ) ) ?? "" ) else
         {
@@ -119,6 +122,7 @@ public class Config: NSObject, Codable
         try container.encode( self.disks,                    forKey: .disks )
         try container.encode( self.cdImage,                  forKey: .cdImage )
         try container.encode( self.boot,                     forKey: .boot )
+        try container.encode( self.arguments,                forKey: .arguments )
     }
     
     public func addDisk( _ disk: Disk )

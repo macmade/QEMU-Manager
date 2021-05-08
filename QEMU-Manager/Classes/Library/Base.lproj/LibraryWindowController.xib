@@ -104,17 +104,17 @@ DQ
                                     <constraint firstItem="bKT-k8-ry3" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="QWP-6v-gC8" secondAttribute="leading" constant="20" symbolic="YES" id="fIk-yQ-CbT"/>
                                 </constraints>
                                 <connections>
-                                    <binding destination="cVS-ih-Quc" name="hidden" keyPath="arrangedObjects" id="J2o-N1-vDK">
-                                        <dictionary key="options">
-                                            <string key="NSValueTransformerName">ArrayIsNotEmpty</string>
-                                        </dictionary>
-                                    </binding>
-                                    <binding destination="-2" name="hidden2" keyPath="self.loading" previousBinding="J2o-N1-vDK" id="xJh-4M-HZN">
+                                    <binding destination="-2" name="hidden2" keyPath="self.loading" previousBinding="pVc-51-reO" id="nRe-eJ-Lbl">
                                         <dictionary key="options">
                                             <integer key="NSMultipleValuesPlaceholder" value="-1"/>
                                             <integer key="NSNoSelectionPlaceholder" value="-1"/>
                                             <integer key="NSNotApplicablePlaceholder" value="-1"/>
                                             <integer key="NSNullPlaceholder" value="-1"/>
+                                        </dictionary>
+                                    </binding>
+                                    <binding destination="-2" name="hidden" keyPath="self.empty" id="pVc-51-reO">
+                                        <dictionary key="options">
+                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
                                         </dictionary>
                                     </binding>
                                 </connections>
@@ -284,12 +284,7 @@ DQ
                                     <constraint firstItem="Jh1-ob-542" firstAttribute="leading" secondItem="CTt-Mb-v7i" secondAttribute="leading" constant="20" symbolic="YES" id="x5D-ce-Rg4"/>
                                 </constraints>
                                 <connections>
-                                    <binding destination="cVS-ih-Quc" name="hidden" keyPath="arrangedObjects" id="frx-3n-mFc">
-                                        <dictionary key="options">
-                                            <string key="NSValueTransformerName">ArrayIsEmpty</string>
-                                        </dictionary>
-                                    </binding>
-                                    <binding destination="-2" name="hidden2" keyPath="self.loading" previousBinding="frx-3n-mFc" id="0vT-h5-Lfl">
+                                    <binding destination="-2" name="hidden2" keyPath="self.loading" previousBinding="ofb-hq-zV8" id="y6V-4r-ERB">
                                         <dictionary key="options">
                                             <integer key="NSMultipleValuesPlaceholder" value="-1"/>
                                             <integer key="NSNoSelectionPlaceholder" value="-1"/>
@@ -297,6 +292,7 @@ DQ
                                             <integer key="NSNullPlaceholder" value="-1"/>
                                         </dictionary>
                                     </binding>
+                                    <binding destination="-2" name="hidden" keyPath="self.empty" id="ofb-hq-zV8"/>
                                 </connections>
                             </customView>
                         </subviews>

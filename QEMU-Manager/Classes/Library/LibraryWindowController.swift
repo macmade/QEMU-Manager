@@ -26,6 +26,7 @@ public class LibraryWindowController: NSWindowController, NSTableViewDelegate, N
     private var configWindowControllers = [ UUID : ConfigWindowController ]()
     
     @objc private dynamic var loading = true
+    @objc private dynamic var empty   = true
     
     public override var windowNibName: NSNib.Name?
     {
@@ -36,7 +37,9 @@ public class LibraryWindowController: NSWindowController, NSTableViewDelegate, N
     {
         super.windowDidLoad()
         
-        Preferences.shared.virtualMachines().forEach { self.machines.addObject( $0 ) }
+        let machines = Preferences.shared.virtualMachines()
+        self.empty   = machines.count == 0
+        machines.forEach { self.machines.addObject( $0 ) }
         
         DispatchQueue.global( qos: .userInitiated ).async
         {
@@ -161,6 +164,8 @@ public class LibraryWindowController: NSWindowController, NSTableViewDelegate, N
                 Preferences.shared.addVirtualMachines( vm )
                 self.machines.addObject( vm )
                 self.showConfigWindow( for: vm )
+                
+                self.empty = false
             }
             catch let error
             {
@@ -235,6 +240,8 @@ public class LibraryWindowController: NSWindowController, NSTableViewDelegate, N
             self.configWindowController( for: vm )?.close()
             self.machines.removeObject( vm )
             Preferences.shared.removeVirtualMachines( vm )
+            
+            self.empty = self.virtualMachines.count == 0
             
             if r == .alertThirdButtonReturn
             {
@@ -341,6 +348,8 @@ public class LibraryWindowController: NSWindowController, NSTableViewDelegate, N
             
             Preferences.shared.addVirtualMachines( vm )
             self.machines.addObject( vm )
+            
+            self.empty = false
         }
     }
 }

@@ -53,15 +53,23 @@ public class QEMU
             try ObjC.catchException { process.launch() }
             process.waitUntilExit()
             
-            if process.terminationStatus != 0
-            {
-                throw Error( title: "Error executing \( self.name )", message: "Process exited with status code \( process.terminationStatus )" )
-            }
-            
             let dataOut = try? out.fileHandleForReading.readToEnd()
             let dataErr = try? err.fileHandleForReading.readToEnd()
             let strOut  = String( data: dataOut ?? Data(), encoding: .utf8 ) ?? ""
             let strErr  = String( data: dataErr ?? Data(), encoding: .utf8 ) ?? ""
+            
+            if process.terminationStatus != 0
+            {
+                var message = "Process exited with status code \( process.terminationStatus )."
+                
+                if strErr.count > 0
+                {
+                    message.append( "\n\( strErr )" )
+                }
+                
+                throw Error( title: "Error executing \( self.name )", message: message )
+            }
+            
             
             return ( out: strOut, err: strErr )
         }

@@ -39,6 +39,17 @@ extension QEMU.System
             arguments.append( cpu )
         }
         
+        if vm.config.cores > 0
+        {
+            arguments.append( "-smp" )
+            arguments.append( "\( vm.config.cores )" )
+        }
+        else
+        {
+            arguments.append( "-smp" )
+            arguments.append( "1" )
+        }
+        
         var boot = vm.config.boot
         
         if let cd = vm.config.cdImage, FileManager.default.fileExists( atPath: cd.path )

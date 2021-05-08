@@ -23,7 +23,10 @@ public class ConfigHardwareViewController: ConfigViewController
     @IBOutlet private var sizeFormatter: SizeFormatter!
     @IBOutlet private var machines:      NSArrayController!
     @IBOutlet private var cpus:          NSArrayController!
+    @IBOutlet private var cores:         NSArrayController!
     
+    @objc private dynamic var minCores:     UInt64
+    @objc private dynamic var maxCores:     UInt64
     @objc private dynamic var minMemory:    UInt64
     @objc private dynamic var maxMemory:    UInt64
     @objc private dynamic var vm:           VirtualMachine
@@ -73,6 +76,8 @@ public class ConfigHardwareViewController: ConfigViewController
     
     public init( vm: VirtualMachine )
     {
+        self.minCores     = 1
+        self.maxCores     = UInt64( ProcessInfo().processorCount )
         self.minMemory    = 1024 * 1024
         self.maxMemory    = ProcessInfo().physicalMemory / 2
         self.vm           = vm
@@ -112,6 +117,11 @@ public class ConfigHardwareViewController: ConfigViewController
         
         self.updateMachines()
         self.updateCPUs()
+        
+        for i in self.minCores ..< self.maxCores
+        {
+            self.cores.addObject( i )
+        }
     }
     
     private func updateMachines()

@@ -163,6 +163,8 @@ public class VirtualMachine: NSObject
                 {
                     DispatchQueue.main.async
                     {
+                        self.running = false
+                        
                         NSAlert( error: error ).tryBeginSheetModal( for: delegate?.libraryWindowController.window, completionHandler: nil )
                     }
                 }

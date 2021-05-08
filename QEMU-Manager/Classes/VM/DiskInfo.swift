@@ -24,7 +24,7 @@
 
 import Foundation
 
-@objc public class DiskInfo: NSObject
+public class DiskInfo: NSObject
 {
     @objc public private( set ) dynamic var vm:      VirtualMachine
     @objc public private( set ) dynamic var disk:    Disk

@@ -24,7 +24,7 @@
 
 import Foundation
 
-@objc public class Boot: InfoValue
+public class Boot: InfoValue
 {
     public static var all: [ Boot ] =
     {

@@ -24,7 +24,7 @@
 
 import Cocoa
 
-@objc public class ConfigDisksViewController: ConfigViewController, NSTableViewDataSource, NSTableViewDelegate
+public class ConfigDisksViewController: ConfigViewController, NSTableViewDataSource, NSTableViewDelegate
 {
     @objc private dynamic var vm: VirtualMachine
     
@@ -202,7 +202,7 @@ import Cocoa
         }
     }
     
-    @objc @IBAction public func revealDisk( _ sender: Any? )
+    @IBAction public func revealDisk( _ sender: Any? )
     {
         guard let disk = sender as? DiskInfo else
         {

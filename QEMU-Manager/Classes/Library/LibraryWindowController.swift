@@ -24,7 +24,7 @@
 
 import Cocoa
 
-@objc public class LibraryWindowController: NSWindowController, NSTableViewDelegate, NSTableViewDataSource, NSMenuDelegate
+public class LibraryWindowController: NSWindowController, NSTableViewDelegate, NSTableViewDataSource, NSMenuDelegate
 {
     @IBOutlet private var machines:  NSArrayController!
     @IBOutlet private var tableView: NSTableView!

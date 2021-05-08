@@ -24,7 +24,7 @@
 
 import Cocoa
 
-@objc public class ConfigViewController: NSViewController
+public class ConfigViewController: NSViewController
 {
     @objc public dynamic var icon:    NSImage?
     @objc public dynamic var sorting: Int = 0

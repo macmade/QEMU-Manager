@@ -24,7 +24,7 @@
 
 import Cocoa
 
-@objc public class VirtualMachine: NSObject
+public class VirtualMachine: NSObject
 {
     public enum Error: Swift.Error
     {

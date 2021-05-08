@@ -24,7 +24,7 @@
 
 import Cocoa
 
-@objc public class ConfigHardwareViewController: ConfigViewController
+public class ConfigHardwareViewController: ConfigViewController
 {
     @IBOutlet private var sizeFormatter: SizeFormatter!
     @IBOutlet private var machines:      NSArrayController!

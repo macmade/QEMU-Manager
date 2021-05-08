@@ -24,17 +24,17 @@
 
 import Cocoa
 
-@objc @main class ApplicationDelegate: NSObject, NSApplicationDelegate
+@main public class ApplicationDelegate: NSObject, NSApplicationDelegate
 {
     private let aboutWindowController   = AboutWindowController()
     private let libraryWindowController = LibraryWindowController()
     
-    func applicationDidFinishLaunching( _ notification: Notification )
+    public func applicationDidFinishLaunching( _ notification: Notification )
     {
         self.showLibraryWindow( nil )
     }
 
-    func applicationWillTerminate( _ notification: Notification )
+    public func applicationWillTerminate( _ notification: Notification )
     {}
     
     @IBAction func invertAppearance( _ sender: Any? )

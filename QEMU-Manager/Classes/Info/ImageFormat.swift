@@ -24,7 +24,7 @@
 
 import Foundation
 
-@objc public class ImageFormat: InfoValue
+public class ImageFormat: InfoValue
 {
     public static var all: [ ImageFormat ] =
     {

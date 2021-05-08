@@ -24,7 +24,7 @@
 
 import Foundation
 
-@objc public class InfoValue: NSObject
+public class InfoValue: NSObject
 {
     @objc public private( set ) dynamic var name:    String
     @objc public private( set ) dynamic var title:   String

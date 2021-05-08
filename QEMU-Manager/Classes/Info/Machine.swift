@@ -24,7 +24,7 @@
 
 import Foundation
 
-@objc public class Machine: InfoValue
+public class Machine: InfoValue
 {
     public static var all: [ Config.Architecture : [ Machine ] ] =
     {

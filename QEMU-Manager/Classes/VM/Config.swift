@@ -24,7 +24,7 @@
 
 import Foundation
 
-@objc public class Config: NSObject, Codable
+public class Config: NSObject, Codable
 {
     @objc public enum Architecture: Int
     {

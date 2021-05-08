@@ -24,7 +24,7 @@
 
 import Cocoa
 
-@objc public class Preferences: NSObject, Synchronizable
+public class Preferences: NSObject, Synchronizable
 {
     @objc public  dynamic var lastStart: Date?
     @objc private dynamic var vmURLs:    [ String ] = []

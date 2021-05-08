@@ -24,7 +24,7 @@
 
 import Cocoa
 
-@objc public class ConfigWindowController: NSWindowController, NSTableViewDelegate
+public class ConfigWindowController: NSWindowController, NSTableViewDelegate
 {
     @IBOutlet private var controllers:      NSArrayController!
     @IBOutlet private var container:        NSView!

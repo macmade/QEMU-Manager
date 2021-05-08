@@ -24,7 +24,7 @@
 
 import Foundation
 
-@objc public class CPU: InfoValue
+public class CPU: InfoValue
 {
     public static var all: [ Config.Architecture : [ CPU ] ] =
     {

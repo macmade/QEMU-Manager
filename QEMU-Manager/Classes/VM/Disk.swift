@@ -24,7 +24,7 @@
 
 import Foundation
 
-@objc public class Disk: NSObject, Codable
+public class Disk: NSObject, Codable
 {
     @objc public private( set ) dynamic var uuid   = UUID()
     @objc public                dynamic var label  = "Untitled"

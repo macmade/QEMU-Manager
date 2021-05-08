@@ -24,7 +24,7 @@
 
 import Cocoa
 
-@objc public class ConfigGeneralViewController: ConfigViewController
+public class ConfigGeneralViewController: ConfigViewController
 {
     @objc private dynamic var vm:          VirtualMachine
     @objc private dynamic var path:        String

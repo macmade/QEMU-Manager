@@ -24,7 +24,7 @@
 
 import Cocoa
 
-@objc public class NewDiskWindowController: NSWindowController
+public class NewDiskWindowController: NSWindowController
 {
     @objc public private( set ) dynamic var vm:      VirtualMachine
     @objc public private( set ) dynamic var label:   String

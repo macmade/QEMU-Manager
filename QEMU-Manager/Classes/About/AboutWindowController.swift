@@ -24,7 +24,7 @@
 
 import Cocoa
 
-@objc public class AboutWindowController: NSWindowController
+public class AboutWindowController: NSWindowController
 {
     @objc private dynamic var name:      String?
     @objc private dynamic var version:   String?

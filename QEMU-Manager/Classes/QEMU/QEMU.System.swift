@@ -71,6 +71,8 @@ extension QEMU.System
             arguments.append( "file=\( $0.url.path ),format=\( $0.disk.format ),media=disk" )
         }
         
+        arguments.append( contentsOf: vm.config.arguments )
+        
         let _ = try QEMU.System( architecture: vm.config.architecture ).execute( arguments: arguments )
     }
     

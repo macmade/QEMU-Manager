@@ -56,6 +56,11 @@ public class LibraryWindowController: NSWindowController, NSTableViewDelegate, N
         }
     }
     
+    public var virtualMachines: [ VirtualMachine ]
+    {
+        return self.machines.content as? [ VirtualMachine ] ?? []
+    }
+    
     public func configWindowController( for vm: VirtualMachine ) -> ConfigWindowController?
     {
         return self.configWindowControllers[ vm.config.uuid ]

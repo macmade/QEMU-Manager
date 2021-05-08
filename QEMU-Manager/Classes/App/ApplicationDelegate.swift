@@ -39,6 +39,28 @@ import Cocoa
         Preferences.shared.lastStart = Date()
     }
     
+    public func applicationShouldTerminate( _ sender: NSApplication ) -> NSApplication.TerminateReply
+    {
+        for vm in self.libraryWindowController.virtualMachines
+        {
+            if vm.running
+            {
+                let alert = NSAlert()
+                
+                alert.messageText     = "Virtual Machines are running"
+                alert.informativeText = "Please shut-down all virtual machines before quitting."
+                
+                alert.addButton( withTitle: "OK" )
+                
+                alert.runModal()
+                
+                return .terminateCancel
+            }
+        }
+        
+        return .terminateNow
+    }
+    
     @IBAction func invertAppearance( _ sender: Any? )
     {
         let name = NSApp.effectiveAppearance.name

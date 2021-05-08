@@ -28,7 +28,16 @@ import Cocoa
 {
     @objc private dynamic var vm: VirtualMachine
     
-    @IBOutlet private var disks: NSArrayController!
+    @IBOutlet private var disks:      NSArrayController!
+    @IBOutlet private var bootOrders: NSArrayController!
+    
+    @objc private dynamic var bootOrder: BootOrder?
+    {
+        didSet
+        {
+            self.vm.config.bootOrder = self.bootOrder?.name ?? "cdn"
+        }
+    }
     
     private var newDiskWindowController: NewDiskWindowController?
     
@@ -53,6 +62,18 @@ import Cocoa
     {
         super.viewDidLoad()
         self.reloadDisks()
+        
+        let orders = BootOrder.all
+        
+        orders.forEach { self.bootOrders.addObject( $0 ) }
+        
+        self.bootOrder = orders.first { $0.name == self.vm.config.bootOrder } ?? orders.first
+        
+        self.bootOrders.sortDescriptors = [
+            NSSortDescriptor( key: "sorting", ascending: true ),
+            NSSortDescriptor( key: "name",    ascending: true ),
+            NSSortDescriptor( key: "title",   ascending: true ),
+        ]
     }
     
     @IBAction private func addRemoveDisk( _ sender: Any? )

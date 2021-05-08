@@ -58,6 +58,7 @@ import Foundation
     @objc public                dynamic var icon:         Icon         = .generic
     @objc public private( set ) dynamic var disks:        [ Disk ]     = []
     @objc public                dynamic var cdImage:      URL?         = nil
+    @objc public                dynamic var bootOrder:    String       = "cdn"
     
     public override init()
     {}
@@ -74,6 +75,7 @@ import Foundation
         case icon
         case disks
         case cdImage
+        case bootOrder
     }
     
     public enum Error: Swift.Error
@@ -85,14 +87,15 @@ import Foundation
     {
         let values = try decoder.container( keyedBy: CodingKeys.self )
         
-        self.version = try values.decode( UInt64.self,   forKey: .version )
-        self.uuid    = try values.decode( UUID.self,     forKey: .uuid )
-        self.machine = try values.decode( String?.self,  forKey: .machine )
-        self.cpu     = try values.decode( String?.self,  forKey: .cpu )
-        self.memory  = try values.decode( UInt64.self,   forKey: .memory )
-        self.title   = try values.decode( String.self,   forKey: .title )
-        self.disks   = try values.decode( [ Disk ].self, forKey: .disks )
-        self.cdImage = try values.decode( URL?.self,     forKey: .cdImage )
+        self.version   = try values.decode( UInt64.self,   forKey: .version )
+        self.uuid      = try values.decode( UUID.self,     forKey: .uuid )
+        self.machine   = try values.decode( String?.self,  forKey: .machine )
+        self.cpu       = try values.decode( String?.self,  forKey: .cpu )
+        self.memory    = try values.decode( UInt64.self,   forKey: .memory )
+        self.title     = try values.decode( String.self,   forKey: .title )
+        self.disks     = try values.decode( [ Disk ].self, forKey: .disks )
+        self.cdImage   = try values.decode( URL?.self,     forKey: .cdImage )
+        self.bootOrder = try values.decode( String.self,   forKey: .bootOrder )
         
         guard let arch = Architecture( string: ( try? values.decode( String.self, forKey: .architecture ) ) ?? "" ) else
         {
@@ -117,6 +120,7 @@ import Foundation
         try container.encode( self.icon.description,         forKey: .icon )
         try container.encode( self.disks,                    forKey: .disks )
         try container.encode( self.cdImage,                  forKey: .cdImage )
+        try container.encode( self.bootOrder,                forKey: .bootOrder )
     }
     
     public func addDisk( _ disk: Disk )

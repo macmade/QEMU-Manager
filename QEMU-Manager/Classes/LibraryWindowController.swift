@@ -253,14 +253,7 @@ import Cocoa
             return
         }
         
-        do
-        {
-            try QEMU.System.start( vm: vm )
-        }
-        catch let error
-        {
-            NSAlert( error: error ).runModal()
-        }
+        vm.start()
     }
     
     private func getVM( for sender: Any? ) -> VirtualMachine?

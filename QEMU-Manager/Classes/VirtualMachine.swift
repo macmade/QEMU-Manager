@@ -31,10 +31,12 @@ import Cocoa
         case invalidURL
     }
     
-    @objc public private( set ) dynamic var config: Config
-    @objc public private( set ) dynamic var url:    URL?
-    @objc public private( set ) dynamic var icon:   NSImage?
+    @objc public private( set ) dynamic var config:   Config
+    @objc public private( set ) dynamic var url:      URL?
+    @objc public private( set ) dynamic var icon:     NSImage?
+    @objc public private( set ) dynamic var running = false
     
+    private var process:      Process?
     private var iconObserver: NSKeyValueObservation?
     
     public override init()
@@ -131,5 +133,44 @@ import Cocoa
     public var disks: [ DiskInfo ]
     {
         return self.config.disks.compactMap { DiskInfo( vm: self, disk: $0 ) }
+    }
+    
+    public func start()
+    {
+        DispatchQueue.main.async
+        {
+            if self.running
+            {
+                let alert             = NSAlert()
+                alert.messageText     = "Already Running"
+                alert.informativeText = "The virtual machine \( self.config.title ) is already running."
+                
+                alert.runModal()
+                
+                return
+            }
+            
+            self.running = true
+            
+            DispatchQueue.global( qos: .userInitiated ).async
+            {
+                do
+                {
+                    try QEMU.System.start( vm: self )
+                    
+                    DispatchQueue.main.async
+                    {
+                        self.running = false
+                    }
+                }
+                catch let error
+                {
+                    DispatchQueue.main.async
+                    {
+                        NSAlert( error: error ).runModal()
+                    }
+                }
+            }
+        }
     }
 }

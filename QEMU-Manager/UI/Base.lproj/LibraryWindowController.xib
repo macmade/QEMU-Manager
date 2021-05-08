@@ -199,6 +199,13 @@ DQ
                                                                                 <constraint firstAttribute="width" constant="16" id="RtV-0I-BwP"/>
                                                                             </constraints>
                                                                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSStatusAvailable" id="HEt-9G-LKg"/>
+                                                                            <connections>
+                                                                                <binding destination="hvX-zT-ATA" name="hidden" keyPath="objectValue.running" id="9EI-3V-d4J">
+                                                                                    <dictionary key="options">
+                                                                                        <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                                                                    </dictionary>
+                                                                                </binding>
+                                                                            </connections>
                                                                         </imageView>
                                                                     </subviews>
                                                                     <constraints>

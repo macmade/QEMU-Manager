@@ -68,19 +68,8 @@
                                                                     <binding destination="khS-Yd-yp2" name="value" keyPath="objectValue.disk.label" id="IYj-hg-5Bo"/>
                                                                 </connections>
                                                             </textField>
-                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dly-J8-Y7S">
-                                                                <rect key="frame" x="3" y="5" width="37" height="16"/>
-                                                                <textFieldCell key="cell" lineBreakMode="truncatingTail" title="Label" id="5gj-b0-YFn">
-                                                                    <font key="font" usesAppearanceFont="YES"/>
-                                                                    <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
-                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                                </textFieldCell>
-                                                                <connections>
-                                                                    <binding destination="khS-Yd-yp2" name="value" keyPath="objectValue.disk.uuid" id="caQ-pw-lhU"/>
-                                                                </connections>
-                                                            </textField>
                                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gg6-EV-4xD">
-                                                                <rect key="frame" x="386" y="17" width="37" height="16"/>
+                                                                <rect key="frame" x="386" y="29" width="37" height="16"/>
                                                                 <textFieldCell key="cell" lineBreakMode="truncatingTail" title="Label" id="MxH-aM-PTX">
                                                                     <font key="font" usesAppearanceFont="YES"/>
                                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -94,17 +83,44 @@
                                                                     </binding>
                                                                 </connections>
                                                             </textField>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dly-J8-Y7S">
+                                                                <rect key="frame" x="3" y="5" width="37" height="16"/>
+                                                                <textFieldCell key="cell" lineBreakMode="truncatingTail" title="Label" id="5gj-b0-YFn">
+                                                                    <font key="font" usesAppearanceFont="YES"/>
+                                                                    <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                                <connections>
+                                                                    <binding destination="khS-Yd-yp2" name="value" keyPath="objectValue.disk.uuid" id="caQ-pw-lhU"/>
+                                                                </connections>
+                                                            </textField>
+                                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UTo-vs-RKV">
+                                                                <rect key="frame" x="341" y="4" width="80" height="19"/>
+                                                                <buttonCell key="cell" type="roundRect" title="Round Rect" bezelStyle="roundedRect" alignment="center" enabled="NO" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="M65-fW-BRZ">
+                                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                                    <font key="font" metaFont="cellTitle"/>
+                                                                </buttonCell>
+                                                                <connections>
+                                                                    <binding destination="khS-Yd-yp2" name="title" keyPath="objectValue.disk.format" id="hgW-s0-iDy">
+                                                                        <dictionary key="options">
+                                                                            <string key="NSValueTransformerName">UppercaseString</string>
+                                                                        </dictionary>
+                                                                    </binding>
+                                                                </connections>
+                                                            </button>
                                                         </subviews>
                                                         <constraints>
                                                             <constraint firstAttribute="trailing" secondItem="gg6-EV-4xD" secondAttribute="trailing" constant="5" id="6eJ-b9-2Ta"/>
                                                             <constraint firstItem="dly-J8-Y7S" firstAttribute="leading" secondItem="khS-Yd-yp2" secondAttribute="leading" constant="5" id="CcP-sp-k0v"/>
                                                             <constraint firstItem="Oy2-gv-cuT" firstAttribute="leading" secondItem="khS-Yd-yp2" secondAttribute="leading" constant="5" id="EBI-Ic-6h3"/>
+                                                            <constraint firstAttribute="bottom" secondItem="UTo-vs-RKV" secondAttribute="bottom" constant="5" id="Ixv-uj-5Qm"/>
+                                                            <constraint firstItem="gg6-EV-4xD" firstAttribute="top" secondItem="khS-Yd-yp2" secondAttribute="top" constant="5" id="Qio-Of-pvy"/>
+                                                            <constraint firstItem="UTo-vs-RKV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="dly-J8-Y7S" secondAttribute="trailing" constant="8" symbolic="YES" id="SdH-a0-bMd"/>
                                                             <constraint firstItem="dly-J8-Y7S" firstAttribute="top" secondItem="Oy2-gv-cuT" secondAttribute="bottom" constant="8" symbolic="YES" id="Tn4-Ak-8Bp"/>
                                                             <constraint firstItem="Oy2-gv-cuT" firstAttribute="top" secondItem="khS-Yd-yp2" secondAttribute="top" constant="5" id="Xud-OZ-KBv"/>
                                                             <constraint firstAttribute="bottom" secondItem="dly-J8-Y7S" secondAttribute="bottom" constant="5" id="iVn-9f-NV4"/>
                                                             <constraint firstItem="gg6-EV-4xD" firstAttribute="leading" secondItem="Oy2-gv-cuT" secondAttribute="trailing" constant="8" symbolic="YES" id="j2Q-7k-RLA"/>
-                                                            <constraint firstItem="gg6-EV-4xD" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="dly-J8-Y7S" secondAttribute="trailing" constant="8" symbolic="YES" id="oMF-zG-iAB"/>
-                                                            <constraint firstItem="gg6-EV-4xD" firstAttribute="centerY" secondItem="khS-Yd-yp2" secondAttribute="centerY" id="r1P-jB-Qac"/>
+                                                            <constraint firstAttribute="trailing" secondItem="UTo-vs-RKV" secondAttribute="trailing" constant="5" id="jqc-Uk-568"/>
                                                         </constraints>
                                                     </tableCellView>
                                                 </prototypeCellViews>

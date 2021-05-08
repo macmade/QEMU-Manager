@@ -37,6 +37,8 @@
 		05CCF03526462FDE00A3A9F8 /* MachineInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CCF03426462FDE00A3A9F8 /* MachineInfo.swift */; };
 		05CCF037264631C700A3A9F8 /* CPUInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CCF036264631C700A3A9F8 /* CPUInfo.swift */; };
 		05CCF0392646A36F00A3A9F8 /* ImageFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CCF0382646A36F00A3A9F8 /* ImageFormat.swift */; };
+		05CCF03B2646A6B400A3A9F8 /* UppercaseString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CCF03A2646A6B400A3A9F8 /* UppercaseString.swift */; };
+		05CCF03D2646A6DC00A3A9F8 /* LowercaseString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CCF03C2646A6DC00A3A9F8 /* LowercaseString.swift */; };
 		05DFDD21261F7BFD00BBE4E3 /* ApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DFDD20261F7BFD00BBE4E3 /* ApplicationDelegate.swift */; };
 		05DFDD26261F7BFE00BBE4E3 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05DFDD24261F7BFE00BBE4E3 /* MainMenu.xib */; };
 		05DFDD75261F7EB000BBE4E3 /* AboutWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05DFDD73261F7EB000BBE4E3 /* AboutWindowController.xib */; };
@@ -89,6 +91,8 @@
 		05CCF03426462FDE00A3A9F8 /* MachineInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineInfo.swift; sourceTree = "<group>"; };
 		05CCF036264631C700A3A9F8 /* CPUInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPUInfo.swift; sourceTree = "<group>"; };
 		05CCF0382646A36F00A3A9F8 /* ImageFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFormat.swift; sourceTree = "<group>"; };
+		05CCF03A2646A6B400A3A9F8 /* UppercaseString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UppercaseString.swift; sourceTree = "<group>"; };
+		05CCF03C2646A6DC00A3A9F8 /* LowercaseString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LowercaseString.swift; sourceTree = "<group>"; };
 		05DFDD1D261F7BFD00BBE4E3 /* QEMU Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "QEMU Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		05DFDD20261F7BFD00BBE4E3 /* ApplicationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationDelegate.swift; sourceTree = "<group>"; };
 		05DFDD25261F7BFE00BBE4E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -205,6 +209,8 @@
 				05F547A4263C5B50003F1B92 /* ArchitectureToString.swift */,
 				058C98AD26330E830086E57E /* ArrayIsEmpty.swift */,
 				058C98B026330FBB0086E57E /* ArrayIsNotEmpty.swift */,
+				05CCF03A2646A6B400A3A9F8 /* UppercaseString.swift */,
+				05CCF03C2646A6DC00A3A9F8 /* LowercaseString.swift */,
 				05F5485C2640930A003F1B92 /* BytesToString.swift */,
 				05E49B0E262079E400163619 /* Config.swift */,
 				05CCEFD72643EAEE00A3A9F8 /* ConfigDisksViewController.swift */,
@@ -506,6 +512,7 @@
 				05CCF0312646089A00A3A9F8 /* NSError.swift in Sources */,
 				05CCF03526462FDE00A3A9F8 /* MachineInfo.swift in Sources */,
 				05CCF0262646076300A3A9F8 /* QEMU.System.swift in Sources */,
+				05CCF03D2646A6DC00A3A9F8 /* LowercaseString.swift in Sources */,
 				058C98BF263332050086E57E /* Synchronizable.swift in Sources */,
 				05BEEA062638120A00EECF3A /* ConfigViewController.swift in Sources */,
 				05CCF01C2645ECF600A3A9F8 /* QEMU.swift in Sources */,
@@ -513,6 +520,7 @@
 				05CCF02E2646082400A3A9F8 /* ObjC.m in Sources */,
 				05DFDD78261F7EB700BBE4E3 /* AboutWindowController.swift in Sources */,
 				058C98AE26330E830086E57E /* ArrayIsEmpty.swift in Sources */,
+				05CCF03B2646A6B400A3A9F8 /* UppercaseString.swift in Sources */,
 				05DFDD7F261F7F5F00BBE4E3 /* LibraryWindowController.swift in Sources */,
 				058C98B826332F3F0086E57E /* Preferences.swift in Sources */,
 				05CCF0222645F96E00A3A9F8 /* DiskInfo.swift in Sources */,

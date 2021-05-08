@@ -55,6 +55,7 @@
 		05DFDD8A261F9E7900BBE4E3 /* Document.icns in Resources */ = {isa = PBXBuildFile; fileRef = 05DFDD88261F9E7900BBE4E3 /* Document.icns */; };
 		05E49B0C262079B700163619 /* qemu in Resources */ = {isa = PBXBuildFile; fileRef = 05E49B0B262079B700163619 /* qemu */; };
 		05E49B0F262079E400163619 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E49B0E262079E400163619 /* Config.swift */; };
+		05E4FCD22646EDDD007D1254 /* NSAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E4FCD12646EDDD007D1254 /* NSAlert.swift */; };
 		05F5479C263C3C56003F1B92 /* Generic.icns in Resources */ = {isa = PBXBuildFile; fileRef = 05F5479A263C3C56003F1B92 /* Generic.icns */; };
 		05F5479D263C3C56003F1B92 /* macOS.icns in Resources */ = {isa = PBXBuildFile; fileRef = 05F5479B263C3C56003F1B92 /* macOS.icns */; };
 		05F547A1263C56C4003F1B92 /* WindowsLegacy.icns in Resources */ = {isa = PBXBuildFile; fileRef = 05F5479E263C56C4003F1B92 /* WindowsLegacy.icns */; };
@@ -163,6 +164,7 @@
 		05DFDD88261F9E7900BBE4E3 /* Document.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Document.icns; sourceTree = "<group>"; };
 		05E49B0B262079B700163619 /* qemu */ = {isa = PBXFileReference; lastKnownFileType = folder; path = qemu; sourceTree = "<group>"; };
 		05E49B0E262079E400163619 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		05E4FCD12646EDDD007D1254 /* NSAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAlert.swift; sourceTree = "<group>"; };
 		05F5479A263C3C56003F1B92 /* Generic.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Generic.icns; sourceTree = "<group>"; };
 		05F5479B263C3C56003F1B92 /* macOS.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = macOS.icns; sourceTree = "<group>"; };
 		05F5479E263C56C4003F1B92 /* WindowsLegacy.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = WindowsLegacy.icns; sourceTree = "<group>"; };
@@ -291,6 +293,7 @@
 				05CCF02C2646082400A3A9F8 /* ObjC.h */,
 				05CCF02D2646082400A3A9F8 /* ObjC.m */,
 				058C98BE263332050086E57E /* Synchronizable.swift */,
+				05E4FCD12646EDDD007D1254 /* NSAlert.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -613,6 +616,7 @@
 				05CCEFDD2643EDA600A3A9F8 /* Disk.swift in Sources */,
 				05CCEFE626445AC000A3A9F8 /* SizeFormatter.swift in Sources */,
 				05DFDD21261F7BFD00BBE4E3 /* ApplicationDelegate.swift in Sources */,
+				05E4FCD22646EDDD007D1254 /* NSAlert.swift in Sources */,
 				05BEEA08263812BA00EECF3A /* ConfigGeneralViewController.swift in Sources */,
 				05CCF037264631C700A3A9F8 /* CPU.swift in Sources */,
 				05CCF0242646051B00A3A9F8 /* OptionalPath.swift in Sources */,

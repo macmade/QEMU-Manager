@@ -106,7 +106,7 @@ public class ConfigWindowController: NSWindowController, NSTableViewDelegate
         }
         catch let error
         {
-            NSAlert( error: error ).runModal()
+            NSAlert( error: error ).beginSheetModal( for: window, completionHandler: nil )
         }
     }
     

@@ -130,9 +130,7 @@ public class ConfigDisksViewController: ConfigViewController, NSTableViewDataSou
     
     @IBAction private func removeDisk( _ sender: Any? )
     {
-        guard let disk   = self.disks.selectedObjects.first as? DiskInfo,
-              let window = self.view.window
-        else
+        guard let disk = self.disks.selectedObjects.first as? DiskInfo else
         {
             NSSound.beep()
             
@@ -146,7 +144,7 @@ public class ConfigDisksViewController: ConfigViewController, NSTableViewDataSou
         alert.addButton( withTitle: "Delete" )
         alert.addButton( withTitle: "Cancel" )
         
-        alert.beginSheetModal( for: window )
+        alert.tryBeginSheetModal( for: self.view.window )
         {
             r in if r != .alertFirstButtonReturn
             {
@@ -162,7 +160,7 @@ public class ConfigDisksViewController: ConfigViewController, NSTableViewDataSou
             }
             catch let error
             {
-                NSAlert( error: error ).beginSheetModal( for: window, completionHandler: nil )
+                NSAlert( error: error ).tryBeginSheetModal( for: self.view.window, completionHandler: nil )
             }
         }
     }

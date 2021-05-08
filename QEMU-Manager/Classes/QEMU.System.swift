@@ -26,8 +26,154 @@ import Foundation
 
 extension QEMU.System
 {
-    static func start( machine: VirtualMachine ) throws
+    public static func start( machine: VirtualMachine ) throws
     {
         let _ = try QEMU.System( architecture: machine.config.architecture ).execute( arguments: [] )
+    }
+    
+    public static func machines( for architecture: Config.Architecture ) -> [ ( String, String ) ]
+    {
+        do
+        {
+            let res = try QEMU.System( architecture: architecture ).execute( arguments: [ "-machine", "help" ] )
+            
+            guard let lines = res?.out.components( separatedBy: .newlines ) else
+            {
+                return []
+            }
+            
+            var machines: [ ( String, String ) ] = []
+            
+            for var line in lines
+            {
+                line = line.trimmingCharacters( in: .whitespaces )
+                
+                if line == "Supported machines are:"
+                {
+                    continue
+                }
+                
+                if line.count == 0
+                {
+                    if machines.isEmpty
+                    {
+                        continue
+                    }
+                    else
+                    {
+                        break
+                    }
+                }
+                
+                do
+                {
+                    let regex = try NSRegularExpression( pattern: #"([^\s]+)\s+(.*)"#, options: [] )
+                    
+                    guard let match = regex.matches( in: line, options: [], range: NSRange( location: 0, length: line.count ) ).first else
+                    {
+                        break
+                    }
+                    
+                    if match.numberOfRanges != 3
+                    {
+                        break;
+                    }
+                    
+                    let s1 = ( line as NSString ).substring( with: match.range( at: 1 ) )
+                    let s2 = ( line as NSString ).substring( with: match.range( at: 2 ) )
+                    
+                    machines.append( ( s1, s2 ) )
+                }
+                catch
+                {
+                    break
+                }
+            }
+            
+            return machines
+        }
+        catch
+        {
+            return []
+        }
+    }
+    
+    public static func cpus( for architecture: Config.Architecture ) -> [ ( String, String ) ]
+    {
+        do
+        {
+            let res = try QEMU.System( architecture: architecture ).execute( arguments: [ "-cpu", "help" ] )
+            
+            guard let lines = res?.out.components( separatedBy: .newlines ) else
+            {
+                return []
+            }
+            
+            var cpus: [ ( String, String ) ] = []
+            
+            for var line in lines
+            {
+                line = line.trimmingCharacters( in: .whitespaces )
+                
+                if line == "Available CPUs:"
+                {
+                    continue
+                }
+                
+                if line.count == 0
+                {
+                    if cpus.isEmpty
+                    {
+                        continue
+                    }
+                    else
+                    {
+                        break
+                    }
+                }
+                
+                let prefixes = [ "x86 ", "PowerPC " ]
+                
+                prefixes.forEach
+                {
+                    if line.hasPrefix( $0 )
+                    {
+                        line = String( line.dropFirst( $0.count ) )
+                    }
+                }
+                
+                do
+                {
+                    let regex = try NSRegularExpression( pattern: #"([^\s]+)\s+(.*)"#, options: [] )
+                    
+                    guard let match = regex.matches( in: line, options: [], range: NSRange( location: 0, length: line.count ) ).first else
+                    {
+                        cpus.append( ( line, line ) )
+                        
+                        continue
+                    }
+                    
+                    if match.numberOfRanges != 3
+                    {
+                        break;
+                    }
+                    
+                    let s1 = ( line as NSString ).substring( with: match.range( at: 1 ) )
+                    let s2 = ( line as NSString ).substring( with: match.range( at: 2 ) )
+                    
+                    cpus.append( ( s1, s2 ) )
+                }
+                catch
+                {
+                    break
+                }
+            }
+            
+            return cpus
+        }
+        catch
+        {
+            return []
+        }
     }
 }

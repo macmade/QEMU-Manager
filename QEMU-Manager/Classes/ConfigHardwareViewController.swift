@@ -27,6 +27,8 @@ import Cocoa
 @objc public class ConfigHardwareViewController: ConfigViewController
 {
     @IBOutlet private var sizeFormatter: SizeFormatter!
+    @IBOutlet private var machines:      NSArrayController!
+    @IBOutlet private var cpus:          NSArrayController!
     
     @objc private dynamic var minMemory:    UInt64
     @objc private dynamic var maxMemory:    UInt64
@@ -35,9 +37,22 @@ import Cocoa
     {
         didSet
         {
+            if let machines = self.machines.content as? [ String ]
+            {
+                machines.forEach { self.machines.removeObject( $0 ) }
+            }
+            
+            if let cpus = self.cpus.content as? [ String ]
+            {
+                cpus.forEach { self.machines.removeObject( $0 ) }
+            }
+            
             if let arch = Config.Architecture( rawValue: self.architecture )
             {
                 self.machine.config.architecture = arch
+                
+                QEMU.System.machines( for: arch ).forEach { self.machines.addObject( $0.0 ) }
+                QEMU.System.cpus(     for: arch ).forEach { self.cpus.addObject( $0.0 ) }
             }
         }
     }
@@ -68,5 +83,11 @@ import Cocoa
         
         self.sizeFormatter.min = self.minMemory
         self.sizeFormatter.max = self.maxMemory
+        
+        if let arch = Config.Architecture( rawValue: self.architecture )
+        {
+            QEMU.System.machines( for: arch ).forEach { self.machines.addObject( $0.0 ) }
+            QEMU.System.cpus(     for: arch ).forEach { self.cpus.addObject( $0.0 ) }
+        }
     }
 }

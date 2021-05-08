@@ -31,6 +31,8 @@ import Cocoa
     
     func applicationDidFinishLaunching( _ notification: Notification )
     {
+        print( QEMU.System.cpus( for: .i386 ) )
+        
         self.showLibraryWindow( nil )
     }
 

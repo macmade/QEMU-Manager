@@ -7,6 +7,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NewDiskWindowController" customModule="QEMU_Manager" customModuleProvider="target">
             <connections>
+                <outlet property="formats" destination="uZb-UL-bSs" id="UWk-ig-M4r"/>
                 <outlet property="formatter" destination="ztR-bQ-Kco" id="c9U-0U-FQP"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="14A-JQ-EfC"/>
             </connections>
@@ -19,11 +20,11 @@
             <rect key="contentRect" x="196" y="240" width="480" height="270"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1025"/>
             <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="480" height="294"/>
+                <rect key="frame" x="0.0" y="0.0" width="480" height="358"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2yP-hk-h1A">
-                        <rect key="frame" x="18" y="248" width="94" height="26"/>
+                        <rect key="frame" x="18" y="312" width="94" height="26"/>
                         <textFieldCell key="cell" lineBreakMode="clipping" title="New Disk" id="xp0-Oy-Zbh">
                             <font key="font" textStyle="title1" name=".SFNS-Regular"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -31,10 +32,10 @@
                         </textFieldCell>
                     </textField>
                     <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="A2C-eR-DWU">
-                        <rect key="frame" x="12" y="237" width="456" height="5"/>
+                        <rect key="frame" x="12" y="301" width="456" height="5"/>
                     </box>
                     <progressIndicator maxValue="100" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="ib7-p9-dfu">
-                        <rect key="frame" x="224" y="134" width="32" height="32"/>
+                        <rect key="frame" x="224" y="166" width="32" height="32"/>
                         <connections>
                             <binding destination="-2" name="animate" keyPath="self.loading" id="QWM-E1-0Hm"/>
                             <binding destination="-2" name="hidden" keyPath="self.loading" id="tky-2B-aq5">
@@ -45,10 +46,10 @@
                         </connections>
                     </progressIndicator>
                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="Urv-T5-Di1">
-                        <rect key="frame" x="0.0" y="61" width="480" height="178"/>
+                        <rect key="frame" x="0.0" y="61" width="480" height="242"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Zez-AW-h51">
-                                <rect key="frame" x="18" y="142" width="41" height="16"/>
+                                <rect key="frame" x="18" y="206" width="41" height="16"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Label:" id="Ntp-lL-paM">
                                     <font key="font" usesAppearanceFont="YES"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -56,7 +57,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cYW-5D-LE4">
-                                <rect key="frame" x="20" y="113" width="440" height="21"/>
+                                <rect key="frame" x="20" y="177" width="440" height="21"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="eh7-Wy-iyg">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -67,7 +68,7 @@
                                 </connections>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IfJ-gD-R9J">
-                                <rect key="frame" x="18" y="77" width="34" height="16"/>
+                                <rect key="frame" x="18" y="141" width="34" height="16"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Size:" id="NlM-vI-xV3">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -75,7 +76,7 @@
                                 </textFieldCell>
                             </textField>
                             <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8qD-sF-we3">
-                                <rect key="frame" x="18" y="43" width="444" height="28"/>
+                                <rect key="frame" x="18" y="107" width="444" height="28"/>
                                 <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="1048576" maxValue="8589934592" doubleValue="1048576" tickMarkPosition="below" numberOfTickMarks="50" sliderType="linear" id="4fw-ha-RhX"/>
                                 <connections>
                                     <binding destination="-2" name="maxValue" keyPath="self.max" id="8we-BI-Pdk"/>
@@ -84,7 +85,7 @@
                                 </connections>
                             </slider>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nkn-ex-Tmw">
-                                <rect key="frame" x="20" y="20" width="440" height="21"/>
+                                <rect key="frame" x="20" y="84" width="440" height="21"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="DS3-h5-Vp9">
                                     <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" formatWidth="-1" groupingSize="0" minimumIntegerDigits="1" maximumIntegerDigits="42" id="ztR-bQ-Kco" customClass="SizeFormatter"/>
                                     <font key="font" metaFont="system"/>
@@ -95,20 +96,58 @@
                                     <binding destination="-2" name="value" keyPath="self.size" id="sWn-vC-vnA"/>
                                 </connections>
                             </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qUA-Tj-23m">
+                                <rect key="frame" x="18" y="48" width="51" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Format:" id="iXw-TM-K5O">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BBu-jL-0r9">
+                                <rect key="frame" x="17" y="16" width="89" height="25"/>
+                                <popUpButtonCell key="cell" type="push" title="QCOW2" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="m8m-vH-kGa" id="ygk-5b-IOX">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="menu"/>
+                                    <menu key="menu" id="e1a-EJ-Olb">
+                                        <items>
+                                            <menuItem title="QCOW2" state="on" id="m8m-vH-kGa"/>
+                                            <menuItem title="QED" id="p1D-3D-0kR"/>
+                                            <menuItem title="Raw" id="A2j-dJ-k2O"/>
+                                            <menuItem title="VDI" id="Ifc-D7-g7d"/>
+                                            <menuItem title="VHD" id="tNP-MT-6lF"/>
+                                            <menuItem title="VMDK" id="vcd-p2-Nm4"/>
+                                        </items>
+                                    </menu>
+                                    <connections>
+                                        <binding destination="-2" name="selectedObject" keyPath="self.format" id="hPJ-Bm-xLl"/>
+                                    </connections>
+                                </popUpButtonCell>
+                                <connections>
+                                    <binding destination="uZb-UL-bSs" name="content" keyPath="arrangedObjects" id="p9o-jP-ztl"/>
+                                    <binding destination="-2" name="selectedObject" keyPath="self.format" previousBinding="p9o-jP-ztl" id="ZWK-k7-RcE"/>
+                                </connections>
+                            </popUpButton>
                         </subviews>
                         <constraints>
                             <constraint firstItem="IfJ-gD-R9J" firstAttribute="leading" secondItem="Urv-T5-Di1" secondAttribute="leading" constant="20" symbolic="YES" id="0NV-DB-VsF"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="qUA-Tj-23m" secondAttribute="trailing" constant="20" symbolic="YES" id="2fD-wR-Z6Z"/>
+                            <constraint firstItem="qUA-Tj-23m" firstAttribute="leading" secondItem="Urv-T5-Di1" secondAttribute="leading" constant="20" symbolic="YES" id="3tG-Yo-aJA"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="IfJ-gD-R9J" secondAttribute="trailing" constant="20" symbolic="YES" id="BMU-Zz-1JI"/>
+                            <constraint firstItem="qUA-Tj-23m" firstAttribute="top" secondItem="nkn-ex-Tmw" secondAttribute="bottom" constant="20" id="Boy-PZ-0E1"/>
                             <constraint firstAttribute="trailing" secondItem="nkn-ex-Tmw" secondAttribute="trailing" constant="20" symbolic="YES" id="GDJ-Ha-VWH"/>
                             <constraint firstItem="nkn-ex-Tmw" firstAttribute="leading" secondItem="Urv-T5-Di1" secondAttribute="leading" constant="20" symbolic="YES" id="HDj-RM-AaF"/>
+                            <constraint firstItem="BBu-jL-0r9" firstAttribute="leading" secondItem="Urv-T5-Di1" secondAttribute="leading" constant="20" symbolic="YES" id="HYC-IX-g5N"/>
                             <constraint firstItem="cYW-5D-LE4" firstAttribute="leading" secondItem="Urv-T5-Di1" secondAttribute="leading" constant="20" symbolic="YES" id="KGm-gO-UIt"/>
+                            <constraint firstAttribute="bottom" secondItem="BBu-jL-0r9" secondAttribute="bottom" constant="20" id="NCm-gw-fRN"/>
                             <constraint firstItem="nkn-ex-Tmw" firstAttribute="top" secondItem="8qD-sF-we3" secondAttribute="bottom" constant="8" symbolic="YES" id="PSV-Pv-MbQ"/>
-                            <constraint firstAttribute="bottom" secondItem="nkn-ex-Tmw" secondAttribute="bottom" constant="20" id="eDy-kA-87Z"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="BBu-jL-0r9" secondAttribute="trailing" constant="20" symbolic="YES" id="bcv-s4-GzI"/>
                             <constraint firstItem="Zez-AW-h51" firstAttribute="top" secondItem="Urv-T5-Di1" secondAttribute="top" constant="20" id="fQS-nA-FQB"/>
                             <constraint firstItem="cYW-5D-LE4" firstAttribute="top" secondItem="Zez-AW-h51" secondAttribute="bottom" constant="8" symbolic="YES" id="fWj-Bp-0fs"/>
                             <constraint firstItem="8qD-sF-we3" firstAttribute="leading" secondItem="Urv-T5-Di1" secondAttribute="leading" constant="20" symbolic="YES" id="fsE-Ak-Zkf"/>
                             <constraint firstAttribute="trailing" secondItem="cYW-5D-LE4" secondAttribute="trailing" constant="20" symbolic="YES" id="iYx-fw-zAc"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Zez-AW-h51" secondAttribute="trailing" constant="20" symbolic="YES" id="ji9-ri-y9A"/>
+                            <constraint firstItem="BBu-jL-0r9" firstAttribute="top" secondItem="qUA-Tj-23m" secondAttribute="bottom" constant="8" symbolic="YES" id="mjy-Gt-Zsj"/>
                             <constraint firstItem="Zez-AW-h51" firstAttribute="leading" secondItem="Urv-T5-Di1" secondAttribute="leading" constant="20" symbolic="YES" id="oWo-dF-QDP"/>
                             <constraint firstAttribute="trailing" secondItem="8qD-sF-we3" secondAttribute="trailing" constant="20" symbolic="YES" id="wV4-Ze-52f"/>
                             <constraint firstItem="IfJ-gD-R9J" firstAttribute="top" secondItem="cYW-5D-LE4" secondAttribute="bottom" constant="20" id="yOc-K0-R6n"/>
@@ -183,5 +222,6 @@ DQ
             </view>
             <point key="canvasLocation" x="20" y="110"/>
         </window>
+        <arrayController id="uZb-UL-bSs" userLabel="Formats"/>
     </objects>
 </document>

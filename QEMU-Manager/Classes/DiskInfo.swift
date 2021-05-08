@@ -45,7 +45,7 @@ import Foundation
         
         self.machine = machine
         self.disk    = disk
-        self.url     = url.appendingPathComponent( disk.uuid.uuidString ).appendingPathExtension( "qcow2" )
+        self.url     = url.appendingPathComponent( disk.uuid.uuidString ).appendingPathExtension( disk.format )
         
         do
         {

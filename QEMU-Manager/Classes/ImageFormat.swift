@@ -1,18 +1,18 @@
 /*******************************************************************************
  * The MIT License (MIT)
- * 
+ *
  * Copyright (c) 2021 Jean-David Gadina - www.xs-labs.com
- * 
+ *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- * 
+ *
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
- * 
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -24,9 +24,38 @@
 
 import Foundation
 
-@objc public class Disk: NSObject, Codable
+@objc public class ImageFormat: NSObject
 {
-    @objc public private( set ) dynamic var uuid   = UUID()
-    @objc public                dynamic var label  = "Untitled"
-    @objc public                dynamic var format = "qcow2"
+    @objc public private( set ) dynamic var name:    String
+    @objc public private( set ) dynamic var title:   String
+    @objc public private( set ) dynamic var sorting: Int
+    
+    public static var all: [ ImageFormat ] =
+    {
+        return [
+            ImageFormat( name: "qcow2", title: "QCOW2 (KVM, Xen)", sorting: 0 ),
+            ImageFormat( name: "qed",   title: "QED (KVM)",        sorting: 1 ),
+            ImageFormat( name: "raw",   title: "Raw",              sorting: 2 ),
+            ImageFormat( name: "vdi",   title: "VDI (VirtualBox)", sorting: 3 ),
+            ImageFormat( name: "vpc",   title: "VHD (Hyper-V)",    sorting: 4 ),
+            ImageFormat( name: "vmdk",  title: "VMDK (VMware)",    sorting: 5 ),
+        ]
+    }()
+    
+    public init( name: String, title: String, sorting: Int )
+    {
+        self.name    = name
+        self.title   = title
+        self.sorting = sorting
+    }
+    
+    public override var description: String
+    {
+        if self.title.count > 0
+        {
+            return self.title
+        }
+        
+        return self.name
+    }
 }

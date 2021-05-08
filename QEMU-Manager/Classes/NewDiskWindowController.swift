@@ -32,8 +32,10 @@ import Cocoa
     @objc public private( set ) dynamic var min:     UInt64
     @objc public private( set ) dynamic var max:     UInt64
     @objc public private( set ) dynamic var loading: Bool
+    @objc public private( set ) dynamic var format:  ImageFormat?
     
     @IBOutlet private var formatter: SizeFormatter!
+    @IBOutlet private var formats:   NSArrayController!
     
     public init( machine: VirtualMachine )
     {
@@ -63,6 +65,17 @@ import Cocoa
         
         self.formatter.min = self.min
         self.formatter.max = self.max
+        
+        self.formats.sortDescriptors = [
+            NSSortDescriptor( key: "sorting", ascending: true ),
+            NSSortDescriptor( key: "title",   ascending: true ),
+            NSSortDescriptor( key: "name",    ascending: true ),
+        ]
+        
+        let formats = ImageFormat.all
+        self.format = formats.first
+        
+        formats.forEach { self.formats.addObject( $0 ) }
     }
     
     @IBAction private func cancel( _ sender: Any? )
@@ -100,13 +113,14 @@ import Cocoa
         
         DispatchQueue.global( qos: .userInitiated ).async
         {
-            let disk   = Disk()
-            disk.label = self.label
-            let path   = url.appendingPathComponent( disk.uuid.uuidString ).appendingPathExtension( "qcow2" ).path
+            let disk    = Disk()
+            disk.format = self.format?.name ?? "qcow2"
+            disk.label  = self.label
+            let path    = url.appendingPathComponent( disk.uuid.uuidString ).appendingPathExtension( disk.format ).path
             
             do
             {
-                try QEMU.Img.create( url: URL( fileURLWithPath: path ), size: self.size, format: "qcow2" )
+                try QEMU.Img.create( url: URL( fileURLWithPath: path ), size: self.size, format: disk.format )
                 self.machine.config.addDisk( disk )
                 try self.machine.save()
                 

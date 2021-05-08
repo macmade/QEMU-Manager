@@ -54,6 +54,8 @@ public class LibraryWindowController: NSWindowController, NSTableViewDelegate, N
                 self.loading = false
             }
         }
+        
+        self.machines.sortDescriptors = [ NSSortDescriptor( key: "config.title", ascending: true ) ]
     }
     
     public var virtualMachines: [ VirtualMachine ]

@@ -27,6 +27,28 @@
                     <visualEffectView blendingMode="behindWindow" material="sidebar" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="iuF-6k-Png">
                         <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
                         <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="Ubm-Mo-zDy">
+                                <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
+                                <subviews>
+                                    <progressIndicator wantsLayer="YES" maxValue="100" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="dwx-LW-fuK">
+                                        <rect key="frame" x="184" y="184" width="32" height="32"/>
+                                        <connections>
+                                            <binding destination="-2" name="animate" keyPath="self.loading" id="77O-Vt-tFW"/>
+                                        </connections>
+                                    </progressIndicator>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="dwx-LW-fuK" firstAttribute="centerY" secondItem="Ubm-Mo-zDy" secondAttribute="centerY" id="bBP-Ht-feA"/>
+                                    <constraint firstItem="dwx-LW-fuK" firstAttribute="centerX" secondItem="Ubm-Mo-zDy" secondAttribute="centerX" id="zXI-IX-UKo"/>
+                                </constraints>
+                                <connections>
+                                    <binding destination="-2" name="hidden" keyPath="self.loading" id="lCO-VL-xvl">
+                                        <dictionary key="options">
+                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                        </dictionary>
+                                    </binding>
+                                </connections>
+                            </customView>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="QWP-6v-gC8">
                                 <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
                                 <subviews>
@@ -78,6 +100,14 @@ DQ
                                     <binding destination="cVS-ih-Quc" name="hidden" keyPath="arrangedObjects" id="J2o-N1-vDK">
                                         <dictionary key="options">
                                             <string key="NSValueTransformerName">ArrayIsNotEmpty</string>
+                                        </dictionary>
+                                    </binding>
+                                    <binding destination="-2" name="hidden2" keyPath="self.loading" previousBinding="J2o-N1-vDK" id="xJh-4M-HZN">
+                                        <dictionary key="options">
+                                            <integer key="NSMultipleValuesPlaceholder" value="-1"/>
+                                            <integer key="NSNoSelectionPlaceholder" value="-1"/>
+                                            <integer key="NSNotApplicablePlaceholder" value="-1"/>
+                                            <integer key="NSNullPlaceholder" value="-1"/>
                                         </dictionary>
                                     </binding>
                                 </connections>
@@ -214,6 +244,14 @@ DQ
                                             <string key="NSValueTransformerName">ArrayIsEmpty</string>
                                         </dictionary>
                                     </binding>
+                                    <binding destination="-2" name="hidden2" keyPath="self.loading" previousBinding="frx-3n-mFc" id="0vT-h5-Lfl">
+                                        <dictionary key="options">
+                                            <integer key="NSMultipleValuesPlaceholder" value="-1"/>
+                                            <integer key="NSNoSelectionPlaceholder" value="-1"/>
+                                            <integer key="NSNotApplicablePlaceholder" value="-1"/>
+                                            <integer key="NSNullPlaceholder" value="-1"/>
+                                        </dictionary>
+                                    </binding>
                                 </connections>
                             </customView>
                         </subviews>
@@ -222,10 +260,14 @@ DQ
                             <constraint firstItem="QWP-6v-gC8" firstAttribute="leading" secondItem="iuF-6k-Png" secondAttribute="leading" id="1UP-FK-jVd"/>
                             <constraint firstItem="QWP-6v-gC8" firstAttribute="top" secondItem="iuF-6k-Png" secondAttribute="top" id="1eW-LJ-VSS"/>
                             <constraint firstAttribute="bottom" secondItem="CTt-Mb-v7i" secondAttribute="bottom" id="2Z4-Gl-PbZ"/>
+                            <constraint firstItem="Ubm-Mo-zDy" firstAttribute="leading" secondItem="iuF-6k-Png" secondAttribute="leading" id="7au-ie-dJS"/>
                             <constraint firstItem="CTt-Mb-v7i" firstAttribute="leading" secondItem="iuF-6k-Png" secondAttribute="leading" id="CIk-AZ-FQy"/>
                             <constraint firstAttribute="bottom" secondItem="QWP-6v-gC8" secondAttribute="bottom" id="LEg-jZ-blH"/>
+                            <constraint firstItem="Ubm-Mo-zDy" firstAttribute="top" secondItem="iuF-6k-Png" secondAttribute="top" id="b6B-BI-dMi"/>
                             <constraint firstAttribute="trailing" secondItem="QWP-6v-gC8" secondAttribute="trailing" id="hQa-a0-Efa"/>
                             <constraint firstAttribute="trailing" secondItem="CTt-Mb-v7i" secondAttribute="trailing" id="jSI-AB-J0k"/>
+                            <constraint firstAttribute="bottom" secondItem="Ubm-Mo-zDy" secondAttribute="bottom" id="oR4-fC-cW4"/>
+                            <constraint firstAttribute="trailing" secondItem="Ubm-Mo-zDy" secondAttribute="trailing" id="xkX-Pm-bDz"/>
                         </constraints>
                     </visualEffectView>
                 </subviews>

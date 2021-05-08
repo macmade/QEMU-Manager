@@ -136,4 +136,9 @@ import Cocoa
         
         window.makeKeyAndOrderFront( nil )
     }
+    
+    public func application( _ application: NSApplication, open urls: [ URL ] )
+    {
+        self.libraryWindowController.addVirtualMachines( from: urls )
+    }
 }

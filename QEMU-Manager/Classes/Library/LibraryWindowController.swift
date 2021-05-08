@@ -302,4 +302,37 @@ public class LibraryWindowController: NSWindowController, NSTableViewDelegate, N
         
         return arranged[ self.tableView.clickedRow ]
     }
+    
+    public func addVirtualMachines( from urls: [ URL ] )
+    {
+        let _        = self.window
+        let existing = self.virtualMachines
+        
+        urls.forEach
+        {
+            url in
+            
+            if let _ = existing.first( where: { $0.url == url } )
+            {
+                return
+            }
+            
+            guard let vm = VirtualMachine( url: url ) else
+            {
+                let alert = NSAlert()
+                
+                alert.messageText     = "Incompatible Virtual Machine"
+                alert.informativeText = "An error occured while reading the virtual machine \( url.lastPathComponent )."
+                
+                alert.addButton( withTitle: "OK" )
+                
+                alert.runModal()
+                
+                return
+            }
+            
+            Preferences.shared.addVirtualMachines( vm )
+            self.machines.addObject( vm )
+        }
+    }
 }

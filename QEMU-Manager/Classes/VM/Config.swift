@@ -46,7 +46,7 @@ public class Config: NSObject, Codable
     @objc public private( set ) dynamic var disks:        [ Disk ]     = []
     @objc public                dynamic var cdImage:      URL?         = nil
     @objc public                dynamic var boot:         String       = "d"
-    @objc public private( set ) dynamic var arguments:    [ String ]   = []
+    @objc public                dynamic var arguments:    [ String ]   = []
     
     public override init()
     {}

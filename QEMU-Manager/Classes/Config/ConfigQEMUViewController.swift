@@ -20,6 +20,8 @@ import Cocoa
 
 public class ConfigQEMUViewController: ConfigViewController
 {
+    @IBOutlet private var arguments: NSArrayController!
+    
     @objc private dynamic var vm: VirtualMachine
     
     public init( vm: VirtualMachine, sorting: Int )
@@ -34,6 +36,14 @@ public class ConfigQEMUViewController: ConfigViewController
         nil
     }
     
+    deinit
+    {
+        if let args = self.arguments.content as? [ Argument ]
+        {
+            args.forEach { $0.removeObserver( self, forKeyPath: "value" ) }
+        }
+    }
+    
     public override var nibName: NSNib.Name?
     {
         "ConfigQEMUViewController"
@@ -42,5 +52,69 @@ public class ConfigQEMUViewController: ConfigViewController
     public override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        let args = self.vm.config.arguments.map { Argument( value: $0 ) }
+        
+        self.arguments.add( contentsOf: args )
+        args.forEach { $0.addObserver( self, forKeyPath: "value", options: .new, context: nil ) }
+    }
+    
+    @IBAction private func addRemoveArgument( _ sender: Any? )
+    {
+        guard let button = sender as? NSSegmentedControl else
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
+        switch button.selectedSegment
+        {
+            case 0:  self.addArgument( sender )
+            case 1:  self.removeArgument( sender )
+            default: NSSound.beep()
+        }
+    }
+    
+    @IBAction private func addArgument( _ sender: Any? )
+    {
+        let arg = Argument()
+        
+        arg.addObserver( self, forKeyPath: "value", options: .new, context: nil )
+        self.arguments.addObject( arg )
+        self.save()
+    }
+    
+    @IBAction private func removeArgument( _ sender: Any? )
+    {
+        guard let arg = self.arguments.selectedObjects.first as? Argument else
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
+        arg.removeObserver( self, forKeyPath: "value" )
+        self.arguments.remove( arg )
+        self.save()
+    }
+    
+    private func save()
+    {
+        let args = self.arguments.content as? [ Argument ] ?? []
+        
+        self.vm.config.arguments = args.map { $0.value }
+    }
+    
+    public override func observeValue( forKeyPath keyPath: String?, of object: Any?, change: [ NSKeyValueChangeKey : Any ]?, context: UnsafeMutableRawPointer? )
+    {
+        if let _ = object as? Argument, keyPath == "value"
+        {
+            self.save()
+        }
+        else
+        {
+            super.observeValue( forKeyPath: keyPath, of: object, change: change, context: context )
+        }
     }
 }

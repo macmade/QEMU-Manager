@@ -7,6 +7,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="ConfigQEMUViewController" customModule="QEMU_Manager" customModuleProvider="target">
             <connections>
+                <outlet property="arguments" destination="VNk-pU-Lv1" id="N0e-ef-Imj"/>
                 <outlet property="view" destination="EJb-hE-XAM" id="Cg4-3Y-Oj5"/>
             </connections>
         </customObject>
@@ -33,13 +34,13 @@
                                 <rect key="frame" x="1" y="1" width="458" height="198"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <tableView autoresizesSubviews="NO" verticalHuggingPriority="750" allowsExpansionToolTips="YES" alternatingRowBackgroundColors="YES" columnReordering="NO" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="26" rowSizeStyle="automatic" usesAutomaticRowHeights="YES" viewBased="YES" id="Lii-mE-9se">
+                                    <tableView autoresizesSubviews="NO" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnReordering="NO" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="26" rowSizeStyle="automatic" usesAutomaticRowHeights="YES" viewBased="YES" id="Lii-mE-9se">
                                         <rect key="frame" x="0.0" y="0.0" width="458" height="198"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                         <tableColumns>
-                                            <tableColumn width="446" minWidth="40" maxWidth="1000" id="vbG-26-OlV">
+                                            <tableColumn width="414" minWidth="40" maxWidth="1000" id="vbG-26-OlV">
                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
@@ -52,18 +53,18 @@
                                                 <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                 <prototypeCellViews>
                                                     <tableCellView id="4eN-da-uda">
-                                                        <rect key="frame" x="0.0" y="0.0" width="458" height="26"/>
+                                                        <rect key="frame" x="10" y="0.0" width="426" height="26"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
                                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zuH-x8-7d5">
-                                                                <rect key="frame" x="3" y="5" width="452" height="16"/>
+                                                                <rect key="frame" x="3" y="5" width="420" height="16"/>
                                                                 <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Label" id="Mx6-lr-rCA">
                                                                     <font key="font" usesAppearanceFont="YES"/>
                                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                 </textFieldCell>
                                                                 <connections>
-                                                                    <binding destination="4eN-da-uda" name="value" keyPath="objectValue.disk.label" id="mmT-lP-uvh"/>
+                                                                    <binding destination="4eN-da-uda" name="value" keyPath="objectValue.value" id="Jwf-cY-pqs"/>
                                                                 </connections>
                                                             </textField>
                                                         </subviews>
@@ -77,6 +78,11 @@
                                                 </prototypeCellViews>
                                             </tableColumn>
                                         </tableColumns>
+                                        <connections>
+                                            <binding destination="VNk-pU-Lv1" name="content" keyPath="arrangedObjects" id="F03-0N-bH6"/>
+                                            <binding destination="VNk-pU-Lv1" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="F03-0N-bH6" id="24M-wo-2fM"/>
+                                            <binding destination="VNk-pU-Lv1" name="sortDescriptors" keyPath="sortDescriptors" previousBinding="24M-wo-2fM" id="o3b-15-0qf"/>
+                                        </connections>
                                     </tableView>
                                 </subviews>
                             </clipView>
@@ -101,6 +107,9 @@
                                     <segment image="NSRemoveTemplate" width="32" tag="1"/>
                                 </segments>
                             </segmentedCell>
+                            <connections>
+                                <action selector="addRemoveArgument:" target="-2" id="8kZ-wG-jpM"/>
+                            </connections>
                         </segmentedControl>
                     </subviews>
                     <constraints>
@@ -126,6 +135,7 @@
             </constraints>
             <point key="canvasLocation" x="-179" y="385"/>
         </customView>
+        <arrayController selectsInsertedObjects="NO" avoidsEmptySelection="NO" clearsFilterPredicateOnInsertion="NO" id="VNk-pU-Lv1" userLabel="Arguments"/>
     </objects>
     <resources>
         <image name="NSAddTemplate" width="14" height="13"/>

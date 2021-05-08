@@ -69,6 +69,7 @@
 		05E4FD01264731A8007D1254 /* FreeBSD.icns in Resources */ = {isa = PBXBuildFile; fileRef = 05E4FCFC264731A8007D1254 /* FreeBSD.icns */; };
 		05E4FD02264731A8007D1254 /* Ubuntu.icns in Resources */ = {isa = PBXBuildFile; fileRef = 05E4FCFD264731A8007D1254 /* Ubuntu.icns */; };
 		05E4FD03264731A8007D1254 /* Linux.icns in Resources */ = {isa = PBXBuildFile; fileRef = 05E4FCFE264731A8007D1254 /* Linux.icns */; };
+		05E4FD052647356A007D1254 /* Argument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E4FD042647356A007D1254 /* Argument.swift */; };
 		05F5479C263C3C56003F1B92 /* Generic.icns in Resources */ = {isa = PBXBuildFile; fileRef = 05F5479A263C3C56003F1B92 /* Generic.icns */; };
 		05F5479D263C3C56003F1B92 /* MacOS.icns in Resources */ = {isa = PBXBuildFile; fileRef = 05F5479B263C3C56003F1B92 /* MacOS.icns */; };
 		05F547A1263C56C4003F1B92 /* WindowsLegacy.icns in Resources */ = {isa = PBXBuildFile; fileRef = 05F5479E263C56C4003F1B92 /* WindowsLegacy.icns */; };
@@ -221,6 +222,7 @@
 		05E4FCFC264731A8007D1254 /* FreeBSD.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = FreeBSD.icns; sourceTree = "<group>"; };
 		05E4FCFD264731A8007D1254 /* Ubuntu.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Ubuntu.icns; sourceTree = "<group>"; };
 		05E4FCFE264731A8007D1254 /* Linux.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Linux.icns; sourceTree = "<group>"; };
+		05E4FD042647356A007D1254 /* Argument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Argument.swift; sourceTree = "<group>"; };
 		05F5479A263C3C56003F1B92 /* Generic.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Generic.icns; sourceTree = "<group>"; };
 		05F5479B263C3C56003F1B92 /* MacOS.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = MacOS.icns; sourceTree = "<group>"; };
 		05F5479E263C56C4003F1B92 /* WindowsLegacy.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = WindowsLegacy.icns; sourceTree = "<group>"; };
@@ -325,6 +327,7 @@
 				05CCF03426462FDE00A3A9F8 /* Machine.swift */,
 				05E4FCF3264721F8007D1254 /* VGA.swift */,
 				05E4FCF626472B4C007D1254 /* Icon.swift */,
+				05E4FD042647356A007D1254 /* Argument.swift */,
 			);
 			path = Info;
 			sourceTree = "<group>";
@@ -787,6 +790,7 @@
 				05CCF03B2646A6B400A3A9F8 /* UppercaseString.swift in Sources */,
 				05DFDD7F261F7F5F00BBE4E3 /* LibraryWindowController.swift in Sources */,
 				058C98B826332F3F0086E57E /* Preferences.swift in Sources */,
+				05E4FD052647356A007D1254 /* Argument.swift in Sources */,
 				05CCF0222645F96E00A3A9F8 /* DiskInfo.swift in Sources */,
 				05E4FCD42646F4A6007D1254 /* ConfigQEMUViewController.swift in Sources */,
 				05E49B0F262079E400163619 /* Config.swift in Sources */,

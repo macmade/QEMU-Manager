@@ -58,6 +58,8 @@
 		05E4FCD42646F4A6007D1254 /* ConfigQEMUViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E4FCD32646F4A6007D1254 /* ConfigQEMUViewController.swift */; };
 		05E4FCD72646F4B8007D1254 /* ConfigQEMUViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05E4FCD52646F4B8007D1254 /* ConfigQEMUViewController.xib */; };
 		05E4FCD92646F59D007D1254 /* TerminalTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 05E4FCD82646F59D007D1254 /* TerminalTemplate.pdf */; };
+		05E4FCE42646FEB3007D1254 /* GitHubUpdates.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05E4FCE02646FEA7007D1254 /* GitHubUpdates.framework */; };
+		05E4FCE52646FEB3007D1254 /* GitHubUpdates.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 05E4FCE02646FEA7007D1254 /* GitHubUpdates.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		05F5479C263C3C56003F1B92 /* Generic.icns in Resources */ = {isa = PBXBuildFile; fileRef = 05F5479A263C3C56003F1B92 /* Generic.icns */; };
 		05F5479D263C3C56003F1B92 /* macOS.icns in Resources */ = {isa = PBXBuildFile; fileRef = 05F5479B263C3C56003F1B92 /* macOS.icns */; };
 		05F547A1263C56C4003F1B92 /* WindowsLegacy.icns in Resources */ = {isa = PBXBuildFile; fileRef = 05F5479E263C56C4003F1B92 /* WindowsLegacy.icns */; };
@@ -66,6 +68,37 @@
 		05F547A5263C5B50003F1B92 /* ArchitectureToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F547A4263C5B50003F1B92 /* ArchitectureToString.swift */; };
 		05F5485D2640930A003F1B92 /* BytesToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F5485C2640930A003F1B92 /* BytesToString.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		05E4FCDF2646FEA7007D1254 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 05E4FCDA2646FEA7007D1254 /* GitHubUpdates.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 05F82B251EF32EA700EC8A93;
+			remoteInfo = GitHubUpdates;
+		};
+		05E4FCE12646FEA7007D1254 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 05E4FCDA2646FEA7007D1254 /* GitHubUpdates.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0555EBA01EF3DDA10016167F;
+			remoteInfo = Relauncher;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		05E4FCE62646FEB3007D1254 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				05E4FCE52646FEB3007D1254 /* GitHubUpdates.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		058C989426323AB10086E57E /* VirtualMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualMachine.swift; sourceTree = "<group>"; };
@@ -169,6 +202,7 @@
 		05E4FCD32646F4A6007D1254 /* ConfigQEMUViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigQEMUViewController.swift; sourceTree = "<group>"; };
 		05E4FCD62646F4B8007D1254 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ConfigQEMUViewController.xib; sourceTree = "<group>"; };
 		05E4FCD82646F59D007D1254 /* TerminalTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = TerminalTemplate.pdf; sourceTree = "<group>"; };
+		05E4FCDA2646FEA7007D1254 /* GitHubUpdates.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GitHubUpdates.xcodeproj; path = Submodules/GitHubUpdates/GitHubUpdates.xcodeproj; sourceTree = "<group>"; };
 		05F5479A263C3C56003F1B92 /* Generic.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Generic.icns; sourceTree = "<group>"; };
 		05F5479B263C3C56003F1B92 /* macOS.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = macOS.icns; sourceTree = "<group>"; };
 		05F5479E263C56C4003F1B92 /* WindowsLegacy.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = WindowsLegacy.icns; sourceTree = "<group>"; };
@@ -184,6 +218,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05E4FCE42646FEB3007D1254 /* GitHubUpdates.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,10 +351,12 @@
 			isa = PBXGroup;
 			children = (
 				05DFDD72261F7E4500BBE4E3 /* README.md */,
+				05E4FCDA2646FEA7007D1254 /* GitHubUpdates.xcodeproj */,
 				05DFDD36261F7CDC00BBE4E3 /* xcconfig */,
 				05DFDD1F261F7BFD00BBE4E3 /* QEMU-Manager */,
 				05FFCC4826206D77006087BA /* qemu */,
 				05DFDD1E261F7BFD00BBE4E3 /* Products */,
+				05E4FCE32646FEB3007D1254 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -521,6 +558,22 @@
 			path = dist;
 			sourceTree = "<group>";
 		};
+		05E4FCDB2646FEA7007D1254 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				05E4FCE02646FEA7007D1254 /* GitHubUpdates.framework */,
+				05E4FCE22646FEA7007D1254 /* Relauncher */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		05E4FCE32646FEB3007D1254 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		05FFCC4826206D77006087BA /* qemu */ = {
 			isa = PBXGroup;
 			children = (
@@ -540,6 +593,7 @@
 				05DFDD19261F7BFD00BBE4E3 /* Sources */,
 				05DFDD1A261F7BFD00BBE4E3 /* Frameworks */,
 				05DFDD1B261F7BFD00BBE4E3 /* Resources */,
+				05E4FCE62646FEB3007D1254 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -576,12 +630,35 @@
 			mainGroup = 05DFDD14261F7BFD00BBE4E3;
 			productRefGroup = 05DFDD1E261F7BFD00BBE4E3 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 05E4FCDB2646FEA7007D1254 /* Products */;
+					ProjectRef = 05E4FCDA2646FEA7007D1254 /* GitHubUpdates.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				05DFDD1C261F7BFD00BBE4E3 /* QEMU Manager */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		05E4FCE02646FEA7007D1254 /* GitHubUpdates.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = GitHubUpdates.framework;
+			remoteRef = 05E4FCDF2646FEA7007D1254 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		05E4FCE22646FEA7007D1254 /* Relauncher */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = Relauncher;
+			remoteRef = 05E4FCE12646FEA7007D1254 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		05DFDD1B261F7BFD00BBE4E3 /* Resources */ = {

@@ -17,15 +17,23 @@
  ******************************************************************************/
 
 import Cocoa
+import GitHubUpdates
 
 @main public class ApplicationDelegate: NSObject, NSApplicationDelegate
 {
     public let aboutWindowController   = AboutWindowController()
     public let libraryWindowController = LibraryWindowController()
     
+    @IBOutlet private var updater: GitHubUpdater!
+    
     public func applicationDidFinishLaunching( _ notification: Notification )
     {
         self.showLibraryWindow( nil )
+        
+        DispatchQueue.main.asyncAfter( deadline: .now() + .seconds( 2 ) )
+        {
+            self.updater.checkForUpdatesInBackground()
+        }
     }
 
     public func applicationWillTerminate( _ notification: Notification )
@@ -134,5 +142,10 @@ import Cocoa
     public func application( _ application: NSApplication, open urls: [ URL ] )
     {
         self.libraryWindowController.addVirtualMachines( from: urls )
+    }
+    
+    @IBAction private func checkForUpdates( _ sender: Any? )
+    {
+        self.updater.checkForUpdates( sender )
     }
 }

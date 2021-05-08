@@ -75,6 +75,22 @@ public class LibraryWindowController: NSWindowController, NSTableViewDelegate, N
     
     public func showConfigWindow( for vm: VirtualMachine )
     {
+        if vm.running
+        {
+            let alert = NSAlert()
+            
+            alert.messageText     = "Virtual Machine is Running"
+            alert.informativeText = "The virtual machine \( vm.config.title ) is running. Are you sure you want to edit its configuration?"
+            
+            alert.addButton( withTitle: "Configure" )
+            alert.addButton( withTitle: "Cancel" )
+            
+            if alert.runModal() == .alertSecondButtonReturn
+            {
+                return
+            }
+        }
+        
         if self.configWindowControllers.contains( where: { $0.key == vm.config.uuid } ) == false
         {
             self.configWindowControllers[ vm.config.uuid ] = ConfigWindowController( vm: vm )

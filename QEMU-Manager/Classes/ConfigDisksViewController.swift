@@ -24,7 +24,7 @@
 
 import Cocoa
 
-@objc public class ConfigDisksViewController: ConfigViewController
+@objc public class ConfigDisksViewController: ConfigViewController, NSTableViewDataSource, NSTableViewDelegate
 {
     @objc private dynamic var machine: VirtualMachine
     
@@ -164,5 +164,17 @@ import Cocoa
             
             self.machine.config.cdImage = panel.url
         }
+    }
+    
+    @objc @IBAction public func revealDisk( _ sender: Any? )
+    {
+        guard let disk = sender as? DiskInfo else
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
+        NSWorkspace.shared.selectFile( disk.url.path, inFileViewerRootedAtPath: "" )
     }
 }

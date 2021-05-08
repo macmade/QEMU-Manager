@@ -35,13 +35,13 @@
                                 <rect key="frame" x="1" y="1" width="458" height="150"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <tableView autoresizesSubviews="NO" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="50" rowSizeStyle="automatic" usesAutomaticRowHeights="YES" viewBased="YES" id="Xzx-oi-cDx">
+                                    <tableView autoresizesSubviews="NO" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnReordering="NO" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="50" rowSizeStyle="automatic" usesAutomaticRowHeights="YES" viewBased="YES" id="Xzx-oi-cDx">
                                         <rect key="frame" x="0.0" y="0.0" width="458" height="150"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                         <tableColumns>
-                                            <tableColumn width="414" minWidth="40" maxWidth="1000" id="5hu-7M-2TC">
+                                            <tableColumn width="446" minWidth="40" maxWidth="1000" id="5hu-7M-2TC">
                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
@@ -54,11 +54,11 @@
                                                 <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                 <prototypeCellViews>
                                                     <tableCellView id="khS-Yd-yp2">
-                                                        <rect key="frame" x="10" y="0.0" width="426" height="50"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="458" height="50"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
                                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Oy2-gv-cuT">
-                                                                <rect key="frame" x="3" y="29" width="379" height="16"/>
+                                                                <rect key="frame" x="3" y="29" width="387" height="16"/>
                                                                 <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Label" id="eGc-93-VA8">
                                                                     <font key="font" usesAppearanceFont="YES"/>
                                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -69,7 +69,7 @@
                                                                 </connections>
                                                             </textField>
                                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gg6-EV-4xD">
-                                                                <rect key="frame" x="386" y="29" width="37" height="16"/>
+                                                                <rect key="frame" x="394" y="29" width="37" height="16"/>
                                                                 <textFieldCell key="cell" lineBreakMode="truncatingTail" title="Label" id="MxH-aM-PTX">
                                                                     <font key="font" usesAppearanceFont="YES"/>
                                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -95,7 +95,7 @@
                                                                 </connections>
                                                             </textField>
                                                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UTo-vs-RKV">
-                                                                <rect key="frame" x="341" y="4" width="80" height="19"/>
+                                                                <rect key="frame" x="349" y="4" width="80" height="19"/>
                                                                 <buttonCell key="cell" type="roundRect" title="Round Rect" bezelStyle="roundedRect" alignment="center" enabled="NO" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="M65-fW-BRZ">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                                     <font key="font" metaFont="cellTitle"/>
@@ -108,9 +108,34 @@
                                                                     </binding>
                                                                 </connections>
                                                             </button>
+                                                            <button translatesAutoresizingMaskIntoConstraints="NO" id="he1-lC-iy4">
+                                                                <rect key="frame" x="437" y="14" width="16" height="22"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="16" id="G1a-YF-UaM"/>
+                                                                    <constraint firstAttribute="width" constant="16" id="fms-D9-kc7"/>
+                                                                </constraints>
+                                                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSRevealFreestandingTemplate" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="9tN-Fz-ipq">
+                                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                                    <font key="font" metaFont="system"/>
+                                                                </buttonCell>
+                                                                <connections>
+                                                                    <binding destination="khS-Yd-yp2" name="argument" keyPath="objectValue" id="trh-WT-F0C">
+                                                                        <dictionary key="options">
+                                                                            <bool key="NSConditionallySetsEnabled" value="NO"/>
+                                                                            <string key="NSSelectorName">revealDisk:</string>
+                                                                        </dictionary>
+                                                                    </binding>
+                                                                    <binding destination="-2" name="target" keyPath="self" previousBinding="trh-WT-F0C" id="zXM-y7-7Bu">
+                                                                        <dictionary key="options">
+                                                                            <bool key="NSConditionallySetsEnabled" value="NO"/>
+                                                                            <string key="NSSelectorName">revealDisk:</string>
+                                                                        </dictionary>
+                                                                    </binding>
+                                                                </connections>
+                                                            </button>
                                                         </subviews>
                                                         <constraints>
-                                                            <constraint firstAttribute="trailing" secondItem="gg6-EV-4xD" secondAttribute="trailing" constant="5" id="6eJ-b9-2Ta"/>
+                                                            <constraint firstItem="he1-lC-iy4" firstAttribute="leading" secondItem="gg6-EV-4xD" secondAttribute="trailing" constant="8" symbolic="YES" id="7k7-MI-Vm7"/>
                                                             <constraint firstItem="dly-J8-Y7S" firstAttribute="leading" secondItem="khS-Yd-yp2" secondAttribute="leading" constant="5" id="CcP-sp-k0v"/>
                                                             <constraint firstItem="Oy2-gv-cuT" firstAttribute="leading" secondItem="khS-Yd-yp2" secondAttribute="leading" constant="5" id="EBI-Ic-6h3"/>
                                                             <constraint firstAttribute="bottom" secondItem="UTo-vs-RKV" secondAttribute="bottom" constant="5" id="Ixv-uj-5Qm"/>
@@ -118,9 +143,11 @@
                                                             <constraint firstItem="UTo-vs-RKV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="dly-J8-Y7S" secondAttribute="trailing" constant="8" symbolic="YES" id="SdH-a0-bMd"/>
                                                             <constraint firstItem="dly-J8-Y7S" firstAttribute="top" secondItem="Oy2-gv-cuT" secondAttribute="bottom" constant="8" symbolic="YES" id="Tn4-Ak-8Bp"/>
                                                             <constraint firstItem="Oy2-gv-cuT" firstAttribute="top" secondItem="khS-Yd-yp2" secondAttribute="top" constant="5" id="Xud-OZ-KBv"/>
+                                                            <constraint firstAttribute="trailing" secondItem="he1-lC-iy4" secondAttribute="trailing" constant="5" id="hy2-j6-ysM"/>
                                                             <constraint firstAttribute="bottom" secondItem="dly-J8-Y7S" secondAttribute="bottom" constant="5" id="iVn-9f-NV4"/>
                                                             <constraint firstItem="gg6-EV-4xD" firstAttribute="leading" secondItem="Oy2-gv-cuT" secondAttribute="trailing" constant="8" symbolic="YES" id="j2Q-7k-RLA"/>
-                                                            <constraint firstAttribute="trailing" secondItem="UTo-vs-RKV" secondAttribute="trailing" constant="5" id="jqc-Uk-568"/>
+                                                            <constraint firstItem="he1-lC-iy4" firstAttribute="centerY" secondItem="khS-Yd-yp2" secondAttribute="centerY" id="nId-C4-SaO"/>
+                                                            <constraint firstItem="he1-lC-iy4" firstAttribute="leading" secondItem="UTo-vs-RKV" secondAttribute="trailing" constant="8" symbolic="YES" id="qgw-1l-5Tp"/>
                                                         </constraints>
                                                     </tableCellView>
                                                 </prototypeCellViews>
@@ -130,6 +157,8 @@
                                             <binding destination="dK7-9m-3QF" name="content" keyPath="arrangedObjects" id="HDv-5S-olL"/>
                                             <binding destination="dK7-9m-3QF" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="HDv-5S-olL" id="Az9-u5-W98"/>
                                             <binding destination="dK7-9m-3QF" name="sortDescriptors" keyPath="sortDescriptors" previousBinding="Az9-u5-W98" id="8iq-YK-VmY"/>
+                                            <outlet property="dataSource" destination="-2" id="24Z-wM-FCQ"/>
+                                            <outlet property="delegate" destination="-2" id="GKq-hU-kbP"/>
                                         </connections>
                                     </tableView>
                                 </subviews>
@@ -138,7 +167,7 @@
                                 <constraint firstAttribute="height" constant="152" id="XX3-jv-cOY"/>
                             </constraints>
                             <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="Ik1-jb-4W4">
-                                <rect key="frame" x="1" y="244" width="458" height="16"/>
+                                <rect key="frame" x="1" y="135" width="285" height="16"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </scroller>
                             <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="tkk-aL-Q9G">
@@ -199,11 +228,11 @@
                         <constraint firstItem="WsS-dK-tem" firstAttribute="top" secondItem="M5v-30-SM4" secondAttribute="bottom" constant="8" symbolic="YES" id="BWv-BK-DZp"/>
                         <constraint firstItem="M5v-30-SM4" firstAttribute="top" secondItem="Haf-nc-Pvg" secondAttribute="bottom" constant="8" symbolic="YES" id="Bgh-7c-Euu"/>
                         <constraint firstItem="RdS-YJ-l0W" firstAttribute="centerY" secondItem="ATb-SA-85h" secondAttribute="centerY" id="C1b-8W-fRF"/>
+                        <constraint firstAttribute="trailing" secondItem="M5v-30-SM4" secondAttribute="trailing" constant="20" symbolic="YES" id="NNS-jK-fRl"/>
                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="gOk-2v-Rmg" secondAttribute="trailing" constant="20" symbolic="YES" id="Pr3-rj-Ekb"/>
                         <constraint firstAttribute="trailing" secondItem="RdS-YJ-l0W" secondAttribute="trailing" constant="20" symbolic="YES" id="PyT-AE-g2F"/>
                         <constraint firstItem="RdS-YJ-l0W" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ATb-SA-85h" secondAttribute="trailing" constant="8" symbolic="YES" id="QE4-Sl-St4"/>
                         <constraint firstAttribute="bottom" secondItem="ATb-SA-85h" secondAttribute="bottom" constant="20" id="U3D-6p-CK7"/>
-                        <constraint firstAttribute="trailing" secondItem="M5v-30-SM4" secondAttribute="trailing" constant="20" symbolic="YES" id="U5F-EA-fwN"/>
                         <constraint firstItem="ATb-SA-85h" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" symbolic="YES" id="cUU-fm-ht4"/>
                         <constraint firstItem="Haf-nc-Pvg" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="40" id="e47-4B-Utc"/>
                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Haf-nc-Pvg" secondAttribute="trailing" constant="20" symbolic="YES" id="gwM-HJ-hgi"/>
@@ -228,5 +257,6 @@
     <resources>
         <image name="NSAddTemplate" width="14" height="13"/>
         <image name="NSRemoveTemplate" width="14" height="4"/>
+        <image name="NSRevealFreestandingTemplate" width="15" height="15"/>
     </resources>
 </document>

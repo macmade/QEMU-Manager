@@ -30,7 +30,7 @@
 		05CCF01E2645EE7000A3A9F8 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CCF01D2645EE7000A3A9F8 /* Error.swift */; };
 		05CCF0202645EF5900A3A9F8 /* QEMU.Img.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CCF01F2645EF5900A3A9F8 /* QEMU.Img.swift */; };
 		05CCF0222645F96E00A3A9F8 /* DiskInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CCF0212645F96E00A3A9F8 /* DiskInfo.swift */; };
-		05CCF0242646051B00A3A9F8 /* OptionalString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CCF0232646051B00A3A9F8 /* OptionalString.swift */; };
+		05CCF0242646051B00A3A9F8 /* OptionalPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CCF0232646051B00A3A9F8 /* OptionalPath.swift */; };
 		05CCF0262646076300A3A9F8 /* QEMU.System.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CCF0252646076300A3A9F8 /* QEMU.System.swift */; };
 		05CCF02E2646082400A3A9F8 /* ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 05CCF02D2646082400A3A9F8 /* ObjC.m */; };
 		05CCF0312646089A00A3A9F8 /* NSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CCF0302646089A00A3A9F8 /* NSError.swift */; };
@@ -87,7 +87,7 @@
 		05CCF01D2645EE7000A3A9F8 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		05CCF01F2645EF5900A3A9F8 /* QEMU.Img.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QEMU.Img.swift; sourceTree = "<group>"; };
 		05CCF0212645F96E00A3A9F8 /* DiskInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskInfo.swift; sourceTree = "<group>"; };
-		05CCF0232646051B00A3A9F8 /* OptionalString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalString.swift; sourceTree = "<group>"; };
+		05CCF0232646051B00A3A9F8 /* OptionalPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalPath.swift; sourceTree = "<group>"; };
 		05CCF0252646076300A3A9F8 /* QEMU.System.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QEMU.System.swift; sourceTree = "<group>"; };
 		05CCF02C2646082400A3A9F8 /* ObjC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjC.h; sourceTree = "<group>"; };
 		05CCF02D2646082400A3A9F8 /* ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjC.m; sourceTree = "<group>"; };
@@ -182,6 +182,124 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		05CCF0482646DB2800A3A9F8 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				05CCEFD72643EAEE00A3A9F8 /* ConfigDisksViewController.swift */,
+				05CCEFD92643EB0100A3A9F8 /* ConfigDisksViewController.xib */,
+				05BEEA07263812BA00EECF3A /* ConfigGeneralViewController.swift */,
+				05BEEA092638140E00EECF3A /* ConfigGeneralViewController.xib */,
+				05BEEA0C2638145D00EECF3A /* ConfigHardwareViewController.swift */,
+				05BEEA0E2638146E00EECF3A /* ConfigHardwareViewController.xib */,
+				05BEEA052638120A00EECF3A /* ConfigViewController.swift */,
+				05B697FD263424CB00506106 /* ConfigWindowController.swift */,
+				05B698002634250300506106 /* ConfigWindowController.xib */,
+				05CCF0162645C74700A3A9F8 /* NewDiskWindowController.swift */,
+				05CCF0182645C75700A3A9F8 /* NewDiskWindowController.xib */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		05CCF0492646DB3500A3A9F8 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				05DFDD77261F7EB700BBE4E3 /* AboutWindowController.swift */,
+				05DFDD73261F7EB000BBE4E3 /* AboutWindowController.xib */,
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
+		05CCF04A2646DB4200A3A9F8 /* Transformers */ = {
+			isa = PBXGroup;
+			children = (
+				05F547A4263C5B50003F1B92 /* ArchitectureToString.swift */,
+				058C98AD26330E830086E57E /* ArrayIsEmpty.swift */,
+				058C98B026330FBB0086E57E /* ArrayIsNotEmpty.swift */,
+				05F5485C2640930A003F1B92 /* BytesToString.swift */,
+				05CCF03C2646A6DC00A3A9F8 /* LowercaseString.swift */,
+				05CCF0232646051B00A3A9F8 /* OptionalPath.swift */,
+				05CCF03A2646A6B400A3A9F8 /* UppercaseString.swift */,
+			);
+			path = Transformers;
+			sourceTree = "<group>";
+		};
+		05CCF04B2646DB5D00A3A9F8 /* Formatters */ = {
+			isa = PBXGroup;
+			children = (
+				05CCEFE526445AC000A3A9F8 /* SizeFormatter.swift */,
+			);
+			path = Formatters;
+			sourceTree = "<group>";
+		};
+		05CCF04C2646DB7100A3A9F8 /* VM */ = {
+			isa = PBXGroup;
+			children = (
+				05E49B0E262079E400163619 /* Config.swift */,
+				05CCEFDC2643EDA600A3A9F8 /* Disk.swift */,
+				05CCF0212645F96E00A3A9F8 /* DiskInfo.swift */,
+				058C989426323AB10086E57E /* VirtualMachine.swift */,
+			);
+			path = VM;
+			sourceTree = "<group>";
+		};
+		05CCF04D2646DB8800A3A9F8 /* QEMU */ = {
+			isa = PBXGroup;
+			children = (
+				05CCF01F2645EF5900A3A9F8 /* QEMU.Img.swift */,
+				05CCF01B2645ECF600A3A9F8 /* QEMU.swift */,
+				05CCF0252646076300A3A9F8 /* QEMU.System.swift */,
+			);
+			path = QEMU;
+			sourceTree = "<group>";
+		};
+		05CCF04E2646DB9600A3A9F8 /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				05CCF03E2646BD2300A3A9F8 /* Boot.swift */,
+				05CCF036264631C700A3A9F8 /* CPU.swift */,
+				05CCF0382646A36F00A3A9F8 /* ImageFormat.swift */,
+				05CCF03426462FDE00A3A9F8 /* Machine.swift */,
+			);
+			path = Info;
+			sourceTree = "<group>";
+		};
+		05CCF04F2646DBA200A3A9F8 /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				058C98B726332F3F0086E57E /* Preferences.swift */,
+			);
+			path = Preferences;
+			sourceTree = "<group>";
+		};
+		05CCF0502646DBB800A3A9F8 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				05DFDD7E261F7F5F00BBE4E3 /* LibraryWindowController.swift */,
+				05DFDD7A261F7F5500BBE4E3 /* LibraryWindowController.xib */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		05CCF0512646DBC800A3A9F8 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				05CCF01D2645EE7000A3A9F8 /* Error.swift */,
+				05CCF0302646089A00A3A9F8 /* NSError.swift */,
+				05CCF02C2646082400A3A9F8 /* ObjC.h */,
+				05CCF02D2646082400A3A9F8 /* ObjC.m */,
+				058C98BE263332050086E57E /* Synchronizable.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		05CCF0522646DBE500A3A9F8 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				05DFDD20261F7BFD00BBE4E3 /* ApplicationDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
 		05DFDD14261F7BFD00BBE4E3 = {
 			isa = PBXGroup;
 			children = (
@@ -205,8 +323,8 @@
 			isa = PBXGroup;
 			children = (
 				05DFDD2F261F7C0B00BBE4E3 /* Classes */,
-				05DFDD32261F7C3700BBE4E3 /* UI */,
 				05DFDD33261F7C4400BBE4E3 /* Supporting Files */,
+				05DFDD32261F7C3700BBE4E3 /* UI */,
 			);
 			path = "QEMU-Manager";
 			sourceTree = "<group>";
@@ -214,40 +332,17 @@
 		05DFDD2F261F7C0B00BBE4E3 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				05DFDD77261F7EB700BBE4E3 /* AboutWindowController.swift */,
-				05DFDD20261F7BFD00BBE4E3 /* ApplicationDelegate.swift */,
-				05F547A4263C5B50003F1B92 /* ArchitectureToString.swift */,
-				058C98AD26330E830086E57E /* ArrayIsEmpty.swift */,
-				058C98B026330FBB0086E57E /* ArrayIsNotEmpty.swift */,
-				05CCF03E2646BD2300A3A9F8 /* Boot.swift */,
-				05F5485C2640930A003F1B92 /* BytesToString.swift */,
-				05E49B0E262079E400163619 /* Config.swift */,
-				05CCEFD72643EAEE00A3A9F8 /* ConfigDisksViewController.swift */,
-				05BEEA07263812BA00EECF3A /* ConfigGeneralViewController.swift */,
-				05BEEA0C2638145D00EECF3A /* ConfigHardwareViewController.swift */,
-				05BEEA052638120A00EECF3A /* ConfigViewController.swift */,
-				05B697FD263424CB00506106 /* ConfigWindowController.swift */,
-				05CCF036264631C700A3A9F8 /* CPU.swift */,
-				05CCEFDC2643EDA600A3A9F8 /* Disk.swift */,
-				05CCF0212645F96E00A3A9F8 /* DiskInfo.swift */,
-				05CCF01D2645EE7000A3A9F8 /* Error.swift */,
-				05CCF0382646A36F00A3A9F8 /* ImageFormat.swift */,
-				05DFDD7E261F7F5F00BBE4E3 /* LibraryWindowController.swift */,
-				05CCF03C2646A6DC00A3A9F8 /* LowercaseString.swift */,
-				05CCF03426462FDE00A3A9F8 /* Machine.swift */,
-				05CCF0162645C74700A3A9F8 /* NewDiskWindowController.swift */,
-				05CCF0302646089A00A3A9F8 /* NSError.swift */,
-				05CCF02C2646082400A3A9F8 /* ObjC.h */,
-				05CCF02D2646082400A3A9F8 /* ObjC.m */,
-				05CCF0232646051B00A3A9F8 /* OptionalString.swift */,
-				058C98B726332F3F0086E57E /* Preferences.swift */,
-				05CCF01F2645EF5900A3A9F8 /* QEMU.Img.swift */,
-				05CCF01B2645ECF600A3A9F8 /* QEMU.swift */,
-				05CCF0252646076300A3A9F8 /* QEMU.System.swift */,
-				05CCEFE526445AC000A3A9F8 /* SizeFormatter.swift */,
-				058C98BE263332050086E57E /* Synchronizable.swift */,
-				05CCF03A2646A6B400A3A9F8 /* UppercaseString.swift */,
-				058C989426323AB10086E57E /* VirtualMachine.swift */,
+				05CCF0492646DB3500A3A9F8 /* About */,
+				05CCF0522646DBE500A3A9F8 /* App */,
+				05CCF0482646DB2800A3A9F8 /* Config */,
+				05CCF04B2646DB5D00A3A9F8 /* Formatters */,
+				05CCF0512646DBC800A3A9F8 /* Helpers */,
+				05CCF04E2646DB9600A3A9F8 /* Info */,
+				05CCF0502646DBB800A3A9F8 /* Library */,
+				05CCF04F2646DBA200A3A9F8 /* Preferences */,
+				05CCF04D2646DB8800A3A9F8 /* QEMU */,
+				05CCF04A2646DB4200A3A9F8 /* Transformers */,
+				05CCF04C2646DB7100A3A9F8 /* VM */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -255,15 +350,8 @@
 		05DFDD32261F7C3700BBE4E3 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				05DFDD73261F7EB000BBE4E3 /* AboutWindowController.xib */,
-				05CCEFD92643EB0100A3A9F8 /* ConfigDisksViewController.xib */,
-				05BEEA092638140E00EECF3A /* ConfigGeneralViewController.xib */,
-				05BEEA0E2638146E00EECF3A /* ConfigHardwareViewController.xib */,
-				05B698002634250300506106 /* ConfigWindowController.xib */,
 				05DFDD86261F9E7900BBE4E3 /* Images */,
-				05DFDD7A261F7F5500BBE4E3 /* LibraryWindowController.xib */,
 				05DFDD24261F7BFE00BBE4E3 /* MainMenu.xib */,
-				05CCF0182645C75700A3A9F8 /* NewDiskWindowController.xib */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -524,7 +612,7 @@
 				05DFDD21261F7BFD00BBE4E3 /* ApplicationDelegate.swift in Sources */,
 				05BEEA08263812BA00EECF3A /* ConfigGeneralViewController.swift in Sources */,
 				05CCF037264631C700A3A9F8 /* CPU.swift in Sources */,
-				05CCF0242646051B00A3A9F8 /* OptionalString.swift in Sources */,
+				05CCF0242646051B00A3A9F8 /* OptionalPath.swift in Sources */,
 				05F547A5263C5B50003F1B92 /* ArchitectureToString.swift in Sources */,
 				05F5485D2640930A003F1B92 /* BytesToString.swift in Sources */,
 				058C98B126330FBB0086E57E /* ArrayIsNotEmpty.swift in Sources */,

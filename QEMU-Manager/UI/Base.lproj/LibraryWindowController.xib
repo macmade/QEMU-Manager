@@ -36,9 +36,21 @@
                                             <binding destination="-2" name="animate" keyPath="self.loading" id="77O-Vt-tFW"/>
                                         </connections>
                                     </progressIndicator>
+                                    <textField wantsLayer="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xEL-9x-UXP">
+                                        <rect key="frame" x="121" y="148" width="158" height="16"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="Initializing - Please wait..." id="J09-rM-Mh2">
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                            <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="xEL-9x-UXP" firstAttribute="centerX" secondItem="dwx-LW-fuK" secondAttribute="centerX" id="Rgy-32-NLG"/>
+                                    <constraint firstItem="xEL-9x-UXP" firstAttribute="top" secondItem="dwx-LW-fuK" secondAttribute="bottom" constant="20" id="axX-5G-YmD"/>
+                                    <constraint firstItem="xEL-9x-UXP" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Ubm-Mo-zDy" secondAttribute="leading" constant="20" symbolic="YES" id="bAu-ZY-gfB"/>
                                     <constraint firstItem="dwx-LW-fuK" firstAttribute="centerY" secondItem="Ubm-Mo-zDy" secondAttribute="centerY" id="bBP-Ht-feA"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="xEL-9x-UXP" secondAttribute="trailing" constant="20" symbolic="YES" id="c6W-Ld-ROh"/>
                                     <constraint firstItem="dwx-LW-fuK" firstAttribute="centerX" secondItem="Ubm-Mo-zDy" secondAttribute="centerX" id="zXI-IX-UKo"/>
                                 </constraints>
                                 <connections>

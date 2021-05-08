@@ -35,7 +35,7 @@ import Cocoa
     {
         didSet
         {
-            self.vm.config.boot = self.boot?.name ?? "c"
+            self.vm.config.boot = self.boot?.name ?? "d"
         }
     }
     
@@ -45,7 +45,7 @@ import Cocoa
     {
         self.vm = vm
         
-        super.init( title: "Disks", icon: nil, sorting: 2 )
+        super.init( title: "Disks", icon: NSImage( named: "DiskTemplate" ), sorting: 2 )
     }
     
     required init?( coder: NSCoder )

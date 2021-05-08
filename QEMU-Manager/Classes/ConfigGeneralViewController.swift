@@ -45,7 +45,7 @@ import Cocoa
         self.path         = vm.url?.path ?? "--"
         self.machineIcon  = vm.config.icon.rawValue
         
-        super.init( title: "General", icon: nil, sorting: 0 )
+        super.init( title: "General", icon: NSImage( named: "InfoTemplate" ), sorting: 0 )
     }
     
     required init?( coder: NSCoder )

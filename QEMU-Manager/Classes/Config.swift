@@ -58,7 +58,7 @@ import Foundation
     @objc public                dynamic var icon:         Icon         = .generic
     @objc public private( set ) dynamic var disks:        [ Disk ]     = []
     @objc public                dynamic var cdImage:      URL?         = nil
-    @objc public                dynamic var boot:         String       = "c"
+    @objc public                dynamic var boot:         String       = "d"
     
     public override init()
     {}

@@ -35,7 +35,7 @@ public class InfoValue: NSObject
     {
         if self.title.count > 0
         {
-            return self.title
+            return "\( self.name ) - \( self.title )"
         }
         
         return self.name

@@ -118,16 +118,31 @@ import Cocoa
             return
         }
         
-        do
+        let alert             = NSAlert()
+        alert.messageText     = "Delete Disk"
+        alert.informativeText = "Are you sure you want to delete the selected disk? All data will be permanently lost."
+        
+        alert.addButton( withTitle: "Delete" )
+        alert.addButton( withTitle: "Cancel" )
+        
+        alert.beginSheetModal( for: window )
         {
-            try FileManager.default.removeItem( at: disk.url )
-            self.machine.config.removeDisk( disk.disk )
-            try self.machine.save()
-            self.reloadDisks()
-        }
-        catch let error
-        {
-            NSAlert( error: error ).beginSheetModal( for: window, completionHandler: nil )
+            r in if r != .alertFirstButtonReturn
+            {
+                return
+            }
+            
+            do
+            {
+                try FileManager.default.removeItem( at: disk.url )
+                self.machine.config.removeDisk( disk.disk )
+                try self.machine.save()
+                self.reloadDisks()
+            }
+            catch let error
+            {
+                NSAlert( error: error ).beginSheetModal( for: window, completionHandler: nil )
+            }
         }
     }
     

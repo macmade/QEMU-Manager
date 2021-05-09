@@ -14,13 +14,161 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="cCc-g0-qnp">
-            <rect key="frame" x="0.0" y="0.0" width="500" height="290"/>
+            <rect key="frame" x="0.0" y="0.0" width="500" height="312"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="c22-O7-iKe">
-                    <rect key="frame" x="0.0" y="0.0" width="500" height="290"/>
+                    <rect key="frame" x="0.0" y="0.0" width="500" height="312"/>
+                    <subviews>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mAr-3k-EeO">
+                            <rect key="frame" x="18" y="256" width="100" height="16"/>
+                            <textFieldCell key="cell" lineBreakMode="clipping" title="Shared Folders:" id="4V6-ku-hZl">
+                                <font key="font" usesAppearanceFont="YES"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                        <scrollView autoresizesSubviews="NO" borderType="line" autohidesScrollers="YES" horizontalLineScroll="26" horizontalPageScroll="10" verticalLineScroll="26" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kcW-et-Szj">
+                            <rect key="frame" x="20" y="48" width="460" height="200"/>
+                            <clipView key="contentView" autoresizesSubviews="NO" id="oFj-HB-YRO">
+                                <rect key="frame" x="1" y="1" width="458" height="198"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <tableView autoresizesSubviews="NO" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnReordering="NO" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="26" rowSizeStyle="automatic" usesAutomaticRowHeights="YES" viewBased="YES" id="3zH-TJ-7cn">
+                                        <rect key="frame" x="0.0" y="0.0" width="458" height="198"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                        <tableColumns>
+                                            <tableColumn width="446" minWidth="40" maxWidth="1000" id="L8x-Dj-Z1X">
+                                                <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
+                                                    <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                </tableHeaderCell>
+                                                <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="rZB-dO-tZb">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                                <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                <prototypeCellViews>
+                                                    <tableCellView id="8eW-qs-IoC">
+                                                        <rect key="frame" x="0.0" y="0.0" width="458" height="26"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        <subviews>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="1zA-IC-fXF">
+                                                                <rect key="frame" x="3" y="5" width="37" height="16"/>
+                                                                <textFieldCell key="cell" lineBreakMode="truncatingTail" title="Label" id="kCy-1z-QdB">
+                                                                    <font key="font" usesAppearanceFont="YES"/>
+                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                                <connections>
+                                                                    <binding destination="8eW-qs-IoC" name="value" keyPath="objectValue.url.path" id="yTz-D7-bym"/>
+                                                                </connections>
+                                                            </textField>
+                                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kN5-uA-62T">
+                                                                <rect key="frame" x="349" y="3" width="80" height="19"/>
+                                                                <buttonCell key="cell" type="roundRect" title="Round Rect" bezelStyle="roundedRect" alignment="center" enabled="NO" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="v8C-WG-h8d">
+                                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                                    <font key="font" metaFont="cellTitle"/>
+                                                                </buttonCell>
+                                                                <connections>
+                                                                    <binding destination="8eW-qs-IoC" name="title" keyPath="objectValue.kind" id="qOi-zk-ADy">
+                                                                        <dictionary key="options">
+                                                                            <string key="NSValueTransformerName">SharedFolderKindToString</string>
+                                                                        </dictionary>
+                                                                    </binding>
+                                                                </connections>
+                                                            </button>
+                                                            <button translatesAutoresizingMaskIntoConstraints="NO" id="j58-wE-Axj">
+                                                                <rect key="frame" x="437" y="2" width="16" height="22"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="16" id="8hQ-ad-IYQ"/>
+                                                                    <constraint firstAttribute="width" constant="16" id="x9R-bA-eLr"/>
+                                                                </constraints>
+                                                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSRevealFreestandingTemplate" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="odU-9D-Ftd">
+                                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                                    <font key="font" metaFont="system"/>
+                                                                </buttonCell>
+                                                                <connections>
+                                                                    <binding destination="8eW-qs-IoC" name="argument" keyPath="objectValue" id="5Ud-lj-ybL">
+                                                                        <dictionary key="options">
+                                                                            <bool key="NSConditionallySetsEnabled" value="NO"/>
+                                                                            <string key="NSSelectorName">revealFolder:</string>
+                                                                        </dictionary>
+                                                                    </binding>
+                                                                    <binding destination="-2" name="target" keyPath="self" previousBinding="5Ud-lj-ybL" id="oDV-V0-Sqt">
+                                                                        <dictionary key="options">
+                                                                            <bool key="NSConditionallySetsEnabled" value="NO"/>
+                                                                            <string key="NSSelectorName">revealFolder:</string>
+                                                                        </dictionary>
+                                                                    </binding>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="bottom" secondItem="1zA-IC-fXF" secondAttribute="bottom" constant="5" id="07a-7n-qBo"/>
+                                                            <constraint firstItem="kN5-uA-62T" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="1zA-IC-fXF" secondAttribute="trailing" constant="8" symbolic="YES" id="0Gd-gT-qTG"/>
+                                                            <constraint firstItem="j58-wE-Axj" firstAttribute="centerY" secondItem="kN5-uA-62T" secondAttribute="centerY" id="GdN-0J-dNR"/>
+                                                            <constraint firstItem="kN5-uA-62T" firstAttribute="centerY" secondItem="1zA-IC-fXF" secondAttribute="centerY" id="Mnx-D9-G1E"/>
+                                                            <constraint firstItem="1zA-IC-fXF" firstAttribute="leading" secondItem="8eW-qs-IoC" secondAttribute="leading" constant="5" id="aVa-cF-ZYG"/>
+                                                            <constraint firstItem="1zA-IC-fXF" firstAttribute="top" secondItem="8eW-qs-IoC" secondAttribute="top" constant="5" id="gek-dK-zTQ"/>
+                                                            <constraint firstAttribute="trailing" secondItem="j58-wE-Axj" secondAttribute="trailing" constant="5" id="iRa-yf-gCX"/>
+                                                            <constraint firstItem="j58-wE-Axj" firstAttribute="leading" secondItem="kN5-uA-62T" secondAttribute="trailing" constant="8" symbolic="YES" id="nCS-UT-3jh"/>
+                                                        </constraints>
+                                                    </tableCellView>
+                                                </prototypeCellViews>
+                                            </tableColumn>
+                                        </tableColumns>
+                                        <connections>
+                                            <binding destination="NDe-Qw-Avo" name="content" keyPath="arrangedObjects" id="0f5-r4-fzo"/>
+                                            <binding destination="NDe-Qw-Avo" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="0f5-r4-fzo" id="jd0-sH-uHB"/>
+                                            <binding destination="NDe-Qw-Avo" name="sortDescriptors" keyPath="sortDescriptors" previousBinding="jd0-sH-uHB" id="pg1-Qo-xPm"/>
+                                            <outlet property="dataSource" destination="-2" id="Ulr-o2-4MY"/>
+                                            <outlet property="delegate" destination="-2" id="PMi-XP-2wH"/>
+                                        </connections>
+                                    </tableView>
+                                </subviews>
+                            </clipView>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="200" id="V3R-Ud-BVF"/>
+                            </constraints>
+                            <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="T6A-ol-Mvw">
+                                <rect key="frame" x="1" y="133" width="329" height="16"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </scroller>
+                            <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="WgI-1S-CV0">
+                                <rect key="frame" x="224" y="17" width="15" height="102"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </scroller>
+                        </scrollView>
+                        <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7at-9P-7NT">
+                            <rect key="frame" x="17" y="18" width="71" height="24"/>
+                            <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="momentary" id="Yu2-Og-scq">
+                                <font key="font" metaFont="system"/>
+                                <segments>
+                                    <segment image="NSAddTemplate" width="32"/>
+                                    <segment image="NSRemoveTemplate" width="32" tag="1"/>
+                                </segments>
+                            </segmentedCell>
+                            <connections>
+                                <action selector="addRemoveFolder:" target="-2" id="GJA-sG-V0I"/>
+                            </connections>
+                        </segmentedControl>
+                    </subviews>
                     <constraints>
+                        <constraint firstAttribute="trailing" secondItem="kcW-et-Szj" secondAttribute="trailing" constant="20" symbolic="YES" id="1Cl-LP-8cj"/>
+                        <constraint firstItem="7at-9P-7NT" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" symbolic="YES" id="258-QB-APQ"/>
+                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="mAr-3k-EeO" secondAttribute="trailing" constant="20" symbolic="YES" id="2KA-md-avt"/>
+                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="7at-9P-7NT" secondAttribute="trailing" constant="20" symbolic="YES" id="3CB-Wr-qZs"/>
+                        <constraint firstAttribute="bottom" secondItem="7at-9P-7NT" secondAttribute="bottom" constant="20" id="40n-As-OJL"/>
+                        <constraint firstItem="mAr-3k-EeO" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" symbolic="YES" id="9Fx-sd-pOq"/>
+                        <constraint firstItem="kcW-et-Szj" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" symbolic="YES" id="Icn-fm-EQ1"/>
+                        <constraint firstItem="kcW-et-Szj" firstAttribute="top" secondItem="mAr-3k-EeO" secondAttribute="bottom" constant="8" symbolic="YES" id="Uh2-ri-FHj"/>
+                        <constraint firstItem="7at-9P-7NT" firstAttribute="top" secondItem="kcW-et-Szj" secondAttribute="bottom" constant="8" symbolic="YES" id="YbR-wA-urS"/>
                         <constraint firstAttribute="width" constant="500" id="qzO-z2-xAd"/>
+                        <constraint firstItem="mAr-3k-EeO" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="40" id="uEl-s1-GxG"/>
                     </constraints>
                 </customView>
             </subviews>
@@ -32,6 +180,11 @@
             </constraints>
             <point key="canvasLocation" x="-159" y="51"/>
         </customView>
-        <arrayController id="NDe-Qw-Avo" userLabel="Folders"/>
+        <arrayController selectsInsertedObjects="NO" avoidsEmptySelection="NO" clearsFilterPredicateOnInsertion="NO" id="NDe-Qw-Avo" userLabel="Folders"/>
     </objects>
+    <resources>
+        <image name="NSAddTemplate" width="14" height="13"/>
+        <image name="NSRemoveTemplate" width="14" height="4"/>
+        <image name="NSRevealFreestandingTemplate" width="15" height="15"/>
+    </resources>
 </document>

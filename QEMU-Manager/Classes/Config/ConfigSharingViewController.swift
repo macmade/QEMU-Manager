@@ -17,7 +17,7 @@
 
 import Cocoa
 
-public class ConfigSharingViewController: ConfigViewController
+public class ConfigSharingViewController: ConfigViewController, NSTableViewDataSource, NSTableViewDelegate
 {
     @IBOutlet private var folders: NSArrayController!
     
@@ -43,5 +43,107 @@ public class ConfigSharingViewController: ConfigViewController
     public override func viewDidLoad()
     {
         super.viewDidLoad()
+        self.reloadFolders()
+    }
+    
+    @IBAction private func revealFolder( _ sender: Any? )
+    {
+        guard let folder = sender as? SharedFolder else
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
+        NSWorkspace.shared.selectFile( folder.url.path, inFileViewerRootedAtPath: "" )
+    }
+    
+    @IBAction private func addRemoveFolder( _ sender: Any? )
+    {
+        guard let button = sender as? NSSegmentedControl else
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
+        switch button.selectedSegment
+        {
+            case 0:  self.addFolder( sender )
+            case 1:  self.removeFolder( sender )
+            default: NSSound.beep()
+        }
+    }
+    
+    @IBAction private func addFolder( _ sender: Any? )
+    {
+        guard let window = self.view.window else
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
+        let panel                     = NSOpenPanel()
+        panel.canChooseFiles          = false
+        panel.canChooseDirectories    = true
+        panel.allowsMultipleSelection = false
+        
+        panel.beginSheetModal( for: window )
+        {
+            if $0 != .OK
+            {
+                return
+            }
+            
+            guard let url = panel.url else
+            {
+                return
+            }
+            
+            do
+            {
+                let folder = SharedFolder( url: url, kind: .fat )
+                
+                self.folders.addObject( folder )
+                self.vm.config.addSharedFolder( folder )
+                try self.vm.save()
+            }
+            catch let error
+            {
+                NSAlert( error: error ).beginSheetModal( for: window, completionHandler: nil )
+            }
+        }
+    }
+    
+    @IBAction private func removeFolder( _ sender: Any? )
+    {
+        guard let folder = self.folders.selectedObjects.first as? SharedFolder else
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
+        do
+        {
+            self.vm.config.removeSharedFolder( folder )
+            try self.vm.save()
+            self.reloadFolders()
+        }
+        catch let error
+        {
+            NSAlert( error: error ).tryBeginSheetModal( for: self.view.window, completionHandler: nil )
+        }
+    }
+    
+    private func reloadFolders()
+    {
+        if let existing = self.folders.content as? [ SharedFolder ]
+        {
+            existing.forEach { self.folders.removeObject( $0 ) }
+        }
+        
+        self.folders.add( contentsOf: self.vm.config.sharedFolders )
     }
 }

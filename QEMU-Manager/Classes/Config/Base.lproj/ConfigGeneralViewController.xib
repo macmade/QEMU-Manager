@@ -143,7 +143,7 @@
             </constraints>
             <point key="canvasLocation" x="-159" y="51"/>
         </customView>
-        <arrayController id="NDe-Qw-Avo" userLabel="Icons"/>
+        <arrayController selectsInsertedObjects="NO" avoidsEmptySelection="NO" clearsFilterPredicateOnInsertion="NO" id="NDe-Qw-Avo" userLabel="Icons"/>
     </objects>
     <resources>
         <image name="NSRevealFreestandingTemplate" width="15" height="15"/>

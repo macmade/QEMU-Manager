@@ -45,7 +45,7 @@ public class Config: NSObject, Codable
     @objc public private( set ) dynamic var disks:         [ Disk ]         = []
     @objc public                dynamic var cdImage:       URL?             = nil
     @objc public                dynamic var boot:          String           = "d"
-    @objc public                dynamic var sharedFolders: [ SharedFolder ] = []
+    @objc public private( set ) dynamic var sharedFolders: [ SharedFolder ] = []
     @objc public                dynamic var arguments:     [ String ]       = []
     
     public override init()
@@ -131,6 +131,16 @@ public class Config: NSObject, Codable
     public func removeDisk( _ disk: Disk )
     {
         self.disks.removeAll { $0.uuid == disk.uuid }
+    }
+    
+    public func addSharedFolder( _ folder: SharedFolder )
+    {
+        self.sharedFolders.append( folder )
+    }
+    
+    public func removeSharedFolder( _ folder: SharedFolder )
+    {
+        self.sharedFolders.removeAll { $0.uuid == folder.uuid }
     }
 }
 

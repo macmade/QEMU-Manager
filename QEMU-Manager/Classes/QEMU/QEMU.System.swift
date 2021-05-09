@@ -77,7 +77,7 @@ extension QEMU.System
                 case .fat:
                     
                     arguments.append( "-drive" )
-                    arguments.append( "file=fat:\( $0.url.path ),media=disk" )
+                    arguments.append( "file=fat:rw:\( $0.url.path ),format=raw,media=disk" )
                     
                 case .smb:
                 

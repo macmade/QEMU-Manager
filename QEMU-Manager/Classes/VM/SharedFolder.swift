@@ -27,6 +27,7 @@ public class SharedFolder: NSObject, Codable
     
     public enum CodingKeys: String, CodingKey
     {
+        case uuid
         case url
         case kind
     }
@@ -36,11 +37,13 @@ public class SharedFolder: NSObject, Codable
         case invalidKind
     }
     
+    @objc public dynamic var uuid: UUID
     @objc public dynamic var url:  URL
     @objc public dynamic var kind: Kind
     
     public init( url: URL, kind: Kind )
     {
+        self.uuid = UUID()
         self.url  = url
         self.kind = kind
     }
@@ -49,7 +52,8 @@ public class SharedFolder: NSObject, Codable
     {
         let values = try decoder.container( keyedBy: CodingKeys.self )
         
-        self.url = try values.decode( URL.self, forKey: .url )
+        self.uuid = try values.decode( UUID.self, forKey: .uuid )
+        self.url  = try values.decode( URL.self, forKey: .url )
         
         guard let kind = Kind( string: ( try? values.decode( String.self, forKey: .kind ) ) ?? "" ) else
         {
@@ -63,6 +67,7 @@ public class SharedFolder: NSObject, Codable
     {
         var container = encoder.container( keyedBy: CodingKeys.self )
         
+        try container.encode( self.uuid,             forKey: .uuid )
         try container.encode( self.url,              forKey: .url )
         try container.encode( self.kind.description, forKey: .kind )
     }

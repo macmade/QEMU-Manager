@@ -49,8 +49,11 @@ public class QEMU
             process.standardOutput = out
             process.standardError  = err
             
-            try ObjC.catchException { process.launch() }
-            process.waitUntilExit()
+            try ObjC.catchException
+            {
+                process.launch()
+                process.waitUntilExit()
+            }
             
             let dataOut = try? out.fileHandleForReading.readToEnd()
             let dataErr = try? err.fileHandleForReading.readToEnd()

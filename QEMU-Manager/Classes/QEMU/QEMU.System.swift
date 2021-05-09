@@ -54,7 +54,7 @@ extension QEMU.System
         if let cd = vm.config.cdImage, FileManager.default.fileExists( atPath: cd.path )
         {
             arguments.append( "-drive" )
-            arguments.append( "file=\( cd.path ),format=raw,media=cdrom" )
+            arguments.append( "file=\( cd.path ),media=cdrom" )
         }
         else if boot == "d"
         {

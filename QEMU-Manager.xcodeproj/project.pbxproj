@@ -13,6 +13,10 @@
 		058C98B826332F3F0086E57E /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058C98B726332F3F0086E57E /* Preferences.swift */; };
 		058C98BB26332FAA0086E57E /* Defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 058C98BA26332FAA0086E57E /* Defaults.plist */; };
 		058C98BF263332050086E57E /* Synchronizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058C98BE263332050086E57E /* Synchronizable.swift */; };
+		05ABC6232647F8EB001CA825 /* ConfigSharingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05ABC61F2647F8EB001CA825 /* ConfigSharingViewController.xib */; };
+		05ABC6252647F8F2001CA825 /* ConfigSharingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05ABC6242647F8F2001CA825 /* ConfigSharingViewController.swift */; };
+		05ABC6272647F964001CA825 /* FolderTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 05ABC6262647F964001CA825 /* FolderTemplate.pdf */; };
+		05ABC6292647F9F2001CA825 /* SharedFolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05ABC6282647F9F2001CA825 /* SharedFolder.swift */; };
 		05B697FE263424CB00506106 /* ConfigWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B697FD263424CB00506106 /* ConfigWindowController.swift */; };
 		05B698022634250300506106 /* ConfigWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05B698002634250300506106 /* ConfigWindowController.xib */; };
 		05BEEA062638120A00EECF3A /* ConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BEEA052638120A00EECF3A /* ConfigViewController.swift */; };
@@ -117,6 +121,10 @@
 		058C98B726332F3F0086E57E /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		058C98BA26332FAA0086E57E /* Defaults.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Defaults.plist; sourceTree = "<group>"; };
 		058C98BE263332050086E57E /* Synchronizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Synchronizable.swift; sourceTree = "<group>"; };
+		05ABC6202647F8EB001CA825 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ConfigSharingViewController.xib; sourceTree = "<group>"; };
+		05ABC6242647F8F2001CA825 /* ConfigSharingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigSharingViewController.swift; sourceTree = "<group>"; };
+		05ABC6262647F964001CA825 /* FolderTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = FolderTemplate.pdf; sourceTree = "<group>"; };
+		05ABC6282647F9F2001CA825 /* SharedFolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedFolder.swift; sourceTree = "<group>"; };
 		05B697FD263424CB00506106 /* ConfigWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigWindowController.swift; sourceTree = "<group>"; };
 		05B698012634250300506106 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ConfigWindowController.xib; sourceTree = "<group>"; };
 		05BEEA052638120A00EECF3A /* ConfigViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigViewController.swift; sourceTree = "<group>"; };
@@ -256,6 +264,8 @@
 				05BEEA0E2638146E00EECF3A /* ConfigHardwareViewController.xib */,
 				05E4FCD32646F4A6007D1254 /* ConfigQEMUViewController.swift */,
 				05E4FCD52646F4B8007D1254 /* ConfigQEMUViewController.xib */,
+				05ABC6242647F8F2001CA825 /* ConfigSharingViewController.swift */,
+				05ABC61F2647F8EB001CA825 /* ConfigSharingViewController.xib */,
 				05BEEA052638120A00EECF3A /* ConfigViewController.swift */,
 				05B697FD263424CB00506106 /* ConfigWindowController.swift */,
 				05B698002634250300506106 /* ConfigWindowController.xib */,
@@ -301,6 +311,7 @@
 			children = (
 				05E49B0E262079E400163619 /* Config.swift */,
 				05CCEFDC2643EDA600A3A9F8 /* Disk.swift */,
+				05ABC6282647F9F2001CA825 /* SharedFolder.swift */,
 				05CCF0212645F96E00A3A9F8 /* DiskInfo.swift */,
 				058C989426323AB10086E57E /* VirtualMachine.swift */,
 			);
@@ -564,6 +575,7 @@
 				05CCF0402646DABD00A3A9F8 /* DiskTemplate.pdf */,
 				05DFDD88261F9E7900BBE4E3 /* Document.icns */,
 				05E4FCFA264731A8007D1254 /* Fedora.icns */,
+				05ABC6262647F964001CA825 /* FolderTemplate.pdf */,
 				05E4FCFC264731A8007D1254 /* FreeBSD.icns */,
 				05F5479A263C3C56003F1B92 /* Generic.icns */,
 				05CCF0432646DABD00A3A9F8 /* HardwareTemplate.pdf */,
@@ -726,9 +738,11 @@
 				05DFDD26261F7BFE00BBE4E3 /* MainMenu.xib in Resources */,
 				05DFDD8A261F9E7900BBE4E3 /* Document.icns in Resources */,
 				05F5479D263C3C56003F1B92 /* MacOS.icns in Resources */,
+				05ABC6232647F8EB001CA825 /* ConfigSharingViewController.xib in Resources */,
 				05B698022634250300506106 /* ConfigWindowController.xib in Resources */,
 				05E4FD00264731A8007D1254 /* AppleLegacy.icns in Resources */,
 				05CCF0442646DABD00A3A9F8 /* DiskTemplate.pdf in Resources */,
+				05ABC6272647F964001CA825 /* FolderTemplate.pdf in Resources */,
 				05E49B0C262079B700163619 /* qemu in Resources */,
 				05E4FCF22647216E007D1254 /* ScreenTemplate.pdf in Resources */,
 				05DFDD75261F7EB000BBE4E3 /* AboutWindowController.xib in Resources */,
@@ -772,6 +786,7 @@
 				05F547A5263C5B50003F1B92 /* ArchitectureToString.swift in Sources */,
 				05F5485D2640930A003F1B92 /* BytesToString.swift in Sources */,
 				05E4FCF726472B4C007D1254 /* Icon.swift in Sources */,
+				05ABC6252647F8F2001CA825 /* ConfigSharingViewController.swift in Sources */,
 				058C98B126330FBB0086E57E /* ArrayIsNotEmpty.swift in Sources */,
 				05CCF0542646DCC200A3A9F8 /* InfoValue.swift in Sources */,
 				05CCF0312646089A00A3A9F8 /* NSError.swift in Sources */,
@@ -789,6 +804,7 @@
 				058C98AE26330E830086E57E /* ArrayIsEmpty.swift in Sources */,
 				05CCF03B2646A6B400A3A9F8 /* UppercaseString.swift in Sources */,
 				05DFDD7F261F7F5F00BBE4E3 /* LibraryWindowController.swift in Sources */,
+				05ABC6292647F9F2001CA825 /* SharedFolder.swift in Sources */,
 				058C98B826332F3F0086E57E /* Preferences.swift in Sources */,
 				05E4FD052647356A007D1254 /* Argument.swift in Sources */,
 				05CCF0222645F96E00A3A9F8 /* DiskInfo.swift in Sources */,
@@ -808,6 +824,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		05ABC61F2647F8EB001CA825 /* ConfigSharingViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				05ABC6202647F8EB001CA825 /* Base */,
+			);
+			name = ConfigSharingViewController.xib;
+			sourceTree = "<group>";
+		};
 		05B698002634250300506106 /* ConfigWindowController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (

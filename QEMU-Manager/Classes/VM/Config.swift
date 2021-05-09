@@ -32,20 +32,21 @@ public class Config: NSObject, Codable
         case m68k
     }
     
-    @objc public private( set ) dynamic var version:      UInt64       = 0
-    @objc public private( set ) dynamic var uuid:         UUID         = UUID()
-    @objc public                dynamic var architecture: Architecture = .aarch64
-    @objc public                dynamic var machine:      String?      = nil
-    @objc public                dynamic var cpu:          String?      = nil
-    @objc public                dynamic var vga:          String?      = nil
-    @objc public                dynamic var cores:        UInt64       = 1
-    @objc public                dynamic var memory:       UInt64       = 2147483648
-    @objc public                dynamic var title:        String       = "Untitled"
-    @objc public                dynamic var icon:         String?      = nil
-    @objc public private( set ) dynamic var disks:        [ Disk ]     = []
-    @objc public                dynamic var cdImage:      URL?         = nil
-    @objc public                dynamic var boot:         String       = "d"
-    @objc public                dynamic var arguments:    [ String ]   = []
+    @objc public private( set ) dynamic var version:       UInt64           = 0
+    @objc public private( set ) dynamic var uuid:          UUID             = UUID()
+    @objc public                dynamic var architecture:  Architecture     = .aarch64
+    @objc public                dynamic var machine:       String?          = nil
+    @objc public                dynamic var cpu:           String?          = nil
+    @objc public                dynamic var vga:           String?          = nil
+    @objc public                dynamic var cores:         UInt64           = 1
+    @objc public                dynamic var memory:        UInt64           = 2147483648
+    @objc public                dynamic var title:         String           = "Untitled"
+    @objc public                dynamic var icon:          String?          = nil
+    @objc public private( set ) dynamic var disks:         [ Disk ]         = []
+    @objc public                dynamic var cdImage:       URL?             = nil
+    @objc public                dynamic var boot:          String           = "d"
+    @objc public                dynamic var sharedFolders: [ SharedFolder ] = []
+    @objc public                dynamic var arguments:     [ String ]       = []
     
     public override init()
     {}
@@ -65,6 +66,7 @@ public class Config: NSObject, Codable
         case disks
         case cdImage
         case boot
+        case sharedFolders
         case arguments
     }
     
@@ -77,19 +79,20 @@ public class Config: NSObject, Codable
     {
         let values = try decoder.container( keyedBy: CodingKeys.self )
         
-        self.version   = try values.decode( UInt64.self,     forKey: .version )
-        self.uuid      = try values.decode( UUID.self,       forKey: .uuid )
-        self.icon      = try values.decode( String?.self,    forKey: .icon )
-        self.machine   = try values.decode( String?.self,    forKey: .machine )
-        self.cpu       = try values.decode( String?.self,    forKey: .cpu )
-        self.vga       = try values.decode( String?.self,    forKey: .vga )
-        self.cores     = try values.decode( UInt64.self,     forKey: .cores )
-        self.memory    = try values.decode( UInt64.self,     forKey: .memory )
-        self.title     = try values.decode( String.self,     forKey: .title )
-        self.disks     = try values.decode( [ Disk ].self,   forKey: .disks )
-        self.cdImage   = try values.decode( URL?.self,       forKey: .cdImage )
-        self.boot      = try values.decode( String.self,     forKey: .boot )
-        self.arguments = try values.decode( [ String ].self, forKey: .arguments )
+        self.version       = try values.decode( UInt64.self,           forKey: .version )
+        self.uuid          = try values.decode( UUID.self,             forKey: .uuid )
+        self.icon          = try values.decode( String?.self,          forKey: .icon )
+        self.machine       = try values.decode( String?.self,          forKey: .machine )
+        self.cpu           = try values.decode( String?.self,          forKey: .cpu )
+        self.vga           = try values.decode( String?.self,          forKey: .vga )
+        self.cores         = try values.decode( UInt64.self,           forKey: .cores )
+        self.memory        = try values.decode( UInt64.self,           forKey: .memory )
+        self.title         = try values.decode( String.self,           forKey: .title )
+        self.disks         = try values.decode( [ Disk ].self,         forKey: .disks )
+        self.cdImage       = try values.decode( URL?.self,             forKey: .cdImage )
+        self.boot          = try values.decode( String.self,           forKey: .boot )
+        self.sharedFolders = try values.decode( [ SharedFolder ].self, forKey: .sharedFolders )
+        self.arguments     = try values.decode( [ String ].self,       forKey: .arguments )
         
         guard let arch = Architecture( string: ( try? values.decode( String.self, forKey: .architecture ) ) ?? "" ) else
         {
@@ -116,6 +119,7 @@ public class Config: NSObject, Codable
         try container.encode( self.disks,                    forKey: .disks )
         try container.encode( self.cdImage,                  forKey: .cdImage )
         try container.encode( self.boot,                     forKey: .boot )
+        try container.encode( self.sharedFolders,            forKey: .sharedFolders )
         try container.encode( self.arguments,                forKey: .arguments )
     }
     

@@ -70,6 +70,22 @@ extension QEMU.System
             arguments.append( "file=\( $0.url.path ),format=\( $0.disk.format ),media=disk" )
         }
         
+        vm.config.sharedFolders.forEach
+        {
+            switch $0.kind
+            {
+                case .fat:
+                    
+                    arguments.append( "-drive" )
+                    arguments.append( "file=fat:\( $0.url.path ),media=disk" )
+                    
+                case .smb:
+                
+                    arguments.append( "-smb" )
+                    arguments.append( $0.url.path )
+            }
+        }
+        
         arguments.append( contentsOf: vm.config.arguments )
         
         let _ = try QEMU.System( architecture: vm.config.architecture ).execute( arguments: arguments )

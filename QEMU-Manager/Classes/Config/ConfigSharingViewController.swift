@@ -84,10 +84,12 @@ public class ConfigSharingViewController: ConfigViewController, NSTableViewDataS
             return
         }
         
+        let accessoryView             = SharedFolderAccessoryViewController()
         let panel                     = NSOpenPanel()
         panel.canChooseFiles          = false
         panel.canChooseDirectories    = true
         panel.allowsMultipleSelection = false
+        panel.accessoryView           = accessoryView.view
         
         panel.beginSheetModal( for: window )
         {
@@ -103,7 +105,7 @@ public class ConfigSharingViewController: ConfigViewController, NSTableViewDataS
             
             do
             {
-                let folder = SharedFolder( url: url, kind: .fat )
+                let folder = SharedFolder( url: url, kind: accessoryView.sharedFolderKind )
                 
                 self.folders.addObject( folder )
                 self.vm.config.addSharedFolder( folder )

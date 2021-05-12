@@ -15,34 +15,29 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  ******************************************************************************/
 
-import Foundation
+import Cocoa
 
-@objc( SharedFolderKindToString ) public class SharedFolderKindToString: ValueTransformer
+public class SharedFolderAccessoryViewController: NSViewController
 {
-    public override class func transformedValueClass() -> AnyClass
+    @objc private dynamic var selectedIndex = 0
+    
+    public var sharedFolderKind: SharedFolder.Kind
     {
-        NSString.self
+        switch self.selectedIndex
+        {
+            case 1:  return .floppy
+            case 2:  return .smb
+            default: return .fat
+        }
     }
     
-    public override class func allowsReverseTransformation() -> Bool
+    public override var nibName: NSNib.Name?
     {
-        false
+        "SharedFolderAccessoryViewController"
     }
     
-    public override func transformedValue( _ value: Any? ) -> Any?
+    public override func viewDidLoad()
     {
-        guard let n    = ( value as? NSNumber )?.intValue,
-              let kind = SharedFolder.Kind( rawValue: n )
-        else
-        {
-            return "--"
-        }
-        
-        switch kind
-        {
-            case .fat:    return "FAT"
-            case .floppy: return "FLOPPY"
-            case .smb:    return "SMB"
-        }
+        super.viewDidLoad()
     }
 }

@@ -79,6 +79,11 @@ extension QEMU.System
                     arguments.append( "-drive" )
                     arguments.append( "file=fat:rw:\( $0.url.path ),format=raw,media=disk" )
                     
+                case .floppy:
+                    
+                    arguments.append( "-drive" )
+                    arguments.append( "file=fat:floppy:rw:\( $0.url.path ),format=raw,media=disk" )
+                    
                 case .smb:
                 
                     arguments.append( "-smb" )

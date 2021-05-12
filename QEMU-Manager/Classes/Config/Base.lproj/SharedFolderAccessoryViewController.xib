@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="18122" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="18122"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="SharedFolderAccessoryViewController" customModule="QEMU_Manager" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="c22-O7-iKe" id="eIw-YW-mmI"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe">
+            <rect key="frame" x="0.0" y="0.0" width="139" height="84"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yLt-fT-AJ6">
+                    <rect key="frame" x="18" y="48" width="38" height="16"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Type:" id="cgG-mo-TZz">
+                        <font key="font" usesAppearanceFont="YES"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Cye-FK-hhm">
+                    <rect key="frame" x="17" y="16" width="106" height="25"/>
+                    <popUpButtonCell key="cell" type="push" title="FAT" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="hyk-Dq-3Zx" id="QdJ-JP-gF9">
+                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="menu"/>
+                        <menu key="menu" id="mE7-6P-PkM">
+                            <items>
+                                <menuItem title="FAT" state="on" id="hyk-Dq-3Zx"/>
+                                <menuItem title="FAT Floppy" id="O2G-BW-2yX"/>
+                                <menuItem title="SMB" id="khG-7W-uqv"/>
+                            </items>
+                        </menu>
+                    </popUpButtonCell>
+                    <connections>
+                        <binding destination="-2" name="selectedIndex" keyPath="self.selectedIndex" id="mps-0b-3sV"/>
+                    </connections>
+                </popUpButton>
+            </subviews>
+            <constraints>
+                <constraint firstItem="yLt-fT-AJ6" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="20" symbolic="YES" id="2sV-p7-eVg"/>
+                <constraint firstItem="yLt-fT-AJ6" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" symbolic="YES" id="71j-cV-Ia5"/>
+                <constraint firstItem="Cye-FK-hhm" firstAttribute="top" secondItem="yLt-fT-AJ6" secondAttribute="bottom" constant="8" symbolic="YES" id="F8W-wa-fXR"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="yLt-fT-AJ6" secondAttribute="trailing" constant="20" symbolic="YES" id="a59-v1-1Dh"/>
+                <constraint firstItem="Cye-FK-hhm" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" symbolic="YES" id="fSL-KT-Dou"/>
+                <constraint firstAttribute="bottom" secondItem="Cye-FK-hhm" secondAttribute="bottom" constant="20" symbolic="YES" id="spx-kb-c1w"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Cye-FK-hhm" secondAttribute="trailing" constant="20" symbolic="YES" id="wPI-J8-gb3"/>
+            </constraints>
+            <point key="canvasLocation" x="-197.5" y="120"/>
+        </customView>
+    </objects>
+</document>

@@ -21,6 +21,18 @@ public class QEMU
 {
     public class Executable
     {
+        @objc public class LaunchFailure: NSObject, Swift.Error
+        {
+            @objc public private( set ) dynamic var status:  Int
+            @objc public private( set ) dynamic var message: String
+            
+            init( status: Int, message: String )
+            {
+                self.status  = status
+                self.message = message
+            }
+        }
+        
         public private( set ) var name: String
         public private( set ) var url:  URL?
         
@@ -62,16 +74,8 @@ public class QEMU
             
             if process.terminationStatus != 0
             {
-                var message = "Process exited with status code \( process.terminationStatus )."
-                
-                if strErr.count > 0
-                {
-                    message.append( "\n\( strErr )" )
-                }
-                
-                throw Error( title: "Error executing \( self.name )", message: message )
+                throw LaunchFailure( status: Int( process.terminationStatus ), message: strErr )
             }
-            
             
             return ( out: strOut, err: strErr )
         }

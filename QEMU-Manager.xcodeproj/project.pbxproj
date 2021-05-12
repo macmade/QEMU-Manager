@@ -26,6 +26,11 @@
 		05BEEA0D2638145D00EECF3A /* ConfigHardwareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BEEA0C2638145D00EECF3A /* ConfigHardwareViewController.swift */; };
 		05BEEA102638146E00EECF3A /* ConfigHardwareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05BEEA0E2638146E00EECF3A /* ConfigHardwareViewController.xib */; };
 		05BFBD2C264880B3007C4688 /* qemu in Resources */ = {isa = PBXBuildFile; fileRef = 05BFBD2B264880B3007C4688 /* qemu */; };
+		05C4F68F264C40F000F03D11 /* SharedFolderAccessoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C4F68E264C40F000F03D11 /* SharedFolderAccessoryViewController.swift */; };
+		05C4F694264C412900F03D11 /* SharedFolderAccessoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05C4F692264C412900F03D11 /* SharedFolderAccessoryViewController.xib */; };
+		05C4F696264C4EA500F03D11 /* QEMUErrorWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C4F695264C4EA500F03D11 /* QEMUErrorWindowController.swift */; };
+		05C4F699264C509500F03D11 /* QEMUErrorWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05C4F69B264C509500F03D11 /* QEMUErrorWindowController.xib */; };
+		05C4F69D264C599200F03D11 /* Alert.icns in Resources */ = {isa = PBXBuildFile; fileRef = 05C4F69C264C599200F03D11 /* Alert.icns */; };
 		05CCEFD82643EAEE00A3A9F8 /* ConfigDisksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CCEFD72643EAEE00A3A9F8 /* ConfigDisksViewController.swift */; };
 		05CCEFDB2643EB0100A3A9F8 /* ConfigDisksViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05CCEFD92643EB0100A3A9F8 /* ConfigDisksViewController.xib */; };
 		05CCEFDD2643EDA600A3A9F8 /* Disk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CCEFDC2643EDA600A3A9F8 /* Disk.swift */; };
@@ -137,6 +142,11 @@
 		05BFBD28264880A1007C4688 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		05BFBD2A264880A1007C4688 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		05BFBD2B264880B3007C4688 /* qemu */ = {isa = PBXFileReference; lastKnownFileType = folder; path = qemu; sourceTree = "<group>"; };
+		05C4F68E264C40F000F03D11 /* SharedFolderAccessoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedFolderAccessoryViewController.swift; sourceTree = "<group>"; };
+		05C4F693264C412900F03D11 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SharedFolderAccessoryViewController.xib; sourceTree = "<group>"; };
+		05C4F695264C4EA500F03D11 /* QEMUErrorWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QEMUErrorWindowController.swift; sourceTree = "<group>"; };
+		05C4F69A264C509500F03D11 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/QEMUErrorWindowController.xib; sourceTree = "<group>"; };
+		05C4F69C264C599200F03D11 /* Alert.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Alert.icns; sourceTree = "<group>"; };
 		05CCEFD72643EAEE00A3A9F8 /* ConfigDisksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigDisksViewController.swift; sourceTree = "<group>"; };
 		05CCEFDA2643EB0100A3A9F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ConfigDisksViewController.xib; sourceTree = "<group>"; };
 		05CCEFDC2643EDA600A3A9F8 /* Disk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Disk.swift; sourceTree = "<group>"; };
@@ -308,6 +318,8 @@
 				05B698002634250300506106 /* ConfigWindowController.xib */,
 				05CCF0162645C74700A3A9F8 /* NewDiskWindowController.swift */,
 				05CCF0182645C75700A3A9F8 /* NewDiskWindowController.xib */,
+				05C4F68E264C40F000F03D11 /* SharedFolderAccessoryViewController.swift */,
+				05C4F692264C412900F03D11 /* SharedFolderAccessoryViewController.xib */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -362,6 +374,8 @@
 				05CCF01F2645EF5900A3A9F8 /* QEMU.Img.swift */,
 				05CCF01B2645ECF600A3A9F8 /* QEMU.swift */,
 				05CCF0252646076300A3A9F8 /* QEMU.System.swift */,
+				05C4F695264C4EA500F03D11 /* QEMUErrorWindowController.swift */,
+				05C4F69B264C509500F03D11 /* QEMUErrorWindowController.xib */,
 			);
 			path = QEMU;
 			sourceTree = "<group>";
@@ -608,6 +622,7 @@
 		05DFDD86261F9E7900BBE4E3 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				05C4F69C264C599200F03D11 /* Alert.icns */,
 				05E4FCFB264731A8007D1254 /* AppleLegacy.icns */,
 				05F547A0263C56C4003F1B92 /* AppleTemplate.pdf */,
 				05CCF0402646DABD00A3A9F8 /* DiskTemplate.pdf */,
@@ -748,10 +763,13 @@
 				05F5479C263C3C56003F1B92 /* Generic.icns in Resources */,
 				05E4FD03264731A8007D1254 /* Linux.icns in Resources */,
 				05CCF0452646DABD00A3A9F8 /* InfoTemplate.pdf in Resources */,
+				05C4F694264C412900F03D11 /* SharedFolderAccessoryViewController.xib in Resources */,
+				05C4F699264C509500F03D11 /* QEMUErrorWindowController.xib in Resources */,
 				05F547A2263C56C4003F1B92 /* WindowsTemplate.pdf in Resources */,
 				05F547A3263C56C4003F1B92 /* AppleTemplate.pdf in Resources */,
 				058C98BB26332FAA0086E57E /* Defaults.plist in Resources */,
 				05CCF0472646DABD00A3A9F8 /* HardwareTemplate.pdf in Resources */,
+				05C4F69D264C599200F03D11 /* Alert.icns in Resources */,
 				05DFDD89261F9E7900BBE4E3 /* Icon.icns in Resources */,
 				05BFBD2C264880B3007C4688 /* qemu in Resources */,
 				05CCF01A2645C75700A3A9F8 /* NewDiskWindowController.xib in Resources */,
@@ -818,6 +836,7 @@
 				05CCF03D2646A6DC00A3A9F8 /* LowercaseString.swift in Sources */,
 				058C98BF263332050086E57E /* Synchronizable.swift in Sources */,
 				05BEEA062638120A00EECF3A /* ConfigViewController.swift in Sources */,
+				05C4F696264C4EA500F03D11 /* QEMUErrorWindowController.swift in Sources */,
 				05CCF01C2645ECF600A3A9F8 /* QEMU.swift in Sources */,
 				058C989526323AB10086E57E /* VirtualMachine.swift in Sources */,
 				05CCF02E2646082400A3A9F8 /* ObjC.m in Sources */,
@@ -839,6 +858,7 @@
 				05BEEA0D2638145D00EECF3A /* ConfigHardwareViewController.swift in Sources */,
 				05CCF03F2646BD2300A3A9F8 /* Boot.swift in Sources */,
 				05CCF01E2645EE7000A3A9F8 /* Error.swift in Sources */,
+				05C4F68F264C40F000F03D11 /* SharedFolderAccessoryViewController.swift in Sources */,
 				05B697FE263424CB00506106 /* ConfigWindowController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -876,6 +896,22 @@
 				05BEEA0F2638146E00EECF3A /* Base */,
 			);
 			name = ConfigHardwareViewController.xib;
+			sourceTree = "<group>";
+		};
+		05C4F692264C412900F03D11 /* SharedFolderAccessoryViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				05C4F693264C412900F03D11 /* Base */,
+			);
+			name = SharedFolderAccessoryViewController.xib;
+			sourceTree = "<group>";
+		};
+		05C4F69B264C509500F03D11 /* QEMUErrorWindowController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				05C4F69A264C509500F03D11 /* Base */,
+			);
+			name = QEMUErrorWindowController.xib;
 			sourceTree = "<group>";
 		};
 		05CCEFD92643EB0100A3A9F8 /* ConfigDisksViewController.xib */ = {

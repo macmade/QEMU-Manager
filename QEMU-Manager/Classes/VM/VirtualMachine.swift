@@ -29,8 +29,9 @@ public class VirtualMachine: NSObject
     @objc public private( set ) dynamic var icon:     NSImage?
     @objc public private( set ) dynamic var running = false
     
-    private var process:      Process?
-    private var iconObserver: NSKeyValueObservation?
+    private var process:               Process?
+    private var iconObserver:          NSKeyValueObservation?
+    private var errorWindowController: QEMUErrorWindowController?
     
     public override init()
     {
@@ -127,6 +128,10 @@ public class VirtualMachine: NSObject
         
         DispatchQueue.main.async
         {
+            self.errorWindowController?.window?.close()
+            
+            self.errorWindowController = nil
+            
             if self.running
             {
                 let alert             = NSAlert()
@@ -149,6 +154,19 @@ public class VirtualMachine: NSObject
                     DispatchQueue.main.async
                     {
                         self.running = false
+                    }
+                }
+                catch let error as QEMU.Executable.LaunchFailure
+                {
+                    DispatchQueue.main.async
+                    {
+                        self.errorWindowController?.window?.close()
+                        
+                        self.errorWindowController = QEMUErrorWindowController( error: error )
+                        self.running               = false
+                        
+                        self.errorWindowController?.window?.center()
+                        self.errorWindowController?.window?.makeKeyAndOrderFront( nil )
                     }
                 }
                 catch let error

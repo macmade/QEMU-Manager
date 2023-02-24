@@ -1,7 +1,7 @@
 QEMU-Manager
 ============
 
-[![Build Status](https://img.shields.io/github/workflow/status/macmade/QEMU-Manager/ci-mac?label=macOS&logo=apple)](https://github.com/macmade/QEMU-Manager/actions/workflows/ci-mac.yaml)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/macmade/QEMU-Manager/ci-mac.yaml?label=macOS&logo=apple)](https://github.com/macmade/QEMU-Manager/actions/workflows/ci-mac.yaml)
 [![Issues](http://img.shields.io/github/issues/macmade/QEMU-Manager.svg?logo=github)](https://github.com/macmade/QEMU-Manager/issues)
 ![Status](https://img.shields.io/badge/status-active-brightgreen.svg?logo=git)
 ![License](https://img.shields.io/badge/license-gpl-brightgreen.svg?logo=open-source-initiative)  

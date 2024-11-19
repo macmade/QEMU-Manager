@@ -17,7 +17,7 @@
 
 import Foundation
 
-@objc( SizeFormatter ) public class SizeFormatter: NumberFormatter
+@objc( SizeFormatter ) public class SizeFormatter: NumberFormatter, @unchecked Sendable
 {
     public enum Style
     {

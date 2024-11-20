@@ -17,7 +17,7 @@
 
 import Foundation
 
-public class Error: NSError
+public class Error: NSError, @unchecked Sendable
 {
     public init( title: String, message: String, code: Int = -1 )
     {
